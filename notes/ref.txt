@@ -1,0 +1,80 @@
+@article{vasconcelosrelaccao,
+  title={A rela{\c{c}}{\~a}o de incentivos entre o Programa Bolsa Fam{\'\i}lia e o casamento infantil feminino {\'A}rea 12-Economia Social e Demografia Econ{\^o}mica},
+  author={Vasconcelos, Andressa Mielke and de Carvalho Griebeler, Marcelo}
+}
+
+@article{stephanie2022alianccas,
+  title={Entre as alian{\c{c}}as e os likes: o casamento infantil em primeira pessoa na internet},
+  author={Stephanie, Huhn and others},
+  year={2022},
+  publisher={Florian{\'o}polis, SC}
+}
+
+@article{veiga2020escolher,
+  title={Escolher {\'e} ser escolhida: meninice, pobreza e casamento infantil no Brasil},
+  author={Veiga, Mar{\'\i}lia Vilela Alencastro and Loyola, Valeska Maria Zanello de},
+  journal={Psicologia: Teoria e Pesquisa},
+  volume={36},
+  pages={e36nspe18},
+  year={2020},
+  publisher={SciELO Brasil}
+}
+
+@article{cardoso2022casamento,
+  title={Casamento infantil no Brasil: uma an{\'a}lise da Pesquisa Nacional de Sa{\'u}de},
+  author={Cardoso, Andressa Souza and Val{\'e}rio, Ina{\^e} Dutra and Ramos, Camila Irigonh{\'e} and Machado, Karla Pereira},
+  journal={Ci{\^e}ncia \& Sa{\'u}de Coletiva},
+  volume={27},
+  pages={417--426},
+  year={2022},
+  publisher={SciELO Public Health}
+}
+
+@article{da2019casamento,
+  title={O casamento infantil no Brasil e as quest{\~o}es de g{\^e}nero},
+  author={da Costa, Marli Marlene Moraes and de Freitas, Maria Vict{\'o}ria Pasquoto},
+  journal={Revista Jur{\'\i}dica em Pauta},
+  volume={1},
+  number={2},
+  pages={33--44},
+  year={2019}
+}
+
+@article{Aguiar_Martins_Hattori_2025, title={Estupro marital infantil no Brasil: contextos, vítimas e perpetradores}, volume={23}, url={https://ojs.observatoriolatinoamericano.com/ojs/index.php/olel/article/view/8983}, DOI={10.55905/oelv23n2-064}, abstractNote={&amp;lt;p&amp;gt;A violência perpetrada por parceiro íntimo é um importante problema de saúde pública, que vitimiza todos os estratos etários e começa ainda na adolescência. Nesse contexto, destaca-se também o acobertamento da violência sexual infantil por meio do casamento informal, que acaba sendo apoiado no meio familiar visando, principalmente, a manutenção de uma forma de sustento para a vítima. A aceitação do casamento infantil está associada a questões histórico-culturais, e tem como consequências a dependência financeira, abandono escolar, gravidez na adolescência e propensão a violência doméstica e sexual. Assim, esta pesquisa tem como objetivo caracterizar o perfil das ocorrências de estupro marital infantil no Brasil, no período de 2014 a 2021. Este é um estudo analítico, baseado em dados secundários de estupro marital infanto-juvenil do DATASUS. Foram registrados 3681 casos de estupro marital infantil, com uma média anual de 402,75 (±85,90) registros. Observou-se um perfil típico com vítimas pardas, heterossexuais, sem deficiências, com idades entre 13 e 14 anos, bem como de autores agindo sozinhos, adolescentes ou adultos jovens, não alcoolizados, de forma recorrente, sendo o evento descoberto quando a vítima já se encontrava no segundo ou terceiro trimestre de gestação. Destaca-se também a presença de deficiência entre as vítimas, como um importante motivador para as ocorrências. Dessa forma, o estupro marital infantil no país, ainda é um grave problema nas dimensões de saúde e segurança pública, bem como social e cultural, que onera os sistemas brasileiros de controle e combate.&amp;lt;/p&amp;gt;}, number={2}, journal={OBSERVATÓRIO DE LA ECONOMÍA LATINOAMERICANA}, author={Aguiar, Gabriella de Paiva and Martins, Marcos Vinicius Teixeira and Hattori, Wallisen Tadashi}, year={2025}, month={fev.}, pages={e8983} }
+
+
+@article{margaridomeninas,
+  title={Entre Meninas e Mo{\c{c}}as: Casamento de Crian{\c{c}}as e Adolescentes no Munic{\'\i}pio de S{\~a}o Paulo1},
+  author={Margarido, Larissa Cristina}
+}
+
+@article{taylor2015controle,
+  title={O controle da sexualidade feminina e o casamento na inf{\^a}ncia e adolesc{\^e}ncia},
+  author={Taylor, Alice and Fonseca, Vanessa},
+  journal={Revista Brasileira de Sexualidade Humana},
+  volume={26},
+  number={2},
+  year={2015}
+}
+
+@article{cargnin2021violencia,
+  title={Viol{\^e}ncia sexual em mulheres na Amaz{\^o}nia Ocidental},
+  author={Cargnin, J{\'u}lia Souza Santos and Luna, Juliana Scholt{\~a}o and Aguiar, D{\'e}bora Melo de and Rodrigues, B{\'a}rbara Teles Cameli and Azevedo Filho, Aldir Alves de and Silveira, Rodrigo Pinheiro},
+  journal={Revista de Sa{\'u}de P{\'u}blica},
+  volume={55},
+  pages={92},
+  year={2021},
+  publisher={SciELO Public Health}
+}
+
+@article{pinto2024gravidez,
+  title={Gravidez em meninas menores de 14 anos: an{\'a}lise espacial no Brasil, 2011 a 2021},
+  author={Pinto, Isabella Vitral and Bernal, Regina Tomie Ivata and Souza, Juliana Bottoni and Andrade, Gisele Nepomuceno de and Ara{\'u}jo, Larissa Fortunato and Felisbino-Mendes, Mariana Santos and Souza, Maria de F{\'a}tima Marinho de and Montenegro, Marli de Mesquita Silva and Vasconcelos, N{\'a}dia Machado de and Malta, Deborah Carvalho},
+  journal={Ci{\^e}ncia \& Sa{\'u}de Coletiva},
+  volume={29},
+  pages={e10582024},
+  year={2024},
+  publisher={SciELO Public Health}
+}
+
+ @article{margarido_2024,  title={Young Brazilian Wives: Child Marriage, Girls’ Marginalisation, and Agency},  volume={20},  ISSN={1808-2432},  url={https://doi.org/10.1590/2317-6172202435},  DOI={10.1590/2317-6172202435},  journal={Revista Direito GV},  publisher={Fundação Getulio Vargas, Escola de Direito de São Paulo},  author={Margarido, Larissa Cristina},  year={2024},  pages={e2435} }

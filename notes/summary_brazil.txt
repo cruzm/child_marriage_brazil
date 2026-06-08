@@ -1,0 +1,450 @@
+================================================================================
+RESUMOS ESTRUTURADOS - PASTA BRASIL_SPLIT
+Projeto: Casamento Infantil no Brasil
+Gerado em: 14/04/2026
+================================================================================
+
+Cada resumo segue a estrutura:
+  Motivation | Methods | Results | Conclusion
+
+================================================================================
+1. AGUIAR, G. P.; MARTINS, M. V. T.; HATTORI, W. T. (2025)
+   "Estupro marital infantil no Brasil: contextos, vitimas e perpetradores"
+   Revista Observatorio de la Economia Latinoamericana, v.23, n.2, 2025.
+   DOI: 10.55905/oelv23n2-064
+================================================================================
+
+MOTIVATION
+O estupro marital infantil -- violencia sexual perpetrada por parceiro intimo
+contra meninas em uniao conjugal -- e uma forma de violencia de genero
+sistematicamente subnotificada e pouco estudada no Brasil. Embora a Lei
+13.811/2019 tenha proibido o casamento antes dos 16 anos sem excecoes, a
+pratica persiste em contextos de vulnerabilidade socieconomica e desigualdade
+de genero. O estudo busca caracterizar o perfil das vitimas e dos perpetradores
+registrados no sistema de saude para subsidiar politicas publicas de prevencao
+e combate.
+
+METHODS
+Estudo analitico retrospectivo com dados secundarios do DATASUS (Sistema de
+Informacao de Agravos de Notificacao -- SINAN), periodo 2014-2021. Criterios de
+inclusao: vitimas do sexo feminino, idade ate 14 anos, estado civil casada ou
+em uniao estavel, autor da violencia identificado como parceiro intimo. Foram
+utilizados: estatistica descritiva, testes de Fisher e Qui-quadrado, Analise de
+Correspondencia Multipla (ACM) e Clusterizacao Hierarquica, processados no
+software RStudio.
+
+RESULTS
+Foram identificados 3.681 casos no periodo (media de 402,75 +/- 85,90 casos/
+ano). Vitimas: predominantemente pardas (65,9%), heterossexuais (69,3%),
+idades 13-14 anos (mediana = 14; media = 13,40). Estados com maior ocorrencia:
+Acre (13,8%), Pernambuco (12,7%), Para (8,6%) e Amazonas (6,8%) -- todas
+regioes Norte e Nordeste, as menos favorecidas economicamente. Eventos
+recorrentes corresponderam a 61% dos casos. Perpetradores: agindo sozinhos
+(87,8%), nao alcoolizados (69,4%), adolescentes (27,3%) ou adultos jovens
+(24,7%). O abuso foi tipicamente descoberto no 3o trimestre de gestacao
+(32,4%). A motivacao sexismo foi registrada em 20,3% dos casos; deficiencia
+da vitima como fator motivador em 15,6%. O periodo 2019-2022 (desalinhamento
+governamental) coincidiu com aumento nos registros.
+
+CONCLUSION
+O estupro marital infantil constitui grave problema de saude publica, seguranca
+e cultura no Brasil, onerando os sistemas de controle e combate. O estudo
+mapeou parametros relevantes para o desenvolvimento de estrategias e politicas
+publicas. A alta taxa de recorrencia, o perfil de vulnerabilidade das vitimas
+(pardas, pobres, com baixa escolaridade dos pais) e a concentracao nas regioes
+Norte e Nordeste apontam para a interseccao de genero, raca e classe.
+Limitacoes: dados restritos a atendimentos em instituicoes de saude; subnotificacao
+expressiva; grande numero de campos em branco nos registros. Os autores
+recomendam investimento em educacao profissional para melhoria da qualidade
+dos dados.
+
+================================================================================
+2. CARDOSO, L. R. D. et al. (2022)
+   "Casamento infantil no Brasil: uma analise da Pesquisa Nacional de Saude"
+   Ciencia & Saude Coletiva, 2022.
+================================================================================
+
+MOTIVATION
+Apesar da magnitude do casamento infantil no Brasil, a literatura epidemiologica
+nacional sobre o tema era escassa. O estudo busca estimar a prevalencia do
+casamento/uniao conjugal na infancia e adolescencia e identificar seus
+determinantes sociodemograficos, utilizando dados representativos em nivel
+nacional.
+
+METHODS
+Estudo epidemiologico transversal com dados da Pesquisa Nacional de Saude
+(PNS) de 2013. Amostra de 29.634 individuos com menos de 18 anos. A variavel
+desfecho foi ter entrado em uniao conjugal antes dos 18 anos. Analise por
+regressao de Poisson com variancia robusta para estimativa de razoes de
+prevalencia brutas e ajustadas. Variaveis exploradas: sexo, cor/raca, regiao,
+escolaridade, renda e zona de residencia.
+
+RESULTS
+A prevalencia de casamento/uniao antes dos 18 anos foi de 3,9%. Ser do sexo
+feminino, parda ou preta, residente nas regioes Norte e Nordeste, ter menor
+escolaridade e menor renda familiar foram fatores independentemente associados
+a maior prevalencia. A disparidade de genero foi expressiva: meninas apresentaram
+prevalencia significativamente superior a dos meninos.
+
+CONCLUSION
+O casamento infantil no Brasil esta concentrado em grupos historicamente
+vulnerabilizados e reproduz iniquidades de genero, raca e classe. Os resultados
+reafirmam a necessidade de politicas publicas interseccionais que atuem sobre
+os determinantes sociais e economicos do fenomeno, indo alem de respostas
+estritamente juridicas.
+
+================================================================================
+3. CARGNIN, J. S. S. et al. (2021)
+   "Sexual violence against women in the Western Amazon"
+   Revista de Saude Publica, v.55, p.92, 2021.
+================================================================================
+
+MOTIVATION
+A regiao da Amazonia Ocidental apresenta indicadores sociais desfavoraveis e
+historico de subnotificacao de violencia sexual. O estado civil das vitimas
+de violencia sexual e um fator relevante para compreender o contexto em que
+ela ocorre, incluindo sua relacao com o casamento precoce. O estudo visa
+caracterizar a violencia sexual contra mulheres em Rio Branco (AC) e explorar
+a associacao entre estado civil e vulnerabilidade.
+
+METHODS
+Estudo descritivo com dados do Sistema de Informacao de Agravos de Notificacao
+(SINAN), municipio de Rio Branco (AC), periodo 2011-2016. Foram analisados
+1.648 casos de violencia sexual contra mulheres. Variaveis: faixa etaria,
+estado civil, tipo de violencia, perfil do agressor e encaminhamentos realizados.
+
+RESULTS
+Entre as meninas de 10 a 14 anos vitimas de violencia sexual, 41,2% declararam
+estar casadas ou em uniao estavel -- proporção muito superior a media geral.
+Isso sugere que o casamento infantil, em vez de proteger as meninas, as expoe
+a contextos de maior vulnerabilidade e abuso. Agressores eram predominantemente
+parceiros intimos ou familiares. Taxas de notificacao e encaminhamento adequado
+foram baixas.
+
+CONCLUSION
+A alta prevalencia de meninas de 10-14 anos casadas ou em uniao estavel entre
+as vitimas de violencia sexual evidencia a relacao entre casamento infantil e
+vulnerabilidade. O estado do Acre apresenta contexto de especial preocupacao,
+demandando acoes integradas de saude, justica e assistencia social. A
+subnotificacao compromete a dimensao real do problema.
+
+================================================================================
+4. HUHN, S. (2022)
+   "Entre as aliancas e os likes: o casamento infantil em primeira pessoa
+    na internet"
+   Trabalho de Conclusao de Curso (Jornalismo) -- UFSC, 2022.
+================================================================================
+
+MOTIVATION
+Com a popularizacao das redes sociais, meninas em casamentos infantis passaram
+a expor suas vidas publicamente no YouTube e Instagram, narrando suas
+experiencias em primeira pessoa. Esse fenomeno cria uma oportunidade unica
+para compreender o casamento infantil a partir da perspectiva das proprias
+sujeitas, ao mesmo tempo em que suscita questoes sobre visibilidade, normalizacao
+e protecao. O trabalho busca dar voz a essas meninas por meio de uma grande
+reportagem jornalistica.
+
+METHODS
+Grande reportagem (genero do jornalismo literario). Metodologia: monitoramento
+de perfis publicos em redes sociais (YouTube e Instagram) + entrevistas em
+profundidade realizadas via Google Meet. Foram selecionadas quatro meninas em
+situacao de casamento infantil (Heloina, Renata, Evillyn e Isnaia). Tambem
+foram entrevistados especialistas: a historiadora Mary Del Priore, advogados,
+psicologa, medico e antropologos. Revisao do marco legal brasileiro: ECA,
+Codigo Civil e Lei 13.811/2019.
+
+RESULTS
+As quatro entrevistadas constroem narrativas publicas que oscilam entre a
+romantizacao do casamento e a descricao de dificuldades cotidianas (abandono
+escolar, gravidez precoce, confinamento domestico, pressao social). A internet
+funciona simultaneamente como espaco de expressao e de reafirmacao de normas
+patriarcais. Os especialistas destacam os prejuizos ao desenvolvimento
+biopsicossocial das meninas e as lacunas na aplicacao da lei. A Lei 13.811/2019
+aboliu as excecoes legais ao casamento antes dos 16 anos, mas sua implementacao
+pratica enfrenta resistencias culturais.
+
+CONCLUSION
+O casamento infantil persiste no Brasil como pratica cultural enraizada,
+facilitada pela normalizacao nas redes sociais. As plataformas digitais ampliam
+a visibilidade do fenomeno sem necessariamente problematiza-lo. A grande
+reportagem conclui que as meninas sao simultaneamente agentes de suas narrativas
+e vitimas de estruturas que limitam suas escolhas. A protecao efetiva requer
+articulacao entre legislacao, educacao e transformacao cultural.
+
+================================================================================
+5. MARGARIDO, L. C. (2024)
+   "Young Brazilian Wives: Child Marriage, Girls' Marginalisation, and Agency"
+   Revista Direito GV, v.20, e2435, 2024.
+================================================================================
+
+MOTIVATION
+O Brasil e o quarto pais do mundo com maior numero absoluto de mulheres
+casadas na infancia. Apesar dos avancos legais -- em especial a Lei 13.811/2019
+--, o casamento infantil persiste como pratica difundida, especialmente entre
+meninas negras, pobres e das regioes Norte e Nordeste. O artigo busca analisar
+o fenomeno sob dupla perspectiva: a marginalizacao estrutural das meninas e a
+possibilidade de agencia dentro de contextos coercitivos.
+
+METHODS
+Artigo juridico-academico de revisao e analise. Combina: (1) levantamento e
+analise do arcabouco juridico internacional (convencoes da ONU, CEDAW, CRC)
+e nacional (ECA, Codigo Civil, Lei 13.811/2019); (2) sintese de estudos
+qualitativos (Promundo e Plan International); (3) analise de dados quantitativos
+do Censo Demografico 2010 (IBGE) e do Registro Civil 2021 (IBGE); (4) construcao
+de tipologia de agencia.
+
+RESULTS
+Censo 2010: 655.935 criancas em uniao conjugal, sendo 89,5% em unioes informais;
+meninas representam cinco vezes mais casos que meninos. Registro Civil 2021:
+16.572 casamentos formais envolvendo menores = 45,4 meninas/dia casadas
+formalmente. As meninas marginalizadas enfrentam interseccao de genero, raca e
+pobreza. A tipologia de agencia proposta distingue: agencia ativa (escolha
+dentro de opcoes limitadas), agencia reativa (resposta a coercao) e agencia
+constrangida (aparente consentimento produzido por ausencia de alternativas).
+Estudos qualitativos mostram que meninas frequentemente percebem o casamento
+como "melhor opcao" diante da pobreza e da violencia domestica.
+
+CONCLUSION
+O casamento infantil no Brasil e estruturalmente produzido pela marginalizacao
+de genero, raca e classe. A agencia das meninas nao pode ser ignorada, mas
+tambem nao justifica a pratica, pois opera dentro de estruturas profundamente
+desiguais. O artigo recomenda: aplicacao efetiva da Lei 13.811/2019; politicas
+interseccionais de protecao social; programas de permanencia escolar; e
+fortalecimento da Rede de Protecao Social nos municipios.
+
+================================================================================
+6. MARGARIDO, L. C. (c. 2021)
+   "Entre Meninas e Mocas: Casamento de Criancas e Adolescentes no
+    Municipio de Sao Paulo"
+   VII ENADIR (Encontro Nacional de Antropologia do Direito), c. 2021.
+================================================================================
+
+MOTIVATION
+O municipio de Sao Paulo, apesar de seu desenvolvimento economico, apresenta
+casos expressivos de casamento infantil concentrados em periferias e
+populacoes vulneraveis. Ha carencia de estudos locais que articulem dados
+quantitativos com a perspectiva das instituicoes da Rede de Protecao Social
+encarregadas de identificar e intervir nessas situacoes. O trabalho apresenta
+o projeto de pesquisa de mestrado da autora.
+
+METHODS
+Projeto de etnografia institucional (proposta metodologica). Combina: (1)
+analise de dados do Censo Demografico 2010 e do Registro Civil 2019 (IBGE)
+para contextualizar o fenomeno em escala nacional e estadual; (2) etnografia
+planejada junto a instituicoes da Rede de Protecao Social do municipio de
+Sao Paulo (CRAS, CREAS, Conselhos Tutelares, servicos de saude e educacao).
+Enfoque antropologico-juridico.
+
+RESULTS
+Censo 2010: 565.936 criancas brasileiras em uniao conjugal. Rondonia apresentou
+a maior taxa (6,36 por 100 habitantes). Registro Civil 2019: dados estaduais
+e municipais de Sao Paulo mostram casamentos formais de menores, com meninas
+em proporao muito superior. A analise preliminar das instituicoes sugere
+lacunas no fluxo de identificacao, notificacao e intervencao.
+
+CONCLUSION
+O casamento infantil em Sao Paulo e invisibilizado pela imagem de metropole
+desenvolvida, mas persiste em contextos de vulnerabilidade periferica. A
+etnografia institucional e apresentada como abordagem adequada para revelar
+como as instituicoes de protecao operam (ou falham) diante do fenomeno. O
+trabalho e uma contribuicao ao campo de estudos juridico-antropologicos sobre
+infancia, genero e protecao social no Brasil urbano.
+
+================================================================================
+7. PINTO, I. C. S. et al. (2024)
+   "Pregnancy in girls under 14 years old: Spatial analysis in Brazil,
+    2011-2021"
+   Ciencia & Saude Coletiva, v.29, n.9, 2024.
+================================================================================
+
+MOTIVATION
+A gravidez em meninas menores de 14 anos e indicador de violencia sexual e/ou
+casamento precoce e representa grave problema de saude publica. No Brasil, a
+distribuicao geografica desse fenomeno e seus determinantes espaciais eram
+pouco sistematizados. O estudo visa mapear a ocorrencia e identificar padroes
+de autocorrelacao espacial para orientar intervencoes localizadas.
+
+METHODS
+Estudo ecologico de base populacional com dados do Sistema de Informacoes sobre
+Nascidos Vivos (SINASC), 2011-2021. Foram identificados 127.022 nascidos vivos
+de maes com idade entre 10 anos e 14 anos e 6 meses. Analise de autocorrelacao
+espacial pelo Indice de Moran Global e Local (LISA) para identificar clusters
+municipais. Variaveis analisadas: cor/raca, estado civil, tipo de parto,
+prematuridade e peso ao nascer.
+
+RESULTS
+Das 127.022 gestantes adolescentes: 73,6% eram pretas ou pardas; 21,1%
+declararam ser casadas ou em uniao estavel; 18,9% tiveram parto prematuro;
+14,5% tiveram recem-nascidos com baixo peso. Indice de Moran Global = 0,47
+(p < 0,05), indicando autocorrelacao espacial positiva e significativa. Os
+maiores clusters de alta incidencia concentraram-se nas regioes Norte e
+Centro-Oeste do pais.
+
+CONCLUSION
+A gravidez em meninas menores de 14 anos no Brasil exibe padrao espacial
+definido, com alta concentracao nas regioes Norte e Centro-Oeste, em
+municipios com piores indicadores sociais. A expressiva proporcao de meninas
+pardas e pretas evidencia o carater racial e estrutural do fenomeno. Os
+resultados subsidiam o planejamento de acoes de saude publica territorializadas,
+com foco em prevencao da violencia sexual, educacao sexual e fortalecimento
+da rede de protecao.
+
+================================================================================
+8. TAYLOR, A.; FONSECA, V. (2015)
+   "O Controle da Sexualidade Feminina e o Casamento na Infancia e
+    Adolescencia"
+   Revista Brasileira de Sexualidade Humana (RBSH), v.26, n.2, p.33-40, 2015.
+   [Pesquisa Promundo, financiada pela Hewlett Foundation]
+================================================================================
+
+MOTIVATION
+O casamento infantil e frequentemente tratado como pratica distante da
+realidade brasileira, mas estudos apontam sua persistencia em regioes
+especificas, vinculada ao controle da sexualidade feminina e a normas de
+genero patriarcais. Ha escassez de pesquisas qualitativas brasileiras que
+explorem as motivacoes, as dinamicas familiares e comunitarias e as perspectivas
+dos proprios jovens sobre o fenomeno. O estudo busca preencher essa lacuna nos
+estados do Para e Maranhao.
+
+METHODS
+Pesquisa de metodos mistos conduzida pelo Instituto Promundo nos estados do
+Para e Maranhao. Componentes: (1) 60 entrevistas semiestruturadas com
+adolescentes e jovens adultos; (2) 50 entrevistados-chave (lideres comunitarios,
+professores, profissionais de saude); (3) survey domiciliar com 145 homens e
+150 meninas. Analise tematica qualitativa complementada por estatistica
+descritiva.
+
+RESULTS
+O casamento infantil nas areas estudadas e motivado por multiplos fatores
+interligados: controle da sexualidade feminina pelas familias (especialmente
+para "proteger" a honra familiar); pobreza e estrategia de reducao de encargos
+domesticos; gravidez nao planejada como gatilho para a formalizacao da uniao;
+normalizacao cultural da pratica; e ausencia de perspectivas educacionais e
+economicas para as meninas. Meninos e homens relataram expectativas de controle
+sobre as parceiras. Profissionais de saude e educacao demonstraram baixo
+preparo para identificar e intervir em casos.
+
+CONCLUSION
+O casamento infantil no Para e Maranhao e reproduzido por normas de genero
+profundamente enraizadas que subordinam a autonomia das meninas ao controle
+familiar e masculino. A pratica e percebida como protecao, nao como violacao.
+Mudancas requerem intervencoes em multiplos niveis: transformacao de normas de
+genero, acesso a educacao de qualidade, reducao da pobreza e capacitacao de
+profissionais das redes de protecao.
+
+================================================================================
+9. VASCONCELOS, A.; GRIEBELER, M. (2017)
+   "A relacao de incentivos entre o Programa Bolsa Familia e o casamento
+    infantil feminino"
+   Anais de congresso, 2017.
+================================================================================
+
+MOTIVATION
+O Programa Bolsa Familia (PBF) e a principal politica brasileira de transferencia
+de renda condicionada. Uma hipotese controversa sugere que o beneficio poderia
+inadvertidamente incentivar o casamento infantil, ao elevar o valor economico
+da menina como "noiva" para familias pobres. O estudo busca testar empiricamente
+essa hipotese e identificar o efeito causal do PBF sobre a probabilidade de
+casamento infantil feminino.
+
+METHODS
+Dados da Pesquisa Nacional por Amostra de Domicilios Continua (PNADC) de 2017.
+Metodo: Propensity Score Matching (PSM) com duas especificacoes -- Nearest
+Neighbor Matching e Genetic Matching -- para construcao de grupo de controle
+contrafactual. Estimativa do Efeito Medio do Tratamento sobre os Tratados (ATT).
+Analise estratificada por condicao de pobreza extrema.
+
+RESULTS
+O PBF reduz a probabilidade de casamento infantil entre meninas em situacao de
+extrema pobreza. O efeito e estatisticamente significativo e negativo, contrariando
+a hipotese de incentivo. O mecanismo sugerido e que o beneficio reduz a pressao
+economica sobre as familias e amplia as alternativas das meninas fora do
+casamento.
+
+CONCLUSION
+Contrariamente ao argumento de que transferencias de renda incentivam o
+casamento infantil, o PBF apresenta efeito protetor sobre meninas em extrema
+pobreza. O estudo e uma contribuicao relevante para o debate sobre os impactos
+nao intencionais de politicas sociais e recomenda a manutencao e ampliacao
+do programa como instrumento de protecao da infancia feminina.
+
+================================================================================
+10. VASCONCELOS, A.; GRIEBELER, M. (2023)
+    "Muito jovem ou pobre para casar? Efeito do Programa Bolsa Familia sobre
+     o casamento infantil feminino"
+    Revista Brasileira de Economia, v.77, e062023, 2023.
+================================================================================
+
+MOTIVATION
+O artigo aprofunda e aprimora a analise do trabalho anterior dos mesmos autores
+(2017), ampliando o escopo para meninas em situacao de pobreza (nao apenas
+extrema pobreza) e utilizando dados mais recentes. A questao central permanece:
+o PBF protege ou induz o casamento infantil? Adicionalmente, o estudo examina
+heterogeneidades por faixa etaria.
+
+METHODS
+Dados da PNADC de 2019. Propensity Score Matching adaptado para amostras
+complexas com pesos amostrais (plano amostral da PNADC). Analise estratificada
+por: (1) nivel de renda (pobreza vs. extrema pobreza vs. nao pobres); (2) faixa
+etaria (14-15 anos vs. 16-17 anos vs. 18-20 anos).
+
+RESULTS
+O PBF reduz a probabilidade de casamento infantil para meninas em situacao de
+pobreza -- efeito mais amplo do que o identificado em 2017, que se restringia
+a extrema pobreza. O efeito protetor e mais pronunciado para meninas entre
+16 e 18 anos. Para as mais jovens (14-15 anos), o efeito nao foi estatisticamente
+significativo, sugerindo que fatores nao economicos podem predominar nessa
+faixa. Para meninas nao pobres, nao ha efeito significativo.
+
+CONCLUSION
+O PBF exerce papel protetor relevante contra o casamento infantil para meninas
+pobres brasileiras, especialmente na faixa dos 16-18 anos. O resultado reafirma
+a importancia da politica como instrumento de protecao da infancia e aponta
+para a necessidade de complementar transferencias de renda com acoes de
+educacao e transformacao de normas de genero para ampliar o impacto nas
+faixas etarias mais jovens.
+
+================================================================================
+11. VEIGA, C.; ZANELLO, V. (2020)
+    "Escolher e Ser Escolhida: Meninice, Pobreza e Casamento Infantil no
+     Brasil"
+    Psicologia: Teoria e Pesquisa, v.36, 2020.
+================================================================================
+
+MOTIVATION
+A literatura sobre casamento infantil frequentemente retrata as meninas como
+vitimas passivas, ignorando sua perspectiva subjetiva e os processos psicologicos
+envolvidos na "escolha" pelo casamento. O estudo parte de uma perspectiva
+feminista critica para investigar como meninas pobres no Brasil constroem o
+sentido de suas uniao conjugais precoces, articulando subjetividade, genero e
+classe.
+
+METHODS
+Pesquisa qualitativa com 9 meninas casadas ou em uniao estavel, residentes em
+municipio do estado de Goias. Coleta de dados por entrevistas em profundidade.
+Analise de conteudo tematica ancorada no referencial teorico feminista,
+especialmente nos conceitos de "dispositivo amoroso" e "dispositivo materno"
+(Zanello). Enfoque interseccional: genero, raca e classe.
+
+RESULTS
+As meninas descrevem a entrada no casamento como uma "escolha", mas essa
+escolha e estruturada por um conjunto de expectativas de genero que limitam
+radicalmente suas opcoes. O casamento e percebido como conquista identitaria
+(ser escolhida = ser valorizada) e como alternativa a pobreza, violencia
+familiar e falta de perspectivas. O "dispositivo amoroso" opera internalizando
+a dependencia afetiva como realizacao feminina. Apos o casamento, as meninas
+relatam restricoes de mobilidade, sobrecarga domestica, abandono escolar e
+dependencia economica do parceiro.
+
+CONCLUSION
+O conceito de "escolher e ser escolhida" captura a paradoxal subjetividade das
+meninas em casamentos infantis: elas agem como sujeitas dentro de estruturas
+que limitam profundamente seu horizonte de possibilidades. A psicologia
+feminista oferece ferramentas para compreender esse processo sem retirar a
+agencia das meninas nem naturalizar a violencia estrutural que produz essa
+"escolha". O estudo recomenda politicas de fortalecimento da autoestima
+feminina, educacao de genero e combate a pobreza.
+
+================================================================================
+FIM DO DOCUMENTO
+================================================================================

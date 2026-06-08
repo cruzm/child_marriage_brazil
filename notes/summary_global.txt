@@ -1,0 +1,231 @@
+﻿Field 2008
+Field 2008
+Motivation
+Authors want to measure the impact of early marriage for girls in their schooling later as women in rural Bangladesh. They present the child marriage as an outcome for a social norm that children, particularly girls, should marry early, as they have a greater likelihood to find a partner. 
+Methods
+They first use the variation in the timing of menarche as an instrumental variable for age of first marriage: with the assumption that a girl enters the marriage market only after her first menstruation, this creates a quasi-random difference in the earliest age at which girls could marry between the normal range of menarche. They used The International Centre for Research on Women’s Demographic Health Survey from 1996 to 2001.
+
+
+They also develop a model of the marriage market, where women can choose levels of schooling and age of marriage and men choose the age of their brides. Women have to pay a dowry to marry, their utility depends on the education level and the age of marriage, as the dowry depends on the age of marriage and not on educational level. The equilibrium when there is a minimal legal age is that women that want to marry before the minimum age, will marry exactly at the minimal age, and the others are not affected.
+
+
+Results
+The results they obtain indicate that female schooling is substantially constrained by marriage opportunities at young ages. A 1-year postponement of marriage between the ages of 11 and 16 increases schooling by an estimated 0.22 years and adult literacy by 5.6 percent. 
+Dahl 2010
+Dahl 2010
+Motivation
+Both early teen marriage and dropping out of high school have historically been associated with a variety of negative outcomes, including higher poverty rates throughout life. Are these negative outcomes due to preexisting differences, or do they represent the causal effect of marriage and schooling choices? To better understand the true personal and societal consequences, in this article, the author uses an instrumental variables (IV) approach that takes advantage of variation in state laws regulating the age at which individuals are allowed to marry, drop out of school, and begin work.
+Methods
+To identify the effect of a teenager's marriage and schooling choices on future poverty, the author uses state- specific marriage, schooling, and child labor laws as instruments. Variation in these laws across states and over time can be used to identify the causal impact that teen marriage and high school completion have on future economic wellbeing.
+
+
+The baseline instrumental variables (IV) estimates imply that a woman who marries young is 31 percentage points more likely to live in poverty when she is older. Similarly, a woman who drops out of school is 11 percentage points more likely to be living in a family whose income is below the poverty line. The IV results are robust to a variety of alternative specifications and estimation methods, including limited information maximum likelihood (LIML) estimation and a control function approach.
+Results
+Using marriage, schooling, and labor laws affecting teens as instruments for early marriage and high school completion, the author found strong negative effects for both variables on future poverty status. The baseline instrumental variables (IV) estimates imply that a woman who marries young is 31 percentage points more likely to live in poverty when she is older. Similarly, a woman who drops out of school is 11 percentage points more likely to be living in a family whose income is below the poverty line. The IV results are robust to a variety of alternative specifications and estimation methods, including limited information maximum likelihood (LIML) estimation and a control function approach.
+Conclusion
+The results imply that the decisions women make early in life can have long- lasting consequences. The IV estimates suggest that legal restrictions that prevent early marriage and mandate high school completion have the potential to greatly reduce the chances of future poverty for a woman and her family. The implication is that legal restrictions on teenagers' choices can reduce external costs imposed on society, and it is possible they also prevent some teens from making decisions they will later regret.
+Edlund 2015
+Edlund 2015
+Motivation
+The paper seeks to provide a more nuanced view of the "Pill revolution." While previous literature (e.g., Goldin and Katz, 2002) focused on how Early Legal Access (ELA) allowed college women to delay marriage to pursue careers, this paper argues that for "the other half", women who lacked the means to stay single and attend college, early marriage was actually an empowering mechanism. It highlights a historical period where marriage "emancipated" women, giving them the legal rights to control their fertility via the Pill while simultaneously providing a "husband-wife team" to finance education.
+Methods
+The study employs a linear probability model and discrete-time proportional hazard models to analyze the timing of marriage, birth, and divorce. Crucially, the authors control for concurrent legal shifts, such as Early Legal Access (ELA) laws, abortion rights, and the arrival of unilateral divorce, to ensure that the effects attributed to marriage age laws are not actually caused by these other factors. They also incorporate data from "Project Talent" to provide descriptive evidence that spousal financing was a non-trivial source of education funding for non-college women
+Results
+On educational results, the strongest impact was found on the "some-college" margin (4.5 percentage point increase), while high school graduation remained unaffected as it was typically completed before age 20.
+
+
+Mar21 (married before 21 years old) increased the likelihood of women reaching professional/managerial roles. Interestingly, while ELA was more significant for high-powered professions like doctors and lawyers among college women, Mar21 was the more influential factor for the broader group of non-college women
+
+Access to the Pill through marriage resulted in a longer gap between marriage and the first child. However, early marriage also led to a higher likelihood of divorce, though the authors found that divorce did not negate the human capital gains women achieved in the interim
+Conclusion
+The paper challenges the traditional view that early marriage necessarily hindered women's advancement. In the specific legal context of the 1960s and 70s, a lower minimum marriage age acted as a "facilitator". It allowed credit-constrained women to leverage spousal support and legal contraceptive access to invest in themselves, thereby bridging the gap between high school and the labor market.
+Duflo 2015
+Duflo 2015
+Motivation
+This paper provides evidence on how STI prevalence and teen pregnancy are affected by two leading policy instruments (and their interaction): education subsidies and HIV prevention education focused on abstinence until marriage.
+Methods
+The authors conducted a large-scale randomized evaluation in 328 schools in Western Kenya, following a cohort of roughly 19,000 students (9,500 girls) over seven years. They used a 2x2 design to test two main programs: an Education Subsidy (providing free school uniforms) and an HIV Education program (the national curriculum focusing on abstinence until marriage).
+Results
+Education Subsidy alone: Significantly reduced school dropout and delayed fertility (primarily by reducing pregnancies within marriage), but did not reduce STI (HSV2) rates.
+
+
+HIV Education alone: Did not significantly reduce pregnancy or STIs, but shifted the type of pregnancy, which increased the pregnancies within marriage.
+
+
+Joint Program: Reduced STIs (HSV2) significantly (by 20% in girls) but was less effective at reducing pregnancy than the education subsidy alone.
+
+
+Conclusion
+The authors emphasize that HIV prevention programs must account for how incentives (like education costs) interact with risk perceptions. They suggest that programs focusing exclusively on casual sex risk may inadvertently drive girls into early marriages where STI risk remains high. Ultimately, they advocate for a more comprehensive approach that either addresses risk in all relationship types or improves the social acceptability of condoms.
+Wahhaj 2015
+Wahhaj 2015
+Motivation
+To model the marriage market with the assumption that there is a desirable female attribute, relevant for the gains from marriage, that is only noisily observed before a marriage is contracted, their virginity. This assumption references a literature that states that it is common for parents in African countries to want to marry their children young to avoid rumors about their sexual life initiation.
+Methods
+The paper develops an overlapping generations (OLG) model of the marriage market. It assumes a noisy signal for a desirable female attribute, "purity" or "honor", which becomes more uncertain as a girl spends more time on the marriage market. The model is calibrated using demographic data from 1970s Bangladesh to simulate the effects of policy interventions.
+
+
+The matching process is modeled as a five-step sequence: 1) Men state an age preference; 2) A matchmaker facilitates a match; 3) Parties discuss marriage; 4) A "background check" noisily reveals "bad character" with a specific probability; and 5) Transfers are bargained based on outside options . Using a moment-matching exercise for Bangladesh, the author solved 11 equations to determine the probability of “bad character” is 0.75, confirming that reputational checks are a significant market factor. The paper utilizes both "Naive Expectations" and "Perfect Bayesian" equilibrium paths to analyze responses to shocks
+Results
+In equilibrium, age signals lower quality because "good" candidates are expected to marry young; thus, older brides face a "reputational penalty" and must pay higher dowries. Simulations suggest that interventions raising the opportunity cost of marriage (e.g., schooling) can trigger a "virtuous cycle" where the reputation of older women improves over time, leading to more postponement in future cohorts.
+
+
+Conclusion
+The practice of child marriage is driven by equilibrium reputational effects. Policy impacts on the first exposed cohort significantly underestimate long-term effectiveness because they fail to capture these shifting market dynamics.
+Bharadwaj 2015
+Bharadwaj 2015
+Motivation
+Does the postponement of marriage affect fertility and investment in human capital? The author studies this question in the context of a 1957 amendment to the Mississippi marriage law that was aimed at delaying the age of marriage; changes included raising the minimum age for men and women, parental consent requirements, compulsory blood tests, and proof of age.
+Methods
+Using a DiD design at the county level.
+Results
+The author found that, overall, marriages per 1,000 in the population in Mississippi and its neighboring counties decreased by nearly 75 percent; the crude birth rate decreased between 2 and 6 percent; and school enrollment increased by 3 percent after the law was enacted (by 1960). An unintended consequence of the law change was that illegitimate births among young black mothers increased by 7 percent.
+Conclusion
+This paper shows that raising the cost of marriage can have large impacts on marriage rates, crude birth rates, and school enrollment. Hence, barriers to marriage for women can result in delayed fertility, and if early marriage can be delayed, can even lead to higher school enrollment.
+This paper contributes to the understanding of how public policy on marriages can affect important outcomes like fertility and education. While cohabitation rates and out-of- wedlock births have been on the rise, marriage still occupies a central role in American society.
+
+
+Hicks 2015
+Hicks 2015
+Motivation
+They seek to understand whether improvements in educational outcomes as a result of delayed marriage are accompanied by other improvements in the status of young females. Their findings suggest that policies which restrict adolescent marriage or incentivize later marriage for women are also likely to yield improvements in educational outcomes and potentially in perceptions of health and wellbeing. At the same time, their results provide no clear proof to suggest that policy makers can count on these advances from delayed marriage to immediately translate into gains in other gendered areas.
+Methods
+Their primary study area is Busia County, a densely-settled farming region in rural western Kenya bordering Lake Victoria. They focus on a survey of individuals who at the time of data collection were primarily in their mid-twenties (mean age 26.6). Regression results presented are from the second stage of 2SLS regressions, where the instrumented variable is age of marriage. 
+Results
+These educational findings are consistent with those of Field and Ambrus (2008) who document that delayed marriage is associated with increased educational attainment and higher literacy rates for women.
+Conclusion
+Policies which restrict adolescent marriage or incentivize later marriage for women are also likely to yield improvements in educational outcomes and potentially in perceptions of health and wellbeing. At the same time, our results provide no clear proof to suggest that policy makers can count on these advances from delayed marriage to immediately translate into gains in other gendered areas.
+
+
+Collin 2016
+Collin 2016
+Motivation
+While many countries have raised the legal marriage age, the authors seek to determine if these laws are actually enforced the ban of child marriage. In some countries, illegal marriage rates exceed 40%, raising questions about the feasibility of a universal global ban on child marriage . It highlights that while the incidence of early marriage may be falling, the enforcement of laws is not necessarily improving.
+Methods
+The authors propose a new method to assess legal effectiveness by looking for discontinuities in the distribution of marriage ages at the legal threshold using Demographic and Health Survey (DHS) data from over 60 countries. They adopt a model suggesting that if a law is enforced, there should be a visible change in marriages exactly at the legal age compared to the age just below it. They utilize the McCrary (2008) test for continuous distributions and the Frandsen test, which is specifically formulated to detect behavioral responses in discrete data like age-in-years. Women in the DHS were matched to the specific legal regime (minimum age with and without parental consent) that existed in their country the exact year they were married, using the MACHEquity database.
+Results
+Results indicate that enforcement varies significantly, but only a small portion of countries pass the strictest tests for enforcement at the legal margin. Furthermore, the introduction of new, higher-age laws often results in a drop in enforcement, and these discontinuity measures correlate with the World Bank's World Governance Indicators (WGI) for Rule of Law and Government Effectiveness.
+Conclusion
+The paper concludes that simply passing better laws is insufficient to delay marriage; governments must also focus on active enforcement and monitoring. It offers a new, micro-level way to measure the rule of law using existing survey data.
+Kidman 2016
+Kidman 2016
+Motivation
+Studies in South Asia suggest that child marriage is a strong risk factor for intimate partner violence (IPV), but evidence outside the region is lacking. There is a critical need to extend this evidence base to other regions.
+Methods
+This study uses standardized data from demographic and health surveys in 34 countries to test the hypothesis. The analysis draws on Demographic and Health Survey data collected between 2005 and 2014. The sample includes ever-married women aged 20–24 years. Child marriage is defined as marriage before age 18. Outcome measures include past-year physical, sexual, or emotional intimate partner violence. Logistic regression models were used to assess the association. Multivariate logistic regression models adjust for age, education, household wealth, residence, and country fixed effects. Standard errors are clustered at the primary sampling unit level.
+Results
+Past year physical and/or sexual IPV was higher among women who married as children (29%) compared with those who married as adults (20%). This difference persisted in logistic regression models that adjust for sociodemographic characteristics. 
+The odds of experiencing physical and/or sexual IPV were significantly higher among women married before age 18 (OR ≈ 1.5). Women who married as children were more likely to report past year physical and/or sexual intimate partner violence. Women who married as children were more likely to report controlling behaviors by partners. 
+The association remains robust across multiple model specifications and subsamples. Country-level heterogeneity exists, but the direction of the association is consistent across most countries. Adjusting for socioeconomic covariates reduces but does not eliminate the association.
+Conclusion
+Substantial reductions in IPV will likely require interventions to combat child marriage itself and to protect women from IPV within child marriages.
+Ashraf 2016
+Asraf 2016
+Motivation
+To gain a better understanding of whether the success of development programs can depend on cultural context. There is growing recognition that a one-size-fits-all strategy may not be optimal.
+Methods
+They develop a simple model in which parents choose daughters’ education taking into account marriage market returns through bride price. They begin the analysis by modeling the relationship between the marriage market, the practice of bride price, and parents’ decisions of whether to educate their daughters. The model predicts that an increase in school availability will increase education more in bride price societies.
+They use the model’s predictions to guide our empirical analysis, which takes place in Indonesia and Zambia. They test this prediction using variation from the Indonesian school construction program (INPRES). They estimate regressions of the form: Educationᵢ = α + β (Exposure × BridePriceGroup) + γXᵢ + δ_d + εᵢ. Exposure is measured by the number of schools constructed in the individual’s birth district during school-age years.
+Results
+The school construction projects increased female education only for groups with this marriage custom. For other groups, there was no effect. The interaction between school construction and bride price customs is positive and statistically significant. For ethnic groups without bride price, the coefficient on school construction is close to zero.
+The estimated effect implies that one additional school per 1,000 children increases female schooling by approximately 0.2 years in bride price groups. They find similar patterns in Zambia using cross-sectional variation across ethnic groups. More educated daughters command a higher bride price.
+Conclusion
+The findings illustrate the importance of the cultural context of developing countries for the efficacy of development projects. It is important to consider all aspects of the culture of a society when designing and evaluating policies.
+Wang 2017
+Wang 2017
+Motivation
+Over the past few decades, the U.S. has seen a sharp increase in the age at first marriage, yet there is little empirical research on the causal relationship between this delay and wages, particularly for men. The paper positions itself against five competing theories: Becker’s Specialization (men specialize in labor sooner), Extended Becker (fertility-driven effects), Formal Education (marriage responsibilities impede schooling), Selection (high-earners choose to marry later), and Mobility (women sacrifice careers for husband-led relocation) . The authors aim to go beyond established literature (like Dahl 2010) by analyzing men as well as women and by isolating the specific "channel" (e.g., education vs. mobility) through which wages are affected.
+Methods
+The authors employ an instrumental variable (IV) approach using 1980 U.S. Census data. They build on an identification strategy that exploits exogenous variations in state-level minimum marriage age laws across states and over time as an instrument for the timing of first marriage. They used F-statistics to confirm that minimum marriage age laws are binding, a one-year increase in legal age delays actual marriage by roughly six months. 
+Results
+The study finds a positive causal impact of marriage delay on wages for both men and women, though the effect is notably larger for women. Furthermore, these effects appear to decline as individuals age. The introduction highlights that the results strongly support the "formal education hypothesis", that marriage delay boosts wages primarily by allowing individuals to attain more education.
+Conclusion
+Marriage delay has a significant causal benefit for earnings, and this benefit is almost exclusively driven by increased educational attainment. The authors note that their findings for men contradict traditional specialization theories (like Becker’s), which would predict that earlier marriage leads to higher male wages.
+Chari 2017
+Chari 2017
+Motivation
+The authors use nationally representative household data from India to establish the intergenerational effect of early marriage on a broad set of health and educational investments and outcomes, and to explicate the underlying mechanisms.
+Methods
+The empirical strategy utilizes variation in age at menarche to obtain exogenous variation in the age at marriage. To isolate the causal influence of marriage age, they employ the empirical strategy proposed by Field and Ambrus (2008), who instrument the woman's age at marriage by her age at menarche. This instrument is motivated by the observation that has been made by sociologists and anthropologists that parents become extremely anxious to marry off their daughter once she has reached menarche, partly to avert any unwanted pregnancies (Caldwell et al., 1983; Srinivas, 1984).
+Results
+Using this instrumental variable strategy, they find that early marriage results in lower health and educational investments and worsens the health and educational outcomes of the woman's children. They find, for instance, that a one- year delay in marriage would increase the probability of the child completing its required vaccinations by  4.6% and increases its probability of school enrolment by  3.1%  while increasing the child's weight- for- height- score by 0.08 and his/her reading and math test scores by 2.3% and 3% respectively.
+Conclusion
+Combining a nationally representative household survey from India with an instrumental variable strategy that relies on the links between age of menarche, age of cohabitation and age of marriage, they establish the intergenerational health and education effects of early marriage and cohabitation.
+Taken together, their results contribute to existing evidence that delayed marriage leads to beneficial outcomes for the next generation. Their additional finding that some of these results come from the channel of delayed age at cohabitation confirms the relevance of policies that seek to delay marriage, above and beyond those that seek to increase educational attainment, such as cash transfers conditional on remaining unmarried.
+Ferrera 2017
+Ferrera 2017
+Motivation
+They study the role of traditional norms in land allocation and human capital investment. They study a setting where this mechanism is at play due to customary norms that restrict parents’ ability to bequeath land to their children.
+Methods
+They combine data from the Ghana Living Standards Survey with information on ethnic lineage systems. The authors exploit the 1985 Intestate Succession Law, which altered inheritance rules. Their empirical strategy compares cohorts exposed to the reform at different ages across matrilineal and patrilineal groups. They employ a difference-in-differences strategy and exploit differences across cohorts and ethnic groups.
+Results
+The reform led to a statistically significant decline in years of schooling for males in matrilineal groups. Boys exposed to the reform received 0.9 less years of education. The magnitude of the effect is approximately −0.9 years of education. No statistically significant effects are found for females. 
+The effects are concentrated among individuals exposed to the reform during school-age years.They find no evidence that the reform affected school supply or other confounding factors. Robustness checks including alternative specifications and placebo tests confirm the main findings.
+Conclusion
+These patterns suggest that before the reform matrilineal groups invested more in education than they would if unconstrained. They interpret this effect as a response by parents who had previously relied on human capital investment and who can now adjust on both margins.
+
+
+Asadullah 2018
+Asadullah 2018
+Motivation
+In this paper they investigate whether female early marriage is a conduit for the transmission of social norms, specifically norms relating to gender roles and rights within the household. Gender norms are believed to play an important role in perpetuating gender inequalities in child survival, education, control over assets and economic participation.
+Methods
+Their sample consists of ever-married women aged 15–49 from the Bangladesh Demographic and Health Survey. They restrict attention to sisters to control for unobserved family background characteristics. They estimate specifications of the following form: Attitudeᵢ = α + β EarlyMarriageᵢ + Xᵢ′γ + μₕ + εᵢ, where μₕ denotes household fixed effects. They instrument EarlyMarriageᵢ using age at menarche, exploiting biological variation across sisters. The identifying assumption is that age at menarche affects gender attitudes only through its impact on age at marriage. Using the age of menarche as an instrument, and sister fixed effects to capture individual-specific unobserved socioeconomic characteristics.
+Results
+Early marriage increases agreement with statements supportive of traditional gender roles and gender bias in the allocation of resources. The IV estimates suggest that early marriage increases agreement with statements such as ‘a husband is justified in beating his wife’. Early marriage increases the probability of agreeing with traditional gender norms by 0.06–0.08 points. 
+Early marriage reduces the likelihood—and number—of women in her social network who made a non-traditional life choice. They find that early marriage reduces the likelihood that a woman knows another woman who completed secondary school or worked outside the home.
+The first-stage relationship between age at menarche and early marriage is strong and statistically significant. OLS estimates are smaller in magnitude than IV estimates, suggesting attenuation bias. Age of menarche has no direct effect on attitudes towards traditional gender norms.
+Conclusion
+Taken together, the evidence suggests that may be an important pathway through which early marriage affects norm transmission. They add to this literature by highlighting the role of early marriage in perpetuating attitudes aligned with traditional gender norms in a developing country context.
+Corno 2019
+Corno 2019
+Motivation
+While traditional practices often regulate marriage, there is limited research on how short-term aggregate economic forces, like income shocks, influence these decisions. The authors aim to see if the direction of traditional marriage payments (bride price vs. dowry) determines how families respond to economic hardship.
+Methods
+The study develops an equilibrium model of the marriage market where parents choose when their daughters marry to smooth household consumption. They test this model using rainfall data (1950–2010) as a proxy for income shocks and marriage data for approximately 400,000 women from Demographic and Health Surveys (DHS) in 31 Sub-Saharan African (SSA) countries and India.
+Results
+In both regions, droughts (rainfall below the 15th percentile) cause a 10–15% decline in crop yields. However, they have opposite effects on marriage: in SSA (where bride price prevails), droughts increase the hazard of child marriage by 3%. In India (where dowry prevails), droughts decrease the hazard of child marriage by 4%.
+Conclusion
+The timing of marriage responds significantly to short-term economic conditions, but the sign of that response is dictated by cultural norms. This suggests that understanding the "economic role of culture" is vital for designing effective policies to combat child marriage.
+
+
+Blank 2020
+Blank 2020
+Motivation
+This paper demonstrates that administrative data may be inferior to survey data under particular circumstances. They examine the effect of state laws governing the minimum age of marriage in the United States. The estimated effects of these laws are much smaller when based on retrospective reports from census versus administrative records from Vital Statistics data.
+Methods
+They study the effects of minimum age of marriage laws in the post- World War II period on marriage behavior. Throughout, we focus on the legal age of marriage without parental consent, which we call the “nonconsent” age.
+Results
+The results from the Vital Statistics indicate that marriage laws significantly affected young marriage rates. For young women, the estimates imply that a change in a state's female nonconsent age from 21 years old to 18 years old was associated with a 16.5 percent increase in the marriage rate of young women aged 14- 19. For men, the estimated effect of a 6.8 percent increase in rates of early marriage is not as large, but is not at all trivial.
+These patterns differ dramatically from what they find with retrospective census data. For women, census results indicate that marriage laws appear to have had little to no effect on the rate of early marriage. The estimates for men are positive, although they are substantially smaller than Vital Statistics results.
+Conclusion
+The results in this paper show the massively different conclusions a researcher might draw about the actual effect of marriage laws on marriage delay, depending on the data source used. They suspect that most researchers would have expected Vital Statistics data to more accurately reflect the effect of marriage laws on delayed marriage, but this interpretation ignores the much greater susceptibility of administrative data to problems from systematic avoidance behavior.
+Their results suggest a broader lesson for all empirical scholars and especially those wishing to use information about laws as instrumental variables in their analyses. What they have found in the case of marriage laws is likely true for other behavior and laws; a law changes behavior among both compliers and noncompliers.
+
+
+Chow 2022
+Chow 2022
+Motivation
+The authors aim to address the difficulty of changing social norms, specifically when there is a perceived "marriage penalty" for families who are the first to delay their daughter's marriage. The paper details the deep cultural roots of the practice: 57% of fathers in the Amhara region believe the main benefit of early marriage is "community respect". Most marriages are arranged, with only 21% of daughters informed of their upcoming nuptials beforehand. The authors highlight that while a 2000 law made child marriage illegal, enforcement remains a significant challenge.
+Methods
+The study evaluates a program in Ethiopia’s Amhara region using a difference-in-differences (DiD) approach with weighting. The program had two components: information/facilitation (community conversations and school club campaigning) and economic incentives (entrepreneurship training for parents and school materials for girls).
+Results
+Both intervention types reduced the probability of a girl aged 8–17 being married by 4 to 7 percentage points. Interestingly, the program did not have a robust effect on education outcomes, suggesting education was not the primary driver of the delay. It also led to increased "polarization" in community beliefs about child marriage.
+Conclusion
+The authors conclude that community-based interventions can successfully reduce child marriage. However, they note that such interventions can trigger a "backlash" or polarized views, particularly among men, and that the mechanism for change in this context differs from typical school-incentive programs.
+Wilson 2022
+Wilson 2022
+Motivation
+Measure the impact of child marriage bans in female schooling and labor market outcomes. Other research has been done regarding policies that might reduce child marriage (Duflo, 2015, Buchmann, 2017, Chow and Vivalt, 2022).
+Methods
+The article uses legislative changes in low- and middle-income countries which banned child marriage between 1995 and 2012 to employ a difference-in-differences specification using individual-level data to measure the effects of the bans. The author compares the change in child marriage associated with the timing of the child marriage ban in subnational regions where the pre-ban age at marriage was low to the synchronous change subnational regions where the pre-ban age at marriage was high. This approach controls for time-invariant heterogeneity across subnational regions and for country-specific cohort effects. To assess the plausibility of the identification assumption, they present evidence from event study analyses of the five main sets of outcomes, married before age 18, age at marriage, age at first birth, years of schooling, and employment.
+
+
+They use data from MACHEquity Child Marriage Policy Database (World Policy Center 2017) and Demographic and Health Surveys (DHS) for age at marriage, fertility timing, education and employment.
+
+
+They also create a measure for intensity of the age of marriage before 18 years old, which they use as the major independent variable in the DiD regression.
+Results
+Their results indicate that raising the minimum legal age of marriage to 18 increased the age at marriage, age at first birth, and the likelihood of employment. In urban areas, the bans also reduced child marriage and increasededucational attainment. In general, the effects of the bans appear to be less pronounced in rural areas. Yet my results indicate meaningful effects on age at marriage (with particularly large reductions in the likelihood of marriage at younger ages (e.g., age 13 or 14)), years married before age 18, and age at first birth, consistent with the hypothesis of a greater degree of imperfect enforcement in rural areas. In contrast, the bans appear to have had a greater effect on employment in rural areas than in urban areas, without increasing years of schooling.
+Conclusions
+The major conclusion is that raising the minimum legal age of marriage to 18 increased the age at marriage, age at first birth, and the likelihood of employment. In urban areas, the bans also reduced child marriage and increased educational attainment.

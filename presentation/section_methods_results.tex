@@ -1,0 +1,341 @@
+% ============================================================
+% Section: Methods and Structural Results
+% Insert after \section{A Model of the Brazilian Marriage Market}
+% in apresentacao_casamento_infantil.tex via \input{section_methods_results}
+% Figures assumed in ../output/
+% ============================================================
+
+% =============================================================
+\section{Structural Estimation}
+
+% ------ Frame: Full DCDP Specification -----------------------
+\begin{frame}{The DCDP: Full Specification}
+    Let $a \in \{10,\dots,17\}$ be the girl's age and $p \in \{0,1\}$ pregnancy status.
+    Each period the household chooses $M \in \{F, I, W\}$. A match offer $(\Delta, w(\Delta))$
+    is drawn from the age-specific market distribution $F_\Delta(a)$.
+
+    \vspace{0.1cm}
+    \begin{align*}
+        U^F_i &= \underbrace{w(\Delta)}_{\text{wealth transfer}}
+                 + \underbrace{\kappa_i N_i(\Delta)}_{\text{norm value}}
+                 + \underbrace{\mu_i R(a)}_{\text{reputational relief}}
+                 - \underbrace{\phi^F(a,p,t)}_{\text{legal cost}}
+                 + \varepsilon^F \\[4pt]
+        U^I_i &= w(\Delta) + (\kappa_i{-}\lambda)N_i(\Delta)
+                 + \mu_i R(a) - \phi^I(a) + \varepsilon^I \\[4pt]
+        U^W_i &= \underbrace{Y_i}_{\text{income}}
+                 + \underbrace{s(a)}_{\text{schooling}}
+                 - \underbrace{\sigma p}_{\text{pregnancy cost}}
+                 + \delta\,\mathbb{E}_{p'}[V(a{+}1,p')]
+                 + \varepsilon^W
+    \end{align*}
+
+    \vspace{0.1cm}
+    \small
+    With $\varepsilon \overset{\text{iid}}{\sim}$ Type-I EV, the optimal value satisfies
+    $V(a,p) = \mathbb{E}_\Delta[\log(\exp V^F + \exp V^I + \exp V^W)]$ ---
+    computed via \hl{backward induction} from $V(18,\cdot)\equiv 0$.
+\end{frame}
+
+% ------ Frame: Legal Cost Functions --------------------------
+\begin{frame}{Legal Cost Functions: $\phi^F$ and $\phi^I$}
+    \begin{columns}[T]
+        \column{0.5\textwidth}
+        \textbf{Formal margin} ($\phi^F$):
+        \begin{align*}
+            \phi^F(a,p,t) = \bar\phi^F
+            &\cdot \mathbf{1}[a < 16] \\
+            &\cdot \bigl[1-(1-\mathbf{1}_{t \ge 2019})\cdot p\bigr]
+        \end{align*}
+        \begin{itemize}\small
+            \item Pre-2019: cost waived if pregnant ($p=1$).
+            \item Post-2019: \hl{no exceptions} --- $\bar\phi^F$ always active below 16.
+            \item Identified from: DiD on Registro Civil around March 2019.
+        \end{itemize}
+
+        \column{0.5\textwidth}
+        \textbf{Informal margin} ($\phi^I$):
+        \[
+            \phi^I(a) = \bar\phi^I \cdot \mathbf{1}[a < 16]
+        \]
+        \begin{itemize}\small
+            \item Reporting risk if union made known to authorities.
+            \item \hl{Unaffected by Lei 13.811/2019}.
+            \item Identified from: PNADC informal-union rates at age threshold.
+        \end{itemize}
+    \end{columns}
+
+    \vspace{0.3cm}
+    \begin{alertblock}{Substitution prediction}
+        If $\bar\phi^I \ll \bar\phi^F$, the 2019 reform shifts unions from
+        formal to informal rather than reducing total child marriage.
+    \end{alertblock}
+\end{frame}
+
+% ------ Frame: Estimation Strategy ---------------------------
+\begin{frame}{Two-Stage Estimation Strategy}
+    \begin{block}{Stage 1 --- Registro Civil DiD (reduced form)}
+        Estimate $\hat\phi^F$ from the aggregate formal-marriage panel:
+        \[
+            \log n_{a,s,t} = \alpha_s + \alpha_a + \alpha_t
+            + \underbrace{\theta \cdot \mathbf{1}[a{<}16] \cdot \mathbf{1}[t{\ge}2019]}_{\hat\phi^F}
+            + \varepsilon_{a,s,t}
+        \]
+        State ($s$), age-group ($a$), year ($t$) fixed effects; SEs clustered by state.
+        Data: Registro Civil 2003--2022 (IBGE/SIDRA).
+    \end{block}
+
+    \vspace{0.2cm}
+    \begin{block}{Stage 2 --- Structural MLE (PNAD-C)}
+        Given $\hat\phi^F$, maximize weighted log-likelihood over
+        $\Theta = (\alpha_0, \alpha_1, \mu, \gamma_0, \gamma_1, \beta_0, \beta_1, \sigma)$:
+        \[
+            \hat\Theta = \arg\max_\Theta
+            \sum_i w_i \Bigl[y_i \log P^{\text{union}}_i(\Theta)
+            + (1{-}y_i)\log(1{-}P^{\text{union}}_i(\Theta))\Bigr]
+        \]
+        where $P^{\text{union}}_i = \text{logistic}(V^{\text{union}}_i - V^{\text{wait}}_i)$
+        and $V^{\text{union}}$ integrates over the empirical $F_\Delta(a)$ via Monte Carlo.
+        Standard errors from 200 bootstrap replications.
+        Data: PNAD-C 2012--2023, girls aged 10--17.
+    \end{block}
+\end{frame}
+
+% ------ Frame: Descriptive Statistics ------------------------
+\begin{frame}{Descriptive Statistics}
+    \begin{columns}[T]
+        \column{0.48\textwidth}
+        \centering
+        \textbf{PNAD-C sample} (girls 10--17)
+
+        \vspace{0.2cm}
+        \small
+        \begin{tabular}{lrr}
+            \toprule
+            & \multicolumn{2}{c}{Mean (SD)} \\
+            \cmidrule{2-3}
+            Variable & In union & Wait \\
+            \midrule
+            $N$ & 4{,}671 & 821 \\
+            Age $a$ & 16.5 & 15.8 \\
+            Age gap $\Delta$ & 8.4 (6.3) & --- \\
+            Partner income (R\$) & 1{,}014 & --- \\
+            Attending school & 30\% & 59\% \\
+            Parda/preta & 87\% & 84\% \\
+            Rural & 28\% & 24\% \\
+            Post-2019 & 15\% & 19\% \\
+            \bottomrule
+        \end{tabular}
+
+        \column{0.48\textwidth}
+        \centering
+        \textbf{Registro Civil panel} (minor brides)
+
+        \vspace{0.2cm}
+        \small
+        \begin{tabular}{lr}
+            \toprule
+            Variable & Value \\
+            \midrule
+            Years & 2003--2022 \\
+            States & 27 \\
+            Age groups & 5 \\
+            Below-16 cell & 2 \\
+            Total cells & 2{,}970 \\
+            \midrule
+            \multicolumn{2}{l}{\textit{Below-16 formal marriages:}} \\
+            Mean (pre-2019) & 37.2/state/yr \\
+            Mean (post-2019) & 35.0/state/yr \\
+            $\Delta$ post-reform & $-5.9\%$ \\
+            \bottomrule
+        \end{tabular}
+    \end{columns}
+
+    \vspace{0.2cm}
+    \small\textit{Note:} School attendance and race pooled over PNAD-C 2012--2023;
+    survey weights applied throughout.
+\end{frame}
+
+% ------ Frame: Stage 1 DiD Results --------------------------
+\begin{frame}{Stage 1 Results: DiD on Formal Marriages}
+    \begin{columns}[T]
+        \column{0.44\textwidth}
+        \centering
+        \small
+        \begin{tabular}{lcc}
+            \toprule
+            & \multicolumn{2}{c}{Dep.\ var.: $\log(n_{ast}+1)$} \\
+            \cmidrule{2-3}
+            & (1) & (2) \\
+            \midrule
+            $\mathbf{1}[a{<}16]\times\mathbf{1}[t{\ge}2019]$
+                & 0.411$^{***}$ & 0.398$^{***}$ \\
+                & (0.022) & (0.025) \\[4pt]
+            State FE & \checkmark & \checkmark \\
+            Age-group FE & \checkmark & \checkmark \\
+            Year FE & \checkmark & \checkmark \\
+            State trends & & \checkmark \\
+            \midrule
+            $N$ & 2{,}970 & 2{,}970 \\
+            $R^2$ & 0.89 & 0.91 \\
+            \bottomrule
+        \end{tabular}
+        \vspace{0.15cm}
+
+        \small\textit{Note:} SEs clustered by state.
+        $^{*}p{<}0.1$, $^{**}p{<}0.05$, $^{***}p{<}0.01$.
+
+        \column{0.54\textwidth}
+        \includegraphics[width=\linewidth]{../output/fig_eventstudy.pdf}
+    \end{columns}
+
+    \vspace{0.15cm}
+    \begin{alertblock}{Interpretation}
+        \small
+        The positive coefficient implies formal marriages
+        \textit{increased} for under-16 girls post-2019 relative to the 16--17
+        control group --- consistent with a \hl{substitution reversal}:
+        families may have rushed to formal registration before
+        enforcement tightened, or the 16--17 group fell faster
+        (parental-consent relaxation). Requires event-study validation.
+    \end{alertblock}
+\end{frame}
+
+% ------ Frame: Stage 2 Parameter Estimates ------------------
+\begin{frame}{Stage 2 Results: Structural Parameter Estimates}
+    \centering
+    \small
+    \begin{tabular}{llcccc}
+        \toprule
+        & Parameter & Estimate & Boot.\ SE & 95\% CI & $t$ \\
+        \midrule
+        \multicolumn{6}{l}{\textit{Economic mechanism}} \\
+        $\alpha_0$ & Union entry (intercept) & $-0.642$ & $0.213$ & $[-1.13,\,-0.18]$ & $-3.0^{**}$ \\
+        $\alpha_1$ & $w(\Delta)$ slope       & $-0.009$ & $0.007$ & $[-0.016,\,0.010]$ & $-1.3$ \\
+        \midrule
+        \multicolumn{6}{l}{\textit{Norm and reputation mechanism}} \\
+        $\mu$       & Reputation weight      & $1.067$  & $0.091$ & $[0.89,\,1.23]$    & $0.76^{\dagger}$ \\
+        $\gamma_0$  & $\log R(a)$ intercept  & $-1.934$ & $0.085$ & $[-2.14,\,-1.83]$  & $-22.7^{***}$ \\
+        $\gamma_1$  & $\log R(a)$ age slope  & $0.067$  & $0.013$ & $[0.047,\,0.097]$  & $5.1^{***}$ \\
+        \midrule
+        \multicolumn{6}{l}{\textit{Schooling and outside option}} \\
+        $\beta_0$   & $s(a)$ intercept       & $-3.245$ & $1.610$ & $[-6.34,\,-0.34]$  & $-2.0^{*}$ \\
+        $\beta_1$   & $s(a)$ slope in $a$    & $0.054$  & $0.105$ & $[-0.132,\,0.257]$ & $0.5$ \\
+        $\sigma$    & Pregnancy cost         & \multicolumn{3}{c}{\textit{unidentified} (see text)} & --- \\
+        \midrule
+        \multicolumn{6}{l}{\textit{First-stage (Registro Civil DiD)}} \\
+        $\hat\phi^F$ & Legal deterrence cost & $0.411$  & $0.022$ & & $18.7^{***}$ \\
+        \bottomrule
+        \multicolumn{6}{l}{\footnotesize $^{\dagger}$log-scale $t$-stat; $^{*}p{<}0.1$, $^{**}p{<}0.05$, $^{***}p{<}0.01$. $N=5{,}492$. $B=200$ bootstrap replications.} \\
+        \multicolumn{6}{l}{\footnotesize Log-likelihood: $-2{,}487.8$. Discount factor $\delta=0.95$ calibrated. $\kappa$ fixed at 0 (collinear with $\alpha_0$).}
+    \end{tabular}
+\end{frame}
+
+% ------ Frame: Derived Economic Quantities -------------------
+\begin{frame}{Derived Economic Quantities}
+    \begin{columns}[T]
+        \column{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../output/fig_Ra.pdf}
+
+        \vspace{0.15cm}
+        \small
+        $R(a)$ rises \textbf{59\%} from age 10 ($0.28$) to 17 ($0.45$).
+        Together with $\hat\mu = 1.07$, this implies the
+        \hl{norm-reputational payoff to marriage grows substantially with age}.
+
+        \column{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../output/fig_sa.pdf}
+
+        \vspace{0.15cm}
+        \small
+        $s(a)$ rises mildly from $-2.70$ to $-2.32$.
+        The negative level means the outside-option schooling
+        return is dominated by the union payoff in the data ---
+        consistent with the \hl{85\% in-union share}.
+    \end{columns}
+\end{frame}
+
+% ------ Frame: Wealth Transfer and Mechanism Shares ----------
+\begin{frame}{Wealth Transfer $w(\Delta)$ and Mechanism Decomposition}
+    \begin{columns}[T]
+        \column{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../output/fig_wDelta.pdf}
+
+        \vspace{0.1cm}
+        \small
+        Estimated $\hat\alpha_1 = -0.009$ (n.s.): the age-gap slope is
+        essentially flat in the current specification.
+        This suggests $\Delta$ alone does not proxy well for
+        $w(\Delta)$ --- partner income ($Y_{\text{parc}}$) should
+        enter directly in the next iteration.
+
+        \column{0.48\textwidth}
+        \centering
+        \small
+        \begin{tabular}{lc}
+            \toprule
+            Mechanism & Share of $V^{\text{union}}$ \\
+            \midrule
+            $w(\Delta)$ at avg.\ gap & $-0.71$ \\
+            $\mu R(a)$ at age 10  & $+0.30$ \\
+            $\mu R(a)$ at age 17  & $+0.48$ \\
+            \midrule
+            Net $V^{\text{union}}$, age 10 & $-0.41$ \\
+            Net $V^{\text{union}}$, age 17 & $-0.23$ \\
+            \midrule
+            $V^{\text{wait}}$, age 10 & $-2.70$ \\
+            $V^{\text{wait}}$, age 17 & $-2.32$ \\
+            \bottomrule
+        \end{tabular}
+
+        \vspace{0.2cm}
+        \begin{alertblock}{\small Key finding}
+            \small
+            The union option dominates waiting at all ages.
+            The \hl{reputational mechanism} ($\mu R(a)$) accounts for
+            nearly all of the age gradient in marriage propensity.
+        \end{alertblock}
+    \end{columns}
+\end{frame}
+
+% ------ Frame: Identification Concerns and Next Steps --------
+\begin{frame}{Identification Concerns and Model Limitations}
+    \begin{columns}[T]
+        \column{0.5\textwidth}
+        \textbf{What is identified}
+        \begin{itemize}\small
+            \item $\hat\phi^F$: clean DiD off the 2019 reform.
+            \item $R(a)$ shape: age gradient in union propensity
+                  (conditional on income and $\Delta$).
+            \item $s(a)$: outside-option level via
+                  school-attendance variation.
+            \item $\mu$: scale of reputational channel.
+        \end{itemize}
+
+        \column{0.5\textwidth}
+        \textbf{What is not yet identified}
+        \begin{itemize}\small
+            \item $\sigma$ (pregnancy cost): \texttt{matern\_bin}
+                  is near-zero in PNAD-C; calibrate from SINASC.
+            \item $\lambda$ (formal vs.\ informal disutility):
+                  needs formal/informal split in PNAD-C.
+            \item $\bar\phi^I$ (informal legal cost):
+                  needs enforcement variation.
+            \item $\kappa_i$ heterogeneity: fixed $\kappa=0$;
+                  norm index enters in Layer~2 regression.
+        \end{itemize}
+    \end{columns}
+
+    \vspace{0.3cm}
+    \begin{block}{Roadmap to full identification}
+        \begin{enumerate}\small
+            \item Calibrate $\sigma$ from SINASC birth-in-union rates by age.
+            \item Recover $\lambda$ from PNAD-C union-type variable ($V2005$).
+            \item Interact $\hat\kappa_i$ (norm index) with PNAD-C to
+                  estimate Layer~2 triple interaction $\beta_3$.
+        \end{enumerate}
+    \end{block}
+\end{frame}
