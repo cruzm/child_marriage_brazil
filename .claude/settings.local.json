@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(py -c \"import pypdf; print\\('pypdf ok'\\)\")",
-      "Bash(py -c \"import PyPDF2; print\\('PyPDF2 ok'\\)\")"
+      "Bash(py -c \"import PyPDF2; print\\('PyPDF2 ok'\\)\")",
+      "WebFetch(domain:ftp.ibge.gov.br)"
     ]
   }
 }
