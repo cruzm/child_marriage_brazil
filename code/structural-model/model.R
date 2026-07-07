@@ -29,6 +29,7 @@
 library(tidyverse)
 library(fixest)
 library(maxLik)
+library(here)
 
 # ---- 0. Constants ----
 
@@ -47,8 +48,10 @@ PR_PREG <- c(
 
 # ---- 1. Load data ----
 
-rc   <- readRDS("data/dc_rc_dcm.rds")
-pnad <- readRDS("data/dc_pnadc_dcm.rds")
+rc   <- readRDS(here("data", "processed", "dc_rc_dcm.rds")) |>
+  dplyr::filter(idade_m >= 15 & idade_m <=17)
+
+pnad <- readRDS(here("data", "processed", "dc_pnadc_dcm.rds"))
 
 # ---- 2. Stage 1: phi^F via DiD (Registro Civil) ----
 # Lei 13.811/2019 closed the pregnancy exception for formal marriages

@@ -15,7 +15,8 @@
 #   Every girl aged 10–17 in the sample.
 #   choice = "in_union" | "wait"
 #   delta  = head_age − girl_age (NA for "wait")
-#   rend   = household head's labor income (proxy for family wealth)
+#   rend   = household head's labor income (proxy for adult wealth)
+
 # ============================================================
 
 library(tidyverse)

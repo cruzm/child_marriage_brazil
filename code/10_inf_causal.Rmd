@@ -1,0 +1,959 @@
+---
+title: "Efeito da Lei 13.811/2019 sobre Casamento Infantil"
+subtitle: "Inferência Causal: DR-DiD · HonestDiD · DiDC"
+date: "`r format(Sys.Date(), '%d de %B de %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: true
+    toc_depth: 3
+    theme: flatly
+    highlight: tango
+    code_folding: hide
+    fig_width: 10
+    fig_height: 6
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo      = TRUE,
+  message   = FALSE,
+  warning   = FALSE,
+  fig.align = "center"
+)
+```
+
+```{r carregar-ambiente, include=FALSE}
+# Carrega 00_setup.R → 08_didc.R (didc_pnadc) → 10_inf_causal.R
+# Todos usam caches em disco — rápido após a primeira execução.
+source(here::here("00_setup.R"))
+if (!exists("didc_pnadc") || !is.data.frame(didc_pnadc))
+  invisible(capture.output(source(here::here("08_didc.R"))))
+invisible(capture.output(source(here::here("10_inf_causal.R"))))
+
+# Helper: tabela de event study formatada
+# Helper: tabela HonestDiD — sem renomeação, apenas converte numéricos para pp
+tab_honestdid <- function(df, caption_txt) {
+  if (is.null(df) || nrow(df) == 0) return(invisible(NULL))
+  num_cols <- names(df)[sapply(df, is.numeric)]
+  df |>
+    dplyr::mutate(dplyr::across(dplyr::all_of(num_cols), ~round(. * 100, 3))) |>
+    knitr::kable(caption = caption_txt)
+}
+
+tab_event_study <- function(att_es) {
+  tibble::tibble(
+    `e`       = att_es$egt,
+    `Ano`     = att_es$egt + 2019L,
+    `ATT (pp)`= round(att_es$att.egt * 100, 3),
+    `SE (pp)` = round(att_es$se.egt  * 100, 3),
+    `IC inf`  = round((att_es$att.egt - 1.96*att_es$se.egt) * 100, 3),
+    `IC sup`  = round((att_es$att.egt + 1.96*att_es$se.egt) * 100, 3),
+    `Período` = ifelse(att_es$egt < 0, "Pré", "Pós")
+  )
+}
+
+# Helper: ATT agregado formatado
+tab_att <- function(label, att, se, pval) {
+  sig <- dplyr::case_when(
+    is.na(pval) ~ "",
+    pval < 0.01 ~ "***", pval < 0.05 ~ "**",
+    pval < 0.10 ~ "*", TRUE ~ ""
+  )
+  tibble::tibble(
+    Estimador  = label,
+    `ATT (pp)` = round(att * 100, 4),
+    `SE (pp)`  = round(se  * 100, 4),
+    `p-valor`  = round(pval, 4),
+    Sig        = sig,
+    `IC inf`   = round((att - 1.96*se)*100, 3),
+    `IC sup`   = round((att + 1.96*se)*100, 3)
+  )
+}
+```
+
+---
+
+## Contexto
+
+A **Lei 13.811/2019** aboliu todas as exceções ao casamento infantil no Brasil.
+
+- **Regra anterior:** casamento permitido a partir de **16 anos** com autorização judicial/parental.
+- **Regra nova:** vedação **absoluta** para menores de 18 anos.
+
+O limiar de 16 anos é a descontinuidade estrutural explorada nas estratégias de identificação.
+
+### Sequência de análises
+
+| Bloco | Método | Pergunta |
+|-------|--------|----------|
+| **1** | Event Study FEOLS — 15 vs 16 | Tendências paralelas sustentam o design? |
+| **1b–1c** | DR-DiD + HonestDiD — 15 vs 16 | Estimativa + sensibilidade (design diagnóstico) |
+| **2–3** | DR-DiD + HonestDiD — 14–15 vs 16–17 | Estimativa principal |
+| **4–5** | DR-DiD + HonestDiD — 14–15 vs 17–18 | Robustez (controle alternativo) |
+| **6** | DiDC rdrobust | **Estimador preferido** — sem hipótese de tendências paralelas |
+
+---
+
+## Bloco 0 — Parâmetros
+
+```{r parametros}
+cat(sprintf("Ano de referência:   %d\n", ANO_REF))
+cat(sprintf("Anos pré:            %s\n", paste(ANOS_PRE, collapse=", ")))
+cat(sprintf("Anos pós:            %s\n", paste(ANOS_POS, collapse=", ")))
+cat(sprintf("Idades tratadas:     %s anos\n", paste(IDADES_TRAT, collapse="–")))
+cat(sprintf("Controle principal:  %s anos\n", paste(IDADES_CTRL1, collapse="–")))
+cat(sprintf("Controle alternativo:%s anos\n", paste(IDADES_CTRL2, collapse="–")))
+cat(sprintf("Covariáveis DR-DiD:  %s\n", deparse(COVAR_FORMULA)))
+```
+
+---
+
+## Bloco 1 — Event Study 15 vs 16 (Diagnóstico) {.tabset}
+
+Pergunta: o design mais restrito — idades 15 e 16, vizinhos imediatos do cutoff legal — sustenta tendências paralelas entre 2012 e 2018?
+
+**Expectativa:** como 16 era o limiar legal antes de 2019, a diferença entre 15 e 16 anos já era estruturalmente diferente de zero *antes* da lei — não por falha de identificação, mas pela própria norma. Isso motiva o DiDC (Bloco 6).
+
+### Código
+
+```{r bloco1-codigo, eval=FALSE}
+# LPM com efeitos fixos de UF e ano, SE clusterizados por UF
+# i(Ano, D_15, ref=2018): cada coeficiente = gap tratada−controle naquele ano
+mod_1516 <- feols(
+  em_uniao ~ i(Ano, D_15, ref = ANO_REF) + parda_preta + rural |
+    ano_fct + uf_fct,
+  data = dados_1516, weights = ~pes_comcalib, cluster = ~uf_fct
+)
+# Teste Wald conjunto: H0: β_2012 = ... = β_2017 = 0
+chi2_1516 <- sum((evt_pre_1516$estimate / evt_pre_1516$se)^2)
+pval_1516 <- pchisq(chi2_1516, df=nrow(evt_pre_1516), lower.tail=FALSE)
+```
+
+### Coeficientes do event study
+
+```{r bloco1-coefs}
+coef_1516 |>
+  filter(ano != ANO_REF) |>
+  transmute(
+    Ano      = ano,
+    `β (pp)` = round(estimate * 100, 3),
+    `SE (pp)`= round(se * 100, 3),
+    `IC inf` = round(ci_lo * 100, 3),
+    `IC sup` = round(ci_hi * 100, 3),
+    `t-stat` = round(estimate / se, 2),
+    `Período`= if_else(pre, "Pré", "Pós")
+  ) |>
+  knitr::kable(
+    caption = "Event study FEOLS — 15 vs 16 anos. Referência: 2018 (β = 0). Valores em pp.",
+    align   = "rrrrrrl"
+  )
+```
+
+### Teste Wald de tendências paralelas
+
+```{r bloco1-wald}
+cat(sprintf("Wald pré-tendências (β_2012 = ... = β_2017 = 0):\n"))
+cat(sprintf("  χ²(%d) = %.2f\n", nrow(evt_pre_1516), chi2_1516))
+cat(sprintf("  p-valor = %.6f\n\n", pval_1516))
+
+if (pval_1516 < 0.05) {
+  cat("REJEIÇÃO ao nível de 5%.\n")
+  cat("Tendências paralelas NÃO são sustentadas para o design 15 vs 16.\n\n")
+  cat("Razão estrutural: o limiar de 16 anos era o limiar legal de casamento\n")
+  cat("antes de 2019. A diferença pré-2019 entre 15 e 16 anos reflete a\n")
+  cat("própria norma — não é corrigível por covariáveis.\n")
+  cat("→ Motivação empírica para o DiDC (Bloco 6).\n")
+}
+```
+
+### Figura — Tendências
+
+```{r bloco1-fig-tend, echo=FALSE}
+knitr::include_graphics(file.path(path_figs, "fig_1516_tend_painel.png"))
+```
+
+### Figura — Event Study
+
+```{r bloco1-fig-evt, echo=FALSE}
+knitr::include_graphics(file.path(path_figs, "fig_1516_event_study.png"))
+```
+
+---
+
+## Bloco 1b — DR-DiD: 15 vs 16 {.tabset}
+
+Estimamos o DR-DiD mesmo sabendo da violação estrutural — para mostrar explicitamente que o estimador duplamente robusto também não a resolve. O HonestDiD (Bloco 1c) confirma formalmente essa fragilidade.
+
+**Como funciona o `att_gt()`:** para cada par (cohort $g$, período $t$), estima ATT$(g, t)$ via estimador DR. Com um único cohort ($G = 2019$), o event study é simplesmente ATT$(2019, t)$ normalizado em relação a 2018.
+
+### Código
+
+```{r bloco1b-codigo, eval=FALSE}
+dados_cs_1516 <- dados_1516 |>
+  mutate(
+    G      = if_else(D_15 == 1L, 2019, 0),  # double: did converte 0 → Inf internamente
+    id_obs = row_number()
+  )
+
+cs_1516 <- att_gt(
+  yname = "em_uniao", tname = "Ano", idname = "id_obs", gname = "G",
+  data          = as.data.frame(dados_cs_1516),
+  panel         = FALSE,            # RC: cortes transversais repetidos
+  control_group = "nevertreated",   # G=0: 16 anos, nunca diretamente afetadas
+  xformla       = ~ parda_preta + rural,
+  weightsname   = "pes_comcalib",
+  est_method    = "dr",             # doubly robust
+  base_period   = "universal"       # ref = 2018 (G−1 = 2019−1)
+)
+
+att_es_1516 <- aggte(cs_1516, type = "dynamic", na.rm = TRUE)
+att_ov_1516 <- aggte(cs_1516, type = "simple",  na.rm = TRUE)
+```
+
+### Event study por período
+
+```{r bloco1b-event-tab}
+if (!is.null(cs_1516)) {
+  tab_event_study(att_es_1516) |>
+    knitr::kable(
+      caption = "DR-DiD event study — 15 vs 16. e = tempo relativo a 2019. Valores em pp.",
+      align   = "rrrrrrr"
+    )
+}
+```
+
+### ATT agregado
+
+```{r bloco1b-att}
+if (!is.na(ATT_CS_1516)) {
+  tab_att("CS (2021) — 15 vs 16", ATT_CS_1516, SE_CS_1516, PVAL_CS_1516) |>
+    knitr::kable(caption = "ATT geral pós-2019 (aggte type='simple').", align="lrrrrrr")
+}
+```
+
+### Figura
+
+```{r bloco1b-fig, echo=FALSE}
+knitr::include_graphics(file.path(path_figs, "fig_drDiD_1516_event_study.png"))
+```
+
+---
+
+## Bloco 1c — HonestDiD: 15 vs 16 {.tabset}
+
+**Rambachan & Roth (2023):** em vez de assumir tendências paralelas exatas, o HonestDiD constrói ICs válidos se as violações pós-2019 forem limitadas:
+
+- **ΔRM** (Magnitude Relativa): violações pós ≤ $\bar{M}$ × máxima violação pré. $\bar{M} = 0$ exige paralelas exatas; $\bar{M} = 1$ permite violações tão grandes quanto as pré-2019.
+- **ΔSD** (Suavidade): tendência pré pode continuar no pós com desvio ≤ $M$ pp/período.
+
+### Parâmetros usados
+
+```{r bloco1c-params}
+if (!is.null(hd_1516)) {
+  hd_inp_1516 <- extrair_honestdid_inputs(att_es_1516)
+  cat(sprintf("Períodos:    %d pré + %d pós\n",
+              hd_inp_1516$numPre, hd_inp_1516$numPost))
+  cat(sprintf("M calibrado: %.5f (%.3f pp)  [máx. variação pré-2018]\n",
+              hd_1516$M_cal, hd_1516$M_cal * 100))
+  cat(sprintf("Mbarvec ΔRM: 0 a 2 (passo 0.25)\n"))
+}
+```
+
+### Resultados ΔRM
+
+```{r bloco1c-rm-tab}
+tab_honestdid(hd_1516$rm, "HonestDiD ΔRM — 15 vs 16. Valores em pp.")
+```
+
+### Resultados ΔSD
+
+```{r bloco1c-sd-tab}
+tab_honestdid(hd_1516$sm, "HonestDiD ΔSD — 15 vs 16. Valores em pp.")
+```
+
+### Figura ΔRM
+
+```{r bloco1c-rm-fig, echo=FALSE}
+if (file.exists(file.path(path_figs, "fig_drDiD_1516_roth_magnitude.png")))
+  knitr::include_graphics(file.path(path_figs, "fig_drDiD_1516_roth_magnitude.png"))
+```
+
+### Figura ΔSD
+
+```{r bloco1c-sd-fig, echo=FALSE}
+if (file.exists(file.path(path_figs, "fig_drDiD_1516_roth_smooth.png")))
+  knitr::include_graphics(file.path(path_figs, "fig_drDiD_1516_roth_smooth.png"))
+```
+
+> **Conclusão:** IC inclui zero mesmo para $\bar{M} \to 0$, confirmando que a violação é estrutural.
+
+---
+
+## Bloco 2 — DR-DiD: 14–15 vs 16–17 {.tabset}
+
+Design principal. O controle (16–17 anos) não sofreu mudança normativa direta em 2019.
+
+**Risco de contaminação:** meninas de 16 estavam exatamente no antigo limiar legal. Parte das que casariam aos 15 pode ter adiado para os 16 após a lei — o que afeta o controle. O Bloco 4 testa isso com controle mais distante.
+
+### Código
+
+```{r bloco2-codigo, eval=FALSE}
+dados_cs_1617 <- didc_pnadc |>
+  filter(idade %in% c(IDADES_TRAT, IDADES_CTRL1),
+         Ano   %in% c(ANO_REF, ANOS_EVT)) |>
+  mutate(D = as.integer(idade %in% IDADES_TRAT),
+         G = if_else(D == 1L, 2019, 0), id_obs = row_number())
+
+cs_1617 <- att_gt(
+  yname="em_uniao", tname="Ano", idname="id_obs", gname="G",
+  data=as.data.frame(dados_cs_1617), panel=FALSE,
+  control_group="nevertreated", xformla=~parda_preta+rural,
+  weightsname="pes_comcalib", est_method="dr", base_period="universal"
+)
+```
+
+### Estatísticas descritivas
+
+```{r bloco2-desc}
+cat(sprintf("N total:          %d\n", nrow(dados_cs_1617)))
+cat(sprintf("Tratadas (14-15): %d\n", sum(dados_cs_1617$D == 1)))
+cat(sprintf("Controle (16-17): %d\n", sum(dados_cs_1617$D == 0)))
+```
+
+### Event study por período
+
+```{r bloco2-event-tab}
+if (!is.null(cs_1617)) {
+  tab_event_study(att_es_1617) |>
+    knitr::kable(
+      caption = "DR-DiD event study — 14–15 vs 16–17. e = tempo relativo a 2019. Valores em pp.",
+      align   = "rrrrrrr"
+    )
+}
+```
+
+### ATT agregado
+
+```{r bloco2-att}
+if (!is.na(ATT_CS_1617)) {
+  tab_att("CS (2021) — 14-15 vs 16-17", ATT_CS_1617, SE_CS_1617, PVAL_CS_1617) |>
+    knitr::kable(caption="ATT geral pós-2019 (aggte type='simple').", align="lrrrrrr")
+}
+```
+
+### Figura — Tendências
+
+```{r bloco2-fig-tend, echo=FALSE}
+knitr::include_graphics(file.path(path_figs, "fig_drDiD_tend_painel.png"))
+```
+
+### Figura — Event Study
+
+```{r bloco2-fig-evt, echo=FALSE}
+knitr::include_graphics(file.path(path_figs, "fig_drDiD_event_study.png"))
+```
+
+---
+
+## Bloco 3 — HonestDiD: 14–15 vs 16–17 {.tabset}
+
+### Parâmetros
+
+```{r bloco3-params}
+if (!is.null(hd_1617)) {
+  cat(sprintf("Períodos:    %d pré + %d pós\n",
+              hd_inp_1617$numPre, hd_inp_1617$numPost))
+  cat(sprintf("M calibrado: %.5f (%.3f pp)\n",
+              hd_1617$M_cal, hd_1617$M_cal * 100))
+}
+```
+
+### Resultados ΔRM
+
+```{r bloco3-rm-tab}
+tab_honestdid(hd_1617$rm, "HonestDiD ΔRM — 14–15 vs 16–17. lb/ub em pp.")
+```
+
+### Resultados ΔSD
+
+```{r bloco3-sd-tab}
+tab_honestdid(hd_1617$sm, "HonestDiD ΔSD — 14–15 vs 16–17. Valores em pp.")
+```
+
+### Figura ΔRM
+
+```{r bloco3-rm-fig, echo=FALSE}
+if (file.exists(file.path(path_figs, "fig_drDiD_roth_magnitude_novo.png")))
+  knitr::include_graphics(file.path(path_figs, "fig_drDiD_roth_magnitude_novo.png"))
+```
+
+### Figura ΔSD
+
+```{r bloco3-sd-fig, echo=FALSE}
+if (file.exists(file.path(path_figs, "fig_drDiD_roth_smooth_novo.png")))
+  knitr::include_graphics(file.path(path_figs, "fig_drDiD_roth_smooth_novo.png"))
+```
+
+---
+
+## Bloco 4 — DR-DiD: 14–15 vs 17–18 (robustez) {.tabset}
+
+Controle alternativo mais distante do cutoff, menos suscetível à contaminação do limiar de 16 anos.
+
+### Estatísticas descritivas
+
+```{r bloco4-desc}
+cat(sprintf("N total:          %d\n", nrow(dados_cs_1718)))
+cat(sprintf("Tratadas (14-15): %d\n", sum(dados_cs_1718$D == 1)))
+cat(sprintf("Controle (17-18): %d\n", sum(dados_cs_1718$D == 0)))
+```
+
+### Event study por período
+
+```{r bloco4-event-tab}
+if (!is.null(cs_1718)) {
+  tab_event_study(att_es_1718) |>
+    knitr::kable(
+      caption = "DR-DiD event study — 14–15 vs 17–18. e = tempo relativo a 2019. Valores em pp.",
+      align   = "rrrrrrr"
+    )
+}
+```
+
+### ATT agregado
+
+```{r bloco4-att}
+if (!is.na(ATT_CS_1718)) {
+  tab_att("CS (2021) — 14-15 vs 17-18", ATT_CS_1718, SE_CS_1718, PVAL_CS_1718) |>
+    knitr::kable(caption="ATT geral pós-2019.", align="lrrrrrr")
+}
+```
+
+### Tabela comparativa — todos os DiD
+
+```{r bloco4-comp}
+dplyr::bind_rows(
+  tab_att("TWFE — 14-15 vs 16-17 (benchmark)", att_twfe,    se_twfe,    pval_twfe),
+  tab_att("CS (2021) — 14-15 vs 16-17",        ATT_CS_1617, SE_CS_1617, PVAL_CS_1617),
+  tab_att("CS (2021) — 14-15 vs 17-18",        ATT_CS_1718, SE_CS_1718, PVAL_CS_1718)
+) |>
+  knitr::kable(
+    caption = "Comparação entre estimadores DiD. *** p<0.01 ** p<0.05 * p<0.10. Valores em pp.",
+    align   = "lrrrrrr"
+  )
+```
+
+### Figura — Tendências
+
+```{r bloco4-fig-tend, echo=FALSE}
+knitr::include_graphics(file.path(path_figs, "fig_drDiD_tend_painel_1718.png"))
+```
+
+### Figura — Event Study
+
+```{r bloco4-fig-evt, echo=FALSE}
+knitr::include_graphics(file.path(path_figs, "fig_drDiD_event_study_1718.png"))
+```
+
+---
+
+## Bloco 5 — HonestDiD: 14–15 vs 17–18 (robustez) {.tabset}
+
+### Parâmetros
+
+```{r bloco5-params}
+if (!is.null(hd_1718)) {
+  cat(sprintf("Períodos:    %d pré + %d pós\n",
+              hd_inp_1718$numPre, hd_inp_1718$numPost))
+  cat(sprintf("M calibrado: %.5f (%.3f pp)\n",
+              hd_1718$M_cal, hd_1718$M_cal * 100))
+}
+```
+
+### Resultados ΔRM
+
+```{r bloco5-rm-tab}
+tab_honestdid(hd_1718$rm, "HonestDiD ΔRM — 14–15 vs 17–18 (robustez). lb/ub em pp.")
+```
+
+### Figura ΔRM
+
+```{r bloco5-rm-fig, echo=FALSE}
+if (file.exists(file.path(path_figs, "fig_drDiD_roth_magnitude_1718.png")))
+  knitr::include_graphics(file.path(path_figs, "fig_drDiD_roth_magnitude_1718.png"))
+```
+
+---
+
+## Bloco 6 — DiDC: Estimador Principal {.tabset}
+
+**Difference-in-Discontinuities (DiDC)** seguindo Pichetti et al. (2023).
+
+$$\hat{\beta}_{\text{DiDC}} = \widehat{RD}_{\text{pós}} - \widehat{RD}_{\text{pré}}$$
+
+onde $\widehat{RD}$ é o salto na prevalência de uniões **no cutoff de 16 anos**, estimado por regressão local linear (`rdrobust`, kernel triangular, $p = 1$).
+
+**Design invertido:** a running variable é $c = 16 - \text{idade}$, de modo que $c > 0$ identifica as meninas **abaixo de 16 anos** — o grupo diretamente afetado pela lei. Assim, $\hat{\beta} < 0$ indica que a lei **reduziu** uniões nesse grupo.
+
+**Vantagem sobre o DiD:** não exige tendências paralelas entre grupos etários distintos — exige apenas continuidade local ao redor do cutoff de 16 anos.
+
+Como funciona o `rdrobust()`: para o período pré (2012–2018) e pós (2019, 2022, 2023) separadamente, ajusta duas retas locais ponderadas pelo kernel triangular — uma para cada lado do cutoff — e extrai a diferença dos interceptos em $c = 0$.
+
+### Código
+
+```{r bloco6-codigo, eval=FALSE}
+# ── Passo 1: running variable invertida ──────────────────────────────────────
+# c > 0  →  abaixo de 16 anos (tratadas pela lei)
+# c < 0  →  acima de 16 anos (controle)
+dados_cont <- dados_cont |>
+  mutate(c_inv = 16 - idade_cont)
+
+# ── Passo 2: separar períodos ─────────────────────────────────────────────────
+dat_pre <- dados_cont |> filter(Ano %in% 2012:2018)
+dat_pos <- dados_cont |> filter(Ano %in% c(2019, 2022, 2023))
+
+# ── Passo 3: estimar RD em cada período via rdrobust ─────────────────────────
+# rdrobust ajusta retas locais em cada lado do cutoff (c = 0)
+# e retorna o salto entre os dois interceptos, com bias-correction.
+rd_pre <- rdrobust(y = dat_pre$em_uniao, x = dat_pre$c_inv,
+                   h = 1, p = 1, kernel = "triangular",
+                   weights = dat_pre$pes_comcalib, masspoints = "adjust")
+
+rd_pos <- rdrobust(y = dat_pos$em_uniao, x = dat_pos$c_inv,
+                   h = 1, p = 1, kernel = "triangular",
+                   weights = dat_pos$pes_comcalib, masspoints = "adjust")
+
+# ── Passo 4: DiDC = RD_pós − RD_pré ─────────────────────────────────────────
+beta_didc <- rd_pos$coef[2] - rd_pre$coef[2]           # bias-corrected
+se_didc   <- sqrt(rd_pre$se[3]^2 + rd_pos$se[3]^2)     # método delta
+```
+
+### Tabela de robustez
+
+Como o estimador RD depende do bandwidth $h$, testamos $h \in \{0.50,\ 0.75,\ 1.00,\ 1.50,\ 2.00,\ 2.50,\ 3.00\}$ anos. Um resultado robusto apresenta **coeficiente estável** e **SE decrescente** com $h$.
+
+```{r bloco6-bwtab}
+if (exists("bw_tab") && !is.null(bw_tab) && nrow(bw_tab) > 0) {
+  bw_tab |>
+    dplyr::mutate(
+      Sig = dplyr::case_when(
+        is.na(pval)   ~ "",
+        pval < 0.01   ~ "***",
+        pval < 0.05   ~ "**",
+        pval < 0.10   ~ "*",
+        TRUE          ~ ""
+      ),
+      Principal = ifelse(h == 1.00, "←", "")
+    ) |>
+    dplyr::transmute(
+      `h (anos)`    = h,
+      `N pré`       = N_pre,
+      `N pós`       = N_pos,
+      `RD pré (pp)` = round(RD_pre, 3),
+      `RD pós (pp)` = round(RD_pos, 3),
+      `β_DiDC (pp)` = round(beta,   3),
+      `SE (pp)`     = round(se,     3),
+      `Sig`         = Sig,
+      ` `           = Principal
+    ) |>
+    knitr::kable(
+      caption = paste(
+        "Robustez do β_DiDC por bandwidth (design invertido Pichetti).",
+        "RD = E[Y | idade < 16] − E[Y | idade ≥ 16].",
+        "β < 0 indica redução de uniões abaixo de 16 anos.",
+        "*** p<0.01  ** p<0.05  * p<0.10"
+      ),
+      align = "rrrrrrrll"
+    )
+}
+```
+
+
+
+
+
+### Resultado principal
+
+```{r bloco6-resultado}
+if (exists("didc_rd") && !is.na(didc_rd)) {
+  sig <- dplyr::case_when(
+    pval_didc_rd < 0.01 ~ "***",
+    pval_didc_rd < 0.05 ~ "**",
+    pval_didc_rd < 0.10 ~ "*",
+    TRUE                ~ "(não significativo)"
+  )
+  tibble::tibble(
+    Estimador  = "DiDC rdrobust — design invertido (h = 1.00)",
+    `β (pp)`   = round(didc_rd * 100, 3),
+    `SE (pp)`  = round(se_didc_rd * 100, 3),
+    `p-valor`  = round(pval_didc_rd, 4),
+    Sig        = sig,
+    `IC inf`   = round((didc_rd - 1.96 * se_didc_rd) * 100, 3),
+    `IC sup`   = round((didc_rd + 1.96 * se_didc_rd) * 100, 3)
+  ) |>
+    knitr::kable(
+      caption = paste(
+        "β_DiDC = RD_pós − RD_pré no cutoff de 16 anos.",
+        "rdrobust, p=1, kernel triangular, masspoints='adjust'.",
+        "SE via método delta (√(SE_pré² + SE_pós²))."
+      )
+    )
+}
+```
+
+### teste de bandwidth ótimo
+```{r bloco6-testeotimo}
+# Bandwidth ótimo escolhido automaticamente pelo rdrobust (critério MSE)
+rd_pre_opt <- rdrobust(
+  y          = dat_pre$em_uniao,
+  x          = dat_pre$c_inv,
+  p          = 1,
+  kernel     = "triangular",
+  weights    = dat_pre$pes_comcalib,
+  masspoints = "adjust"
+)
+
+rd_pos_opt <- rdrobust(
+  y          = dat_pos$em_uniao,
+  x          = dat_pos$c_inv,
+  p          = 1,
+  kernel     = "triangular",
+  weights    = dat_pos$pes_comcalib,
+  masspoints = "adjust"
+)
+
+# Bandwidth selecionado (para reportar)
+h_opt_pre <- rd_pre_opt$bws[1, 1]
+h_opt_pos <- rd_pos_opt$bws[1, 1]
+
+# β_DiDC com bandwidth ótimo
+beta_didc_opt <- rd_pos_opt$coef[2] - rd_pre_opt$coef[2]
+se_didc_opt   <- sqrt(rd_pre_opt$se[3]^2 + rd_pos_opt$se[3]^2)
+pval_didc_opt <- 2 * pnorm(-abs(beta_didc_opt / se_didc_opt))
+
+
+
+sig <- dplyr::case_when(
+  pval_didc_opt < 0.01 ~ "***",
+  pval_didc_opt < 0.05 ~ "**",
+  pval_didc_opt < 0.10 ~ "*",
+  TRUE                 ~ "(não significativo)"
+)
+
+tibble::tibble(
+  Estimador = sprintf("DiDC rdrobust (h_pré=%.2f, h_pós=%.2f)", h_opt_pre, h_opt_pos),
+  `β (pp)`  = round(beta_didc_opt * 100, 3),
+  `SE (pp)` = round(se_didc_opt   * 100, 3),
+  `p-valor` = round(pval_didc_opt, 4),
+  Sig       = sig,
+  `IC inf`  = round((beta_didc_opt - 1.96 * se_didc_opt) * 100, 3),
+  `IC sup`  = round((beta_didc_opt + 1.96 * se_didc_opt) * 100, 3)
+) |>
+  knitr::kable(
+    caption = paste(
+      "β_DiDC = RD_pós − RD_pré no cutoff de 16 anos.",
+      "Bandwidth selecionado pelo critério MSE (Calonico, Cattaneo & Titiunik, 2014).",
+      "SE via método delta."
+    )
+  )
+
+```
+
+### Figura — Event Study DiDC
+
+```{r bloco6-fig-evt, echo=FALSE}
+if (file.exists(file.path(path_figs, "fig_didc_cont_event_study.png")))
+  knitr::include_graphics(file.path(path_figs, "fig_didc_cont_event_study.png"))
+```
+
+### Figura — Descontinuidade visual
+
+```{r bloco6-fig-rd, echo=FALSE}
+if (file.exists(file.path(path_figs, "fig_didc_rd_visual.png")))
+  knitr::include_graphics(file.path(path_figs, "fig_didc_rd_visual.png"))
+```
+
+### Figura — Event Study (h ótimo)
+
+Event study DiDC usando o **bandwidth ótimo selecionado automaticamente pelo algoritmo MSE** (`rdrobust`, `bwselect="mserd"`): h_pré ≈ 0,93 e h_pós ≈ 0,90. Para o event study, aplica-se h médio = (h_pré + h_pós)/2 em cada ano.
+
+```{r bloco6-fig-evt-opt, echo=FALSE}
+if (file.exists(file.path(path_figs, "fig_didc_evt_opt.png")))
+  knitr::include_graphics(file.path(path_figs, "fig_didc_evt_opt.png"))
+```
+
+### Figura — Descontinuidade visual (h ótimo)
+
+Prevalência de uniões por bin de ~2 meses de idade, dentro do **bandwidth ótimo** selecionado pelo critério MSE. Cada ponto é um bin; o tamanho é proporcional ao número de observações. As retas são ajustes lineares locais separados para abaixo e acima do cutoff de 16 anos.
+
+```{r bloco6-fig-rd-opt, echo=FALSE}
+if (file.exists(file.path(path_figs, "fig_didc_rd_opt.png")))
+  knitr::include_graphics(file.path(path_figs, "fig_didc_rd_opt.png"))
+```
+
+---
+
+## Bloco 7 — DR-DiD com Idade Contínua {.tabset}
+
+Mesmo estimador de Callaway & Sant'Anna (2021), mas com duas diferenças em relação aos Blocos 2–4:
+
+1. **Tratamento definido por `idade_cont < 16`** (precisão mensal) em vez de grupo etário inteiro — uma menina de 15 anos e 11 meses é corretamente classificada como tratada; uma de 16 anos e 0 meses como controle
+2. **`idade_cont` entra como covariável contínua** no propensity score e na regressão do outcome — o DR-DiD condiciona na idade exata, não apenas no grupo anual
+
+### Código
+
+```{r bloco7-codigo, eval=FALSE}
+# Tratamento definido pela idade contínua (meses)
+dados_cs_cont_A <- didc_pnadc |>
+  filter(idade %in% c(IDADES_TRAT, IDADES_CTRL1), Ano %in% c(ANO_REF, ANOS_EVT),
+         !is.na(idade_cont)) |>
+  mutate(D_cont = as.integer(idade_cont < 16),
+         G      = if_else(D_cont == 1L, 2019, 0),
+         id_obs = row_number())
+
+# Fórmula com idade contínua como covariável
+COVAR_FORMULA_CONT <- ~ idade_cont + parda_preta + rural + factor(UF)
+
+cs_cont_A <- att_gt(
+  yname="em_uniao", tname="Ano", idname="id_obs", gname="G",
+  data=as.data.frame(dados_cs_cont_A), panel=FALSE,
+  control_group="nevertreated", xformla=COVAR_FORMULA_CONT,
+  weightsname="pes_comcalib", est_method="dr", base_period="universal"
+)
+```
+
+### Estatísticas descritivas
+
+```{r bloco7-desc}
+if (exists("dados_cs_cont_A") && !is.null(dados_cs_cont_A)) {
+  tibble::tibble(
+    Design      = c("A: <16 vs 16–17", "B: <16 vs 17–18"),
+    `N total`   = c(nrow(dados_cs_cont_A), nrow(dados_cs_cont_B)),
+    `Tratadas`  = c(sum(dados_cs_cont_A$D_cont==1), sum(dados_cs_cont_B$D_cont==1)),
+    `Controle`  = c(sum(dados_cs_cont_A$D_cont==0), sum(dados_cs_cont_B$D_cont==0))
+  ) |> knitr::kable(caption="Amostras por design (idade contínua).", align="lrrr")
+}
+```
+
+### Event study — Design A (<16 vs 16–17)
+
+```{r bloco7-es-A}
+if (!is.null(cs_cont_A)) {
+  tab_event_study(att_es_cont_A) |>
+    knitr::kable(
+      caption="DR-DiD cont — <16 vs 16–17. e = tempo relativo a 2019. Valores em pp.",
+      align="rrrrrrr"
+    )
+}
+```
+
+### ATT agregado — Design A
+
+```{r bloco7-att-A}
+if (!is.na(ATT_CS_CONT_A)) {
+  tab_att("CS cont — <16 vs 16–17", ATT_CS_CONT_A, SE_CS_CONT_A, PVAL_CS_CONT_A) |>
+    knitr::kable(caption="ATT geral pós-2019 (aggte type='simple').", align="lrrrrrr")
+}
+```
+
+### Event study — Design B (<16 vs 17–18)
+
+```{r bloco7-es-B}
+if (!is.null(cs_cont_B)) {
+  tab_event_study(att_es_cont_B) |>
+    knitr::kable(
+      caption="DR-DiD cont — <16 vs 17–18. e = tempo relativo a 2019. Valores em pp.",
+      align="rrrrrrr"
+    )
+}
+```
+
+### ATT agregado — Design B
+
+```{r bloco7-att-B}
+if (!is.na(ATT_CS_CONT_B)) {
+  tab_att("CS cont — <16 vs 17–18", ATT_CS_CONT_B, SE_CS_CONT_B, PVAL_CS_CONT_B) |>
+    knitr::kable(caption="ATT geral pós-2019 (aggte type='simple').", align="lrrrrrr")
+}
+```
+
+### Comparação com modelos de grupo etário inteiro
+
+```{r bloco7-comp}
+dplyr::bind_rows(
+  tab_att("CS — 14-15 vs 16-17 (grupo inteiro)",  ATT_CS_1617,   SE_CS_1617,   PVAL_CS_1617),
+  tab_att("CS — 14-15 vs 17-18 (grupo inteiro)",  ATT_CS_1718,   SE_CS_1718,   PVAL_CS_1718),
+  tab_att("CS cont — <16 vs 16-17 (mês preciso)", ATT_CS_CONT_A, SE_CS_CONT_A, PVAL_CS_CONT_A),
+  tab_att("CS cont — <16 vs 17-18 (mês preciso)", ATT_CS_CONT_B, SE_CS_CONT_B, PVAL_CS_CONT_B)
+) |>
+  knitr::kable(
+    caption=paste("Grupo inteiro: tratamento por idade inteira (14-15).",
+                  "Mês preciso: tratamento por idade_cont < 16.",
+                  "Covariável idade_cont contínua no modelo de mês preciso."),
+    align="lrrrrrr"
+  )
+```
+
+---
+
+## Bloco 8 — DR-DiD com Bandwidth Local {.tabset}
+
+Mesmo estimador duplamente robusto (Callaway & Sant'Anna 2021), mas restringindo a amostra a meninas próximas do cutoff de 16 anos. A lógica é análoga ao RD: quanto mais estreito o bandwidth, mais comparáveis são tratadas e controle — ao custo de menor N.
+
+- **Tratadas:** `idade_cont < 16` (abaixo de 16 em precisão mensal)
+- **Controle:** `idade_cont ≥ 16` (acima de 16, consentimento parental continua permitido)
+- **Covariável:** `idade_cont` contínua no propensity score e outcome regression
+- **Bandwidths:** ±1.0, ±0.75 e ±0.50 anos
+
+### Código
+
+```{r bloco8-codigo, eval=FALSE}
+df <- dados_cont |>
+  filter(abs(idade_c_cont) <= BW, !is.na(idade_cont)) |>
+  mutate(
+    D_cont = as.integer(idade_c_cont < 0),   # tratada: abaixo de 16
+    G      = if_else(D_cont == 1L, 2019, 0),
+    id_obs = row_number()
+  )
+
+cs_bw <- att_gt(
+  yname="em_uniao", tname="Ano", idname="id_obs", gname="G",
+  data=as.data.frame(df), panel=FALSE, control_group="nevertreated",
+  xformla = ~ idade_cont + parda_preta + rural + uf_fct,
+  weightsname="pes_comcalib", est_method="dr", base_period="universal"
+)
+```
+
+### Estatísticas por bandwidth
+
+```{r bloco8-desc}
+if (!is.null(cs_bw_resultados)) {
+  purrr::map_dfr(cs_bw_resultados, function(res) {
+    if (is.null(res)) return(NULL)
+    tibble::tibble(
+      `Bandwidth`      = sprintf("±%.2f anos (~±%d meses)", res$bw, round(res$bw*12)),
+      `N total`        = nrow(res$df),
+      `Tratadas (<16)` = sum(res$df$D_cont == 1),
+      `Controle (≥16)` = sum(res$df$D_cont == 0)
+    )
+  }) |> knitr::kable(caption = "Tamanho amostral por bandwidth.", align = "lrrr")
+}
+```
+
+### ATT por bandwidth
+
+```{r bloco8-att}
+if (!is.null(cs_bw_resultados)) {
+  purrr::map_dfr(cs_bw_resultados, function(res) {
+    if (is.null(res) || is.na(res$att)) return(NULL)
+    tab_att(
+      sprintf("DR-DiD BW ±%.2f anos (~±%d meses)", res$bw, round(res$bw*12)),
+      res$att, res$se, res$pval
+    )
+  }) |>
+    knitr::kable(
+      caption = paste(
+        "DR-DiD por bandwidth. Tratadas: idade_cont < 16. Controle: idade_cont ≥ 16.",
+        "Covariáveis: idade_cont + raça + rural + UF.",
+        "*** p<0.01 ** p<0.05 * p<0.10. Valores em pp."
+      ),
+      align = "lrrrrrr"
+    )
+}
+```
+
+### Event study — ±1.00 ano
+
+```{r bloco8-es-bw100}
+res <- cs_bw_resultados[["bw1"]]
+if (!is.null(res) && !is.null(res$att_es)) {
+  tab_event_study(res$att_es) |>
+    knitr::kable(caption = "DR-DiD BW ±1.00 ano — event study por período. Valores em pp.",
+                 align = "rrrrrrr")
+}
+```
+
+### Event study — ±0.75 ano
+
+```{r bloco8-es-bw075}
+res <- cs_bw_resultados[["bw0.75"]]
+if (!is.null(res) && !is.null(res$att_es)) {
+  tab_event_study(res$att_es) |>
+    knitr::kable(caption = "DR-DiD BW ±0.75 ano — event study por período. Valores em pp.",
+                 align = "rrrrrrr")
+}
+```
+
+### Event study — ±0.50 ano
+
+```{r bloco8-es-bw050}
+res <- cs_bw_resultados[["bw0.5"]]
+if (!is.null(res) && !is.null(res$att_es)) {
+  tab_event_study(res$att_es) |>
+    knitr::kable(caption = "DR-DiD BW ±0.50 ano — event study por período. Valores em pp.",
+                 align = "rrrrrrr")
+}
+```
+
+---
+
+## Sumário Final {.tabset}
+
+### Tabela consolidada
+
+```{r sumario-tab}
+linhas <- list(
+  list("CS (2021) — 15 vs 16 (diagnóstico)", ATT_CS_1516, SE_CS_1516, PVAL_CS_1516),
+  list("TWFE — 14-15 vs 16-17 (benchmark)",  att_twfe,    se_twfe,    pval_twfe),
+  list("CS (2021) — 14-15 vs 16-17",         ATT_CS_1617, SE_CS_1617, PVAL_CS_1617),
+  list("CS (2021) — 14-15 vs 17-18",         ATT_CS_1718, SE_CS_1718, PVAL_CS_1718)
+)
+if (exists("didc_rd") && !is.na(didc_rd))
+  linhas <- c(linhas, list(
+    list("**DiDC rdrobust — design invertido, h=1.00 (PRINCIPAL)**", didc_rd, se_didc_rd, pval_didc_rd)
+  ))
+
+purrr::map_dfr(linhas, ~tab_att(.x[[1]], .x[[2]], .x[[3]], .x[[4]])) |>
+  knitr::kable(
+    caption = paste(
+      "Sumário de todos os estimadores. Valores em pontos percentuais (pp).",
+      "*** p<0.01  ** p<0.05  * p<0.10.",
+      "CS = Callaway & Sant'Anna (2021), doubly robust, RC."
+    ),
+    align = "lrrrrrr"
+  )
+```
+
+### HonestDiD — robustez
+
+```{r sumario-honestdid}
+tibble::tribble(
+  ~Design,                    ~`M calibrado (pp)`, ~`M_max robusto (ΔRM)`, ~`Frágil?`,
+  "15 vs 16 (diagnóstico)",
+    if (!is.null(hd_1516)) round(hd_1516$M_cal*100,4) else NA_real_,
+    NA_real_, "Sim (estrutural)",
+  "14-15 vs 16-17",
+    if (!is.null(hd_1617)) round(hd_1617$M_cal*100,4) else NA_real_,
+    NA_real_, "Ver tabela Bloco 3",
+  "14-15 vs 17-18",
+    if (!is.null(hd_1718)) round(hd_1718$M_cal*100,4) else NA_real_,
+    NA_real_, "Ver tabela Bloco 5"
+) |>
+  knitr::kable(
+    caption="Sumário HonestDiD. M calibrado = máxima variação observada nos coeficientes pré-2018.",
+    align="lrrl"
+  )
+```
+
+---
+
+## Referências
+
+- Callaway & Sant'Anna (2021). *Journal of Econometrics*, 225(2), 200–230.
+- Rambachan & Roth (2023). *Review of Economic Studies*, 90(5), 2555–2591.
+- Sant'Anna & Zhao (2020). *Journal of Econometrics*, 219(1), 101–122.
+- Calonico, Cattaneo & Titiunik (2014). *Econometrica*, 82(6), 2295–2326.
