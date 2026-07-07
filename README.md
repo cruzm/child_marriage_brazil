@@ -3,14 +3,11 @@
 Research project evaluating the causal effects of Lei 13.811/2019 — the 2019
 reform that eliminated all exceptions to the minimum marriage age of 16 in
 Brazil. The paper decomposes the reform's effect on formal vs. informal child
-marriage into legal, economic (Bolsa Família), and normative mechanisms, using
-a three-layer empirical strategy:
+marriage into legal, economic (Bolsa Família), and normative mechanisms.
 
 1. **Structural DCDP model** (discrete-choice dynamic programming) estimated
    on PNADC — recovers mechanism shares.
-2. **Heterogeneous Bolsa Família effects** — triple interaction with a norm
-   index (MomEarly × PBF × outcome).
-3. **Causal identification of the reform** — DiD event study on Registro
+2. **Causal identification of the reform** — DiD event study on Registro
    Civil, McCrary bunching test, and age-based DiD on the PNADC informal
    margin.
 
