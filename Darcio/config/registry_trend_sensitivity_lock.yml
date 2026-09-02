@@ -1,0 +1,142 @@
+extension:
+  name: "registry_post_result_trend_sensitivity"
+  version: "1.0.0"
+  frozen_at: "2026-09-02T13:38:30-03:00"
+  frozen_before_extension_estimation: true
+  post_result_protocol: true
+  modifies_original_lock: false
+  status: >
+    Exploratory sensitivity extension designed after the locked Registry estimates,
+    pretrend diagnostics, and SINASC results were known. It is not ex ante and cannot
+    replace the version-1.0.0 primary specification.
+
+known_before_freeze:
+  - "Locked Registry PPML estimate: -1.1 percent, period-cluster CI [-14.9, 14.9]."
+  - "Otherwise identical no-age-trend estimate: -37.8 percent."
+  - "Existing national linear-seasonal forecast estimate: +2.0 percent."
+  - "Registry joint-lead p-value 0.161, one of four locked placebo dates significant."
+  - "SINASC trended and no-trend estimates diverge and its placebo battery fails."
+
+purpose:
+  question: >
+    Do counterfactual trend models chosen only by pre-2019 rolling-origin forecast
+    performance give a similar short-run Registry conclusion?
+  permitted_claim: >
+    Report model-specific forecast deviations and a cross-model specification envelope.
+  forbidden_claims:
+    - "The extension is preregistered or ex ante."
+    - "The cross-model envelope is a confidence set, identified set, or honest bound."
+    - "A model that forecasts the pre-period well proves parallel counterfactual trends."
+    - "The extension upgrades a failed design into a causal estimate."
+
+input:
+  file: "outputs/data/REGISTRY_QUARTERLY_PANEL_BRAZIL.csv"
+  population: "both sexes combined"
+  treated_age: 15
+  control_ages: [17, 18, 19]
+  outcome: >
+    log(age-15 registrations per 100,000 age-15 residents) minus log(pooled
+    age-17--19 registrations per 100,000 pooled age-17--19 residents)
+  zero_rule: "fail; no continuity correction or imputation"
+
+windows:
+  pre: "2013Q1-2018Q4"
+  omitted_partial_period: "2019Q1"
+  target: "2019Q2-2019Q4"
+  target_statistic: "unweighted mean actual-minus-forecast log-rate gap"
+  rolling_origin:
+    horizon_quarters: 3
+    common_minimum_training_quarters: 16
+    common_window_starts: ["2017Q1", "2017Q2", "2017Q3", "2017Q4", "2018Q1", "2018Q2"]
+    rule: >
+      At each origin, fit using only quarters strictly before the three-quarter
+      placebo window. Do not update the model inside the forecast window.
+
+candidate_models:
+  - id: "seasonal_level"
+    formula: "log_rate_gap ~ quarter_factor"
+    training: "all observations available before the forecast origin"
+  - id: "global_linear"
+    formula: "log_rate_gap ~ period_index + quarter_factor"
+    training: "all observations available before the forecast origin"
+  - id: "global_quadratic"
+    formula: "log_rate_gap ~ period_index + I(period_index^2) + quarter_factor"
+    training: "all observations available before the forecast origin"
+  - id: "local_linear_12"
+    formula: "log_rate_gap ~ period_index + quarter_factor"
+    training: "last 12 quarters before the forecast origin"
+  - id: "local_linear_16"
+    formula: "log_rate_gap ~ period_index + quarter_factor"
+    training: "last 16 quarters before the forecast origin"
+
+pre_period_scoring:
+  unit: "six overlapping three-quarter placebo-window mean forecast errors"
+  primary_metric: "root mean squared placebo-window error on the log-rate scale"
+  secondary_metrics:
+    - "mean signed placebo-window error"
+    - "mean absolute placebo-window error"
+    - "maximum absolute placebo-window error"
+    - "number of placebo windows within a rate-ratio factor of 1.20"
+  ranking: "ascending primary RMSE; ties broken alphabetically by model id"
+  fixed_weight_ensemble: >
+    Weights proportional to inverse squared rolling-window RMSE, normalized to one;
+    weights are fixed using pre-2019 outcomes only. The ensemble receives a point
+    estimate but no bootstrap interval.
+
+calibration_tiers:
+  strong:
+    absolute_mean_error_max: 0.048790164169432   # log(1.05)
+    maximum_absolute_window_error_max: 0.139761942375159  # log(1.15)
+    windows_required_within_1_15: 6
+  qualified:
+    absolute_mean_error_max: 0.095310179804325   # log(1.10)
+    maximum_absolute_window_error_max: 0.223143551314210  # log(1.25)
+    window_absolute_error_threshold: 0.182321556793955     # log(1.20)
+    windows_required_within_1_20: 5
+  fail: "does not satisfy the qualified tier"
+  gate_rule: >
+    Strong if any candidate is strong; qualified-with-reservations if none is strong
+    and at least one is qualified; fail otherwise. Select the lowest-RMSE model within
+    the best tier. If all fail, show the lowest-RMSE model but label the gate failed.
+
+post_period_reporting:
+  report_every_candidate: true
+  report_fixed_weight_ensemble: true
+  all_model_envelope: "minimum and maximum point estimate across all five candidates"
+  calibrated_model_envelope: >
+    Minimum and maximum point estimate among strong or qualified candidates; missing
+    if no candidate passes the qualified tier.
+  locked_ppml_remains_primary: true
+
+bootstrap:
+  purpose: "model-specific forecast uncertainty, not causal identification"
+  replications: 1999
+  random_seed: 13811
+  block_length_quarters: 4
+  resampling: "circular moving blocks of centered model-specific pre-period residuals"
+  refit_each_draw: true
+  interval: >
+    Invert the 2.5 and 97.5 percentiles of the bootstrapped three-quarter mean
+    forecast error around the observed target deviation.
+  p_value: >
+    Two-sided empirical tail probability comparing the absolute bootstrapped mean
+    forecast error with the absolute observed target deviation, plus-one corrected.
+
+required_outputs:
+  - "outputs/tables/REGISTRY_TREND_SENSITIVITY_MODELS.csv"
+  - "outputs/tables/REGISTRY_TREND_SENSITIVITY_PLACEBOS.csv"
+  - "outputs/tables/REGISTRY_TREND_SENSITIVITY_SUMMARY.csv"
+  - "outputs/figures/FIGURE_13_REGISTRY_TREND_SENSITIVITY.pdf"
+  - "outputs/audit/REGISTRY_TREND_SENSITIVITY_ACCEPTANCE_TESTS.csv"
+  - "outputs/analysis/REGISTRY_TREND_SENSITIVITY_RESULTS.md"
+
+acceptance_tests:
+  - "exactly 24 pre quarters and three target quarters"
+  - "2019Q1 excluded from estimation and target"
+  - "exactly five frozen candidates and six common placebo windows"
+  - "every forecast uses only observations strictly before its window"
+  - "all model forecasts and bootstrap draws finite"
+  - "1999 bootstrap replications for every model"
+  - "ensemble weights finite, positive, and sum to one"
+  - "all outputs label the exercise post-result and the envelope noncausal"
+

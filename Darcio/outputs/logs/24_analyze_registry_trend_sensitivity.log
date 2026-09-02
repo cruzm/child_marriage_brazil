@@ -1,0 +1,13 @@
+start_time=2026-09-02T13:47:28-0300
+end_time=2026-09-02T13:47:45-0300
+elapsed_seconds=17.450
+protocol_yaml_sha256=04cdab04f79981b2d101d18d85dec6083938d8009acc1f9862d09c65aa6beb46
+protocol_md_sha256=268192691f7cd90f4165f059d814d2cfdfaea8b095d9c71e5ea28907f0812881
+gate_status=failed
+selected_model=global_linear
+selected_percent_change=1.997489715238
+ensemble_percent_change=3.011359894632
+all_model_envelope_percent=[-33.683194585123,12.840395739440]
+tests_passed=13
+tests_total=13
+status=complete

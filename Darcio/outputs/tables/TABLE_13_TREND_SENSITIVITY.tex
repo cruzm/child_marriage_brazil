@@ -1,0 +1,19 @@
+\begin{table}[!htbp]
+\centering
+\caption{Post-result forecast validation of counterfactual trend models (frozen lock v1.0.0). Calibration gate: \emph{failed} --- no candidate reaches the qualified tier; the locked PPML remains primary and the cross-model range is a specification envelope, not a confidence set.}
+\label{tab:trend_sensitivity}
+\begingroup\small
+\begin{tabular}{lccclccc}
+  \hline
+ Candidate & RMSE & Max $|$err$|$ & $\le$1.20 & Tier & 2019Q2--Q4 \% & Forecast 95\% & $p$ \\ 
+  \hline
+Global linear trend & 0.131 & 0.233 & 5/6 & fail & 2.0 & [-17.6; 23.4] & 0.85 \\
+Local linear (12q) & 0.156 & 0.219 & 4/6 & fail & 1.1 & [-14.4; 18.8] & 0.89 \\
+Local linear (16q) & 0.157 & 0.233 & 4/6 & fail & 10.1 & [-10.8; 37.0] & 0.42 \\
+Global quadratic & 0.243 & 0.377 & 3/6 & fail & 12.8 & [-13.6; 48.3] & 0.41 \\
+Seasonal level (no trend) & 0.391 & 0.470 & 0/6 & fail & -33.7 & [-54.7; -0.3] & 0.04 \\
+  \hline
+\end{tabular}
+\endgroup
+\par\smallskip\begingroup\footnotesize Six overlapping three-quarter rolling windows, 2017Q1--2018Q2, models fit strictly before each window; RMSE of window-mean errors (log scale). Intervals: circular moving-block bootstrap (1,999 draws) of the three-quarter mean forecast error. Inverse-RMSE$^2$ ensemble: $+3.0\%$ (point only). All-model envelope: $[-33.7\%, +12.8\%]$.\endgroup
+\end{table}

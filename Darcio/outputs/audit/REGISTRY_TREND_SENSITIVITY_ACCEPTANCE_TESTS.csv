@@ -1,0 +1,14 @@
+test,passed,observed
+YAML lock hash matches,TRUE,04cdab04f79981b2d101d18d85dec6083938d8009acc1f9862d09c65aa6beb46
+prose protocol hash matches,TRUE,268192691f7cd90f4165f059d814d2cfdfaea8b095d9c71e5ea28907f0812881
+protocol labeled post-result,TRUE,TRUE
+24 pre quarters,TRUE,24
+one omitted partial quarter,TRUE,2019Q1
+three target quarters,TRUE,"2019Q2,2019Q3,2019Q4"
+five frozen candidate models,TRUE,"global_linear,local_linear_12,local_linear_16,global_quadratic,seasonal_level"
+six windows per model,TRUE,"6,6,6,6,6"
+no rolling information leakage,TRUE,0
+all forecasts finite,TRUE,TRUE
+1999 bootstrap draws per model,TRUE,"1999,1999,1999,1999,1999"
+ensemble weights positive and sum to one,TRUE,1.000000000000000
+results label envelope noncausal,TRUE,"specification envelope; not a confidence set, identified set, or causal bound"
