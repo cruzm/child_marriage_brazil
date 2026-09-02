@@ -48,7 +48,9 @@ Subsaariana (2026, observacional).
    algumas páginas; WPs muito recentes podem não estar indexados).
 2. Frasear "first **causal** evaluation" — existem descritivos (Faria 2025; Urquia et
    al. 2022) e ampla doutrina jurídica; citá-los como antecedentes, não omiti-los.
-3. Checagens manuais pré-submissão: (i) abrir SSRN 6373839 no navegador (403 no fetch);
-   (ii) verificar no PDF de Le et al. (JHE 2025) se o Brasil está no painel de países —
-   se estiver, qualificar para "first evaluation focused specifically on Brazil's Law
-   13.811/2019".
+3. Checagens pré-submissão: (i) abrir SSRN 6373839 no navegador (Cloudflare bloqueia
+   acesso automatizado) — ÚNICA pendência manual restante; (ii) ~~painel de Le et al.~~
+   **RESOLVIDO 2026-09-02**: busca no texto completo do PDF oficial da IZA (DP 17089)
+   — zero ocorrências de "Brazil"; o painel de 18 países exclui o Brasil e o claim
+   dispensa qualificador. Bônus da verificação: autoria corrigida (Dung D. Le, não
+   "Kien Le").

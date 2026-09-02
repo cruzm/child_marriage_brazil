@@ -52,10 +52,10 @@ Brazil.
 
 \section{Introduction}\label{sec:intro}
 
-Minimum-age-of-marriage laws are the standard policy instrument against child marriage.
-More than fifty countries have tightened them since 2000, and ending child marriage by 2030
-is an explicit target of the Sustainable Development Goals. The evidence on whether these
-laws change behavior, however, is mixed at best: enforcement is weak in most of the
+Minimum-age-of-marriage laws are a common policy response to child marriage, and
+eliminating child, early, and forced marriage is Target 5.3 of the Sustainable
+Development Goals \citep{UnitedNationsSDG5}. The evidence on whether these laws change
+behavior, however, is mixed at best: enforcement is weak in most of the
 developing world \citep{CollinTalbot2023}, Mexico's state-level bans reduced
 \emph{registered} child marriages while informal unions took their place
 \citep{BellesObreroLombardi2023}, and an information experiment in Bangladesh found that
@@ -172,8 +172,10 @@ queries across economics (SSRN, NBER, IZA, CEPR, ANPEC), demography, public heal
 international studies---found no causal evaluation of Law 13,811/2019. Existing
 empirical work is descriptive: \citet{Urquia2022} explicitly present their 2011--2018
 perinatal series as a baseline against which the 2019 reform could later be measured,
-and a student report supervised by one of the authors (Faria, 2025, Insper) documents
-descriptively that the decline predates the law.} complementing
+and a student report supervised by one of the authors \citep{Faria2025} documents
+descriptively that the decline predates the law. We also verified that Brazil is not
+among the 18 countries in the multi-country ban panel of \citet{LeMolinaIbukaGoto2025}
+(full text, IZA DP 17089).} complementing
 the Mexican staggered-adoption evidence \citep{BellesObreroLombardi2023} with a
 single-national-reform design and a triangulation across formal-flow, coresident-stock,
 and status-at-birth measures. Substantively, we document a limiting case with general
@@ -437,6 +439,31 @@ toward legal ages, and with 2.1 point-estimated averted events there is little t
 recapture. By sex, the female estimate is $-9.7\%$ (Holm $p=0.125$); the male
 $+155.8\%$ is driven by 36 zero cells on a rare base and is not interpretable.
 
+It is worth stating the stakes of this imprecision in persons rather than percentages.
+The locked levels estimate is 2.1 registrations averted over 2019Q2--Q4, with a
+confidence interval from $-25$ to $+34$ events---roughly $-34$ to $+45$ marriages on
+an annualized basis, against 419 under-16 marriages registered in all of 2019. Effects
+that would matter for hundreds of Brazilian adolescents over a decade therefore live
+comfortably inside our interval; what the data reject is only a transformation of the
+formal margin on the scale the literature documents elsewhere. That is not a
+shortcoming of the design so much as the arithmetic of the setting: a national ban
+aimed at a margin of a few hundred registrations per year cannot produce---and cannot
+be shown to produce---effects measured in thousands.
+
+\subsection{The longer run, and why we do not claim it}
+
+The diagnostic event study continues past the primary window, and its 2022--2024
+coefficients are large: rate ratios between roughly 0.21 and 0.32 in several quarters,
+against 17--19-year-old controls. Descriptively, under-16 marriages fell from 419 in
+2019 to 193 in 2024. We deliberately attribute none of this to the law. The
+intervening pandemic moved registrations, unions, and births in age-specific ways no
+fixed effect absorbs; the long-run coefficients carry five-region diagnostic inference
+that Amendment~1 already disqualified for formal conclusions; and the locked windows
+designate 2020--2021 as contaminated and 2022--2024 as descriptive. A reader who
+wants to see the long run finds it in the replication package, plotted and tabulated;
+a reader who wants a causal long-run estimate needs a design that separates the
+reform from the pandemic, which these data do not provide.
+
 \input{tables/TABLE_03_REGISTRY_PRIMARY.tex}
 
 \section{Unions and formalization at birth}\label{sec:behavior}
@@ -499,7 +526,10 @@ variant whose pre-window starts in 2016, after the flattening, which returns $+1
 ($p=0.86$), exactly as the artifact reading predicts. We therefore report
 $[-23.9\%, +29.3\%]$ as a specification range, not a causal confidence interval. The
 \emph{uni\~ao-est\'avel} and any-union contrasts
-($+3.7\%$ and $+5.1\%$) inherit the same defect and receive no causal reading. Two
+($+3.7\%$ and $+5.1\%$) inherit the same defect and receive no causal reading; their
+point estimates sit inside the pre-set equivalence margin of a 0.85--1.176 rate ratio
+(TOST $p<0.001$), while the married contrast does not ($p=0.89$), but under a rejected
+design equivalence is a description of the estimates, not of the reform. Two
 frozen diagnostics survive: the fertility-composition contrast---births to mothers aged
 15 per 100,000 girls aged 15---is $+1.6\%$ (95\% CI $[-1.3\%, +4.6\%]$;
 $p=0.284$), and unknown-status reporting shows no detectable differential change
@@ -528,10 +558,24 @@ multiplicity (Holm within families). A pre-exposure triple-difference---regions 
 higher pre-law shares of under-16 marriages---shows a positive but imprecise gradient
 ($+9.9\%$ per SD, $p=0.332$) and a $-0.618$ holdout correlation between exposure and
 2018 changes, indicating mean reversion; it does not identify the national effect and is
-reported as descriptive. The threats we cannot address are named rather than assumed
-away: anticipation between the bill's passage and enforcement; age measured in completed
-years; nationally synchronized age-specific shocks, which no fixed effect absorbs; and
-the selection inherent in any status-at-birth outcome.
+reported as descriptive.
+
+Two timing threats deserve their own accounting. Anticipation in the rush-to-marry
+direction---couples accelerating a marriage before the ban---is not visible in the
+data: the diagnostic event-study coefficients for 2018Q3 and 2018Q4 are $-0.7\%$ and
+$-1.9\%$ (both $p>0.80$), and the partially treated transition quarter 2019Q1, which
+the locked estimand omits, shows a $-25.2\%$ dip ($p=0.02$, five-region diagnostic
+inference only), consistent with the law biting within its own quarter of entry rather
+than being front-run. The opposite threat---\emph{de facto} tightening before the
+\emph{de jure} change, with judges increasingly refusing the pregnancy-exception
+authorizations that were the only gateway below 16---cannot be tested with our data:
+if courts had largely closed the gate before March 2019, treatment is mis-dated, part
+of the pre-period path already reflects enforcement, and our short-run contrast
+understates the total effect of the legal regime. We flag this as an unverifiable
+threat; administrative records of authorization requests and refusals would resolve it
+and, to our knowledge, are not publicly available. The remaining named threats are age
+measured in completed years; nationally synchronized age-specific shocks, which no
+fixed effect absorbs; and the selection inherent in any status-at-birth outcome.
 
 \section{Discussion and conclusion}\label{sec:conclusion}
 

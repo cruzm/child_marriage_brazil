@@ -17,6 +17,7 @@ em 2026-09-02, salvo nota.
 | Campos (s.d., WP) | "The Effects of Mexico's Child Marriage Ban on Adolescent Fertility, Domestic Violence, and Female Labor Income", SSRN 6373839 | Página SSRN (abstract) | Concorrência ativa; citar como WP se necessário | **partially verified** |
 | Lei nº 13.811/2019 | Planalto, texto legal | Aberta e conferida (pipeline, 2026-09-01) | Tratamento: revogação das exceções do art. 1.520 | **verified** |
 | Código Civil (L. 10.406/2002), arts. 1.517–1.520 | Planalto, texto compilado | Aberta e conferida (pipeline, 2026-09-01) | 16–17 seguem casáveis com autorização | **verified** |
+| United Nations DESA — SDG 5, Target 5.3 | Página oficial `sdgs.un.org/goals/goal5` | Aberta e conferida em 2026-09-02 | Target 5.3 explicita eliminar casamento infantil, precoce e forçado | **verified** |
 | SINASC — dicionários e dataset | SVS/MS + OpenDataSUS | Abertos e arquivados em `references/sinasc/` | Definições ESTCIVMAE/IDADEMAE/DTNASCMAE | **verified** |
 | IBGE — SIDRA 4406, Registro Civil, PNADC | Páginas oficiais IBGE | Conferidas (pipeline, 2026-09-01) | Fluxo formal, denominadores, união corresidente | **verified** |
 
@@ -24,8 +25,18 @@ em 2026-09-02, salvo nota.
 | Bella et al. (2025) | "Beyond the Minimum: The Impact of Indonesia's Marriage Age Law…", Monash CHE WP 2025-17 | IDEAS/RePEc aberto | Concorrente temático recente (Indonésia, RD) | **verified** (como WP) |
 | Campos (2026, WP) | SSRN 6373839, México; postado 2026-03-08; sem publicação registrada | Snippets restritos a ssrn.com (fetch 403) | Concorrência ativa no tema | **partially verified** |
 
-Pendências antes do Gate 5: elevar Batyra & Pesando, García-Hombrados e Urquia et al. a
-`verified` (abrir página oficial); abrir SSRN 6373839 manualmente no navegador; verificar
-no PDF de Le et al. (JHE 2025) se o Brasil integra o painel de países (se sim, qualificar
-o claim de novidade); varredura final de todos os DOI. Protocolo de novidade: rodadas 1–2
-concluídas em 2026-09-02 — veredicto e qualificações em `NOVELTY_SEARCH_LOG.md`.
+**Atualização 2026-09-02 (tarde):** Batyra & Pesando elevado a `verified` (PubMed +
+depósito institucional McGill com cabeçalho impresso "SSM – Population Health 14 (2021)
+100811"). García-Hombrados elevado a `verified` (registro RePEc completo: JPopEcon
+35(3): 1163–1223, jul/2022; página Springer atrás de bot-wall). Urquia et al. elevado a
+`verified` via PMC (PMC9018448; **autores corrigidos no .bib**: Viviane Cunha Cardoso,
+não "Marizelia"; vol. 18). Le et al.: **Brasil NÃO está no painel de 18 países** —
+verificado por busca no texto completo do PDF oficial da IZA (DP 17089; zero ocorrências
+de "Brazil"); claim de novidade dispensa qualificador. Faria (2025) agora tem entrada
+BibTeX (`Faria2025`, verified pela página do repositório Insper; conferir iniciais do
+nome na submissão).
+
+Pendência única restante antes do Gate 5: **SSRN 6373839 (Campos)** — página atrás de
+Cloudflare para acesso automatizado; abrir manualmente no navegador para confirmar
+status de publicação. Varredura final de DOIs na véspera da submissão. Protocolo de
+novidade: rodadas 1–2 concluídas — veredicto em `NOVELTY_SEARCH_LOG.md`.

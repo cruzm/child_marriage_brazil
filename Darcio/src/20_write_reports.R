@@ -416,6 +416,7 @@ technical <- c(
   "- IBGE. [SIDRA, tabela 4406](https://sidra.ibge.gov.br/tabela/4406). Acesso em 2026-09-01.",
   "- IBGE. [PNAD Contínua](https://www.ibge.gov.br/estatisticas/economicas/contas-nacionais/17270-pnad-continua.html). Acesso em 2026-09-01.",
   "- IBGE. [Documentação trimestral da PNADC](https://ftp.ibge.gov.br/Trabalho_e_Rendimento/Pesquisa_Nacional_por_Amostra_de_Domicilios_continua/Trimestral/Microdados/Documentacao/). Acesso em 2026-09-01.",
+  "- United Nations DESA. [Sustainable Development Goal 5, Target 5.3](https://sdgs.un.org/goals/goal5). Acesso em 2026-09-02.",
   "",
   "Títulos, URLs, cópias locais, hashes e notas de conferência estão em `references/SOURCES.csv`."
 )

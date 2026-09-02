@@ -13,9 +13,9 @@ claims are aligned with the post-A1 SINASC outputs and the executed Registry
 rolling-origin exercise. The latter did not close identification: all five candidate
 counterfactuals fail the frozen calibration rule. The remaining binding items are:
 (i) new identifying information rather than another functional form fit to the same 24
-pre-quarters, (ii) manual completion of the novelty checks listed in
-`NOVELTY_SEARCH_LOG.md`, and (iii) verification or weakening of broad international-policy
-claims in the opening paragraph.
+pre-quarters and (ii) manual completion of the novelty checks listed in
+`NOVELTY_SEARCH_LOG.md`. The unsupported count of countries in the opening paragraph was
+removed; the narrower SDG Target 5.3 claim is now anchored to the official UN page.
 
 | ID | Location / claim | Type | Evidence | Status | Maximum defensible wording / action |
 |---|---|---|---|---|---|
@@ -47,6 +47,7 @@ claims in the opening paragraph.
 | C26 | Registry point estimates across the five forecast models span −33.7% to +12.8% | specification sensitivity | `REGISTRY_TREND_SENSITIVITY_SUMMARY.csv` | **verified from files, descriptive** | Call this an all-model **point-estimate specification envelope**, not a confidence set, identified set, or causal bound. |
 | C27 | The sensitivity exercise rules out a Mexico-sized 49% decline | cross-design causal comparison | C25--C26 plus model-specific intervals | **false design-wide** | The decline is outside the locked/global-linear intervals but inside the seasonal-level interval [−54.7%, −0.3%]. Use Mexico only as contextual scale. |
 | C28 | The inverse-RMSE-squared ensemble estimates +3.0% | model averaging | `REGISTRY_TREND_SENSITIVITY_SUMMARY.csv` | **verified from files, descriptive** | Report as the frozen-weight point estimate only; no ensemble interval was prespecified, and failed component calibration prevents causal elevation. |
+| C29 | Eliminating child, early, and forced marriage is SDG Target 5.3 | international policy | official UN DESA Goal 5 page; `references/SOURCES.csv` | **verified externally** | State the target. The earlier unsupported “more than fifty countries” count was removed rather than approximated. |
 
 ## Current canonical Registry trend-sensitivity numbers
 
