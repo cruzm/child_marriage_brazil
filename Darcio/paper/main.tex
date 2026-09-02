@@ -574,10 +574,21 @@ authorizations that were the only gateway below 16---cannot be tested with our d
 if courts had largely closed the gate before March 2019, treatment is mis-dated, part
 of the pre-period path already reflects enforcement, and our short-run contrast
 understates the total effect of the legal regime. We flag this as an unverifiable
-threat; administrative records of authorization requests and refusals would resolve it
-and, to our knowledge, are not publicly available. The remaining named threats are age
-measured in completed years; nationally synchronized age-specific shocks, which no
-fixed effect absorbs; and the selection inherent in any status-at-birth outcome.
+threat. The public DataJud API exposes the relevant process class, but only for public
+proceedings, while Brazilian civil procedure places cases concerning marriage under
+judicial secrecy; moreover, the mandated historical load does not guarantee cases closed
+before 2020 \citep{CNJDataJudAPI,CodigoProcessoCivil2015,CNJResolution331}. Our
+aggregate probe of all 27 state-court endpoints is not a usable workaround: 94.1\% of
+3,574 public class-143 records had filing dates after the September 2, 2026 snapshot,
+and only 179 had plausible dates in 2013--2024. Secrecy-inclusive, age-specific records
+of requests and decisions would directly test the de facto-timing threat, but no such
+research-ready public file is available. A higher-return redesign is feasible in
+principle: the restricted IBGE Registry instrument collects exact celebration and birth
+dates and spouse residence, and IBGE identifies its controlled-access room as the route
+for external researchers \citep{IBGERegistryInstrument,IBGEConfidentiality2018}.
+Year-by-year retention and project approval remain outstanding. The remaining named threats
+are age measured in completed years; nationally synchronized age-specific shocks, which
+no fixed effect absorbs; and the selection inherent in any status-at-birth outcome.
 
 \section{Discussion and conclusion}\label{sec:conclusion}
 

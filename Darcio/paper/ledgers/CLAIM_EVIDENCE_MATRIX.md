@@ -1,7 +1,7 @@
 # Claim--Evidence Matrix — Paper 1
 
-**Version:** 2026-09-02, after SINASC Amendment A1 and the frozen post-result
-Registry trend-sensitivity exercise.  
+**Version:** 2026-09-02, after SINASC Amendment A1, the frozen post-result
+Registry trend-sensitivity exercise, and the administrative-data feasibility audit.
 **Rule:** `verified` means the cited local artifact or primary external source was
 opened. A model-dependent interval never becomes a design-free bound, and failure to
 reject zero never becomes evidence of zero.
@@ -12,8 +12,9 @@ The manuscript can proceed as a working draft, but Gate 5 remains open. The nume
 claims are aligned with the post-A1 SINASC outputs and the executed Registry
 rolling-origin exercise. The latter did not close identification: all five candidate
 counterfactuals fail the frozen calibration rule. The remaining binding items are:
-(i) new identifying information rather than another functional form fit to the same 24
-pre-quarters and (ii) manual completion of the novelty checks listed in
+(i) confirmation and access for the exact-date, residence-based Registry fields documented
+in the IBGE `RC.2` instrument, rather than another functional form fit to the same 24
+pre-quarters, and (ii) manual completion of the novelty checks listed in
 `NOVELTY_SEARCH_LOG.md`. The unsupported count of countries in the opening paragraph was
 removed; the narrower SDG Target 5.3 claim is now anchored to the official UN page.
 
@@ -48,6 +49,10 @@ removed; the narrower SDG Target 5.3 claim is now anchored to the official UN pa
 | C27 | The sensitivity exercise rules out a Mexico-sized 49% decline | cross-design causal comparison | C25--C26 plus model-specific intervals | **false design-wide** | The decline is outside the locked/global-linear intervals but inside the seasonal-level interval [−54.7%, −0.3%]. Use Mexico only as contextual scale. |
 | C28 | The inverse-RMSE-squared ensemble estimates +3.0% | model averaging | `REGISTRY_TREND_SENSITIVITY_SUMMARY.csv` | **verified from files, descriptive** | Report as the frozen-weight point estimate only; no ensemble interval was prespecified, and failed component calibration prevents causal elevation. |
 | C29 | Eliminating child, early, and forced marriage is SDG Target 5.3 | international policy | official UN DESA Goal 5 page; `references/SOURCES.csv` | **verified externally** | State the target. The earlier unsupported “more than fifty countries” count was removed rather than approximated. |
+| C30 | Judicial authorization requests/refusals are not publicly available | data availability | CNJ DataJud documentation; CPC art. 189; `DATAJUD_CLASS_143_PUBLIC_PROBE.csv` | **false as an unqualified statement** | A relevant public process class exists, but it excludes secret cases and lacks a complete, reliable pre-2019 age-specific series. Say that no research-ready public file was found. |
+| C31 | Public DataJud class 143 can test pre-law judicial tightening | mechanism/identification | 27-court aggregate probe; Resolutions 331/2020 and 437/2021 | **not supported** | Public API is audit-only: 94.1% of 3,574 records have post-snapshot dates, the class conflates age/consent, and only three courts have plausible 2019 records. Seek secrecy-inclusive aggregates. |
+| C32 | Restricted IBGE Registry files may contain exact celebration/birth dates and residence | data availability | 2009 RC manual; 2022 RC.2 questionnaire; IBGE confidentiality and SAR manuals | **verified as collected and access-route eligible; annual retention not yet verified** | State that the instrument collects the fields and SAR is the documented access route. Do not claim that every 2013--2024 analytical file is complete until IBGE confirms it. |
+| C33 | Exact Registry microdata would by themselves create a conventional RD | identification | event-only data structure; `ADMINISTRATIVE_DATA_FEASIBILITY_2026-09-02.md` | **false** | Use an age-by-calendar difference in discontinuities for event rates only with a compatible risk-set denominator and continuity diagnostics. |
 
 ## Current canonical Registry trend-sensitivity numbers
 

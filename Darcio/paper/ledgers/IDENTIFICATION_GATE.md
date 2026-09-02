@@ -88,7 +88,18 @@ close this gate.
 
 ## Higher-return data alternative
 
-Exact event and birth dates, residence-compatible civil-registration microdata, or
-administrative records of requests and refusals below age 16 would improve the design
-more than another transformation of the same 27-quarter comparison. Availability is not
-verified.
+Exact event and birth dates and residence-compatible civil-registration microdata would
+improve the design more than another transformation of the same 27-quarter comparison.
+The official IBGE `RC.2` questionnaire collects all three objects, and an official
+confidentiality manual identifies the Sala de Acesso a Dados Restritos (SAR) as the route
+for external researchers to use non-public Civil Registry microdata. Retention and
+year-by-year completeness of the required fields still require confirmation from IBGE.
+
+A second route is administrative records of requests and decisions below age 16. A
+nationwide public-DataJud probe found TPU class 143, but it is not estimation-ready:
+94.1% of 3,574 public records had filing dates after the 2026-09-02 snapshot, only three
+courts had a plausible 2019 record, the class combines age and parental consent, and the
+public API excludes secret cases. Because full DataJud receives public and secret cases,
+a secrecy-inclusive aggregate request to the CNJ remains a useful mechanism extension,
+not a substitute for the restricted Registry redesign. See
+`ADMINISTRATIVE_DATA_FEASIBILITY_2026-09-02.md`.

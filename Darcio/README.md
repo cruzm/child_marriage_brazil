@@ -13,6 +13,8 @@ Leia primeiro:
 - [Auditoria dos dados](outputs/audit/DATA_AUDIT.md)
 - [Estimandos e specification lock](outputs/analysis/ESTIMANDS_AND_SPECIFICATIONS.md)
 - [Status final dos testes](outputs/analysis/FINAL_ACCEPTANCE.md)
+- [Próximo redesenho de dados: microdados restritos do Registro Civil e DataJud](paper/ledgers/ADMINISTRATIVE_DATA_FEASIBILITY_2026-09-02.md)
+- [Crawler auditável das tabelas públicas do Registro Civil/IBGE](crawler_pdpj/README_REGISTRO_CIVIL.md)
 
 ## Replicação integral
 
