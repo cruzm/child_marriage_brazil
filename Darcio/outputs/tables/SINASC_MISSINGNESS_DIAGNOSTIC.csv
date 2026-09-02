@@ -1,0 +1,2 @@
+specification,coef_log,se_log,p_value,rate_ratio,pct_change,ci_lower_pct,ci_upper_pct,n_cells,n_treated_post_events
+diagnostic_unknown_status_share,0.0335390582214544,0.060119316101864,0.576929803592186,1.03410783335026,3.41078333502627,-8.08377641841653,16.3427923088257,1420,

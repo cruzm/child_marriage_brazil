@@ -1,0 +1,11 @@
+[2026-09-02 11:35:01] start | lock version 1.0.0 frozen 2026-09-02T11:28:14-03:00 
+[2026-09-02 11:35:02] primary panel | cells=1660 | zero-exposure cells dropped=0 
+[2026-09-02 11:35:02] treated post events | married=270 ue=7848 valid=40126 
+[2026-09-02 11:35:02] event study | leads=24 joint p=0 
+[2026-09-02 11:35:03] done in 0.0 min 
+[2026-09-02 13:00:56] start | lock version 1.0.0 frozen 2026-09-02T11:28:14-03:00 
+[2026-09-02 13:00:56] Amendment A1 applied: birth_year 2015 excluded from all samples 
+[2026-09-02 13:00:56] primary panel | cells=1420 | zero-exposure cells dropped=0 
+[2026-09-02 13:00:56] treated post events | married=270 ue=7848 valid=40126 
+[2026-09-02 13:00:57] event study | leads=24 joint p=0 
+[2026-09-02 13:00:58] done in 0.0 min 

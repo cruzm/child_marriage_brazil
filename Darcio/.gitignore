@@ -13,3 +13,11 @@ library/
 .Rproj.user/
 *.swp
 
+
+# Windows download metadata and LaTeX build artifacts.
+*Zone.Identifier
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.blg
+paper/*.bbl

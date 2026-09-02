@@ -1,0 +1,11 @@
+object,type,script,source_data,specification,causal_status
+SINASC_STATUS_PRIMARY.csv,table,src/22_analyze_sinasc.R,SINASC_MONTHLY_STATUS_CELLS,sinasc_extension_lock v1.0.0 S1-S3,"diagnostics REJECT causal reading (joint leads p~0; placebos 2017/2018 significant); descriptive/diagnostic only"
+SINASC_STATUS_ROBUSTNESS.csv,table,src/22_analyze_sinasc.R,SINASC_MONTHLY_STATUS_CELLS,frozen robustness family,"same artifact family; specification-dependence bracket [-23.6%,+30.0%]"
+SINASC_PLACEBO_DATES.csv,table,src/22_analyze_sinasc.R,SINASC_MONTHLY_STATUS_CELLS,frozen placebo battery,"validity diagnostic; rejects trend model"
+SINASC_STATUS_EVENT_STUDY.csv,table,src/22_analyze_sinasc.R,SINASC_MONTHLY_STATUS_CELLS,frozen event study,"shows flat relative path 2017-2019; no break at law"
+SINASC_EVENT_STUDY_DIAGNOSTICS.csv,table,src/22_analyze_sinasc.R,SINASC_MONTHLY_STATUS_CELLS,frozen leads joint test,"p~0"
+SINASC_BRAZIL_HAC.csv,table,src/22_analyze_sinasc.R,SINASC_MONTHLY_STATUS_CELLS,frozen HAC triangulation,"same artifact; diagnostic"
+SINASC_MISSINGNESS_DIAGNOSTIC.csv,table,src/22_analyze_sinasc.R,SINASC_MONTHLY_STATUS_CELLS,frozen diagnostic,"null; no differential reporting change"
+SINASC_FERTILITY_S4.csv,table,src/22_analyze_sinasc.R,SINASC cells + PNADC female denominators,frozen S4,"null contrasts; short-run"
+FIGURE_11_SINASC_STATUS_SHARES,figure,src/22_analyze_sinasc.R,SINASC_MONTHLY_STATUS_CELLS,descriptive,"descriptive"
+FIGURE_12_SINASC_STATUS_EVENT_STUDY,figure,src/22_analyze_sinasc.R,SINASC_MONTHLY_STATUS_CELLS,frozen event study,"diagnostic"

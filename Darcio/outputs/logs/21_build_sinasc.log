@@ -1,0 +1,14 @@
+[2026-09-02 11:29:55] start | host=DarcioWork | cores=14 | free_mem=20.3GiB 
+[2026-09-02 11:30:12] year 2013 | raw=2904027 | bad_date=0 | bad_region=0 | kept 10-19=559991 | 16.7s | RSS=1186MB 
+[2026-09-02 11:30:31] year 2014 | raw=2979259 | bad_date=0 | bad_region=0 | kept 10-19=562608 | 19.2s | RSS=1702MB 
+[2026-09-02 11:30:45] year 2015 | raw=2786525 | bad_date=1 | bad_region=0 | kept 10-19=495286 | 14.0s | RSS=1776MB 
+[2026-09-02 11:30:57] year 2016 | raw=2857800 | bad_date=0 | bad_region=0 | kept 10-19=501381 | 12.1s | RSS=1776MB 
+[2026-09-02 11:31:12] year 2017 | raw=2923535 | bad_date=0 | bad_region=0 | kept 10-19=480923 | 14.4s | RSS=1984MB 
+[2026-09-02 11:31:29] year 2018 | raw=2944932 | bad_date=0 | bad_region=0 | kept 10-19=456128 | 17.0s | RSS=2270MB 
+[2026-09-02 11:31:42] year 2019 | raw=2849146 | bad_date=0 | bad_region=0 | kept 10-19=419252 | 13.0s | RSS=2281MB 
+[2026-09-02 11:31:55] year 2020 | raw=2730145 | bad_date=0 | bad_region=0 | kept 10-19=381653 | 13.3s | RSS=2281MB 
+[2026-09-02 11:32:10] year 2021 | raw=2677101 | bad_date=0 | bad_region=0 | kept 10-19=364734 | 15.0s | RSS=2271MB 
+[2026-09-02 11:32:22] year 2022 | raw=2561922 | bad_date=0 | bad_region=0 | kept 10-19=315606 | 11.9s | RSS=2271MB 
+[2026-09-02 11:32:34] year 2023 | raw=2537576 | bad_date=0 | bad_region=0 | kept 10-19=303279 | 12.4s | RSS=2309MB 
+[2026-09-02 11:32:44] year 2024 | raw=2389325 | bad_date=0 | bad_region=0 | kept 10-19=273210 | 9.5s | RSS=2309MB 
+[2026-09-02 11:32:44] done | cells=7664 rows | exact=7634 rows | total births kept=5,114,051 | 2.8 min 

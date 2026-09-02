@@ -1,0 +1,131 @@
+# SINASC extension lock — version 1.0.0
+# Frozen BEFORE any post-reform SINASC contrast is estimated.
+# Companion prose: outputs/analysis/SINASC_EXTENSION_PRESPECIFICATION.md
+# Hash registry: outputs/analysis/SINASC_EXTENSION_LOCK_SHA256.txt
+# The original specification lock (config/specification_lock.yml) is untouched.
+
+extension:
+  name: sinasc_status_at_birth
+  version: 1.0.0
+  frozen_at: "2026-09-02T11:28:14-03:00"
+  scope: >
+    Adds SINASC-based estimands to the evaluation of Law 13.811/2019. Does not
+    modify any registry or PNADC estimand, window, model, or inference rule.
+
+data:
+  source: sinasc_open_csv_s3
+  years: [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
+  cache: data/raw_external/sinasc
+  manifest: data/raw_external/sinasc/SHA256_MANIFEST.txt
+  read:
+    method: stream_unzip_pipe        # no persistent expansion of CSVs
+    delimiter: ";"
+    harmonize_names: uppercase
+    fill_truncated_rows: true        # documented final-line truncation in DNBR2015
+    columns: [IDADEMAE, ESTCIVMAE, DTNASC, DTNASCMAE, CODMUNRES]
+  validation:
+    audited_totals: {2015: 2786525, 2019: 2849146}
+    fail_if_total_differs: true
+    log_dropped_rows: true
+  construction:
+    month: substr(DTNASC, 3, 6) with day substr(DTNASC,1,2)   # ddmmyyyy
+    drop_if: DTNASC invalid (cannot assign month)             # count and log
+    region: first digit of CODMUNRES in 1..5                  # residence
+    region_invalid: excluded from regional cells, kept in Brazil cells, counted
+    mother_age: integer IDADEMAE, kept if 10..19 for analysis cells
+    age_8_9: excluded, counted as probable data error
+    exact_age_years: (DTNASC - DTNASCMAE) / 365.25            # robustness only
+    status_codes: {1: single, 2: married, 3: widowed, 4: separated_divorced,
+                   5: uniao_estavel, other_or_na: unknown}
+
+groups:
+  treated: mothers aged 10-15 (completed years)   # entire banned population
+  treated_robustness: mothers aged 15 only
+  primary_controls: [17, 18, 19]
+  robustness_controls: [[18, 19], [16, 17, 18, 19]]
+  age_16: reported separately; legally untouched but closest margin; never in
+    the primary control set
+
+windows:                       # mirror registry lock exactly
+  pre: 2013-01 .. 2019-02
+  omitted: 2019-03            # partial treatment month (law in force 2019-03-13)
+  post_short_run: 2019-04 .. 2019-12
+  pandemic_flagged: 2020-01 .. 2021-12
+  post_pandemic_descriptive: 2022-01 .. 2024-12
+  pre_window_sensitivity_starts: [2014-01, 2015-01]
+
+estimands:
+  S1_primary:
+    outcome: count of births with ESTCIVMAE = 2 (married)
+    exposure: births with ESTCIVMAE in {1,2,3,4,5}   # unknown excluded both sides
+    unit: region x age-group x month cells
+    model: PPML, offset = log(exposure)
+    fixed_effects: [region_x_agegroup, region_x_period, agegroup_x_calendar_month]
+    trends: agegroup-specific linear
+    treatment: group(10-15) x post_short_run
+    inference_primary: cluster by period (month)
+    expected_sign_recorded_ex_ante: negative or null (stock decays; flow banned)
+  S2:
+    same_as: S1_primary
+    outcome: ESTCIVMAE = 5 (uniao estavel)
+    expected_sign_recorded_ex_ante: positive or null (relabeling / substitution)
+  S3:
+    same_as: S1_primary
+    outcome: ESTCIVMAE in {2, 5} (any declared union)
+    expected_sign_recorded_ex_ante: null
+  S1b_missing_robustness:
+    same_as: S1_primary
+    exposure: all births with any ESTCIVMAE including unknown
+    note: missing treated as not married
+  S4_fertility_composition:
+    outcome: count of births to mothers aged 15
+    exposure: offset = log(female resident population aged 15)  # PNADC denominators
+    unit: region x single-age x quarter cells, ages {15, 17, 18, 19}
+    model_and_fe: identical to locked registry primary PPML
+    robustness: mother age 14 with age-14 female denominators
+    ages_13_and_below: counts and shares only; no rate is ever computed
+    expected_sign_recorded_ex_ante: unknown
+  exact_age_robustness:
+    same_as: S1_primary
+    groups: exact age < 16.0 vs 17.0 <= exact age < 20.0
+    excludes: births with missing/invalid DTNASCMAE (share reported)
+
+diagnostics_mandatory:
+  - no_trend_variant_of_S1_S2_S3          # trend-dependence disclosure, as registry
+  - quarterly_aggregation_variant
+  - brazil_aggregate_monthly_HAC: {kernel: newey_west, lag: 12}
+  - event_study_monthly_leads: joint test over 24 pre months; bases per registry
+      Amendments 1-2 rank rules (event indicators absorb own-group trend/season)
+  - placebo_post_dates: [2015-04, 2016-04, 2017-04, 2018-04]
+  - differential_missingness_did: unknown-status share as outcome, diagnostic only
+  - mde_rule: MDE_80 = 2.8 x SE(primary period-cluster estimate)
+  - equivalence_tost: rate-ratio margin [0.85, 1.176] for S1, S2, S3
+
+multiplicity:
+  family_short_run: Holm over {S1, S2, S3}
+  family_fertility: Holm over {S4 age 15, S4 age 14}
+
+interpretation_constraints:
+  - status at birth is a stock among parturients, not a marriage flow; short-run
+    effects operate through the banned inflow and are expected to be gradual
+  - every SINASC estimand conditions on a birth; it is a joint outcome of
+    fertility and formalization and is never presented as a random sample of
+    adolescents
+  - declarations are unverified; married-to-uniao-estavel movements may be
+    relabeling; S2 alone never establishes behavioral substitution
+  - no SINASC coefficient is ever differenced against a registry or PNADC
+    coefficient
+
+prior_exposure_disclosure: >
+  Before this freeze, the data audit (outputs/audit/SINASC_DATA_AUDIT.md,
+  2026-09-02) tabulated raw descriptive quantities that include post-reform
+  months: full-year marital-status distributions among mothers under 16 for
+  2015 and 2019, the 16-17 distribution for 2019, and raw monthly national
+  counts of married and uniao-estavel mothers under 16 in 2019. No regression,
+  no control-age contrast, no regional tabulation, and no estimate of any
+  ex-ante specified estimand was computed. Design choices above mirror the
+  pre-existing registry lock, which was frozen before SINASC was acquired.
+
+amendment_policy: identical to the main lock — only documented data errors or
+  technical non-identification, logged in SPECIFICATION_AMENDMENTS.md style in
+  outputs/analysis/SINASC_EXTENSION_AMENDMENTS.md BEFORE re-estimation.

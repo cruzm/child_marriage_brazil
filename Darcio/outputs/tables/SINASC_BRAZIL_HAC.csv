@@ -1,0 +1,2 @@
+specification,coef_log,se_log,p_value,rate_ratio,pct_change,ci_lower_pct,ci_upper_pct,n_cells
+brazil_monthly_HAC_nw12,0.221184137095377,0.0953653960286725,0.0239832956771535,1.24755313022503,24.755313022503,3.48654249219365,50.3952857301881,71

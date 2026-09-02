@@ -1,0 +1,4 @@
+# SINASC extension lock — re-hashed 2026-09-02T11:28:29-03:00 after timestamp alignment (pre-estimation)
+# No post-reform SINASC contrast estimated before this freeze.
+6680c85d6533219a26abae663a52de57984d9e743b07cb197a6e18da1fdc55c9  config/sinasc_extension_lock.yml
+2eca2130ff488279924fea9c2e7e23e4ec0f9da73a8b6bcb552ccefd3c599000  outputs/analysis/SINASC_EXTENSION_PRESPECIFICATION.md
