@@ -1,0 +1,10 @@
+start_time=2026-09-02T02:33:43-0300
+end_time=2026-09-02T02:44:06-0300
+elapsed_seconds=622.902
+source_rows=4787628
+output_cells=1089
+microdata_output_rows=0
+weight=V1032; not divided by four
+variance=Taylor linearization with official strata and UPAs
+max_parallel_processes=1
+raw_files_modified=0

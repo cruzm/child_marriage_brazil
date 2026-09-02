@@ -1,0 +1,10 @@
+start_time=2026-09-02T03:16:41-0300
+end_time=2026-09-02T03:16:48-0300
+elapsed_seconds=6.267
+figures_png=10
+figures_pdf=10
+table_csv=59
+table_tex=19
+tests_passed=5
+tests_total=5
+gate=E_export

@@ -1,0 +1,3 @@
+outcome,leads,joint_lead_p_value,economic_bound,economic_bound_interpretation,maximum_absolute_lead_point,all_simultaneous_intervals_inside_bound,leads_with_interval_inside_bound,interpretation
+Registry log-rate gap,24,0.161,0.0953101798043249,+/-10% rate-ratio deviation,0.292601498512417,FALSE,0,failure to reject is not proof of parallel trends
+PNADC union prevalence gap,24,0.543,0.005,+/-0.50 percentage point,0.00804907334753965,FALSE,0,failure to reject is not proof of parallel trends

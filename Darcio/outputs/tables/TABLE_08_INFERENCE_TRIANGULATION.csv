@@ -1,0 +1,7 @@
+method,estimand_scale,estimate,std_error,ci_lower,ci_upper,p_value,caveat
+PPML cluster by period (primary),log rate ratio,-0.0107762712655847,0.0765401853316733,-0.160792277885685,0.139239735354516,0.888034000065577,three treated post-period clusters
+PPML two-way region and period,log rate ratio,-0.0107762712655847,0.000364064521171907,-0.0114898246151305,-0.010062717916039,1.49896187066561e-192,only five region clusters; covariance required positive-semidefinite adjustment; not conclusion-supporting
+PPML cluster by region (diagnostic),log rate ratio,-0.0107762712655847,0.0894219061065641,-0.186039986663373,0.164487444132203,0.904078827576337,five clusters; not conclusion-supporting
+Brazil age15-vs-pooled17-19 log-rate gap; Newey-West lag 4,aggregated log-rate gap,0.0197780163584065,0.0726589392918702,-0.122630887808541,0.162186920525354,0.785465563747618,Brazil series approximation; HAC lag 4
+pre-period linear-seasonal forecast with moving-block residual bootstrap,aggregated forecast log-rate gap,0.0197780163584073,0.10259061589849,-0.184903814059748,0.215257881130496,0.857,pre-period residual block bootstrap
+pre-specified date randomization inference,studentized PPML statistic,-0.140792333058611,,,,1,only four locked pseudo-dates; p-values are coarse

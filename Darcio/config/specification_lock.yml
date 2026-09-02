@@ -1,0 +1,308 @@
+lock_version: "1.0.0"
+frozen_at: "2026-09-02T00:56:08-03:00"
+frozen_before_post_reform_estimation: true
+effect_estimates_seen_before_lock: false
+random_seed: 13811
+law:
+  identifier: "Lei no. 13.811/2019"
+  publication_and_effective_date: "2019-03-13"
+  direct_eligibility_change: "civil marriage below age 16"
+  not_directly_treated: "ages 16 and 17 remain governed by Civil Code art. 1.517"
+
+gate_b_evidence:
+  acceptance_tests: "outputs/audit/GATE_B_ACCEPTANCE_TESTS.csv"
+  acceptance_tests_sha256: "e861baff75c6e0313d9f64301e3ef91d08b0cc871d6152f85f1a34cff03f0a4a"
+  analysis_config_sha256_at_lock: "9f4ce5d5f6aac6a78c245bf97758c37e410e839c51473e54142ffeca43116e6f"
+  registry_validation_required: true
+  quarterly_pnadc_periods_required: 48
+
+primary_estimand:
+  name: "formal_marriage_rate_15_100k"
+  definition: "persons age 15 in civil marriages registered per 100,000 residents age 15"
+  unit: "persons per 100,000 age-specific residents"
+  primary_population: "both sexes combined"
+  confirmatory_populations: ["female", "male"]
+  primary_window: "short_run_clean"
+  interpretation: "effect on civil registrations at age 15, not necessarily union formation"
+
+secondary_confirmatory_estimands:
+  - name: "registry_below_15_count_and_share"
+    rate_constructed: false
+    reason: "single pooled Registry category has no defensible matching population at risk"
+  - name: "formal_marriage_rate_age_16_100k"
+    interpretation: "postponement/mechanism contrast"
+  - name: "formal_marriage_rate_age_17_100k"
+    interpretation: "postponement/mechanism contrast"
+  - name: "formal_marriage_rate_age_18_100k"
+    interpretation: "placebo/mechanism contrast"
+  - name: "formal_marriage_rate_age_19_100k"
+    interpretation: "placebo/mechanism contrast"
+  - name: "affected_marriages_below_16_count_and_share"
+    frequency: "annual"
+    interpretation: "descriptive corroboration; no untreated geographic unit"
+  - name: "total_marriage_rate_100k"
+    frequency: "annual"
+    interpretation: "strongly mechanically diluted descriptive secondary outcome"
+
+behavioral_estimands:
+  primary: "union_conservative prevalence at age 15"
+  robustness: "union_expanded prevalence at age 15"
+  target_statement: "change in observed co-resident union stock, not flow into union"
+  primary_geography: "Brazil"
+  primary_population: "both sexes combined"
+  heterogeneity: ["female", "male", "region"]
+  equivalence_margin_percentage_points: 0.50
+  power: 0.80
+  alpha: 0.05
+
+data:
+  registry:
+    source: "IBGE SIDRA table 4406"
+    years: [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
+    time_field: "month/quarter of registration"
+    geography_field: "UF/region of registration office"
+    age_unit: "completed years at registration"
+    event_unit: "aggregate frequency cells; never expanded"
+    include_couple_compositions: ["opposite-sex", "male same-sex", "female same-sex"]
+  denominator_primary:
+    source: "IBGE PNADC quarterly microdata"
+    weight: "V1028 calibrated quarterly weight"
+    divide_weight_by_four: false
+    design: "Taylor linearization with Estrato and UPA"
+    age_range: [15, 16, 17, 18, 19]
+    selected_geography: "region"
+    geography_sensitivities: ["Brazil", "UF diagnostic only"]
+    fixed_offset_is_simplification: true
+  denominator_annual_robustness:
+    source: "IBGE PNADC annual first-visit microdata"
+    weight: "V1032"
+    selected_geography: "UF"
+    absent_years: [2020, 2021]
+  union:
+    source: "IBGE PNADC quarterly microdata"
+    ages: [14, 15, 16, 17, 18, 19]
+    treatment_age: 15
+    primary_controls: [17, 18, 19]
+    repeated_cross_sections: true
+    no_person_transition_estimand: true
+
+geographic_compatibility:
+  registry_numerator_semantics: "registration office"
+  pnadc_denominator_semantics: "residence"
+  primary_level: "region"
+  limitation_must_be_reported: true
+  municipality_allowed: false
+
+timing:
+  event_baseline: "2018Q4"
+  omitted_partial_period: "2019Q1"
+  first_full_post_period: "2019Q2"
+  quarter_index_definition: "consecutive observed quarters with 2019Q1 omitted; 2018Q4 is k=-1 and 2019Q2 is k=0"
+  annual_2019_main_status: "excluded"
+  annual_2019_partial_exposure_robustness: 0.8054794521
+  windows:
+    short_run_clean:
+      pre: "2013Q1-2018Q4"
+      post: "2019Q2-2019Q4"
+      excluded: ["2019Q1"]
+    full_dynamic:
+      span: "2013Q1-2024Q4"
+      excluded: ["2019Q1"]
+      pandemic_marked: ["2020Q1-2021Q4"]
+    exclude_pandemic:
+      span: "2013Q1-2024Q4"
+      excluded: ["2019Q1", "2020Q1-2021Q4"]
+    post_pandemic:
+      post: "2022Q1-2024Q4"
+      interpretation: "persistence descriptor, not automatic law attribution"
+
+treatment_and_controls:
+  treated_age: 15
+  primary_controls: [17, 18, 19]
+  robustness_controls:
+    lower_contamination: [18, 19]
+    delay_contaminable: [16, 17]
+  control_choice_information_set: "fixed before post-reform estimation"
+  age_16_directly_treated: false
+  age_17_directly_treated: false
+
+registry_primary_model:
+  family: "PPML"
+  outcome: "persons_married"
+  offset: "log quarterly design-based population"
+  sample: "region x age x quarter, ages 15 and 17-19, both sexes combined"
+  window: "short_run_clean"
+  treatment_term: "I(age==15) x I(period>=2019Q2)"
+  fixed_effects:
+    - "region x age"
+    - "region x quarter-period"
+    - "age x calendar-quarter season"
+  primary_trends: "age-specific linear calendar-quarter trends centered at 2018Q4"
+  no_trend_version: "mandatory robustness"
+  exposure_zero_or_missing_rule: "drop only cells with invalid/nonpositive population; report them"
+  separation_rule: "record all dropped observations/groups; do not silently alter sample"
+  sex_models: "repeat unchanged for female and male"
+  transformations:
+    rate_ratio: "exp(beta)"
+    percent_change: "100*(exp(beta)-1)"
+    points_per_100k: "population-weighted mean model-implied rate difference in post window"
+    events_avoided: "sum of no-treatment prediction minus treatment prediction in 2019Q2-Q4"
+  confidence_level: 0.95
+
+registry_event_study:
+  family: "PPML"
+  window: "full_dynamic"
+  baseline: "2018Q4"
+  coefficients: "age-15 indicator interacted with each observed quarter; 2019Q1 absent"
+  fixed_effects_and_trends: "same as primary summary model"
+  no_trend_version: true
+  raw_rate_figure_required: true
+  simultaneous_intervals: "temporal multiplier/block bootstrap when estimable"
+  joint_lead_test: true
+  economically_relevant_pretrend_bound: "absolute 10 percent rate-ratio deviation over four quarters"
+
+inference:
+  national_reform_warning_required: true
+  primary_ppml_vcov: "cluster by quarter-period"
+  primary_reason: "national common shocks; geographic cells are not independent treatments"
+  triangulation:
+    - "two-way clustering by region and quarter-period, explicitly flagging only five region clusters"
+    - "aggregated age-series Newey-West HAC with lag 4"
+    - "moving-block temporal residual bootstrap, block length 4, 999 replications, seed 13811"
+    - "pre-specified pseudo-reform dates"
+    - "pre-specified placebo ages"
+  disagreement_rule: "report divergence; never select the smallest standard error"
+  minimum_reported_counts: ["number of regions", "number of periods", "number of clusters", "dropped PPML groups"]
+
+placebos:
+  pseudo_reform_quarters: ["2015Q2", "2016Q2", "2017Q2", "2018Q2"]
+  pseudo_post_length_quarters: 3
+  pseudo_date_information_set: "pre-2019 only"
+  placebo_age_contrasts:
+    - focal_age: 17
+      controls: [18, 19]
+    - focal_age: 18
+      controls: [17, 19]
+    - focal_age: 19
+      controls: [17, 18]
+  randomization_inference_statistic: "absolute studentized TreatAge x Post coefficient"
+  randomization_p_value: "plus-one finite-sample correction"
+
+synthetic_age_control:
+  status: "mandatory robustness"
+  donor_ages: [17, 18, 19]
+  training_period: "2013Q1-2017Q4"
+  holdout_period: "2018Q1-2018Q4"
+  constraints: "nonnegative weights summing to one"
+  objective: "minimize population-weighted pre-period squared rate error"
+  selection_rule: "no post-2018 information enters weights or tuning"
+  report: ["weights", "training RMSPE", "2018 holdout RMSPE", "post gap"]
+
+denominator_uncertainty:
+  primary: "treat estimated population as fixed offset; label simplification"
+  sensitivity_1: "repeat at Brazil aggregation"
+  sensitivity_2: "499 positive lognormal/Taylor-normal denominator draws using design SE, seed 13811; refit short-run summary"
+  compare_to_fixed: true
+
+linear_rate_robustness:
+  model: "weighted least squares on rate per 100,000"
+  weight: "population"
+  specification: "same sample, treatment, fixed effects, seasonality, and trends as PPML"
+  inference: "cluster by quarter-period plus HAC aggregated-series triangulation"
+
+delay_and_recapture:
+  age_contrasts:
+    age_15_controls: [17, 18, 19]
+    age_16_controls: [18, 19]
+    age_17_controls: [18, 19]
+    age_18_controls: [17, 19]
+    age_19_controls: [17, 18]
+  interpretation: "mechanism contrasts; ages 16-19 are not all untreated causal replicas"
+  primary_window: "2019Q2-2019Q4"
+  recapture_formula: "estimated excess persons at ages 16-17 divided by absolute estimated deficit at age 15"
+  confidence_interval: "joint temporal block bootstrap, 999 replications"
+  undefined_rule: "do not report a ratio if estimated age-15 deficit is nonnegative or numerically zero"
+  label: "aggregate recapture; not the same people"
+
+exposure_ddd:
+  role: "complementary validation, not national average effect"
+  geography: "UF"
+  frequency: "annual"
+  exposure_training_years: [2013, 2014, 2015, 2016, 2017]
+  holdout_year: 2018
+  raw_exposure_name: "prelaw_affected_marriage_share"
+  numerator: "marriages with at least one spouse below 16"
+  denominator: "all registered marriages"
+  population_rate_name_forbidden: true
+  stabilization: "beta-binomial empirical Bayes with hyperparameters estimated only from 2013-2017 UF counts"
+  scaling: "one pre-period standard deviation"
+  model: "PPML count with population offset, UF x age FE, UF x year FE, age x year FE, Exposure x TreatAge x Post"
+  primary_sample: "combined sex, ages 15 and 17-19; exclude 2019 and 2020-2021"
+  trend_diagnostics: ["Exposure x TreatAge pre-trend", "2018 holdout prediction", "raw versus EB exposure"]
+  interpretation: "gradient with pre-law affected-marriage share"
+
+pnadc_cell_model:
+  primary_outcome: "union_conservative"
+  robustness_outcome: "union_expanded"
+  geography: "Brazil"
+  sample: "quarterly age cells 14-19; primary contrast age 15 versus 17-19; combined sex"
+  primary_window: "short_run_clean"
+  estimator: "cell-level weighted linear probability meta-regression"
+  weights: "inverse design variance winsorized at pre-specified 5th/95th percentiles within outcome"
+  fixed_effects: ["age", "quarter-period", "age x calendar-quarter season"]
+  primary_trends: "age-specific linear trends centered at 2018Q4"
+  inference: "quarter-cluster/HAC lag 4; design uncertainty added by 999 normal draws from cell estimate and SE"
+  event_study: "full dynamic with 2018Q4 baseline; simultaneous temporal intervals when viable"
+  equivalence_test: "TOST against +/-0.50 percentage point margin"
+  mde: "two-sided alpha 0.05, power 0.80, based on primary standard error"
+  nonrejection_rule: "never describe an imprecise estimate as no substitution"
+
+pnadc_microdata_robustness:
+  estimator_1: "weighted LPM with weights normalized to mean one within quarter"
+  fixed_effects: ["age", "quarter-period", "calendar-quarter season", "age-specific trend"]
+  clustering: "two-way stable dwelling hash and quarter-period"
+  estimator_2: "survey-weighted LPM with period-prefixed strata and UPA"
+  raw_weight: "V1028; never divided by four"
+  binary_models: "logit/probit robustness only"
+  attrition_transition_analysis: false
+
+windows_and_robustnesses_mandatory:
+  control_sets: [[17, 18, 19], [18, 19], [16, 17]]
+  trends: ["with age-specific linear trends", "without trends"]
+  windows: ["short_run_clean", "full_dynamic", "exclude_pandemic", "post_pandemic"]
+  sex: ["combined", "female", "male"]
+  models: ["PPML offset", "population-weighted linear rate"]
+  temporal_aggregation: ["quarter of registration", "annual registration year"]
+  geography: ["region", "Brazil", "UF annual/diagnostic only"]
+  exposure: ["raw share", "empirical-Bayes share"]
+  union: ["conservative", "expanded"]
+  denominator: ["fixed", "design-uncertainty sensitivity"]
+  synthetic_control: true
+  placebo_dates_and_ages: true
+
+multiple_testing:
+  primary_combined_estimand_adjustment: "none; single predesignated primary"
+  sex_confirmatory_family: "Holm across female and male"
+  delay_age_family: "Holm across ages 16-19"
+  behavioral_heterogeneity_family: "Benjamini-Hochberg; exploratory"
+  unplanned_analyses: "label exploratory and control false discovery rate within declared family"
+
+reporting_rules:
+  separate_claims:
+    - "law reduced civil registrations below 16"
+    - "law delayed formal marriages"
+    - "law reduced union formation/prevalence"
+    - "law shifted unions toward informality"
+  no_registry_minus_pnadc: true
+  no_causal_claim_from_simple_before_after: true
+  no_zero_claim_from_nonsignificance: true
+  show_zeros_missing_periods_and_wide_intervals: true
+  pandemic_marking_required: true
+  registration_vs_occurrence_note_required: true
+  registration_vs_residence_note_required: true
+
+amendment_policy:
+  allowed_reasons: ["documented data error", "documented technical non-identification or impossibility"]
+  required_file: "outputs/analysis/SPECIFICATION_AMENDMENTS.md"
+  timing: "amendment must be written before re-estimation under changed specification"
+  significance_based_changes_forbidden: true

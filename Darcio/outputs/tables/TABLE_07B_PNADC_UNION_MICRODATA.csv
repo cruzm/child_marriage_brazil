@@ -1,0 +1,5 @@
+estimator,outcome,effect_percentage_points,std_error,p_value,observations
+weighted microdata LPM; two-way dwelling and period clusters,union_conservative,0.343716667544865,0.00236335338212725,0.145846517745577,1058334
+weighted microdata LPM; two-way dwelling and period clusters,union_expanded,0.596519493451958,0.0036529845670597,0.102476416097222,1058334
+weighted fixed-effects logit robustness; two-way clusters,union_conservative,,0.138410556561871,0.410761772986851,1058334
+exact WLS sufficient statistics; Taylor scores centered by period-Estrato and clustered by period-UPA,union_conservative,0.343716667544904,0.00188081085073704,0.067625836564716,1058334

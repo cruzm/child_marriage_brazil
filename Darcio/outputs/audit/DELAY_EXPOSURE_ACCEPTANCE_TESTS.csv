@@ -1,0 +1,12 @@
+test,passed,observed
+three delay ages estimated,TRUE,3
+recapture bootstrap has 999 aligned draws,TRUE,999
+dynamic paths cover three ages and 47 periods,TRUE,"141,3"
+recapture point follows locked denominator rule,TRUE,TRUE
+exposure has 27 UFs,TRUE,27
+exposure uses 2013-2017 only,TRUE,2013-2017
+2018 excluded from exposure construction,TRUE,2018 holdout columns separate
+raw and EB DDD executed,TRUE,2
+DDD has 27 UFs and nine years,TRUE,"27,9"
+affected share bounded,TRUE,"0.000108418482587673,0.00103850250409273"
+below-15 reported as counts/shares not rate,TRUE,no below-15 population rate

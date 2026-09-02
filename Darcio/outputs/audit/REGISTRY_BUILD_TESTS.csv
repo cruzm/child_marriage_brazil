@@ -1,0 +1,9 @@
+test,checked,failures,passed
+local complete-table age-sex cells equal official SIDRA,3780,0,TRUE
+local annual opposite-sex totals equal official SIDRA,10,0,TRUE
+monthly age-sex sums equal annual official SIDRA,3240,0,TRUE
+annual UF coverage,6804,0,TRUE
+monthly UF coverage,58320,0,TRUE
+negative annual person cells,6804,0,TRUE
+negative affected marriages,1296,0,TRUE
+affected marriages exceed total,1296,0,TRUE

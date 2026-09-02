@@ -1,0 +1,2 @@
+age15_estimated_deficit,age16_17_estimated_excess,aggregate_recapture,recapture_ci_lower,recapture_ci_upper,valid_bootstrap_draws,invalid_draws_nonpositive_deficit,valid_draw_share,point_ratio_defined,label,window,temporal_block_length,temporal_block_replications
+2.10190162934731,367.4188117582,174.803048167526,-113.807856588946,1107.23035280181,504,495,0.504504504504505,TRUE,aggregate recapture; does not track the same people,2019Q2-2019Q4,4,999

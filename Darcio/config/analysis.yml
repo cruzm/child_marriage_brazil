@@ -1,0 +1,72 @@
+project:
+  name: "Causal evaluation of Lei 13.811/2019"
+  law_effective_date: "2019-03-13"
+  random_seed: 13811
+
+resources:
+  max_workers: 4
+  maximum_ram_share: 0.70
+  minimum_free_disk_share: 0.15
+  compression: "zstd"
+
+data:
+  common_frequency: "quarterly"
+  pnadc_product: "PNADC quarterly repeated cross-sections"
+  pnadc_annual_robustness_product: "PNADC annual by first visit"
+  pnadc_behavior_product: "PNADC quarterly repeated cross-sections"
+  pnadc_quarterly_available_years: [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
+  pnadc_quarterly_weight: "V1028"
+  pnadc_available_years: [2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2022, 2023, 2024]
+  pnadc_absent_years: [2020, 2021]
+  pnadc_weight: "V1032"
+  divide_annual_weight_by_four: false
+  registry_local_complete_table_years: [2003, 2022]
+  registry_location_semantics: "place of registration (cartorio), not residence"
+  registry_time_semantics: "month/quarter of registration, not occurrence or celebration"
+
+denominators:
+  candidate_geographies: ["UF", "region", "Brazil"]
+  minimum_unweighted_cell_n: 30
+  maximum_cell_cv: 0.20
+  required_share_passing: 0.95
+  hard_maximum_cell_cv: 0.35
+  selection_population: "age 15, separately by sex and combined, all usable PNADC years"
+  selection_rule: "Use the finest geography for which at least required_share_passing of cells meet both n and CV thresholds and no cell exceeds hard_maximum_cell_cv. Selection does not use marriage outcomes."
+  lonely_psu_adjustment: "adjust"
+  fixed_denominator_version_is_simplification: true
+  selected_quarterly_geography: "region"
+  selected_annual_geography: "UF"
+
+behavioral_outcomes:
+  primary_geography: "Brazil"
+  regional_heterogeneity: true
+  uf_cells_are_diagnostic_only: true
+  geography_reason: "Union at age 15 is rare; quarterly UF-age-sex cells cannot support stable design-based prevalence or MDE calculations. This choice is fixed before treatment effects are estimated."
+  minimum_unweighted_cell_n_for_diagnostics: 200
+  minimum_positive_union_cases_for_diagnostics: 5
+  maximum_prevalence_cv_for_diagnostics: 0.50
+  primary_definition: "union_conservative"
+  robustness_definition: "union_expanded"
+  equivalence_margin_percentage_points: 0.50
+
+timing:
+  quarterly_omitted_partial_period: "2019Q1"
+  quarterly_full_post_start: "2019Q2"
+  annual_main_excludes_2019: true
+  annual_partial_exposure_2019_days_post: 294
+  annual_partial_exposure_2019_days_total: 365
+  pandemic_years: [2020, 2021]
+  short_run_clean: "2019Q2-2019Q4 using registration-quarter"
+  full_dynamic: "2013Q1-2024Q4, omitting 2019Q1 and marking 2020-2021"
+  exclude_pandemic: "exclude 2020Q1-2021Q4"
+  post_pandemic: "2022Q1-2024Q4; cautious interpretation"
+  post_pandemic_start: 2022
+
+definitions:
+  treated_age: 15
+  primary_controls: [17, 18, 19]
+  alternative_controls:
+    - [18, 19]
+    - [16, 17]
+  union_conservative: "Adolescent is the head's spouse, or is the head and a spouse is present in the household"
+  union_expanded: "Conservative definition plus plausible child/stepchild and son/daughter-in-law pairing; ambiguous pairing flagged"

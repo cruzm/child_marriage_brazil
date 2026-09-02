@@ -1,0 +1,13 @@
+start_time=2026-09-02T02:44:09-0300
+end_time=2026-09-02T02:44:12-0300
+elapsed_seconds=2.704
+annual_person_cells=6804
+monthly_person_cells=58320
+affected_marriage_cells=1296
+local_validation_cells=3780
+local_validation_failures=0
+monthly_annual_validation_failures=0
+first_spouse_male_orientation=validated against local complete tables for variable 221
+frequency_weights_expanded=false
+raw_files_modified=0
+max_parallel_processes=1

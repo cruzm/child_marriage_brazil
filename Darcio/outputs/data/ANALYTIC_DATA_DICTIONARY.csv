@@ -1,0 +1,23 @@
+dataset,variable,unit,source,rule
+REGISTRY_QUARTERLY_PANEL_REGION,year,year,IBGE SIDRA 4406,registration year
+REGISTRY_QUARTERLY_PANEL_REGION,quarter,1-4,IBGE SIDRA 4406,registration month aggregated to quarter
+REGISTRY_QUARTERLY_PANEL_REGION,geography_value,IBGE region code,IBGE SIDRA 4406,five regions
+REGISTRY_QUARTERLY_PANEL_REGION,age,completed years at registration,IBGE SIDRA 4406,exact categories 15-19
+REGISTRY_QUARTERLY_PANEL_REGION,sex,category,IBGE SIDRA 4406,combined/female/male
+REGISTRY_QUARTERLY_PANEL_REGION,persons_married,persons in registered marriages,IBGE SIDRA 4406,frequency-weighted; no expansion
+REGISTRY_QUARTERLY_PANEL_REGION,population,resident persons,IBGE PNADC quarterly V1028,Taylor survey total
+REGISTRY_QUARTERLY_PANEL_REGION,population_se,resident persons SE,IBGE PNADC quarterly V1028,Taylor survey SE
+REGISTRY_QUARTERLY_PANEL_REGION,formal_marriage_rate_100k,"persons per 100,000",IBGE PNADC quarterly V1028,100000*persons_married/population
+REGISTRY_QUARTERLY_PANEL_REGION,post_full,indicator,derived from legal timing,starts 2019Q2
+REGISTRY_QUARTERLY_PANEL_REGION,partial_2019q1,indicator,derived from legal timing,equals one only in 2019Q1
+REGISTRY_QUARTERLY_PANEL_REGION,event_time,quarters,derived from legal timing,2018Q4=-1; 2019Q2=0; Q1 omitted
+REGISTRY_QUARTERLY_PANEL_REGION,pandemic,indicator,derived from legal timing,2020-2021
+PRELAW_EXPOSURE_UF,prelaw_affected_marriage_share_raw,share,"IBGE SIDRA 4406, 2013-2017 only",affected marriages / all marriages
+PRELAW_EXPOSURE_UF,prelaw_affected_marriage_share_eb,posterior mean share,"IBGE SIDRA 4406, 2013-2017 only",beta-binomial empirical Bayes
+PRELAW_EXPOSURE_UF,exposure_raw_z,pre-period SD,"IBGE SIDRA 4406, 2013-2017 only",standardized across 27 UFs
+PRELAW_EXPOSURE_UF,exposure_eb_z,pre-period SD,"IBGE SIDRA 4406, 2013-2017 only",standardized across 27 UFs
+PNADC_UNION_ANALYTIC_CELLS,union_conservative,prevalence,IBGE PNADC quarterly V1028/Estrato/UPA,head-spouse construct
+PNADC_UNION_ANALYTIC_CELLS,union_conservative_se,design SE,IBGE PNADC quarterly V1028/Estrato/UPA,Taylor linearization
+PNADC_UNION_ANALYTIC_CELLS,union_expanded,prevalence,IBGE PNADC quarterly V1028/Estrato/UPA,nested-pair robustness
+PNADC_UNION_ANALYTIC_CELLS,union_expanded_se,design SE,IBGE PNADC quarterly V1028/Estrato/UPA,Taylor linearization
+PNADC_UNION_ANALYTIC_CELLS,unweighted_n,sample persons,IBGE PNADC quarterly V1028/Estrato/UPA,unweighted cell size

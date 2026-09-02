@@ -1,0 +1,13 @@
+start_time=2026-09-02T03:16:38-0300
+end_time=2026-09-02T03:16:40-0300
+elapsed_seconds=2.416
+monthly_region_models=18
+primary_beta=-0.024292861603
+primary_percent_change=-2.40001650
+hac_beta=-0.027420987145
+forecast_beta=-0.027420987145
+bootstrap_replications=999
+tests_passed=8
+tests_total=8
+timing=registration_month_not_occurrence
+gate=D_registry_monthly

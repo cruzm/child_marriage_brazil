@@ -1,0 +1,655 @@
+Estatísticas do Registro Civil
+
+        volume 49 2022
+
+         Notas técnicas
+Presidente da República
+  Luiz Inácio Lula da Silva
+Ministra do Planejamento e Orçamento
+ Simone Nassar Tebet
+
+INSTITUTO BRASILEIRO
+DE GEOGRAFIA E
+ESTATÍSTICA - IBGE
+
+Presidente
+  Marcio Pochmann
+Diretora-Executiva
+   Flávia Vinhaes Santos
+
+
+ÓRGÃOS ESPECÍFICOS SINGULARES
+Diretoria de Pesquisas
+   Elizabeth Belo Hypólito
+Diretoria de Geociências
+   Ivone Lopes Batista
+Diretoria de Tecnologia da Informação
+   Marcos Vinícius Ferreira Mazoni
+Centro de Documentação e Disseminação de Informações
+  José Daniel Castro da Silva
+Escola Nacional de Ciências Estatísticas
+  Paulo de Martino Januzzi
+
+
+
+UNIDADE RESPONSÁVEL
+Diretoria de Pesquisas
+
+Coordenação de População e Indicadores Sociais
+  Cristiane dos Santos Moutinho
+          Ministério do Planejamento e Orçamento
+  Instituto Brasileiro de Geografia e Estatística - IBGE
+
+
+
+
+Estatísticas do Registro Civil
+
+             volume 49 2022
+
+                Notas técnicas
+
+
+
+
+                       ISSN 0101-2207
+    Estat. Reg. civ., Rio de Janeiro, v. 49, p.1-32, 2022
+Instituto Brasileiro de Geografia e Estatística - IBGE
+Av. Franklin Roosevelt, 166 - Centro - 20021-120 - Rio de Janeiro, RJ - Brasil
+
+
+
+
+ISSN 0101-2207
+
+
+
+© IBGE. 2024
+
+
+
+Por decisão editorial, a partir da edição lançada em 2017, a publicação passou a ser divulgada em
+duas partes. A primeira parte corresponde a um informativo que apresenta comentários analíticos
+ilustrados com tabelas e gráficos sobre os principais resultados do estudo, e é disponibilizada tanto
+em meio impresso como em meio digital (formato pdf) no portal do IBGE na Internet. A segunda parte,
+objeto deste documento, traz considerações de natureza metodológica sobre o estudo e é veiculada
+apenas em meio digital (formato pdf) no portal.
+Sumário
+Apresentação ............................................................................................................................... 4
+Notas técnicas ............................................................................................................................. 6
+Introdução .................................................................................................................................... 6
+Unidade informante ....................................................................................................................... 6
+Unidade de análise ........................................................................................................................ 6
+Abrangência geográfica ................................................................................................................ 6
+Período de referência .................................................................................................................... 6
+Ano de referência .......................................................................................................................... 6
+Conceitos e definições .................................................................................................................. 6
+Instrumentos de coleta .................................................................................................................. 9
+Disseminação dos resultados ..................................................................................................... 10
+Referências ................................................................................................................................ 11
+Anexo .......................................................................................................................................... 13
+Questionários do Registro Civil ................................................................................................... 13
+
+
+
+                                                                 Convenções
+-                               Dado numérico igual a zero não resultante de arredondamento;
+..                              Não se aplica dado numérico;
+...                             Dado numérico não disponível;
+x                               Dado numérico omitido a fim de evitar a individualização da informação;
+0; 0,0; 0,00                    Dado numérico igual a zero resultante de arredondamento de um dado numérico
+                                originalmente positivo; e
+-0; -0,0; -0,00                Dado numérico igual a zero resultante de arredondamento de um dado numérico
+originalmente negativo.
+Apresentação
+      Com a presente publicação, o Instituto Brasileiro de Geografia e Estatística - IBGE divulga
+as Estatísticas do Registro Civil relativas ao ano de 2022, resultado da coleta das informações
+prestadas pelos Cartórios de Registro Civil de Pessoas Naturais, Varas de Família, Foros ou
+Varas Cíveis e Tabelionatos de Notas do País.
+
+      As Estatísticas do Registro Civil são publicadas desde 1974, fornecendo um elenco de
+informações relativas aos fatos vitais e aos casamentos. Os dados de divórcios ocorridos no País
+foram incorporados ao conjunto de temas, tendo como referência temporal o ano de 1984.
+
+       O uso das Estatísticas do Registro Civil vem se ampliando, sobretudo nos períodos
+intercensitários, quando as estatísticas vitais são imprescindíveis para o acompanhamento da
+evolução demográfica. A crescente melhora observada na cobertura dos registros vitais reflete,
+principalmente, o esforço nacional empreendido para ampliar o acesso da população à
+documentação básica desde o seu nascimento, assim como o aperfeiçoamento dos mecanismos
+de apuração e crítica dos dados coletados.
+
+      Registre-se que os dados de nascidos vivos, óbitos, óbitos fetais e casamentos do Estado
+de São Paulo resultam de convênio firmado entre o IBGE e a Fundação Sistema Estadual de
+Análises de Dados - SEADE, que coleta e apura as informações.
+
+
+                                                                        Elizabeth Belo Hypólito
+                                                                           Diretora de Pesquisas
+
+
+
+
+Estatísticas do Registro Civil, v. 49, 2022                                                     4
+Notas técnicas
+Notas técnicas
+Introdução
+       As Estatísticas do Registro Civil têm como principais objetivos: fornecer à sociedade
+brasileira informações que visem a atender aos interesses de estudos demográficos; propiciar a
+construção de indicadores das estatísticas vitais do País para análises regionais e locais sobre
+fecundidade, nupcialidade, divorciação e mortalidade; e contribuir para o aprimoramento de
+programas sociais das três esferas governamentais (municipal, estadual e federal) nos campos
+escolar, previdenciário, econômico, social e da saúde pública.
+
+      As Estatísticas do Registro Civil são publicadas desde 1974 pelo IBGE, inicialmente
+fornecendo um elenco de informações relativas aos fatos vitais e aos casamentos. Os dados de
+separações e de divórcios ocorridos no País foram incorporados ao conjunto de temas
+pesquisados posteriormente, tendo como referência temporal o ano de 1984.
+
+      Os resultados apresentados nesta edição refletem os registros de nascidos vivos,
+casamentos, óbitos e óbitos fetais, informados pelos Cartórios de Registro Civil de Pessoas
+Naturais, bem como os registros de divórcios, declarados pelas Varas de Família, Foros ou Varas
+Cíveis e Tabelionatos de Notas. Esses últimos, por força da Lei n. 11.441, de 04.01.2007,
+passaram a realizar escrituras de divórcios extrajudiciais, de natureza consensual, que não
+envolvessem filhos menores ou incapazes.
+
+      Ainda no âmbito dos casamentos e divórcios, duas outras mudanças significativas
+ocorreram na legislação na década passada, as quais impactaram a natureza dos dados
+divulgados pela pesquisa Estatísticas do Registro Civil: a supressão da necessidade de
+separação previamente ao divórcio; e a normatização sobre a questão do casamento entre
+pessoas do mesmo sexo.
+
+        Com a aprovação da Emenda Constitucional n. 66, de 13.07.2010, a nova redação
+conferida ao § 6o do Art. 226 da Constituição Federal do Brasil, de 1988, prevê que “o casamento
+civil pode ser dissolvido pelo divórcio” (BRASIL, 2010). A emenda apenas suprimiu a parte final
+do dispositivo quanto à exigência do lapso temporal entre a separação e o posterior deferimento
+do divórcio. De acordo com a supracitada legislação, o processo de separação tornou-se um
+procedimento dispensável, pois os cônjuges passam a poder requisitar, diretamente, a
+dissolução do casamento por meio do divórcio.
+
+       A Resolução n. 175, de 14.05.2013, do Conselho Nacional de Justiça - CNJ, proibiu às
+autoridades competentes a recusa de habilitação, celebração de casamento civil ou de
+conversão de união estável em casamento entre pessoas de mesmo sexo. Essa resolução
+possibilitou ao IBGE realizar o levantamento de tais registros a partir da referida data.
+      As estatísticas ora divulgadas constituem um importante instrumento no acompanhamento
+da evolução populacional no País, proporcionando, além de estudos demográficos, subsídios
+para a implementação e a avaliação de políticas públicas. Além disso, os registros de
+casamentos e de dissoluções das uniões legais contribuem para uma melhor compreensão das
+mudanças ocorridas na sociedade brasileira no que se refere aos arranjos conjugais oficiais do
+País.
+
+      Vale destacar que o uso das Estatísticas do Registro Civil pelos estudiosos vem se
+ampliando, sobretudo nos períodos intercensitários, quando as estatísticas vitais se tornam
+imprescindíveis para o acompanhamento da evolução demográfica brasileira.
+
+Estatísticas do Registro Civil, v. 49, 2022                                                    5
+Notas técnicas
+Unidade informante
+       Os informantes da pesquisa Estatísticas do Registro Civil são todas as serventias de
+Registro Civil de Pessoas Naturais, Varas de Famílias e Cíveis e os Tabelionatos de Notas do
+País, considerando os seus postos avançados ou sucursais, nos quais sejam realizados os
+registros civis públicos de nascimentos, óbitos, óbitos fetais, casamentos e processos judiciais
+ou escrituras públicas de divórcios.
+
+Unidade de análise
+        A unidade de análise da pesquisa é a pessoa civil.
+
+Abrangência geográfica
+      As estatísticas do registro civil são divulgadas em diversos níveis territoriais: Municípios,
+Microrregiões, Mesorregiões, Regiões Metropolitanas, Regiões Integradas de Desenvolvimento
+- RIDEs, Unidades da Federação, Grandes Regiões e Brasil.
+     A partir de 2021, também serão divulgados os seguintes níveis territoriais: Regiões
+Geográficas Imediatas, Regiões Geográficas Intermediárias.
+
+Período de referência
+      A pesquisa Estatísticas do Registro Civil 2022 tem como período de referência 01.01.2022
+a 31.12.2022.
+
+Ano de referência
+      O ano de referência da pesquisa Estatísticas do Registro Civil é o período, equivalente ao
+ano civil, em que são efetuados os registros públicos dos eventos vitais de interesse para a
+pesquisa e para os quais são divulgados resultados. Por exemplo: se o ano de referência da
+pesquisa é 2022, então compõem a pesquisa os registros públicos efetuados no ano de 2022.
+       Exclusivamente para os nascidos vivos e os óbitos, são considerados no ano de referência
+da pesquisa os eventos ocorridos no ano civil e registrados no primeiro trimestre do ano posterior
+a esse ano civil. Assim sendo, para os nascidos vivos e os óbitos, estão contemplados, no ano
+de referência de 2022, por exemplo, os nascidos vivos e os óbitos ocorridos em 2022 e
+registrados em 2022, além daqueles nascimentos e óbitos ocorridos em 2022 e registrados nos
+meses de janeiro, fevereiro ou março de 2023.
+
+
+Conceitos e definições
+      A fim de permitir a correta interpretação das informações divulgadas, são apresentados, a
+seguir, os principais conceitos e definições utilizados nos levantamentos das Estatísticas do
+Registro Civil.
+
+Nascidos vivos
+nascido vivo Expulsão ou a extração completa de um produto da concepção do corpo materno,
+independentemente da duração da gestação, o qual, depois da separação do corpo materno,
+respire ou dê qualquer outro sinal de vida, tal como: batimento do coração, pulsação do cordão
+umbilical, ou movimento efetivo dos músculos de contração voluntária, estando ou não cortado
+o cordão umbilical e estando ou não desprendida a placenta (NACIONES UNIDAS, 2014).
+
+
+Estatísticas do Registro Civil, v. 49, 2022                                                      6
+Notas técnicas
+idade da mãe na ocasião do parto Idade, em anos completos, que a mãe tinha na ocasião do
+parto.
+
+local do nascimento Determinação física do local de ocorrência do nascimento. São
+considerados os seguintes locais de nascimento: hospital, estabelecimento de saúde sem
+internação, domicílio, outro local (veículo, via pública, a bordo etc.) ou local ignorado.
+
+lugar de registro Localização geográfica (Unidade da Federação e Município) do Cartório de
+Registro Civil de Pessoas Naturais onde foi efetuado o registro do nascido vivo.
+lugar de residência da mãe Localização geográfica (Unidade da Federação e Município ou país
+estrangeiro) da moradia habitual da mãe na ocasião do parto.
+
+mês do registro Mês em que foi efetuado em Cartório o registro do nascido vivo.
+
+Óbitos
+óbito Desaparecimento definitivo de algum sinal de vida em qualquer momento posterior ao
+nascimento, ou seja, cessação das funções vitais sem a possibilidade de ressuscitamento.
+ano de ocorrência Ano em que ocorreu o óbito.
+
+idade Tempo de vida em minutos, horas, dias, meses ou anos completos que a pessoa tinha na
+data do falecimento.
+
+local de ocorrência Determinação física do local onde ocorreu o óbito. São consideradas as
+seguintes determinações: hospital, estabelecimento de saúde sem internação, domicílio, via
+pública, outro local (veículo, a bordo etc.) ou local ignorado.
+
+lugar do registro Localização geográfica (Unidade da Federação e Município) do Cartório de
+Registro Civil de Pessoas Naturais onde foi efetuado o registro do óbito.
+lugar de residência do falecido Localização geográfica (Unidade da Federação e Município ou
+país estrangeiro) da moradia habitual do falecido por ocasião do óbito.
+
+mês de ocorrência Mês em que o óbito ocorreu.
+natureza do óbito Circunstância em que ocorreu o falecimento, a qual pode ser classificada em:
+natural (devido a causas biológicas), não natural (devido a causas externas, tais como: acidentes
+de trânsito, afogamentos, suicídios, homicídios, quedas acidentais etc.) ou ignorada.
+estado civil Estado civil do falecido. São consideradas as seguintes categorias: solteiro, casado,
+viúvo, separado judicialmente, divorciado, desquitado ou ignorado.
+
+Óbitos fetais
+óbito fetal Morte de um produto da concepção ocorrida antes da expulsão ou da sua extração
+completa do corpo materno, independentemente da duração da gestação. A indicação do óbito
+fetal é dada pelo fato de, após a separação do corpo materno, o feto não respirar ou mostrar
+qualquer outra evidência de vida, tal como: batimento do coração, pulsação do cordão umbilical,
+ou movimento efetivo dos músculos de contração voluntária (NACIONES UNIDAS, 2014).
+
+óbito fetal tardio ou nascido morto ou natimorto Óbito ocorrido com 28 semanas ou mais de
+gestação.
+
+duração da gestação Período observado de desenvolvimento do embrião no útero materno,
+desde a sua concepção até a ocasião do parto. A duração da gestação é investigada em número
+de semanas completas.
+
+
+Estatísticas do Registro Civil, v. 49, 2022                                                      7
+Notas técnicas
+idade da mãe na ocasião do parto Idade, em anos completos, que a mãe tinha na ocasião do
+parto.
+
+local do nascimento Determinação física do local de ocorrência do parto que gerou o óbito fetal.
+São considerados os seguintes locais de nascimento: hospital, estabelecimento de saúde sem
+internação, domicílio, outro local (veículo, via pública, a bordo etc.) ou local ignorado.
+
+lugar do registro Localização geográfica (Unidade da Federação e Município) do Cartório de
+Registro Civil de Pessoas Naturais onde foi efetuado o registro do óbito fetal.
+lugar de residência da mãe Localização geográfica (Unidade da Federação e Município ou país
+estrangeiro) da moradia habitual da mãe na ocasião do parto.
+
+mês do registro Mês em que foi efetuado o registro do óbito fetal.
+
+tipo de gravidez Gravidez definida pelo número de fetos que a gestante carrega
+simultaneamente no ventre. São consideradas as seguintes categorias: única, dupla (gêmeo),
+tripla ou mais (trigêmeo ou mais) ou ignorado.
+
+Casamentos
+casamento Ato, cerimônia ou processo que estabelece a relação legal de comunhão plena de
+vida em família, isto é, um vínculo matrimonial, entre duas pessoas, legalmente denominado
+casamento civil. De acordo com o Código Civil vigente (Lei n. 10.406, de 10.01.2002), o
+casamento civil ou religioso com efeito civil somente é efetivado após cumpridas as exigências
+legais contidas nas etapas de habilitação, celebração e registro da cerimônia, conforme disposto
+nos Art. 1.511 a 1.516 (BRASIL, 2002). Cabe destacar que o casamento civil modifica o estado
+civil do indivíduo.
+
+mês de ocorrência Mês em que foi celebrado o casamento (civil ou religioso com efeito civil).
+mês do registro Mês em que foi efetuado o registro do casamento (civil ou religioso com efeito
+civil) no Cartório de Registro Civil de Pessoas Naturais.
+
+idade Idade, em anos completos, que a pessoa tinha na data do registro do casamento.
+lugar do registro Localização geográfica (Unidade da Federação e Município) do Cartório de
+Registro Civil de Pessoas Naturais onde foi efetuado o registro do casamento (civil ou religioso
+com efeito civil).
+estado civil Estado civil anterior ao casamento. São consideradas as seguintes categorias:
+solteiro(a), viúvo(a), divorciado(a) ou ignorado.
+
+Divórcios
+divórcio Instituto jurídico que rompe definitivamente o vínculo matrimonial estabelecido pelo
+casamento, põe termo aos deveres constituídos por ocasião daquele, e confere às partes o
+direito a novo casamento civil ou religioso com efeito civil. O divórcio foi regulamentado, no Brasil,
+por meio da Lei n. 6.515, de 26.12.1977, inicialmente com exigência de lapso de tempo entre a
+separação e o posterior deferimento do divórcio. A Emenda Constitucional n. 66, de 13.07.2010,
+instituiu o divórcio direto, extinguindo a exigência de prévia separação (BRASIL, 1977, 2002,
+2010).
+       Os resultados da pesquisa se referem aos processos de divórcio julgados, encerrados em
+1a instância, e às escrituras realizadas nos Tabelionatos de Notas (divórcios extrajudiciais).
+
+
+
+
+Estatísticas do Registro Civil, v. 49, 2022                                                         8
+Notas técnicas
+idade dos cônjuges na data da abertura do processo de divórcio ou da realização da
+escritura Idade, em anos completos, que os cônjuges tinham na ocasião da abertura do
+processo de divórcio ou da escritura.
+lugar da ação do processo de divórcio ou da realização da escritura Localização geográfica
+(Unidade da Federação e Município) da Vara de Família, Foro, Vara Cível ou Tabelionato de
+Notas onde se deu entrada à petição de divórcio.
+natureza da ação do processo de divórcio Forma pela qual se deu a petição da ação de
+divórcio e que pode ser:
+
+        • Consensual - quando a ação é decorrente da petição conjunta dos cônjuges; ou
+
+        • Não consensual - quando a ação é decorrente da petição de apenas um dos cônjuges.
+
+       No caso das escrituras de divórcio, a natureza consensual é obrigatória, bem como a
+inexistência de filhos menores de idade ou incapazes.
+regime de bens do casamento Processo que regulamenta a propriedade de bens pelos
+cônjuges após o casamento. Os três regimes de bens atualmente vigentes no País são os
+seguintes:
+
+        • Comunhão universal de bens - regime em que nenhum dos dois cônjuges tem
+        propriedade individual, inclusive dívidas (com certas exceções);
+
+        • Comunhão parcial de bens - regime em que cada cônjuge pode ter bens particulares,
+        afora os que constituíram propriedade comum do casal; e
+
+        • Separação de bens - regime em que os bens de um cônjuge não pertencem ao outro;
+        são bens individuais, como se ambos estivessem na condição de solteiros.
+responsável pela guarda dos filhos Pessoa em cuja companhia ficam os filhos menores de 18
+anos de idade do casal divorciado, ficando essa pessoa responsável pela criação e pela
+educação de tais menores. A responsabilidade pela guarda dos filhos menores pode caber a
+qualquer dos cônjuges separadamente, a ambos os cônjuges, ou até mesmo a outra pessoa,
+conforme decisão judicial.
+
+sentença proferida Resposta dada pelo juiz ao pedido de divórcio e que pode ser a concessão
+ou a denegação do pedido, podendo haver, posteriormente, recurso ou não contra a decisão
+judicial.
+
+tempo transcorrido entre as datas do casamento e da sentença Tempo, em anos completos,
+de duração legal do casamento.
+tipo de família Caracterização da família do casal pela existência ou não de filhos (maiores e/ou
+menores): sem filhos, somente com filhos maiores de idade, somente com filhos menores de
+idade, com filhos maiores e menores de idade, ou sem declaração de filhos maiores e/ou
+menores de idade.
+
+
+Instrumentos de coleta
+      A pesquisa Estatísticas do Registro Civil é coletada, atualmente, em cinco modelos de
+questionários (ver Anexo):
+
+        •     Modelo RC.1 - Nascidos vivos;
+        •     Modelo RC.2 - Casamentos;
+        •     Modelo RC.3 - Óbitos;
+
+Estatísticas do Registro Civil, v. 49, 2022                                                     9
+Notas técnicas
+        •     Modelo RC.4 - Óbitos fetais;
+        •     Modelo DJ - Divórcios judiciais;
+        •     Modelo DE - Divórcios extrajudiciais; e
+        •     Modelo RC.10 - Folha de cadastro, utilizado para o registro de informações de
+              cadastro dos informantes.
+
+        A coleta dos dados da pesquisa pode ocorrer da seguinte forma:
+        •     Por meio da aplicação de questionários em formulários impressos; ou
+        •     Por meio eletrônico, com duas possibilidades: pela existência de um layout dos dados
+              definido pelo IBGE para os informantes que possuem seus próprios sistemas, como
+              os Cartórios de Registro Civil de Pessoas Naturais e os Tabelionatos de Notas; ou
+              pelo uso do Sistema IBGE, que pode ser instalado nos computadores dos Cartórios
+              de Registro Civil de Pessoas Naturais, Varas de Família, Foros ou Varas Cíveis.
+
+
+Disseminação dos resultados
+       Os comentários analíticos são apresentados em formato de informativo, que pode ser
+acessado, também, na página da pesquisa Estatísticas do Registro Civil, no portal do IBGE na
+Internet.
+      Os resultados estão organizados em tabelas, disponibilizadas na página da pesquisa, bem
+como em outros canais, no portal do IBGE: no Sistema IBGE de Recuperação Automática -
+SIDRA, no endereço: <http://www.sidra.ibge.gov.br> e no Banco Multidimensional de Estatísticas
+- BME, em: <www.bme.ibge.gov.br/index.jsp>.
+
+
+
+
+Estatísticas do Registro Civil, v. 49, 2022                                                     10
+Notas técnicas
+Referências
+BRASIL. [Constituição (1988)]. Constituição da República Federativa do Brasil de 1988.
+Brasília, DF, 2022. Disponível em:
+http://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm. Acesso em: jan.
+2023.
+
+BRASIL. [Constituição (1988)]. Emenda Constitucional n. 66, de 13 de julho de 2010. Dá nova
+redação ao § 6o do Art. 226 da Constituição Federal, que dispõe sobre a dissolubilidade do
+casamento civil pelo divórcio, suprimindo o requisito de prévia separação judicial por mais de 1
+(um) ano ou de comprovada separação de fato por mais de 2 (dois) anos. Diário Oficial da
+União: seção 1, Brasília, DF, ano 147, n. 133, p. 1-2, 14 jul. 2010. Disponível em:
+http://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc66.htm. Acesso em: jan.
+2023.
+
+BRASIL. Lei n. 6.015, de 31 de dezembro de 1973. Dispõe sobre os registros públicos e dá
+outras providências. Diário Oficial [da] República Federativa do Brasil: seção 1, Brasília, DF,
+ano 111, n. 249, p. 13528-13539, 31 dez. 1973. Retificada no Diário, seção 1, p. 14337, 30
+out. 1975. Disponível em: http://www.planalto.gov.br/ccivil_03/leis/L6015compilada.htm. Acesso
+em: jan. 2023.
+
+BRASIL. Lei n. 6.515, de 26 de dezembro de 1977. Regula os casos de dissolução da
+sociedade conjugal e do casamento, seus efeitos e respectivos processos, e dá outras
+providências. Diário Oficial [da] República Federativa do Brasil: seção 1, Brasília, DF, ano 115,
+n. 248, p. 17953-17957, 27 dez. 1977. Retificada no Diário, seção 1, p. 5073, 11 abr. 1978.
+Disponível em: http://www.planalto.gov.br/ccivil_03/leis/L6515.htm. Acesso em: jan. 2023.
+
+BRASIL. Lei n. 10.406, de 10 de janeiro de 2002. Institui o Código Civil. Diário Oficial da União:
+seção 1, Brasília, DF, ano 139, n. 8, p. 1-192, 11. jan. 2002. Disponível em:
+https://www.planalto.gov.br/ccivil_03/leis/2002/l10406.htm. Acesso em: jan. 2023.
+
+BRASIL. Lei n. 11.441, de 4 de janeiro de 2007. Altera dispositivos da Lei n. 5.869, de 11 de
+janeiro de 1973, Código de Processo Civil, possibilitando a realização de inventário, partilha,
+separação consensual e divórcio consensual por via administrativa. Diário Oficial da União:
+seção 1, Brasília, DF, ano 144, n. 4, p. 1, 5 jan. 2007. Disponível em:
+http://www.planalto.gov.br/ccivil_03/_ato2007-2010/2007/lei/l11441.htm. Acesso em: jan. 2023.
+
+BRASIL. Lei n. 13.058, de 22 de dezembro de 2014. Altera os Arts. 1.583, 1.584, 1.585 e 1.634
+da Lei n. 10.406, de 10 de janeiro de 2002 (Código Civil), para estabelecer o significado da
+expressão “guarda compartilhada” e dispor sobre sua aplicação. Diário Oficial da União: seção
+1, Brasília, DF, ano 151, n. 248, p. 2-3, 23 dez. 2014. Retificada no Diário, seção 1, p. 1, 24
+dez. 2014. Disponível em: http://www.planalto.gov.br/ccivil_03/_ato2011-
+2014/2014/lei/l13058.htm. Acesso em: jan. 2023.
+
+BRASIL. Ministério da Saúde. Plano de contingência nacional para infecção humana pelo novo
+coronavírus, COVID-19. Brasília, DF, 2020a. 24 p. Disponível em: http://www.cofen.gov.br/wp-
+content/uploads/2020/03/plano-contingencia-coronavirus-COVID19.pdf. Acesso em: jan. 2023.
+
+BRASIL. Ministério da Saúde. Portaria n. 188, de 9 de fevereiro de 2020. Declara Emergência
+em Saúde Pública de Importância Nacional (ESPIN) em decorrência da infecção humana pelo
+Estatísticas do Registro Civil, v. 49, 2022                                                     11
+Notas técnicas
+novo coronavírus (2019-nCoV). Diário Oficial da União: seção 1, Brasília, DF, ano 158, n. 24-A,
+p. 1, 4 fev. 2020b. Edição extra. Revogada pela Portaria n. 913, de 22.04.2022. Disponível em:
+http://www.planalto.gov.br/ccivil_03/Portaria/Portaria-188-20-ms.htm. Acesso em: jan. 2023.
+
+CONSELHO NACIONAL DE JUSTIÇA (Brasil). Resolução n. 175, de 14 de maio de 2013.
+Dispõe sobre a habilitação, celebração de casamento civil, ou de conversão de união estável
+em casamento, entre pessoas de mesmo sexo. Diário de Justiça Eletrônico, Brasília, DF, n. 89,
+p. 2, 15 maio 2013. Disponível em: https://atos.cnj.jus.br/atos/detalhar/1754. Acesso em: jan.
+2023.
+
+IBGE. Projeções da população: Brasil e Unidades da Federação: revisão 2018. 2. ed. Rio de
+Janeiro: IBGE, 2018. 56 p. (Série relatórios metodológicos, v. 40). Disponível em:
+https://www.ibge.gov.br/estatisticas/sociais/populacao/9109-projecao-da-
+populacao.html?edicao=21830&t=notas-tecnicas. Acesso em: jan. 2023.
+
+NACIONES UNIDAS. División de Estadística. Princípios y recomendaciones para un sistema
+de estadísticas vitales. Rev. 3. Nueva York, 2014. 228 p. (Informes estadísticos. Serie M, n.
+19/Rev. 3). Disponível em: https://unstats.un.org/unsd/demographic-social/Standards-and-
+Methods/files/Principles_and_Recommendations/CRVS/M19Rev3-S.pdf. Acesso em: jan. 2023.
+
+
+
+
+Estatísticas do Registro Civil, v. 49, 2022                                                  12
+Notas técnicas
+Anexo
+Questionários do Registro Civil
+
+          Nascidos Vivos - RC.1
+
+          Casamento - RC.2
+
+          Óbitos - RC.3
+
+          Óbitos Fetais - RC.4
+
+          Divórcios - DJ
+
+          Divórcios Extrajudiciais - DE
+
+          Folha de Cadastro - RC.10
+
+
+
+
+Estatísticas do Registro Civil, v. 49, 2022   13
+Notas técnicas
+Equipe técnica
+Diretoria de Pesquisas
+ Coordenação de População e Indicadores Sociais
+      Cristiane dos Santos Moutinho
+
+   Gerência de Estudos e Pesquisas Sociais
+      Vânia Maria Pacheco
+
+   Gerência da Pesquisa do Registro Civil
+      Klívia Brayner de Oliveira
+     Equipe de apuração e crítica
+      Danielle Marques dos Ramos Monteiro
+      Eliana Brandão de Jesus
+      Fátima de Carvalho Madeira Reis
+      Gabriela Freitas da Cruz
+
+   Gerência de Estatística e Tecnologia
+      Jose Eduardo de Oliveira Trindade
+      Luiz Fernando Lima Costa
+      Paulo Cesar Dick
+     Elaboração dos textos analíticos
+     Registros de nascimentos
+      Klívia Brayner de Oliveira
+     Registros de óbitos
+      Gabriela Freitas da Cruz
+     Registros de casamentos e de divórcios
+      Fátima de Carvalho Madeira Reis
+
+Colaboradores
+
+Diretoria de Tecnologia de Informação
+ Coordenação de Atendimento e Desenvolvimento de Sistemas
+   Márcio Tadeu Medeiros Vieira
+
+   Gerência de Aplicações Populacionais e Sociais
+      Cristiane de Moura Cruz Oliveira
+      André Bruno de Oliveira
+      Leonardo Moes Gomes
+
+ Coordenação de Metodologia e Banco de Dados
+      Bianca Fernandes Sotelo
+
+   Gerência de Aplicações de Dados Agregados e Indicadores
+      Anderson Almeida França
+      Glauco Ofranti Trindade
+      Saulo Barbosa Mansur
+      Vinícius Gomes Pereira
+
+   Gerência de Aplicações de Microdados
+      Marcello Willians Messina Ribeiro
+      Antônio Fernando Guimarães Dias
+      Marcos Vieira Petrúngaro
+      Magali Ribeiro Chaves
+      Patrícia de Oliveira dos Santos
+Estatísticas do Registro Civil, v. 49, 2022                  28
+Notas técnicas
+ Coordenação de Operações e Serviços de Informática
+      Bruno Gonçalves Santos
+
+ Gerência de Implantação e Administração dos Serviços em Produção
+      Sergio Jorge de Carvalho Junior
+      Andrea Moreira Torres
+      Leonardo Lemgruber
+
+Supervisores Estaduais do Registro Civil
+      RO - Ademilson Uchoa Matos
+      AC - Sharlene de Oliveira Hage
+      AM - Jonatas Monteiro
+      RR - Paula Kelly Gomes Maia
+      PA - Norma Maria Bentes de Sousa
+      AP - Ananias do Carmo Picanço
+      TO - Zeneide Maria da Silva
+      MA - Fabiano Leonardo Pestana Arouche
+      PI - Pablo Ulisses Pinho Gomes Araújo
+      CE - Maria Liduina Freitas Santos
+      RN - Telma Maria Galvao de Azevedo
+      PB - Lamartine Candeia de Andrade
+      PE - Mariana Cavalcanti Pordeus
+      AL - Bruno Leonardo Tavares Vasconcelos
+      SE - Mario Jorge Andrade Oliveira
+      BA - Pedro Martins Marchezini
+      MG - Leonardo Cabral da Silva
+      ES - Aluízio de Lourdes Lopes
+      RJ - Tarsio Abranches de Albuquerque
+      SP - Jailson Lopes de Sousa
+      PR - Mateus Ciscon Fonseca
+      SC - Cleiton Remor
+      RS - Marcelo Gomes Larratea
+      MS - Alfredo Arcanjo Cruz Figueiredo
+      MT - Helito Serra
+      GO - Alessandro de Siqueira Arantes
+      DF - Gisela Rodrigues de Almeida Vaz de Mello
+
+
+
+ Centro de Documentação e Disseminação de Informações
+ Coordenação de Produção Editorial e Gráfica
+      Ednalva Maia do Monte
+
+   Gerência de Editoração
+    Estruturação textual do Informativo
+      Fernanda Jardim
+      Leonardo Ferreira Martins
+    Projeto gráfico do Informativo
+      Mônica Pimentel Cinelli Ribeiro
+
+   Gerência de Sistematização de Conteúdos Informacionais
+    Pesquisa e normalização documental
+      Ana Raquel Gomes da Silva
+      Daniela Rangel Granja
+      Lioara Mandoju
+
+Estatísticas do Registro Civil, v. 49, 2022                         29
+Notas técnicas
+      Marcos Paulo Braz Cruz (estagiário)
+      Solange de Oliveira Santos
+    Elaboração de resumos indicativos e padronização de glossários
+      Ana Raquel Gomes da Silva
+
+   Gerência de Gráfica
+    Impressão e acabamento do Informativo
+      Ednalva Maia do Monte
+      Newton Malta de Souza Marques
+
+
+
+
+Estatísticas do Registro Civil, v. 49, 2022                          30
+Notas técnicas
+

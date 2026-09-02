@@ -1,0 +1,30 @@
+field,start,width,description,coding,documented_period,end
+Ano,1,4,Ano de referência,,1º tri/2012 - atual,4
+Trimestre,5,1,Trimestre de referência,Número do trimestre (1 a 4),1º tri/2012 - atual,5
+UF,6,2,Unidade da Federação,Rondônia,1º tri/2012 - atual,7
+Capital,8,2,Município da Capital,Município de Porto Velho (RO),1º tri/2012 - atual,9
+RM_RIDE,10,2,"Região Metropolitana e Região Administrativa Integrada
+de Desenvolvimento",Região Metropolitana de Manaus (AM),1º tri/2012 - atual,11
+UPA,12,9,Unidade Primária de Amostragem (UPA),UF (2) + Número Sequencial (6) + DV (1),1º tri/2012 - atual,20
+Estrato,21,7,,As 2 primeiras posições representam o código da Unidade da Federação,1º tri/2012 - atual,27
+V1008,28,2,Número de seleção do domicílio,Número do domicílio,1º tri/2012 - atual,29
+V1014,30,2,Painel,Grupo de amostra,1º tri/2012 - atual,31
+V1016,32,1,Número da entrevista no domicílio,Número da entrevista (1 a 5),1º tri/2012 - atual,32
+V1022,33,1,Situação do domicílio,Urbana,1º tri/2012 - atual,33
+V1023,34,1,Tipo de área,Capital,1º tri/2012 - atual,34
+V1027,35,15,Peso do domicílio e das pessoas,Peso trimestral com correção de não entrevista sem calibração pela projeção de população,1º tri/2012 - atual,49
+V1028,50,15,Peso do domicílio e das pessoas,Peso trimestral com correção de não entrevista com calibração pela projeção de população,1º tri/2012 - atual,64
+V2003,91,2,Número de ordem,,1º tri/2012 - atual,92
+V2005,93,2,Condição no domicílio,Pessoa responsável pelo domicílio,1º tri/2012 - atual,94
+V2007,95,1,Sexo,Homem,1º tri/2012 - atual,95
+V2008,96,2,Dia de nascimento,Dia de nascimento,1º tri/2012 - atual,97
+V20081,98,2,Mês de nascimento,Mês,1º tri/2012 - atual,99
+V20082,100,4,Ano de nascimento,Ano,1º tri/2012 - atual,103
+V2009,104,3,Idade do morador na data de referência,Idade (em anos),1º tri/2012 - atual,106
+V2010,107,1,Cor ou raça,Branca,1º tri/2012 - atual,107
+V3002,109,1,... frequenta escola?,Sim,1º tri/2012 - atual,109
+V4001,136,1,"Na semana de ... a ... (semana de referência), ... trabalhou ou estagiou, durante pelo menos 1 hora, em alguma atividade remunerada em dinheiro?",Sim,1º tri/2012 - atual,136
+VD3004,405,1,Nível de instrução mais elevado alcançado (pessoas de 5 anos ou mais de idade) padronizado para o Ensino fundamental -  SISTEMA DE 9 ANOS,Sem instrução e menos de 1 ano de estudo,1º tri/2012 - atual,405
+VD3005,406,2,Anos de estudo (pessoas de 5 anos ou mais de idade) padronizado para o Ensino fundamental - SISTEMA DE 9 ANOS,Sem instrução e menos de 1 ano de estudo,1º tri/2012 - atual,407
+VD4019,444,8,"Rendimento mensal habitual de todos os trabalhos para pessoas de 14 anos ou mais de idade (apenas para pessoas que receberam em dinheiro, produtos ou mercadorias em qualquer trabalho)",R$,1º tri/2012 - atual,451
+VD4031,462,3,Horas habitualmente trabalhadas por semana em todos os trabalhos para pessoas de 14 anos ou mais de idade,,1º tri/2012 - atual,464

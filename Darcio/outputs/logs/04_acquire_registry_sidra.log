@@ -1,0 +1,11 @@
+start_time=2026-09-02T02:44:06-0300
+end_time=2026-09-02T02:44:09-0300
+elapsed_seconds=2.383
+validated_query_files=72
+duplicate_all_period_files=4
+data_rows=135108
+size_bytes=45476493
+source=IBGE SIDRA API table 4406
+territorial_level=UF (n3)
+raw_local_project_files_modified=0
+max_parallel_processes=1

@@ -1,0 +1,2 @@
+analytical_rows,unique_dwellings,unique_psu_period,unique_stratum_period,periods,dwellings_multiple_periods,share_dwellings_multiple_periods,share_rows_in_repeated_dwellings,maximum_periods_per_dwelling,person_transition_estimated,note
+1058334,324052,357852,15513,27,237077,0.731601718242751,0.91035249741575,5,FALSE,dwelling hash is stable; person_order is not treated as a longitudinal person key

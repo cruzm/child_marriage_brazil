@@ -1,0 +1,7 @@
+geography_level,sex,cells,share_n_at_least_threshold,share_cases_at_least_threshold,share_cv_at_most_threshold,zero_case_cells,median_unweighted_n,median_union_cases,median_prevalence_cv,primary_behavior_geography
+Brazil,combined,48,1,1,1,0,8739,67.5,0.156914626988182,TRUE
+Brazil,female,48,1,1,1,0,4199.5,64.5,0.160319235378383,TRUE
+Brazil,male,48,1,0.270833333333333,0.166666666666667,5,4547.5,2,0.716695530322653,TRUE
+region,combined,240,1,0.791666666666667,0.7,3,1506.5,10,0.385728282415039,FALSE
+region,female,240,1,0.779166666666667,0.7,3,726,9,0.38765993508776,FALSE
+region,male,240,1,0.025,0.0208333333333333,150,771.5,0,0.999963190584701,FALSE

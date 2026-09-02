@@ -1,0 +1,156 @@
+category,test,passed,observed,source
+code,all R source scripts parse,TRUE,25,final
+code,all pipeline modules exist,TRUE,25,final
+component,2019Q1 never coded full post,TRUE,0,ANALYTIC_PANEL_ACCEPTANCE_TESTS.csv
+component,2019Q2 is first full post,TRUE,2019Q2,ANALYTIC_PANEL_ACCEPTANCE_TESTS.csv
+component,Brazil panel has expected 720 cells,TRUE,720,ANALYTIC_PANEL_ACCEPTANCE_TESTS.csv
+component,UF diagnostic panel has expected 19440 cells,TRUE,19440,ANALYTIC_PANEL_ACCEPTANCE_TESTS.csv
+component,all rates finite and nonnegative,TRUE,0,ANALYTIC_PANEL_ACCEPTANCE_TESTS.csv
+component,combined Registry counts equal sex sum,TRUE,0,ANALYTIC_PANEL_ACCEPTANCE_TESTS.csv
+component,combined population equals sex sum within tolerance,TRUE,2.3283064365387e-10,ANALYTIC_PANEL_ACCEPTANCE_TESTS.csv
+component,event baseline and first post coded -1 and 0,TRUE,"-1,0",ANALYTIC_PANEL_ACCEPTANCE_TESTS.csv
+component,exposure EB values within zero-one,TRUE,0.000155245147338833,ANALYTIC_PANEL_ACCEPTANCE_TESTS.csv
+component,exposure EB values within zero-one,TRUE,0.00617206692702381,ANALYTIC_PANEL_ACCEPTANCE_TESTS.csv
+component,exposure training years only 2013-2017,TRUE,2013-2017,ANALYTIC_PANEL_ACCEPTANCE_TESTS.csv
+component,no missing joined region numerator/denominator,TRUE,0,ANALYTIC_PANEL_ACCEPTANCE_TESTS.csv
+component,only ages 15-19 in Registry panels,TRUE,"15,16,17,18,19",ANALYTIC_PANEL_ACCEPTANCE_TESTS.csv
+component,quarter sums equal Registry month sums,TRUE,0,ANALYTIC_PANEL_ACCEPTANCE_TESTS.csv
+component,region analytical keys unique,TRUE,0,ANALYTIC_PANEL_ACCEPTANCE_TESTS.csv
+component,region panel has expected 3600 cells,TRUE,3600,ANALYTIC_PANEL_ACCEPTANCE_TESTS.csv
+component,synthetic weights nonnegative and sum one,TRUE,"1,7.8167882e-15,7.810419e-12",ANALYTIC_PANEL_ACCEPTANCE_TESTS.csv
+component,synthetic weights use no post information,TRUE,FALSE,ANALYTIC_PANEL_ACCEPTANCE_TESTS.csv
+component,union panel covers 48 periods,TRUE,48,ANALYTIC_PANEL_ACCEPTANCE_TESTS.csv
+component,2018 excluded from exposure construction,TRUE,2018 holdout columns separate,DELAY_EXPOSURE_ACCEPTANCE_TESTS.csv
+component,DDD has 27 UFs and nine years,TRUE,"27,9",DELAY_EXPOSURE_ACCEPTANCE_TESTS.csv
+component,affected share bounded,TRUE,"0.000108418482587673,0.00103850250409273",DELAY_EXPOSURE_ACCEPTANCE_TESTS.csv
+component,below-15 reported as counts/shares not rate,TRUE,no below-15 population rate,DELAY_EXPOSURE_ACCEPTANCE_TESTS.csv
+component,dynamic paths cover three ages and 47 periods,TRUE,"141,3",DELAY_EXPOSURE_ACCEPTANCE_TESTS.csv
+component,exposure has 27 UFs,TRUE,27,DELAY_EXPOSURE_ACCEPTANCE_TESTS.csv
+component,exposure uses 2013-2017 only,TRUE,2013-2017,DELAY_EXPOSURE_ACCEPTANCE_TESTS.csv
+component,raw and EB DDD executed,TRUE,2,DELAY_EXPOSURE_ACCEPTANCE_TESTS.csv
+component,recapture bootstrap has 999 aligned draws,TRUE,999,DELAY_EXPOSURE_ACCEPTANCE_TESTS.csv
+component,recapture point follows locked denominator rule,TRUE,TRUE,DELAY_EXPOSURE_ACCEPTANCE_TESTS.csv
+component,three delay ages estimated,TRUE,3,DELAY_EXPOSURE_ACCEPTANCE_TESTS.csv
+component,Registry power includes four target effects,TRUE,4,DIAGNOSTICS_POWER_ACCEPTANCE_TESTS.csv
+component,age distribution shares sum one,TRUE,0,DIAGNOSTICS_POWER_ACCEPTANCE_TESTS.csv
+component,economic pretrend bounds evaluated,TRUE,2,DIAGNOSTICS_POWER_ACCEPTANCE_TESTS.csv
+component,four locked date placebos available,TRUE,4,DIAGNOSTICS_POWER_ACCEPTANCE_TESTS.csv
+component,seasonality covers PNADC ages 14-19,TRUE,6,DIAGNOSTICS_POWER_ACCEPTANCE_TESTS.csv
+component,seasonality covers Registry ages 15-19,TRUE,5,DIAGNOSTICS_POWER_ACCEPTANCE_TESTS.csv
+component,three PNADC pre-windows estimated,TRUE,3,DIAGNOSTICS_POWER_ACCEPTANCE_TESTS.csv
+component,three Registry pre-windows estimated,TRUE,3,DIAGNOSTICS_POWER_ACCEPTANCE_TESTS.csv
+component,three placebo ages available,TRUE,3,DIAGNOSTICS_POWER_ACCEPTANCE_TESTS.csv
+component,trend and no-trend estimates both retained,TRUE,2,DIAGNOSTICS_POWER_ACCEPTANCE_TESTS.csv
+component,all figure files nonempty,TRUE,all positive bytes,EXPORT_ACCEPTANCE_TESTS.csv
+component,at least ten curated LaTeX tables,TRUE,11,EXPORT_ACCEPTANCE_TESTS.csv
+component,law and pandemic markers encoded consistently,TRUE,2019-03-13 and 2020-01-01--2021-12-31,EXPORT_ACCEPTANCE_TESTS.csv
+component,ten figures exported as PDF,TRUE,10,EXPORT_ACCEPTANCE_TESTS.csv
+component,ten figures exported as PNG,TRUE,10,EXPORT_ACCEPTANCE_TESTS.csv
+component,all quarterly ZIP checks passed,TRUE,48,GATE_B_ACCEPTANCE_TESTS.csv
+component,no post-law effect estimated before lock,TRUE,0,GATE_B_ACCEPTANCE_TESTS.csv
+component,quarterly acquisition has 48 unique periods,TRUE,48,GATE_B_ACCEPTANCE_TESTS.csv
+component,quarterly build has no invalid weights,TRUE,0,GATE_B_ACCEPTANCE_TESTS.csv
+component,quarterly denominators cover 48 periods,TRUE,48,GATE_B_ACCEPTANCE_TESTS.csv
+component,quarterly person keys unique within dwelling-period,TRUE,0,GATE_B_ACCEPTANCE_TESTS.csv
+component,quarterly population cells valid,TRUE,0,GATE_B_ACCEPTANCE_TESTS.csv
+component,quarterly precision rule selects region,TRUE,region,GATE_B_ACCEPTANCE_TESTS.csv
+component,registry local-to-official validations pass,TRUE,TRUE;TRUE;TRUE;TRUE;TRUE;TRUE;TRUE;TRUE,GATE_B_ACCEPTANCE_TESTS.csv
+component,union cells cover 48 periods,TRUE,48,GATE_B_ACCEPTANCE_TESTS.csv
+component,union estimates valid,TRUE,0,GATE_B_ACCEPTANCE_TESTS.csv
+component,2019Q1 is omitted,TRUE,2019Q1,GATE_C_ACCEPTANCE_TESTS.csv
+component,conventional RD not specified,TRUE,PPML,GATE_C_ACCEPTANCE_TESTS.csv
+component,direct treatment age is 15,TRUE,15,GATE_C_ACCEPTANCE_TESTS.csv
+component,full post begins 2019Q2,TRUE,2019Q2,GATE_C_ACCEPTANCE_TESTS.csv
+component,human-readable specification hash matches,TRUE,537fe0474cc1cd69a99251ddbc08c222b14f9685e9edf198ebce88e623b07449,GATE_C_ACCEPTANCE_TESTS.csv
+component,lock records no effects seen,TRUE,FALSE,GATE_C_ACCEPTANCE_TESTS.csv
+component,lock says frozen before post estimation,TRUE,TRUE,GATE_C_ACCEPTANCE_TESTS.csv
+component,machine-readable lock hash matches,TRUE,17f690311168b0953779e533f8a3a5b7ebf79e502237e0a4bbde3b8d07c465c2,GATE_C_ACCEPTANCE_TESTS.csv
+component,municipality forbidden,TRUE,FALSE,GATE_C_ACCEPTANCE_TESTS.csv
+component,primary controls are 17-19,TRUE,"17,18,19",GATE_C_ACCEPTANCE_TESTS.csv
+component,primary geography is region,TRUE,region,GATE_C_ACCEPTANCE_TESTS.csv
+component,primary inference clusters by period,TRUE,cluster by quarter-period,GATE_C_ACCEPTANCE_TESTS.csv
+component,30 regional heterogeneity models executed,TRUE,30,PNADC_CELL_ANALYSIS_ACCEPTANCE_TESTS.csv
+component,999 design draws finite,TRUE,999,PNADC_CELL_ANALYSIS_ACCEPTANCE_TESTS.csv
+component,999 joint dynamic draws executed,TRUE,999,PNADC_CELL_ANALYSIS_ACCEPTANCE_TESTS.csv
+component,conservative and expanded outcomes remain separate,TRUE,"union_conservative,union_expanded",PNADC_CELL_ANALYSIS_ACCEPTANCE_TESTS.csv
+component,equivalence margin fixed at 0.50 pp,TRUE,0.5,PNADC_CELL_ANALYSIS_ACCEPTANCE_TESTS.csv
+component,event model retains all event terms,TRUE,"",PNADC_CELL_ANALYSIS_ACCEPTANCE_TESTS.csv
+component,locked PNADC robustness grid has 144 models,TRUE,144,PNADC_CELL_ANALYSIS_ACCEPTANCE_TESTS.csv
+component,no Registry-PNADC subtraction,TRUE,separate outcome tables,PNADC_CELL_ANALYSIS_ACCEPTANCE_TESTS.csv
+component,primary coefficient finite,TRUE,0.00398966577032208,PNADC_CELL_ANALYSIS_ACCEPTANCE_TESTS.csv
+component,primary uses 27 periods,TRUE,27,PNADC_CELL_ANALYSIS_ACCEPTANCE_TESTS.csv
+component,2019Q1 excluded,TRUE,0,PNADC_MICRODATA_ACCEPTANCE_TESTS.csv
+component,V1028 positive,TRUE,0,PNADC_MICRODATA_ACCEPTANCE_TESTS.csv
+component,all treatment estimates finite,TRUE,4,PNADC_MICRODATA_ACCEPTANCE_TESTS.csv
+component,both sexes present each period,TRUE,2,PNADC_MICRODATA_ACCEPTANCE_TESTS.csv
+component,collapsed WLS point equals individual WLS,TRUE,3.89879101225787e-16,PNADC_MICRODATA_ACCEPTANCE_TESTS.csv
+component,four microdata estimators completed,TRUE,4,PNADC_MICRODATA_ACCEPTANCE_TESTS.csv
+component,microdata sample has 27 periods,TRUE,27,PNADC_MICRODATA_ACCEPTANCE_TESTS.csv
+component,normalized weights mean one by period,TRUE,2.52020626589911e-14,PNADC_MICRODATA_ACCEPTANCE_TESTS.csv
+component,only locked ages retained,TRUE,"15,17,18,19",PNADC_MICRODATA_ACCEPTANCE_TESTS.csv
+component,post starts 2019Q2,TRUE,"2019Q2,2019Q3,2019Q4",PNADC_MICRODATA_ACCEPTANCE_TESTS.csv
+component,transition analysis not estimated,TRUE,FALSE,PNADC_MICRODATA_ACCEPTANCE_TESTS.csv
+component,denominator sensitivity has 499 finite draws,TRUE,499,REGISTRY_ANALYSIS_ACCEPTANCE_TESTS.csv
+component,dynamic forecast bootstrap has 999 replications,TRUE,999,REGISTRY_ANALYSIS_ACCEPTANCE_TESTS.csv
+component,event model retains all event indicators,TRUE,"",REGISTRY_ANALYSIS_ACCEPTANCE_TESTS.csv
+component,five age contrasts executed,TRUE,5,REGISTRY_ANALYSIS_ACCEPTANCE_TESTS.csv
+component,four locked date placebos executed,TRUE,4,REGISTRY_ANALYSIS_ACCEPTANCE_TESTS.csv
+component,locked robustness grid has 144 models,TRUE,144,REGISTRY_ANALYSIS_ACCEPTANCE_TESTS.csv
+component,no conventional RD estimated,TRUE,age-based DiD/event forecast only,REGISTRY_ANALYSIS_ACCEPTANCE_TESTS.csv
+component,primary PPML drops no observations,TRUE,0,REGISTRY_ANALYSIS_ACCEPTANCE_TESTS.csv
+component,primary has 27 periods and five regions,TRUE,"27,5",REGISTRY_ANALYSIS_ACCEPTANCE_TESTS.csv
+component,primary model has treatment coefficient,TRUE,-0.0107762712655847,REGISTRY_ANALYSIS_ACCEPTANCE_TESTS.csv
+component,synthetic weights unchanged,TRUE,"0.999999999992182,7.81678823715851e-15,7.81041897823798e-12",REGISTRY_ANALYSIS_ACCEPTANCE_TESTS.csv
+component,affected marriages exceed total,TRUE,0,REGISTRY_BUILD_TESTS.csv
+component,annual UF coverage,TRUE,0,REGISTRY_BUILD_TESTS.csv
+component,local annual opposite-sex totals equal official SIDRA,TRUE,0,REGISTRY_BUILD_TESTS.csv
+component,local complete-table age-sex cells equal official SIDRA,TRUE,0,REGISTRY_BUILD_TESTS.csv
+component,monthly UF coverage,TRUE,0,REGISTRY_BUILD_TESTS.csv
+component,monthly age-sex sums equal annual official SIDRA,TRUE,0,REGISTRY_BUILD_TESTS.csv
+component,negative affected marriages,TRUE,0,REGISTRY_BUILD_TESTS.csv
+component,negative annual person cells,TRUE,0,REGISTRY_BUILD_TESTS.csv
+component,18 locked monthly region models,TRUE,18,REGISTRY_MONTHLY_ACCEPTANCE_TESTS.csv
+component,999 annual-block bootstrap replications,TRUE,999,REGISTRY_MONTHLY_ACCEPTANCE_TESTS.csv
+component,March 2019 omitted from all fitted samples,TRUE,2019M03,REGISTRY_MONTHLY_ACCEPTANCE_TESTS.csv
+component,monthly panel complete,TRUE,10800,REGISTRY_MONTHLY_ACCEPTANCE_TESTS.csv
+component,monthly region counts reproduce source,TRUE,0,REGISTRY_MONTHLY_ACCEPTANCE_TESTS.csv
+component,post begins April 2019,TRUE,2019M04-2019M12,REGISTRY_MONTHLY_ACCEPTANCE_TESTS.csv
+component,primary monthly coefficient finite,TRUE,-0.0242928616028555,REGISTRY_MONTHLY_ACCEPTANCE_TESTS.csv
+component,registration timing explicitly labeled,TRUE,registration month,REGISTRY_MONTHLY_ACCEPTANCE_TESTS.csv
+component,component acceptance files discovered,TRUE,11,final
+construction,Registry incidence rate identity holds,TRUE,2.50111e-12,final
+construction,all offsets have positive denominators,TRUE,0,final
+construction,union prevalences remain probabilities,TRUE,"0,0.262444039876134",final
+geography,primary Registry panel is regional,TRUE,5 regions,final
+isolation,workspace changes are confined to Darcio,TRUE,?? Darcio/,final
+lock,all four technical amendments documented,TRUE,4,final
+lock,estimands document SHA-256 unchanged,TRUE,537fe0474cc1cd69a99251ddbc08c222b14f9685e9edf198ebce88e623b07449,final
+lock,lock predates effect estimation,TRUE,2026-09-02T00:56:08-03:00 FALSE,final
+lock,specification lock SHA-256 unchanged,TRUE,17f690311168b0953779e533f8a3a5b7ebf79e502237e0a4bbde3b8d07c465c2,final
+outputs,all required analysis reports exist,TRUE,7,final
+outputs,at least ten nonempty LaTeX tables exist,TRUE,19,final
+outputs,executive summary stays within two-page proxy,TRUE,523,final
+outputs,technical report rejects false conventional RD,TRUE,explicitly documented,final
+outputs,technical report separates Registry flow and PNADC stock,TRUE,explicitly documented,final
+outputs,ten nonempty PDF figures exist,TRUE,10,final
+outputs,ten nonempty PNG figures exist,TRUE,10,final
+privacy,analytic data dictionary contains no direct identifier fields,TRUE,"",final
+provenance,every manifest artifact exists and is nonempty,TRUE,94,final
+provenance,"key numbers carry script, source, and specification",TRUE,15,final
+provenance,manifest covers every current analysis CSV and figure format,TRUE,94 manifest rows,final
+replication,single-command runner is executable,TRUE,755,final
+results,PNADC primary has combined temporal/design uncertainty,TRUE,0.00205294199136766/999,final
+results,PNADC reports age-15-specific unweighted counts,TRUE,268754,final
+results,Registry flow and PNADC stock are never subtracted,TRUE,separate result objects,final
+results,Registry primary estimate is finite and uses 27 time clusters,TRUE,-1.07184152648725/27,final
+safety,no partial-download files remain,TRUE,0,final
+sources,all mandatory official sources were opened and registered,TRUE,law_13811_2019;civil_code_compiled;ibge_registry_page;ibge_pnadc_page;ibge_sidra_4406;ibge_pnadc_quarterly_documentation,final
+sources,source URLs are clean HTTPS links with access dates,TRUE,15,final
+timing,2019Q1 is partial and never full post in PNADC,TRUE,1,final
+timing,2019Q1 is partial and never full post in Registry,TRUE,1,final
+timing,full Registry post begins in 2019Q2,TRUE,2019Q2 2024Q4,final
+treatment,only age 15 is marked treated,TRUE,15,final
+validation,PNADC quarterly build covers 48 periods,TRUE,48,final
+validation,PNADC weights and person keys validate,TRUE,0/0/0,final
+validation,all local Registry age-sex cells match official SIDRA,TRUE,3780 cells,final
+validation,all local Registry totals match official SIDRA,TRUE,10 annual totals,final

@@ -1,0 +1,13 @@
+test,passed,observed
+human-readable specification hash matches,TRUE,537fe0474cc1cd69a99251ddbc08c222b14f9685e9edf198ebce88e623b07449
+machine-readable lock hash matches,TRUE,17f690311168b0953779e533f8a3a5b7ebf79e502237e0a4bbde3b8d07c465c2
+lock says frozen before post estimation,TRUE,TRUE
+lock records no effects seen,TRUE,FALSE
+direct treatment age is 15,TRUE,15
+primary controls are 17-19,TRUE,"17,18,19"
+2019Q1 is omitted,TRUE,2019Q1
+full post begins 2019Q2,TRUE,2019Q2
+primary geography is region,TRUE,region
+primary inference clusters by period,TRUE,cluster by quarter-period
+municipality forbidden,TRUE,FALSE
+conventional RD not specified,TRUE,PPML

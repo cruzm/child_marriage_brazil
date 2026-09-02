@@ -1,0 +1,16 @@
+\begin{table}[!htbp]
+\centering
+\begingroup\scriptsize
+\begin{tabular}{lrrrrrlrlrrr}
+  \hline
+method & estimate & std\_error & ci\_lower & ci\_upper & p\_value & units & periods\_or\_replications & caveat & effect\_percentage\_points & ci\_lower\_percentage\_points & ci\_upper\_percentage\_points \\ 
+  \hline
+cell meta-regression, period cluster plus design variance & 0.004 & 0.002 & -0.000 & 0.008 & 0.052 & prevalence &   27 & only three short-run post quarters; marginal cell covariance unavailable & 0.399 & -0.003 & 0.801 \\ 
+  Brazil age15-minus-pooled17-19 prevalence gap; Newey-West lag 4 & 0.002 & 0.002 & -0.001 & 0.006 & 0.170 & prevalence gap &   27 & aggregated gap; HAC lag 4 & 0.235 & -0.100 & 0.569 \\ 
+  pre-period prevalence-gap forecast; design draws plus four-quarter residual blocks & 0.002 & 0.004 & -0.005 & 0.010 & 0.561 & prevalence gap &  999 & normal marginal design draws plus temporal block residuals & 0.223 & -0.542 & 1.026 \\ 
+   \hline
+\end{tabular}
+\endgroup
+\caption{PNADC UNION INFERENCE TRIANGULATION} 
+\label{tab:pnadc_union_inference_triangulation}
+\end{table}

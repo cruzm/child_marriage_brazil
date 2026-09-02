@@ -1,0 +1,11 @@
+artifact,field,unit,construction,source
+REGISTRY_PERSON_EVENTS_ANNUAL,persons_married,persons,sum of one spouse contribution per person cell; no row expansion,"IBGE SIDRA table 4406, official API"
+REGISTRY_PERSON_EVENTS_ANNUAL,opposite_sex_people,persons,"variable 221, correct spouse order","IBGE SIDRA table 4406, official API"
+REGISTRY_PERSON_EVENTS_ANNUAL,same_sex_people,persons,both spouse orders from variables 4373/4374,"IBGE SIDRA table 4406, official API"
+REGISTRY_PERSON_EVENTS_ANNUAL,age_group,completed-year category,"<15, exact 15-19, unknown","IBGE SIDRA table 4406, official API"
+REGISTRY_PERSON_EVENTS_ANNUAL,geography,place of registration,UF of registry office,"IBGE SIDRA table 4406, official API"
+REGISTRY_PERSON_EVENTS_MONTHLY,month,registration month,SIDRA registration month; not month of occurrence,"IBGE SIDRA table 4406, official API"
+REGISTRY_PERSON_EVENTS_MONTHLY,persons_married,persons,annual population denominator is not divided by 12,"IBGE SIDRA table 4406, official API"
+REGISTRY_AFFECTED_MARRIAGES_ANNUAL,affected_marriages_below_16,marriages,first<16 + second<16 - both<16,"IBGE SIDRA table 4406, official API"
+REGISTRY_AFFECTED_MARRIAGES_ANNUAL,marriages_at_least_one_below_15,marriages,first<15 + second<15 - both<15,"IBGE SIDRA table 4406, official API"
+REGISTRY_AFFECTED_MARRIAGES_ANNUAL,total_marriages,marriages,sum of composition-specific marriages,"IBGE SIDRA table 4406, official API"

@@ -1,0 +1,11 @@
+test,passed,observed
+locked PNADC robustness grid has 144 models,TRUE,144
+primary coefficient finite,TRUE,0.00398966577032208
+primary uses 27 periods,TRUE,27
+999 design draws finite,TRUE,999
+999 joint dynamic draws executed,TRUE,999
+event model retains all event terms,TRUE,""
+30 regional heterogeneity models executed,TRUE,30
+conservative and expanded outcomes remain separate,TRUE,"union_conservative,union_expanded"
+equivalence margin fixed at 0.50 pp,TRUE,0.5
+no Registry-PNADC subtraction,TRUE,separate outcome tables

@@ -1,0 +1,2 @@
+method,short_run_log_effect,std_error,ci_lower,ci_upper,p_value,rate_ratio,percent_change,simultaneous_critical_value,joint_lead_max_statistic,joint_lead_p_value,bootstrap_replications,block_length,pre_periods,post_short_periods
+pre-period linear-seasonal forecast with moving-block residual bootstrap,0.0197780163584073,0.10259061589849,-0.184903814059748,0.215257881130496,0.857,1.01997489715238,1.99748971523757,3.09817771209432,2.6622702720259,0.161,999,4,24,3

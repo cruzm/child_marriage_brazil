@@ -1,0 +1,8 @@
+source,product_class,first_year,last_year,year_rows,total_rows,geography,use
+pnadc_didc_cache,PNAD Continua annual by first visit (inferred from V1032 provenance),2012,2023,10,251859,UF label only; UPA and stratum removed,annual female population point estimates and spouse-of-head lower-bound union prevalence; no design-based SE
+pnadc_official_first_visit,PNADC annual by first visit,2012,2024,11,479229,UF; design identifiers retained,age-sex denominators and union outcomes with design-based variance
+pnadc_official_quarterly,PNADC quarterly repeated cross-sections,2013,2024,12,2432627,UF raw; region/Brazil design-based analytical union cells,quarterly age-sex denominators and union prevalence with Taylor variance
+pnadc_total_population,"PNADC annual by first visit, all ages",2012,2024,11,4787628,UF/region/Brazil,aggregate civil-marriage-rate denominator
+registry_complete_tables_cache,Registry Civil aggregate cells; opposite-sex marriages,2003,2022,20,1780580,place of registration (name); UF supported,"annual numerators, joint-age affected marriages, delay/bunching; not a population rate without denominator"
+registry_sidra_local_extracts,SIDRA table 4406 UF aggregate; second-spouse selected ages,2013,2024,12,2592,UF,validation and selected second-spouse numerators
+registry_sidra_official,Registry Civil SIDRA table 4406; all couple compositions,2013,2024,12,6804,UF of registration office,"person-event numerators, affected marriages, delay/bunching, registration-month robustness"

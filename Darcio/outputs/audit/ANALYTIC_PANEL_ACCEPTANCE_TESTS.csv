@@ -1,0 +1,20 @@
+test,passed,observed
+region panel has expected 3600 cells,TRUE,3600
+Brazil panel has expected 720 cells,TRUE,720
+UF diagnostic panel has expected 19440 cells,TRUE,19440
+region analytical keys unique,TRUE,0
+no missing joined region numerator/denominator,TRUE,0
+quarter sums equal Registry month sums,TRUE,0
+combined Registry counts equal sex sum,TRUE,0
+combined population equals sex sum within tolerance,TRUE,2.3283064365387e-10
+only ages 15-19 in Registry panels,TRUE,"15,16,17,18,19"
+2019Q1 never coded full post,TRUE,0
+2019Q2 is first full post,TRUE,2019Q2
+event baseline and first post coded -1 and 0,TRUE,"-1,0"
+all rates finite and nonnegative,TRUE,0
+exposure training years only 2013-2017,TRUE,2013-2017
+exposure EB values within zero-one,TRUE,0.000155245147338833
+exposure EB values within zero-one,TRUE,0.00617206692702381
+synthetic weights nonnegative and sum one,TRUE,"1,7.8167882e-15,7.810419e-12"
+synthetic weights use no post information,TRUE,FALSE
+union panel covers 48 periods,TRUE,48

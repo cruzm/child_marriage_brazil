@@ -1,0 +1,13 @@
+start_time=2026-09-02T03:15:51-0300
+end_time=2026-09-02T03:15:51-0300
+elapsed_seconds=0.107
+inventory_files=332
+crosswalk_rows=52
+coverage_rows=88
+quarterly_periods=48
+selected_quarterly_geography=region
+selected_behavior_geography=Brazil
+tests_passed=11
+tests_total=11
+effects_estimated=0
+gate=B_complete

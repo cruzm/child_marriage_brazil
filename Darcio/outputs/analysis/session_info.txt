@@ -1,0 +1,39 @@
+generated_at=2026-09-02T03:18:52-0300
+project_root=/home/darciogm1/projetos/child_marr
+R=R version 4.5.2 (2025-10-31)
+platform=x86_64-pc-linux-gnu
+os=Linux;6.6.87.2-microsoft-standard-WSL2;#1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025;DarcioWork;x86_64;unknown;darciogm1;darciogm1
+cpu_detected=14
+max_pipeline_workers=4
+specification_lock_sha256=17f690311168b0953779e533f8a3a5b7ebf79e502237e0a4bbde3b8d07c465c2
+estimands_md_sha256=537fe0474cc1cd69a99251ddbc08c222b14f9685e9edf198ebce88e623b07449
+
+--- sessionInfo() ---
+R version 4.5.2 (2025-10-31)
+Platform: x86_64-pc-linux-gnu
+Running under: Ubuntu 24.04.4 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.12.0 
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.12.0  LAPACK version 3.12.0
+
+locale:
+ [1] LC_CTYPE=C.UTF-8       LC_NUMERIC=C           LC_TIME=C.UTF-8       
+ [4] LC_COLLATE=C.UTF-8     LC_MONETARY=C.UTF-8    LC_MESSAGES=C.UTF-8   
+ [7] LC_PAPER=C.UTF-8       LC_NAME=C              LC_ADDRESS=C          
+[10] LC_TELEPHONE=C         LC_MEASUREMENT=C.UTF-8 LC_IDENTIFICATION=C   
+
+time zone: America/Sao_Paulo
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] data.table_1.18.2.1
+
+loaded via a namespace (and not attached):
+[1] compiler_4.5.2 parallel_4.5.2 tools_4.5.2   
+
+--- git status --short ---
+?? Darcio/

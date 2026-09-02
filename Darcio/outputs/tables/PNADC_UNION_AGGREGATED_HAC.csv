@@ -1,0 +1,2 @@
+method,estimate,effect_percentage_points,std_error,ci_lower,ci_upper,p_value,periods,hac_lag
+Brazil age15-minus-pooled17-19 prevalence gap; Newey-West lag 4,0.0023457375193663,0.23457375193663,0.00170768254166741,-0.00100125875932964,0.00569273379806224,0.16955411395334,27,4

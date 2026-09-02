@@ -1,0 +1,15 @@
+# Large public raw acquisitions and rebuildable person-level derivatives.
+data/raw_external/
+outputs/data/pnadc_adolescents/
+outputs/data/pnadc_quarterly_adolescents/
+
+# Local package library and transient download files.
+library/
+*.part
+
+# R/editor process artifacts.
+.Rhistory
+.RData
+.Rproj.user/
+*.swp
+

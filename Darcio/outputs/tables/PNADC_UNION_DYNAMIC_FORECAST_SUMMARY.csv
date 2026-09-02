@@ -1,0 +1,2 @@
+method,short_run_effect,short_run_effect_percentage_points,std_error,ci_lower,ci_upper,ci_lower_percentage_points,ci_upper_percentage_points,p_value,simultaneous_critical_value,joint_lead_statistic,joint_lead_p_value,replications,block_length
+pre-period prevalence-gap forecast; design draws plus four-quarter residual blocks,0.00222805623503121,0.222805623503121,0.0039921290962319,-0.00541575550536127,0.0102551573985002,-0.541575550536127,1.02551573985002,0.561,3.20614489643869,2.11572478565955,0.543,999,4

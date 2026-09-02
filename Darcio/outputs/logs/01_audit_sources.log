@@ -1,0 +1,11 @@
+start_time=2026-09-02T02:19:20-0300
+end_time=2026-09-02T02:19:39-0300
+elapsed_seconds=18.679
+registry_rows=1780580
+registry_object_bytes=384996528
+pnadc_rows=251859
+pnadc_object_bytes=18145448
+mem_available_start_kib=21388092
+mem_available_end_kib=20593260
+max_parallel_processes=4
+raw_files_modified=0

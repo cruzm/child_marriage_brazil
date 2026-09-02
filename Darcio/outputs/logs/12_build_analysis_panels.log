@@ -1,0 +1,16 @@
+start_time=2026-09-02T03:15:52-0300
+end_time=2026-09-02T03:15:53-0300
+elapsed_seconds=0.692
+region_panel_rows=3600
+brazil_panel_rows=720
+uf_diagnostic_rows=19440
+annual_panel_rows=4050
+union_cell_rows=5184
+derived_artifact_bytes=8117559
+tests_passed=19
+tests_total=19
+synthetic_weights=age17=1.00000000;age18=0.00000000;age19=0.00000000
+exposure_eb_alpha=1.2974618077
+exposure_eb_beta=1119.1581042143
+raw_files_modified=0
+gate=D_construction

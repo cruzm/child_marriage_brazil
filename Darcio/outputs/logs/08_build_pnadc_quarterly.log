@@ -1,0 +1,12 @@
+start_time=2026-09-02T02:45:16-0300
+end_time=2026-09-02T03:04:32-0300
+elapsed_seconds=1156.688
+workers=4
+source_rows=24704364
+adolescent_rows=2432627
+output_bytes=76015509
+mem_total_kib=22545088
+mem_available_start_kib=21193564
+physical_uncompressed_raw_bytes=0
+weight=V1028 quarterly calibrated; not divided by four
+raw_files_modified=0

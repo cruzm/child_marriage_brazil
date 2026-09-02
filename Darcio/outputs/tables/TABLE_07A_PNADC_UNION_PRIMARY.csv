@@ -1,0 +1,2 @@
+effect_percentage_points,combined_se_quadrature,ci_lower_percentage_points,ci_upper_percentage_points,p_value,equivalence_margin_percentage_points,tost_p_value,equivalent_at_5_percent,mde_80_power_percentage_points,unweighted_people,unweighted_union_cases
+0.398966577032208,0.00205294199136766,-0.00340265951084698,0.801335813575264,0.0519691231840482,0.5,0.311310298882175,FALSE,0.575149193665904,1058334,57141

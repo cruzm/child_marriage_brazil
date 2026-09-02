@@ -1,0 +1,17 @@
+\begin{table}[!htbp]
+\centering
+\caption{PNADC microdata robustness estimators.} 
+\label{tab:union_microdata}
+\begingroup\small
+\begin{tabular}{rrrrrr}
+  \hline
+estimator & outcome & effect\_percentage\_points & std\_error & p\_value & observations \\ 
+  \hline
+weighted microdata LPM; two-way dwelling and period clusters & union\_conservative & 0.344 & 0.002 & 0.146 & 1058334 \\ 
+  weighted microdata LPM; two-way dwelling and period clusters & union\_expanded & 0.597 & 0.004 & 0.102 & 1058334 \\ 
+  weighted fixed-effects logit robustness; two-way clusters & union\_conservative &  & 0.138 & 0.411 & 1058334 \\ 
+  exact WLS sufficient statistics; Taylor scores centered by period-Estrato and clustered by period-UPA & union\_conservative & 0.344 & 0.002 & 0.068 & 1058334 \\ 
+   \hline
+\end{tabular}
+\endgroup
+\end{table}

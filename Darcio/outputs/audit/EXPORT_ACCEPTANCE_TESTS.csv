@@ -1,0 +1,6 @@
+test,passed,observed
+ten figures exported as PNG,TRUE,10
+ten figures exported as PDF,TRUE,10
+at least ten curated LaTeX tables,TRUE,11
+all figure files nonempty,TRUE,all positive bytes
+law and pandemic markers encoded consistently,TRUE,2019-03-13 and 2020-01-01--2021-12-31

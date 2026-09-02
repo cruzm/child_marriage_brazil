@@ -1,0 +1,5 @@
+checked_at=2026-09-02T02:19:10-0300
+R=R version 4.5.2 (2025-10-31)
+packages=17
+system_commands=curl=/usr/bin/curl;unzip=/usr/bin/unzip;file=/usr/bin/file;sha256sum=/usr/bin/sha256sum;pdfinfo=/usr/bin/pdfinfo
+status=pass

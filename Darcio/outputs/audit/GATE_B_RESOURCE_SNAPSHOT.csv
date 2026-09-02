@@ -1,0 +1,2 @@
+timestamp,ram_total_gib,ram_available_gib,disk_free_gib,logical_cpus,max_workers,raw_quarterly_compressed_gb,raw_quarterly_uncompressed_potential_gb
+2026-09-02T03:15:51-0300,21.5006713867188,20.3387184143066,272.482006072998,14,4,10.230331657,85.97118672

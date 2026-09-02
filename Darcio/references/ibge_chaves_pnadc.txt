@@ -1,0 +1,12 @@
+                       PNAD CONTÍNUA – CHAVES
+
+A chave de domicílio é composta pelas variáveis: UPA + V1008 + V1014.
+Além de identificar um domicílio no banco em estudo, este identificador
+permite que sejam realizadas análises longitudinais do domicílio.
+
+A chave de pessoas é composta pelas variáveis: UPA + V1008 + V1014 + V2003.
+Este identificador não deve ser usado para análises longitudinais, sendo apenas
+útil na identificação de uma pessoa no banco em estudo.
+
+Os arquivos de microdados são compostos apenas por entrevistas realizadas.
+

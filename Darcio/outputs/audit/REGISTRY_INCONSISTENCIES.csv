@@ -1,0 +1,6 @@
+issue,count,severity,interpretation
+duplicate using registration-place name + year + female age,0,none,The name includes the state suffix and is the usable local registration-place identifier.
+duplicate using cod_mun + year + female age,72080,high,cod_mun is corrupted/non-unique across same-named places in different states; do not use it for joins.
+municipality codes mapped to more than one registration-place name,4240,high,Municipal analysis is blocked; UF aggregation uses the state suffix extracted from nome_mun.
+negative marriage cells,0,none,Marriage cell frequencies must be nonnegative.
+legacy n_total_row inconsistent with known male-age columns,0,none,Checks the cached row-sum construction.

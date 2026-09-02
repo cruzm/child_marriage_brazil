@@ -1,0 +1,11 @@
+year,n_rows,in_union,wait,in_union_labeled_spouse,wait_labeled_responsible,other_role_rows,upa_missing,strata_missing,weight_missing,suitability
+2012,650,601,49,601,49,0,0,0,0,blocked for prevalence/causal union outcome: role-selected sample and choice mechanically labels spouses as in_union and adolescent heads as wait
+2013,681,618,63,618,63,0,0,0,0,blocked for prevalence/causal union outcome: role-selected sample and choice mechanically labels spouses as in_union and adolescent heads as wait
+2014,688,595,93,595,93,0,0,0,0,blocked for prevalence/causal union outcome: role-selected sample and choice mechanically labels spouses as in_union and adolescent heads as wait
+2015,663,595,68,595,68,0,0,0,0,blocked for prevalence/causal union outcome: role-selected sample and choice mechanically labels spouses as in_union and adolescent heads as wait
+2016,627,541,86,541,86,0,0,0,0,blocked for prevalence/causal union outcome: role-selected sample and choice mechanically labels spouses as in_union and adolescent heads as wait
+2017,565,482,83,482,83,0,0,0,0,blocked for prevalence/causal union outcome: role-selected sample and choice mechanically labels spouses as in_union and adolescent heads as wait
+2018,519,432,87,432,87,0,0,0,0,blocked for prevalence/causal union outcome: role-selected sample and choice mechanically labels spouses as in_union and adolescent heads as wait
+2019,461,367,94,367,94,0,0,0,0,blocked for prevalence/causal union outcome: role-selected sample and choice mechanically labels spouses as in_union and adolescent heads as wait
+2022,326,233,93,233,93,0,0,0,0,blocked for prevalence/causal union outcome: role-selected sample and choice mechanically labels spouses as in_union and adolescent heads as wait
+2023,312,207,105,207,105,0,0,0,0,blocked for prevalence/causal union outcome: role-selected sample and choice mechanically labels spouses as in_union and adolescent heads as wait

@@ -1,0 +1,2 @@
+rate_ratio,rate_ratio_ci_lower,rate_ratio_ci_upper,percent_change,percent_change_ci_lower,percent_change_ci_upper,effect_points_per_100k,estimated_events_avoided,events_avoided_ci_lower,events_avoided_ci_upper,p_value_period_cluster,regions,periods
+0.989281584735128,0.851468921663311,1.14939961870157,-1.07184152648725,-14.8531078336689,14.9399618701569,-0.0224682463500536,2.1019016293473,-25.2162309296386,33.8415515242195,0.888034000065577,5,27

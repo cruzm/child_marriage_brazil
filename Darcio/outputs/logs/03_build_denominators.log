@@ -1,0 +1,11 @@
+start_time=2026-09-02T02:28:20-0300
+end_time=2026-09-02T02:33:42-0300
+elapsed_seconds=322.172
+input_rows=479229
+output_cells=6534
+selected_geography=UF
+survey_version=4.5
+weight=V1032
+weight_divided_by_four=false
+variance=Taylor linearization using annual strata and UPAs
+max_parallel_processes=1

@@ -1,0 +1,9 @@
+test,passed,observed
+monthly panel complete,TRUE,10800
+March 2019 omitted from all fitted samples,TRUE,2019M03
+post begins April 2019,TRUE,2019M04-2019M12
+18 locked monthly region models,TRUE,18
+primary monthly coefficient finite,TRUE,-0.0242928616028555
+monthly region counts reproduce source,TRUE,0
+registration timing explicitly labeled,TRUE,registration month
+999 annual-block bootstrap replications,TRUE,999

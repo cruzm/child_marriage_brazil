@@ -1,0 +1,19 @@
+\begin{table}[!htbp]
+\centering
+\caption{Inference triangulation for the national reform. Estimand scales differ where labeled.} 
+\label{tab:inference}
+\begingroup\small
+\begin{tabular}{rrrrrrrr}
+  \hline
+method & estimand\_scale & estimate & std\_error & ci\_lower & ci\_upper & p\_value & caveat \\ 
+  \hline
+PPML cluster by period (primary) & log rate ratio & -0.011 & 0.077 & -0.161 & 0.139 & 0.888 & three treated post-period clusters \\ 
+  PPML two-way region and period & log rate ratio & -0.011 & 0.000 & -0.011 & -0.010 & 0.000 & only five region clusters; covariance required positive-semidefinite adjustment; not conclusion-supporting \\ 
+  PPML cluster by region (diagnostic) & log rate ratio & -0.011 & 0.089 & -0.186 & 0.164 & 0.904 & five clusters; not conclusion-supporting \\ 
+  Brazil age15-vs-pooled17-19 log-rate gap; Newey-West lag 4 & aggregated log-rate gap & 0.020 & 0.073 & -0.123 & 0.162 & 0.785 & Brazil series approximation; HAC lag 4 \\ 
+  pre-period linear-seasonal forecast with moving-block residual bootstrap & aggregated forecast log-rate gap & 0.020 & 0.103 & -0.185 & 0.215 & 0.857 & pre-period residual block bootstrap \\ 
+  pre-specified date randomization inference & studentized PPML statistic & -0.141 &  &  &  & 1.000 & only four locked pseudo-dates; p-values are coarse \\ 
+   \hline
+\end{tabular}
+\endgroup
+\end{table}

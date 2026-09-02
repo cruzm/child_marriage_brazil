@@ -1,0 +1,2 @@
+method,estimate,std_error,statistic,p_value,ci_lower,ci_upper,rate_ratio,percent_change,periods,hac_lag
+Brazil age15-vs-pooled17-19 log-rate gap; Newey-West lag 4,0.0197780163584065,0.0726589392918702,0.272203483166172,0.785465563747618,-0.122630887808541,0.162186920525354,1.01997489715237,1.99748971523748,27,4

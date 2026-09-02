@@ -1,0 +1,12 @@
+test,passed,observed
+microdata sample has 27 periods,TRUE,27
+2019Q1 excluded,TRUE,0
+post starts 2019Q2,TRUE,"2019Q2,2019Q3,2019Q4"
+only locked ages retained,TRUE,"15,17,18,19"
+V1028 positive,TRUE,0
+normalized weights mean one by period,TRUE,2.52020626589911e-14
+both sexes present each period,TRUE,2
+four microdata estimators completed,TRUE,4
+all treatment estimates finite,TRUE,4
+collapsed WLS point equals individual WLS,TRUE,3.89879101225787e-16
+transition analysis not estimated,TRUE,FALSE

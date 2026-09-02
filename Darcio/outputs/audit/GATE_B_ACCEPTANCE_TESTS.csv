@@ -1,0 +1,12 @@
+test,passed,observed
+quarterly acquisition has 48 unique periods,TRUE,48
+all quarterly ZIP checks passed,TRUE,48
+quarterly build has no invalid weights,TRUE,0
+quarterly person keys unique within dwelling-period,TRUE,0
+quarterly denominators cover 48 periods,TRUE,48
+quarterly population cells valid,TRUE,0
+union cells cover 48 periods,TRUE,48
+union estimates valid,TRUE,0
+registry local-to-official validations pass,TRUE,TRUE;TRUE;TRUE;TRUE;TRUE;TRUE;TRUE;TRUE
+quarterly precision rule selects region,TRUE,region
+no post-law effect estimated before lock,TRUE,0

@@ -1,0 +1,3 @@
+model,input_rows,observations_used,dropped_observations,collinear_variables,zero_outcome_cells,regions,periods
+primary_PPML,540,540,0,"",0,5,27
+event_PPML,940,940,0,"",11,5,47

@@ -1,0 +1,71 @@
+Pesquisa Nacional por Amostra de Domicílios Contínua - PNAD Contínua
+Informações sobre os arquivos de Microdados
+Na Pesquisa Nacional por Amostra de Domicílios Contínua - PNAD Contínua os domicílios selecionados para
+a amostra são pesquisados uma vez a cada trimestre, durante cinco trimestres sucessivos e, depois, são retirados da
+amostra. O esquema de rotação da amostra da PNAD Contínua foi planejado de forma que, a cada trimestre, haja
+domicílios que estejam sendo pesquisados pela 1a, 2a, 3a, 4a e 5a vez. Cada vez que o domicílio é pesquisado é
+chamada de visita.
+A título de ilustração, a pesquisa suplementar de Educação é investigada na amostra integral do segundo
+trimestre, e a pesquisa suplementar de habitação, na parte da amostra de cada um dos trimestres do ano constituída
+pelos domicílios que estavam na primeira visita.
+No
+quadro
+PNAD
+Contínua
+–
+Pesquisas
+Suplementares
+Anuais,
+disponível
+em
+https://ftp.ibge.gov.br/Trabalho_e_Rendimento/Pesquisa_Nacional_por_Amostra_de_Domicilios_continua/Anual/Micro
+dados/, estão indicados os temas e tópicos suplementares que, em cada ano, foram pesquisados em determinada
+visita ou em determinado trimestre.
+Microdados da Divulgação Trimestral
+As informações da pesquisa básica, que é investigada trimestralmente em toda a amostra, estão
+disponíveis em:
+https://ftp.ibge.gov.br/Trabalho_e_Rendimento/Pesquisa_Nacional_por_Amostra_de_Domicilios_continua/Trim
+estral/Microdados
+Nesse caminho, encontram-se as seguintes pastas:
+- Documentacao - Contém os arquivos auxiliares para a geração de resultados.
+- YYYY - Contém os microdados do ano YYYY.
+- Projecoes_Anteriores - Contém as projeções populacionais utilizadas anteriormente na pesquisa. Nos
+microdados de todos os anos, já estão agregadas as projeções atuais utilizadas para expansão da amostra.
+Microdados da Divulgação Anual
+As informações das pesquisas suplementares que foram investigadas nos domicílios que estavam em
+determinada visita, em cada um dos trimestres, e cujos dados foram acumulados para compor a amostra do
+ano, estão disponíveis em:
+https://ftp.ibge.gov.br/Trabalho_e_Rendimento/Pesquisa_Nacional_por_Amostra_de_Domicilios_continua/Anu
+al/Microdados/Visita
+Nesse caminho, encontram-se as seguintes pastas:
+- Documentacao_Geral - Contém os arquivos auxiliares para a geração de resultados que são comuns a
+todas as pesquisas realizadas em determinada visita.
+- Visita_V - Contém os microdados e os arquivos auxiliares específicos para a geração dos resultados das
+pesquisas realizadas em determinada visita, onde 'V' representa o número da visita.
+- Projecoes_Anteriores - Contém as projeções populacionais utilizadas anteriormente na pesquisa. Nos
+microdados de todos os anos, já estão agregadas as projeções atuais utilizadas para expansão da amostra.
+Observação: a ausência de arquivos em uma pasta Visita_V específica indica que não há pesquisa
+suplementar realizada naquela visita.
+1
+
+As informações das pesquisas suplementares que foram investigadas em determinado trimestre estão
+disponíveis em:
+https://ftp.ibge.gov.br/Trabalho_e_Rendimento/Pesquisa_Nacional_por_Amostra_de_Domicilios_continua/Anu
+al/Microdados/Trimestre
+Nesse caminho, encontram-se as seguintes pastas:
+- Documentacao_Geral - Contém os arquivos auxiliares para a geração de resultados que são comuns a
+todas as pesquisas realizadas em determinado trimestre.
+- Trimestre_T - Contém os microdados e os arquivos auxiliares específicos para a geração dos resultados
+das pesquisas realizadas em determinado trimestre, onde 'T' representa o número do trimestre civil.
+- Projecoes_Anteriores - Contém as projeções populacionais utilizadas anteriormente na pesquisa. Nos
+microdados de todos os anos, já estão agregadas as projeções atuais utilizadas para expansão da amostra.
+Observação: a ausência de arquivos em uma pasta Trimestre_T específica indica que não há pesquisa
+suplementar realizada naquele trimestre.
+
+Outras informações sobre a PNAD Contínua podem estão disponíveis no portal IBGE em:
+
+https://www.ibge.gov.br/estatisticas/sociais/populacao/9173-pesquisa-nacional-por-amostra-dedomicilios-continua-trimestral.html
+
+2
+
+

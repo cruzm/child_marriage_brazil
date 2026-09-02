@@ -1,0 +1,2 @@
+estimate,std_error,statistic,p_value,ci_lower,ci_upper,rate_ratio,percent_change,hac_lag_months,periods,timing_semantics
+-0.0274209871454535,0.0781159394125321,-0.35102934627263,0.725566332419116,-0.180525415012529,0.125683440721622,0.972951555196162,-2.70484448038379,12,83,registration month

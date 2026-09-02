@@ -1,0 +1,4 @@
+geography_level,cells,share_passing,minimum_unweighted_n,median_unweighted_n,maximum_cv,median_cv,order,eligible,selected
+UF,891,0.983164983164983,23,153,0.251590700131384,0.0946170776860713,1,TRUE,TRUE
+region,165,1,240,790,0.0797904431407404,0.044991874599113,2,TRUE,FALSE
+Brazil,33,1,2560,4265,0.033219870535456,0.0212592513965745,3,TRUE,FALSE

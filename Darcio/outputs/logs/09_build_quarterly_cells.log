@@ -1,0 +1,13 @@
+start_time=2026-09-02T03:04:34-0300
+end_time=2026-09-02T03:14:55-0300
+elapsed_seconds=621.351
+workers=4
+input_partitions=48
+denominator_cells=28512
+union_design_based_cells=5184
+union_uf_diagnostic_cells=23328
+effects_estimated=0
+weight=V1028 quarterly calibrated
+variance=Taylor linearization with quarterly strata and UPAs
+population_region_brazil_variance=sum of disjoint UF-stratum variances
+union_uf=diagnostic weighted prevalence only; no design-based SE

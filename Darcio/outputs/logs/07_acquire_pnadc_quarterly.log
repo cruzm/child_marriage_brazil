@@ -1,0 +1,10 @@
+start_time=2026-09-02T02:44:12-0300
+end_time=2026-09-02T02:45:15-0300
+elapsed_seconds=62.449
+files=48
+compressed_bytes=10230331657
+uncompressed_bytes=85971186720
+maximum_expansion_ratio=8.919
+source=IBGE PNADC quarterly official FTP
+raw_local_project_files_modified=0
+download_parallelism_in_script=1

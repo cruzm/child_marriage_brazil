@@ -1,0 +1,11 @@
+test,passed,observed
+three Registry pre-windows estimated,TRUE,3
+three PNADC pre-windows estimated,TRUE,3
+economic pretrend bounds evaluated,TRUE,2
+seasonality covers Registry ages 15-19,TRUE,5
+seasonality covers PNADC ages 14-19,TRUE,6
+Registry power includes four target effects,TRUE,4
+age distribution shares sum one,TRUE,0
+four locked date placebos available,TRUE,4
+three placebo ages available,TRUE,3
+trend and no-trend estimates both retained,TRUE,2

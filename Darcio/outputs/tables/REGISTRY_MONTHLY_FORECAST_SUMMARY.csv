@@ -1,0 +1,2 @@
+estimate,std_error,ci_lower,ci_upper,p_value,rate_ratio,percent_change,pre_periods,post_periods,block_length_months,replications,timing_semantics
+-0.0274209871454538,0.099545785125035,-0.227708565063399,0.162196718672212,0.791,0.972951555196162,-2.70484448038383,74,9,12,999,registration month

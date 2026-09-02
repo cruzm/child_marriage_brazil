@@ -1,0 +1,10 @@
+start_time=2026-09-02T03:16:01-0300
+end_time=2026-09-02T03:16:06-0300
+elapsed_seconds=4.869
+recapture_point=174.803048168
+recapture_valid_draws=504
+ddd_eb_gradient=0.094344834474
+ddd_eb_period_cluster_p=0.331995470553
+tests_passed=11
+tests_total=11
+gate=D_delay_exposure

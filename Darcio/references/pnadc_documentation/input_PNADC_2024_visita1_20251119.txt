@@ -1,0 +1,495 @@
+/* PROGRAMA DE LEITURA EM SAS DO ARQUIVO DE MICRODADOS DA PNAD CONTÍNUA */
+
+/* Obs.1: As duas primeiras posições da UPA (Unidade Primária de Amostragem) são o código da UF (Unidade da Federação)
+
+   Obs.2: Ajuste o endereço do arquivo \PNADC_xxxx.txt no comando INFILE */
+
+data pnadc_xxxxxx;
+infile "...\Dados\PNADC_xxxxxx.txt" lrecl=4000 Missover;
+input
+@0001 Ano   $4.   /* Ano de referência */
+@0005 Trimestre   $1.   /* Trimestre de referência */
+@0006 UF   $2.   /* Unidade da Federação */
+@0008 Capital   $2.   /* Município da Capital */
+@0010 RM_RIDE   $2.   /* Reg. Metr. e Reg. Adm. Int. Des. */
+@0012 UPA   $9.   /* Unidade Primária de Amostragem */
+@0021 Estrato   $7.   /* Estrato */
+@0028 V1008   $2.   /* Número de seleção do domicílio */
+@0030 V1014   $2.   /* Painel */
+@0032 V1022   $1.   /* Tipo de situação da região */
+@0033 V1023   $1.   /* Tipo de área */
+@0034 V1030   9.   /* Projeção da população por níveis geográficos */
+@0043 V1031   15.   /* Peso SEM calibração */
+@0058 V1032   15.   /* Peso COM calibração */
+@0073 V1034   9.   /* Projeção da população por sexo e idade */
+@0082 posest   $3.   /* Domínios de projeção geográficos */
+@0085 posest_sxi   $3.   /* Domínios de projeção por sexo e idade */
+@0088 V2001   2.   /* Número de pessoas no domicílio */
+@0090 V2003   $2.   /* Número de ordem */
+@0092 V2005   $2.   /* Condição no domicílio */
+@0094 V2007   $1.   /* Sexo */
+@0095 V2008   $2.   /* Dia de nascimento */
+@0097 V20081   $2.   /* Mês de nascimento */
+@0099 V20082   $4.   /* Ano de nascimento */
+@0103 V2009   3.   /* Idade na data de referência */
+@0106 V2010   $1.   /* Cor ou raça */
+@0107 V3001   $1.   /* Sabe ler e escrever */
+@0108 V3002   $1.   /* Frequenta escola */
+@0109 V3002A   $1.   /* A escola que ... frequenta é de */
+@0110 V3003A   $2.   /* Qual é o curso que frequenta */
+@0112 V3005A   $1.   /* Curso que freq é organizado em: */
+@0113 V3006   $2.   /* Qual é o ano/série que frequenta */
+@0115 V3006A   $1.   /* Qual é a etapa que frequenta */
+@0116 V3007   $1.   /* Concluiu outro curso de graduação */
+@0117 V3008   $1.   /* Anteriormente frequentou escola */
+@0118 V3009A   $2.   /* Curso mais elevado que frequentou */
+@0120 V3010   $1.   /* Duração do curso que frequentou */
+@0121 V3011A   $1.   /* Curso que freq é organizado em: */
+@0122 V3012   $1.   /* Aprovado na prim. série do curso */
+@0123 V3013   $2.   /* Último ano/série que concluiu */
+@0125 V3013A   $1.   /* Qual é a etapa que frequentou */
+@0126 V3013B   $1.   /* Cursou os anos iniciais deste curso */
+@0127 V3014   $1.   /* Concluiu o curso que frequentou */
+@0128 V4001   $1.   /* Trabalhou 1 hr em ativ. remunerd. */
+@0129 V4002   $1.   /* Trabalhou 1 hr em produtos etc... */
+@0130 V4003   $1.   /* Fez algum bico pelo menos de 1 hr */
+@0131 V4004   $1.   /* Ajudou sem receber no domic. 1 hr */
+@0132 V4005   $1.   /* Afastado trabalho remunerado */
+@0133 V4006A   $1.   /* Motivo de estar afastado */
+@0134 V4008   $1.   /* Quanto tempo que estava afastado */
+@0135 V40081   $2.   /* Tempo de afastamenento até 1 ano */
+@0137 V40082   $2.   /* Tempo de afastamen. de 1 a 2 anos */
+@0139 V40083   $2.   /* Tempo de afastamen. mais d 2 anos */
+@0141 V4009   $1.   /* Quantos trabalhos tinhana semana */
+@0142 V4010   $4.   /* Ocupação no trab. principal */
+@0146 V4012   $1.   /* Posição na ocupação */
+@0147 V40121   $1.   /* Tipo trabalhador não remunerado */
+@0148 V4013   $5.   /* Atividade no trab. principal */
+@0153 V40132A   $1.   /* Seção da atividade */
+@0154 V4014   $1.   /* Esse trabalho era na área */
+@0155 V4015   $1.   /* Teve ajuda de pelo menos um trabalhador não remunerado */
+@0156 V40151   $1.   /* Qnts trabalhadores não remunerados */
+@0157 V401511   $1.   /* 1 a 5 trabalhadores não remunerados */
+@0158 V401512   $2.   /* 6 a 10 trabalhadores não remunerados */
+@0160 V4016   $1.   /* Qnts empregados trabalhavam nesse negócio/empresa*/
+@0161 V40161   $1.   /* 1 a 5 empregados */
+@0162 V40162   $2.   /* 6 a 10 empregados */
+@0164 V40163   $2.   /* 11 a 50 empregados */
+@0166 V4017   $1.   /* Tinha pelo menos um sócio que trab. nesse negócio/empresa*/
+@0167 V40171   $1.   /* Quantos sócios */
+@0168 V401711   $1.   /* 1 a 5 sócios */
+@0169 V4018   $1.   /* Qnts pessoas trabalhavam nesse negócio/empresa */
+@0170 V40181   $1.   /* 1 a 5pessoas */
+@0171 V40182   $2.   /* 6 a 10pessoas */
+@0173 V40183   $2.   /* 11 a 50pessoas */
+@0175 V4019   $1.   /* Negócio/empresa registrado no CNPJ*/
+@0176 V4020   $1.   /* Em que tipo de local funcionava esse negócio/empresa*/
+@0177 V4021   $1.   /* Exercia o trabalho em estabelecimento desse negócio/empresa*/ 
+@0178 V4022   $1.   /* Onde exercia normalmente esse trabalho*/
+@0179 V4024   $1.   /* Serv. domést. em mais de 1 domic. */
+@0180 V4025   $1.   /* Contratado como empreg. temporário*/
+@0181 V4026   $1.   /* Era contratado somente por pessoa responsável pelo negócio */
+@0182 V4027   $1.   /* Era contratado somente por intermediário */
+@0183 V4028   $1.   /* Servidor público estatutário */
+@0184 V4029   $1.   /* Carteira de trabalho assinada */
+@0185 V4030   $1.   /* Era assoc. a coop. de trab. ou associação de produção */
+@0186 V4031   $1.   /* Condição em relação ao negócio/empresa */
+@0187 V4032   $1.   /* Contribuinte de instit. d previd. */
+@0188 V4033   $1.   /* Rendimento habitual var. auxil. */
+@0189 V40331   $1.   /* Rendimento habitual em dinheiro */
+@0190 V403311   $1.   /* Faixa do valor do rendimento hab. */
+@0191 V403312   8.   /* Valor do rend. hab. em dinheiro */
+@0199 V40332   $1.   /* Rendimento habitual em produtos */
+@0200 V403321   $1.   /* Faixa do valor do rendimento hab. */
+@0201 V403322   8.   /* Valor do rend. hab. em produtos */
+@0209 V40333   $1.   /* Rendimento habitual em benefícios */
+@0210 V403331   $1.   /* Tipo rend. habitual em benefícios */
+@0211 V4034   $1.   /* Rendimento efetivo var. auxil. */
+@0212 V40341   $1.   /* Rendimento efetivo em dinheiro */
+@0213 V403411   $1.   /* Faixa do valor do rendimento efe. */
+@0214 V403412   8.   /* Valor do rend. efe. em dinheiro */
+@0222 V40342   $1.   /* Rendimento efetivo em produtos */
+@0223 V403421   $1.   /* Faixa do valor do rendimento efe. */
+@0224 V403422   8.   /* Valor do rend. efe. em produtos */
+@0232 V4035   $1.   /* Jornada de trab. das 5 da manhã as 10 da noite */ 
+@0233 V4036   $1.   /* Jornada de trab. das 10 da noite as 5 da manhã*/ 
+@0234 V4039   3.   /* Hrs habituais no trab. princ. */
+@0237 V4039C   3.   /* Hrs efetivas no trab. princ. */
+@0240 V4040   $1.   /* Tempo que estava nesse trabalho */
+@0241 V40401   2.   /* De 1 mês a menos de 1 ano */
+@0243 V40402   2.   /* De 1 ano a menos de 2 anos */
+@0245 V40403   2.   /* De 2 anos ou mais tempo */
+@0247 V4041   $4.   /* Ocupação no trab. secundário */
+@0251 V4043   $1.   /* Posição na ocupação */
+@0252 V40431   $1.   /* Tipo trabalhador não remunerado */
+@0253 V4044   $5.   /* Atividade no trab. secundário */
+@0258 V4045   $1.   /* Esse trabalho era na área */
+@0259 V4046   $1.   /* Negócio/empresa registrado no CNPJ*/
+@0260 V4047   $1.   /* Servidor público estatutário */
+@0261 V4048   $1.   /* Carteira de trabalho assinada */
+@0262 V4049   $1.   /* Contribuinte de instit. d previd. */
+@0263 V4050   $1.   /* Rendimento habitual var. auxil. */
+@0264 V40501   $1.   /* Rendimento habitual em dinheiro */
+@0265 V405011   $1.   /* Faixa do valor do rendimento hab. */
+@0266 V405012   8.   /* Valor do rend. hab. em dinheiro */
+@0274 V40502   $1.   /* Rendimento habitual em produtos */
+@0275 V405021   $1.   /* Faixa do valor do rendimento hab. */
+@0276 V405022   8.   /* Valor do rend. hab. em produtos */
+@0284 V40503   $1.   /* Rendimento habitual em benefícios */
+@0285 V405031   $1.   /* Tipo rend. habitual em benefícios */
+@0286 V4051   $1.   /* Rendimento efetivo var. auxil. */
+@0287 V40511   $1.   /* Rendimento efetivo em dinheiro */
+@0288 V405111   $1.   /* Faixa do valor do rendimento efe. */
+@0289 V405112   8.   /* Valor do rend. efe. em dinheiro */
+@0297 V40512   $1.   /* Rendimento efetivo em produtos */
+@0298 V405121   $1.   /* Faixa do valor do rendimento efe. */
+@0299 V405122   8.   /* Valor do rend. efe. em produtos */
+@0307 V4052   $1.   /* Jornada de trab. das 5 da manhã as 10 da noite */ 
+@0308 V4053   $1.   /* Jornada de trab. das 10 da noite as 5 da manhã*/ 
+@0309 V4056   3.   /* Hrs habituais no trab. secun. */
+@0312 V4056C   3.   /* Hrs efetivas no trab. secun. */
+@0315 V4057   $1.   /* Contribuinte de instit. d previd. */
+@0316 V4058   $1.   /* Rendimento habitual var. auxil. */
+@0317 V40581   $1.   /* Rendimento habitual em dinheiro */
+@0318 V405811   $1.   /* Faixa do valor do rendimento hab. */
+@0319 V405812   8.   /* Valor do rend. hab. em dinheiro */
+@0327 V40582   $1.   /* Rendimento habitual em produtos */
+@0328 V405821   $1.   /* Faixa do valor do rendimento hab. */
+@0329 V405822   8.   /* Valor do rend. hab. em produtos */
+@0337 V40583   $1.   /* Rendimento habitual em benefícios */
+@0338 V405831   $1.   /* Tipo rend. habitual em benefícios */
+@0339 V40584   $1.   /* Não remunerado */
+@0340 V4059   $1.   /* Rendimento efetivo var. auxil. */
+@0341 V40591   $1.   /* Rendimento efetivo em dinheiro */
+@0342 V405911   $1.   /* Faixa do valor do rendimento efe. */
+@0343 V405912   8.   /* Valor do rend. efe. em dinheiro */
+@0351 V40592   $1.   /* Rendimento efetivo em produtos */
+@0352 V405921   $1.   /* Faixa do valor do rendimento efe. */
+@0353 V405922   8.   /* Valor do rend. efe. em produtos */
+@0361 V4062   3.   /* Hrs habituais no(s) outro(s) trab.*/
+@0364 V4062C   3.   /* Hrs efetivas no(s) outro(s) trab .*/
+@0367 V4063A   $1.   /* Gostaria trabalhar + hrs habituais*/
+@0368 V4064A   $1.   /* Dispon. trabalhar + hrs habituais */
+@0369 V4071   $1.   /* Providência p/ conseg. trab.(30d) */
+@0370 V4072A   $1.   /* Principal provid. p/conseg. trab. */
+@0371 V4073   $1.   /* Gostaria de ter trabalhado */
+@0372 V4074A   $2.   /* Motivo de não ter tomado provid. */
+@0374 V4075A   $1.   /* Tempo em que irá começar o trab. */
+@0375 V4075A1   $2.   /* Meses em que irá começar o trab. */
+@0377 V4076   $1.   /* Tempo tentando conseguir trabalho */
+@0378 V40761   2.   /* Tempo tentando trab. 1 mes-1 ano */
+@0380 V40762   2.   /* Tempo tentando trab. 1 ano-2 anos */
+@0382 V40763   2.   /* Tempo tentando trab. + de 2 anos */
+@0384 V4077   $1.   /* Poderia ter começado a trabalhar */
+@0385 V4078A   $1.   /* Motivo p /ñ querer/começar a trab. */
+@0386 V4082   $1.   /* Trab por pelo menos 1 hora em 1 ano*/
+@0387 V4097   $1.   /* Era associado a algum sindicato*/
+@0388 V5001A   $1.   /* Recebeu BPC-LOAS */ 
+@0389 V5001A2   8.   /* Rend recebido de BPC-LOAS */
+@0397 V5002A   $1.   /* Recebeu bolsa família */ 
+@0398 V5002A2   8.   /* Rend recebido de bolsa familia */
+@0406 V5003A   $1.   /* Recebeu outro prog social */
+@0407 V5003A2   8.   /* Rend recebido de outro prog social */
+@0415 V5004A   $1.   /* Recebeu aposentadoria e pensão */
+@0416 V5004A2   8.   /* Rend recebido de aposentadoria e pensão */
+@0424 V5005A   $1.   /* Recebeu rendimentos de seguro-desemprego, seguro-defeso */
+@0425 V5005A2   8.   /* Rend recebido de seguro-desemprego, seguro-defeso */
+@0433 V5006A   $1.   /* Recebeu pensão alimentícia, doação, etc */
+@0434 V5006A2   8.   /* Rend recebido por pensão alimentícia, doação, etc */
+@0442 V5007A   $1.   /* Recebeu aluguel e arrendamento */
+@0443 V5007A2   8.   /* Rend recebido aluguel e arrendamento */
+@0451 V5008A   $1.   /* Recebeu outros rendimentos (bolsa de estudos, rendimento de poupança, aplic finan, etc.) */
+@0452 V5008A2   8.   /* Rend recebido de outros rendimentos (bolsa de estudos, rendimento de poupança, aplic finan, etc.) */
+@0460 S01001   $1.   /* Domicílio é do tipo: */
+@0461 S01002   $1.   /* Material predominante na construção das paredes externas */
+@0462 S01003   $1.   /* Material predominante na cobertura (telhado) */
+@0463 S01004   $1.   /* Material predominante no piso */
+@0464 S01005   2.   /* Número de cômodos */
+@0466 S01006   2.   /* Número de cômodos servem permanentemente de dormitório para os moradores */
+@0468 S01007   $1.   /* Principal forma de abastecimento de água utilizada */
+@0469 S01007A   $1.   /* Este domicílio tem acesso a rede geral de distribuição de água? */
+@0470 S01008   $1.   /* Frequência que a água proveniente de rede geral esteve disponível */
+@0471 S01009   $1.   /* Possui ou faz uso de reservatório, caixa d'água, cisterna, para armazenar a água */
+@0472 S01010   $1.   /* A água utilizada neste domicílio chega: */
+@0473 S01011A   2.   /* Numero de banheiros (com chuveiro e vaso sanitário) de uso exclusivo dos moradores no domicílio */
+@0475 S01011B   2.   /* Numero de banheiros (com chuveiro e vaso sanitário) de uso comum dos moradores existem neste domicílio */
+@0477 S01011C   $1.   /* Usa sanitário ou buraco para dejeções (cercado por paredes de qualquer material) */
+@0478 S01012A   $1.   /* Para onde vai o esgoto do banheiro (sanitário ou buraco de dejeção)? */
+@0479 S01013   $1.   /* Qual é o (principal) destino dado ao lixo? */
+@0480 S01014   $1.   /* Origem da energia elétrica utilizada */
+@0481 S010141   $1.   /* A origem da energia eletrica é de rede geral? */
+@0482 S010142   $1.   /* Há outra origem de energia eletrica (gerador, placa solar, eólica)? */
+@0483 S01015   $1.   /* Frequência que a energia elétrica, proveniente de rede geral, está habitualmente disponível */
+@0484 S01016A   $1.   /* No domicílio, normalmente, a preparação dos alimentos utiliza: */
+@0485 S01016A1   $1.   /* Utiliza gás de botijão na preparação de alimentos? */
+@0486 S01016A2   $1.   /* Utiliza gás encanado na preparação de alimentos? */
+@0487 S01016A3   $1.   /* Utiliza lenha ou carvão na preparação de alimentos? */
+@0488 S01016A4   $1.   /* Utiliza energia eletrica na preparação de alimentos? */
+@0489 S01016A5   $1.   /* Utiliza outro combustivel na preparação de alimentos? */
+@0490 S01016B   $1.   /* Qual desses combustíveis é o mais utilizado? */
+@0491 S01017   $1.   /* Este domicílio é: */
+@0492 S01018   8.   /* Valor da prestação paga, ou que deveria ter sido paga, no mês de referência */
+@0500 S01019   8.   /* Valor do aluguel pago, ou que deveria ter sido pago, no mês de referência */
+@0508 S01020   $1.   /* O terreno onde está localizado este domicílio é próprio? */
+@0509 S01020A   $1.   /* Esse domicílio tem algum documento que comprove sua propriedade? */
+@0510 S01021   2.   /* Número de moradores que têm telefone móvel celular para uso pessoal */
+@0512 S01022   $1.   /* Este domicílio tem telefone fixo convencional? */
+@0513 S01023   $1.   /* Este domicílio tem geladeira? */
+@0514 S01024   $1.   /* Este domicílio tem máquina de lavar roupa? */
+@0515 S01025   $1.   /* Este domicílio tem televisão? */
+@0516 S01026   $1.   /* Possui serviço de televisão por assinatura */
+@0517 S01028   $1.   /* Tem microcomputador (considere inclusive os portáteis) */
+@0518 S01029   $1.   /* Acessa à Internet por meio de microcomputador, tablet, celular, televisão ou outro equipamento? */
+@0519 S01031   $1.   /* Possui automóvel ou motocicleta de uso pessoal? */
+@0520 S010311   $1.   /* Possui automóvel para uso pessoal? */
+@0521 S010312   $1.   /* Possui motocicleta para uso pessoal? */
+@0522 VD2002   $2.   /* Condição no domicílio */
+@0524 VD2003   2.   /* Número de componentes do domic. */
+@0526 VD2004   $1.   /* Espécie da unidade doméstica*/
+@0527 VD2006   $2.   /* Faixas etárias utilizadas no processo de calibração */
+@0529 VD3004   $1.   /* Nível de instrução mais elevado alcançado (5 anos ou mais de idade) */
+@0530 VD3005   $2.   /* Anos de estudo (5 anos ou mais de idade) para fundamental de 9 anos */
+@0532 VD3006   $1.   /* Grupamento de anos de estudo (pessoas de 5 anos ou mais de idade) para fundamental de 9 anos */
+@0533 VD4001   $1.   /* Condição em relação força d trab. */
+@0534 VD4002   $1.   /* Condição de ocupação */
+@0535 VD4003   $1.   /* Força de trabalho potencial */
+@0536 VD4004A   $1.   /* Subocupação por insuficiên. de hrs hab*/
+@0537 VD4005   $1.   /* Pessoas desalentadas */
+@0538 VD4007   $1.   /* Posição na ocupação trab. princ. */
+@0539 VD4008   $1.   /* Posição na ocupação trab. princ. */
+@0540 VD4009   $2.   /* Posição na ocupação trab. princ. */
+@0542 VD4010   $2.   /* Grupamen. d ativid. trab. princ. */
+@0544 VD4011   $2.   /* Grupamen. ocupacion. trab. Princ. */
+@0546 VD4012   $1.   /* Contrib. instit. previd. qq trab. */
+@0547 VD4013   $1.   /* Faixa hrs habituais em todos trab. */
+@0548 VD4014   $1.   /* Faixa hrs efetivas em todos trab. */
+@0549 VD4015   $1.   /* Tipo d remuneração trab. princ. */
+@0550 VD4016   8.   /* Rendim. habitual trab. princ. */
+@0558 VD4017   8.   /* Rendim. efetivo trab. princ. */
+@0566 VD4018   $1.   /* Tipo d remuneração em qq trabalho */
+@0567 VD4019   8.   /* Rendim. habitual qq trabalho */
+@0575 VD4020   8.   /* Rendim. efetivo qq trabalho */
+@0583 VD4022   8.   /* Rendim. Efetivo tds fontes */
+@0591 VD4030   $1.   /* Pq ñ proc./ñ gost./ñ disp.p/trab. */
+@0592 VD4031   3.   /* Hrs habituais em todos trab. */
+@0595 VD4035   3.   /* Hrs efetivas em todos trab. */
+@0598 VD4036   $1.   /* Faixa hrs habituais trab. princ. */
+@0599 VD4037   $1.   /* Faixa hrs efetivas trab. princ. */
+@0600 VD4046   8.   /* Rendim. habitual tds fontes */
+@0608 VD4047   8.   /* Rend efetivo de progr sociais, seguro-desemprego, etc */
+@0616 VD4048   8.   /* Rend efetivo recebido de outras fontes */
+@0624 VD4052   8.   /* Rendim. habitual tds fontes com ticket*/
+@0632 VD5001   8.   /* Rend efetivo domiciliar */
+@0640 VD5002   8.   /* Rend efetivo domiciliar per capita */
+@0648 VD5003   $1.   /* Faixa de rend efetivo domiciliar per capita */
+@0649 VD5004   8.   /* Rend efetivo domiciliar */
+@0657 VD5005   8.   /* Rend efetivo domiciliar per capita */
+@0665 VD5006   $1.   /* Faixa de rend efetivo domiciliar per capita */
+@0666 VD5007   8.   /* Rend habitual domiciliar */
+@0674 VD5008   8.   /* Rend habitual domiciliar per capita */
+@0682 VD5009   $1.   /* Faixa de rend habital domiciliar per capita */
+@0683 VD5010   8.   /* Rend habitual domiciliar */
+@0691 VD5011   8.   /* Rend habitual domiciliar per capita */
+@0699 VD5012   $1.   /* Faixa de rend habitual domiciliar per capita */
+@0700 V1032001   15.   /* Peso REPLICADO 1 */
+@0715 V1032002   15.   /* Peso REPLICADO 2 */
+@0730 V1032003   15.   /* Peso REPLICADO 3 */
+@0745 V1032004   15.   /* Peso REPLICADO 4 */
+@0760 V1032005   15.   /* Peso REPLICADO 5 */
+@0775 V1032006   15.   /* Peso REPLICADO 6 */
+@0790 V1032007   15.   /* Peso REPLICADO 7 */
+@0805 V1032008   15.   /* Peso REPLICADO 8 */
+@0820 V1032009   15.   /* Peso REPLICADO 9 */
+@0835 V1032010   15.   /* Peso REPLICADO 10 */
+@0850 V1032011   15.   /* Peso REPLICADO 11 */
+@0865 V1032012   15.   /* Peso REPLICADO 12 */
+@0880 V1032013   15.   /* Peso REPLICADO 13 */
+@0895 V1032014   15.   /* Peso REPLICADO 14 */
+@0910 V1032015   15.   /* Peso REPLICADO 15 */
+@0925 V1032016   15.   /* Peso REPLICADO 16 */
+@0940 V1032017   15.   /* Peso REPLICADO 17 */
+@0955 V1032018   15.   /* Peso REPLICADO 18 */
+@0970 V1032019   15.   /* Peso REPLICADO 19 */
+@0985 V1032020   15.   /* Peso REPLICADO 20 */
+@1000 V1032021   15.   /* Peso REPLICADO 21 */
+@1015 V1032022   15.   /* Peso REPLICADO 22 */
+@1030 V1032023   15.   /* Peso REPLICADO 23 */
+@1045 V1032024   15.   /* Peso REPLICADO 24 */
+@1060 V1032025   15.   /* Peso REPLICADO 25 */
+@1075 V1032026   15.   /* Peso REPLICADO 26 */
+@1090 V1032027   15.   /* Peso REPLICADO 27 */
+@1105 V1032028   15.   /* Peso REPLICADO 28 */
+@1120 V1032029   15.   /* Peso REPLICADO 29 */
+@1135 V1032030   15.   /* Peso REPLICADO 30 */
+@1150 V1032031   15.   /* Peso REPLICADO 31 */
+@1165 V1032032   15.   /* Peso REPLICADO 32 */
+@1180 V1032033   15.   /* Peso REPLICADO 33 */
+@1195 V1032034   15.   /* Peso REPLICADO 34 */
+@1210 V1032035   15.   /* Peso REPLICADO 35 */
+@1225 V1032036   15.   /* Peso REPLICADO 36 */
+@1240 V1032037   15.   /* Peso REPLICADO 37 */
+@1255 V1032038   15.   /* Peso REPLICADO 38 */
+@1270 V1032039   15.   /* Peso REPLICADO 39 */
+@1285 V1032040   15.   /* Peso REPLICADO 40 */
+@1300 V1032041   15.   /* Peso REPLICADO 41 */
+@1315 V1032042   15.   /* Peso REPLICADO 42 */
+@1330 V1032043   15.   /* Peso REPLICADO 43 */
+@1345 V1032044   15.   /* Peso REPLICADO 44 */
+@1360 V1032045   15.   /* Peso REPLICADO 45 */
+@1375 V1032046   15.   /* Peso REPLICADO 46 */
+@1390 V1032047   15.   /* Peso REPLICADO 47 */
+@1405 V1032048   15.   /* Peso REPLICADO 48 */
+@1420 V1032049   15.   /* Peso REPLICADO 49 */
+@1435 V1032050   15.   /* Peso REPLICADO 50 */
+@1450 V1032051   15.   /* Peso REPLICADO 51 */
+@1465 V1032052   15.   /* Peso REPLICADO 52 */
+@1480 V1032053   15.   /* Peso REPLICADO 53 */
+@1495 V1032054   15.   /* Peso REPLICADO 54 */
+@1510 V1032055   15.   /* Peso REPLICADO 55 */
+@1525 V1032056   15.   /* Peso REPLICADO 56 */
+@1540 V1032057   15.   /* Peso REPLICADO 57 */
+@1555 V1032058   15.   /* Peso REPLICADO 58 */
+@1570 V1032059   15.   /* Peso REPLICADO 59 */
+@1585 V1032060   15.   /* Peso REPLICADO 60 */
+@1600 V1032061   15.   /* Peso REPLICADO 61 */
+@1615 V1032062   15.   /* Peso REPLICADO 62 */
+@1630 V1032063   15.   /* Peso REPLICADO 63 */
+@1645 V1032064   15.   /* Peso REPLICADO 64 */
+@1660 V1032065   15.   /* Peso REPLICADO 65 */
+@1675 V1032066   15.   /* Peso REPLICADO 66 */
+@1690 V1032067   15.   /* Peso REPLICADO 67 */
+@1705 V1032068   15.   /* Peso REPLICADO 68 */
+@1720 V1032069   15.   /* Peso REPLICADO 69 */
+@1735 V1032070   15.   /* Peso REPLICADO 70 */
+@1750 V1032071   15.   /* Peso REPLICADO 71 */
+@1765 V1032072   15.   /* Peso REPLICADO 72 */
+@1780 V1032073   15.   /* Peso REPLICADO 73 */
+@1795 V1032074   15.   /* Peso REPLICADO 74 */
+@1810 V1032075   15.   /* Peso REPLICADO 75 */
+@1825 V1032076   15.   /* Peso REPLICADO 76 */
+@1840 V1032077   15.   /* Peso REPLICADO 77 */
+@1855 V1032078   15.   /* Peso REPLICADO 78 */
+@1870 V1032079   15.   /* Peso REPLICADO 79 */
+@1885 V1032080   15.   /* Peso REPLICADO 80 */
+@1900 V1032081   15.   /* Peso REPLICADO 81 */
+@1915 V1032082   15.   /* Peso REPLICADO 82 */
+@1930 V1032083   15.   /* Peso REPLICADO 83 */
+@1945 V1032084   15.   /* Peso REPLICADO 84 */
+@1960 V1032085   15.   /* Peso REPLICADO 85 */
+@1975 V1032086   15.   /* Peso REPLICADO 86 */
+@1990 V1032087   15.   /* Peso REPLICADO 87 */
+@2005 V1032088   15.   /* Peso REPLICADO 88 */
+@2020 V1032089   15.   /* Peso REPLICADO 89 */
+@2035 V1032090   15.   /* Peso REPLICADO 90 */
+@2050 V1032091   15.   /* Peso REPLICADO 91 */
+@2065 V1032092   15.   /* Peso REPLICADO 92 */
+@2080 V1032093   15.   /* Peso REPLICADO 93 */
+@2095 V1032094   15.   /* Peso REPLICADO 94 */
+@2110 V1032095   15.   /* Peso REPLICADO 95 */
+@2125 V1032096   15.   /* Peso REPLICADO 96 */
+@2140 V1032097   15.   /* Peso REPLICADO 97 */
+@2155 V1032098   15.   /* Peso REPLICADO 98 */
+@2170 V1032099   15.   /* Peso REPLICADO 99 */
+@2185 V1032100   15.   /* Peso REPLICADO 100 */
+@2200 V1032101   15.   /* Peso REPLICADO 101 */
+@2215 V1032102   15.   /* Peso REPLICADO 102 */
+@2230 V1032103   15.   /* Peso REPLICADO 103 */
+@2245 V1032104   15.   /* Peso REPLICADO 104 */
+@2260 V1032105   15.   /* Peso REPLICADO 105 */
+@2275 V1032106   15.   /* Peso REPLICADO 106 */
+@2290 V1032107   15.   /* Peso REPLICADO 107 */
+@2305 V1032108   15.   /* Peso REPLICADO 108 */
+@2320 V1032109   15.   /* Peso REPLICADO 109 */
+@2335 V1032110   15.   /* Peso REPLICADO 110 */
+@2350 V1032111   15.   /* Peso REPLICADO 111 */
+@2365 V1032112   15.   /* Peso REPLICADO 112 */
+@2380 V1032113   15.   /* Peso REPLICADO 113 */
+@2395 V1032114   15.   /* Peso REPLICADO 114 */
+@2410 V1032115   15.   /* Peso REPLICADO 115 */
+@2425 V1032116   15.   /* Peso REPLICADO 116 */
+@2440 V1032117   15.   /* Peso REPLICADO 117 */
+@2455 V1032118   15.   /* Peso REPLICADO 118 */
+@2470 V1032119   15.   /* Peso REPLICADO 119 */
+@2485 V1032120   15.   /* Peso REPLICADO 120 */
+@2500 V1032121   15.   /* Peso REPLICADO 121 */
+@2515 V1032122   15.   /* Peso REPLICADO 122 */
+@2530 V1032123   15.   /* Peso REPLICADO 123 */
+@2545 V1032124   15.   /* Peso REPLICADO 124 */
+@2560 V1032125   15.   /* Peso REPLICADO 125 */
+@2575 V1032126   15.   /* Peso REPLICADO 126 */
+@2590 V1032127   15.   /* Peso REPLICADO 127 */
+@2605 V1032128   15.   /* Peso REPLICADO 128 */
+@2620 V1032129   15.   /* Peso REPLICADO 129 */
+@2635 V1032130   15.   /* Peso REPLICADO 130 */
+@2650 V1032131   15.   /* Peso REPLICADO 131 */
+@2665 V1032132   15.   /* Peso REPLICADO 132 */
+@2680 V1032133   15.   /* Peso REPLICADO 133 */
+@2695 V1032134   15.   /* Peso REPLICADO 134 */
+@2710 V1032135   15.   /* Peso REPLICADO 135 */
+@2725 V1032136   15.   /* Peso REPLICADO 136 */
+@2740 V1032137   15.   /* Peso REPLICADO 137 */
+@2755 V1032138   15.   /* Peso REPLICADO 138 */
+@2770 V1032139   15.   /* Peso REPLICADO 139 */
+@2785 V1032140   15.   /* Peso REPLICADO 140 */
+@2800 V1032141   15.   /* Peso REPLICADO 141 */
+@2815 V1032142   15.   /* Peso REPLICADO 142 */
+@2830 V1032143   15.   /* Peso REPLICADO 143 */
+@2845 V1032144   15.   /* Peso REPLICADO 144 */
+@2860 V1032145   15.   /* Peso REPLICADO 145 */
+@2875 V1032146   15.   /* Peso REPLICADO 146 */
+@2890 V1032147   15.   /* Peso REPLICADO 147 */
+@2905 V1032148   15.   /* Peso REPLICADO 148 */
+@2920 V1032149   15.   /* Peso REPLICADO 149 */
+@2935 V1032150   15.   /* Peso REPLICADO 150 */
+@2950 V1032151   15.   /* Peso REPLICADO 151 */
+@2965 V1032152   15.   /* Peso REPLICADO 152 */
+@2980 V1032153   15.   /* Peso REPLICADO 153 */
+@2995 V1032154   15.   /* Peso REPLICADO 154 */
+@3010 V1032155   15.   /* Peso REPLICADO 155 */
+@3025 V1032156   15.   /* Peso REPLICADO 156 */
+@3040 V1032157   15.   /* Peso REPLICADO 157 */
+@3055 V1032158   15.   /* Peso REPLICADO 158 */
+@3070 V1032159   15.   /* Peso REPLICADO 159 */
+@3085 V1032160   15.   /* Peso REPLICADO 160 */
+@3100 V1032161   15.   /* Peso REPLICADO 161 */
+@3115 V1032162   15.   /* Peso REPLICADO 162 */
+@3130 V1032163   15.   /* Peso REPLICADO 163 */
+@3145 V1032164   15.   /* Peso REPLICADO 164 */
+@3160 V1032165   15.   /* Peso REPLICADO 165 */
+@3175 V1032166   15.   /* Peso REPLICADO 166 */
+@3190 V1032167   15.   /* Peso REPLICADO 167 */
+@3205 V1032168   15.   /* Peso REPLICADO 168 */
+@3220 V1032169   15.   /* Peso REPLICADO 169 */
+@3235 V1032170   15.   /* Peso REPLICADO 170 */
+@3250 V1032171   15.   /* Peso REPLICADO 171 */
+@3265 V1032172   15.   /* Peso REPLICADO 172 */
+@3280 V1032173   15.   /* Peso REPLICADO 173 */
+@3295 V1032174   15.   /* Peso REPLICADO 174 */
+@3310 V1032175   15.   /* Peso REPLICADO 175 */
+@3325 V1032176   15.   /* Peso REPLICADO 176 */
+@3340 V1032177   15.   /* Peso REPLICADO 177 */
+@3355 V1032178   15.   /* Peso REPLICADO 178 */
+@3370 V1032179   15.   /* Peso REPLICADO 179 */
+@3385 V1032180   15.   /* Peso REPLICADO 180 */
+@3400 V1032181   15.   /* Peso REPLICADO 181 */
+@3415 V1032182   15.   /* Peso REPLICADO 182 */
+@3430 V1032183   15.   /* Peso REPLICADO 183 */
+@3445 V1032184   15.   /* Peso REPLICADO 184 */
+@3460 V1032185   15.   /* Peso REPLICADO 185 */
+@3475 V1032186   15.   /* Peso REPLICADO 186 */
+@3490 V1032187   15.   /* Peso REPLICADO 187 */
+@3505 V1032188   15.   /* Peso REPLICADO 188 */
+@3520 V1032189   15.   /* Peso REPLICADO 189 */
+@3535 V1032190   15.   /* Peso REPLICADO 190 */
+@3550 V1032191   15.   /* Peso REPLICADO 191 */
+@3565 V1032192   15.   /* Peso REPLICADO 192 */
+@3580 V1032193   15.   /* Peso REPLICADO 193 */
+@3595 V1032194   15.   /* Peso REPLICADO 194 */
+@3610 V1032195   15.   /* Peso REPLICADO 195 */
+@3625 V1032196   15.   /* Peso REPLICADO 196 */
+@3640 V1032197   15.   /* Peso REPLICADO 197 */
+@3655 V1032198   15.   /* Peso REPLICADO 198 */
+@3670 V1032199   15.   /* Peso REPLICADO 199 */
+@3685 V1032200   15.   /* Peso REPLICADO 200 */
+;
+run;

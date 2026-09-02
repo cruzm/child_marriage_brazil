@@ -1,0 +1,10 @@
+start_time=2026-09-02T03:16:40-0300
+end_time=2026-09-02T03:16:41-0300
+elapsed_seconds=0.310
+registry_joint_lead_p=0.16100000
+union_joint_lead_p=0.54300000
+registry_mde_decline_percent=19.30018086
+union_mde_percentage_points=0.57514919
+tests_passed=10
+tests_total=10
+gate=E_diagnostics_power

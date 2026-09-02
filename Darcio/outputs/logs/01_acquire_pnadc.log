@@ -1,0 +1,10 @@
+start_time=2026-09-02T02:19:39-0300
+end_time=2026-09-02T02:19:52-0300
+elapsed_seconds=12.662
+files=11
+compressed_bytes=2049885624
+uncompressed_bytes=17687952100
+max_expansion_ratio=9.120
+source=IBGE PNADC annual first visit official FTP
+raw_local_project_files_modified=0
+max_parallel_processes=1

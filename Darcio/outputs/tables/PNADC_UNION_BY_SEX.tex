@@ -1,0 +1,15 @@
+\begin{table}[!htbp]
+\centering
+\begingroup\scriptsize
+\begin{tabular}{lrrrrrrlllllllrrrrrrrrrlrl}
+  \hline
+specification\_id & estimate & std\_error & statistic & p\_value & ci\_lower & ci\_upper & outcome & sex & controls & window & age\_specific\_trends & geography\_level & geography\_value & effect\_percentage\_points & ci\_lower\_percentage\_points & ci\_upper\_percentage\_points & observations & periods & unweighted\_people & unweighted\_union\_cases & zero\_case\_cells & dropped\_observations & variance\_weight\_winsorization & p\_value\_bh & heterogeneity\_status \\ 
+  \hline
+PNADC-CELL-003 & 0.004 & 0.002 & 1.760 & 0.078 & -0.000 & 0.008 & union\_conservative & female & 17-18-19 & short\_run\_clean & TRUE & Brazil & Brazil & 0.380 & -0.043 & 0.803 &  108 &   27 & 511205 & 46727 &    0 &    0 & inverse design variance, 5th/95th percentile & 0.078 & exploratory; rare male events require power warning \\ 
+  PNADC-CELL-005 & 0.003 & 0.001 & 6.140 & 0.000 & 0.002 & 0.005 & union\_conservative & male & 17-18-19 & short\_run\_clean & TRUE & Brazil & Brazil & 0.344 & 0.234 & 0.453 &  108 &   27 & 547129 & 10414 &    1 &    0 & inverse design variance, 5th/95th percentile & 0.000 & exploratory; rare male events require power warning \\ 
+   \hline
+\end{tabular}
+\endgroup
+\caption{PNADC UNION BY SEX} 
+\label{tab:pnadc_union_by_sex}
+\end{table}

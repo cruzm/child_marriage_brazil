@@ -1,0 +1,2 @@
+draws,fixed_offset_beta,draw_mean_beta,draw_sd_beta,draw_ci_lower,draw_ci_upper,draw_mean_percent_change,marginal_design_se_only,covariance_between_cells_available,seed
+499,-0.0107762712655847,-0.0105258829972058,0.0139413485618966,-0.0381092039494935,0.0153443688712602,-1.03747017337166,TRUE,FALSE,13811

@@ -1,0 +1,12 @@
+test,passed,observed
+locked robustness grid has 144 models,TRUE,144
+primary model has treatment coefficient,TRUE,-0.0107762712655847
+primary PPML drops no observations,TRUE,0
+primary has 27 periods and five regions,TRUE,"27,5"
+denominator sensitivity has 499 finite draws,TRUE,499
+dynamic forecast bootstrap has 999 replications,TRUE,999
+event model retains all event indicators,TRUE,""
+four locked date placebos executed,TRUE,4
+five age contrasts executed,TRUE,5
+synthetic weights unchanged,TRUE,"0.999999999992182,7.81678823715851e-15,7.81041897823798e-12"
+no conventional RD estimated,TRUE,age-based DiD/event forecast only

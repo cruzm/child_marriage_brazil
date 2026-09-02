@@ -1,0 +1,11 @@
+year,n_rows,ufs,quarters,age_min,age_max,sex_levels,weighted_population,missing_weight,missing_birth_month,missing_birth_year,union_spouse_different_n,union_spouse_any_n,union_spouse_different_weighted,union_spouse_any_weighted,product_class,design_ids_available,household_ids_available,complete_conservative_union_available
+2012,28300,27,1;2;3;4,13,19,Feminino,11936161.6195053,0,1791,1791,1686,1691,708602.50974902,711669.0118751,PNAD Continua annual by first visit (inferred from V1032 provenance),FALSE,FALSE,FALSE
+2013,28914,27,1;2;3;4,13,19,Feminino,12016770.4627171,0,2270,2270,1737,1738,656317.42629546,656553.71969689,PNAD Continua annual by first visit (inferred from V1032 provenance),FALSE,FALSE,FALSE
+2014,28533,27,1;2;3;4,13,19,Feminino,11811568.6965722,0,2454,2454,1670,1676,642364.26665378,645402.61506493,PNAD Continua annual by first visit (inferred from V1032 provenance),FALSE,FALSE,FALSE
+2015,27647,27,1;2;3;4,13,19,Feminino,11618082.8867894,0,2288,2288,1599,1608,667351.26928641,671076.22346772,PNAD Continua annual by first visit (inferred from V1032 provenance),FALSE,FALSE,FALSE
+2016,26596,27,1;2;3;4,13,19,Feminino,11453799.0149248,0,3263,3263,1539,1548,623049.41502844,627106.10004583,PNAD Continua annual by first visit (inferred from V1032 provenance),FALSE,FALSE,FALSE
+2017,25948,27,1;2;3;4,13,19,Feminino,11320970.8214125,0,3120,3120,1363,1373,536392.9175899,543481.19598289,PNAD Continua annual by first visit (inferred from V1032 provenance),FALSE,FALSE,FALSE
+2018,24781,27,1;2;3;4,13,19,Feminino,11150017.4344798,0,3567,3567,1208,1214,486721.30264755,489321.4956126,PNAD Continua annual by first visit (inferred from V1032 provenance),FALSE,FALSE,FALSE
+2019,23874,27,1;2;3;4,13,19,Feminino,10927337.5900021,0,2870,2870,1045,1052,456258.48815479,460227.56566255,PNAD Continua annual by first visit (inferred from V1032 provenance),FALSE,FALSE,FALSE
+2022,18633,27,1;2;3;4,13,19,Feminino,10331197.4524917,0,2824,2824,627,632,343768.42746817,347377.30972927,PNAD Continua annual by first visit (inferred from V1032 provenance),FALSE,FALSE,FALSE
+2023,18633,27,1;2;3;4,13,19,Feminino,10269318.5242512,0,2348,2348,593,601,313114.15568711,318266.62965968,PNAD Continua annual by first visit (inferred from V1032 provenance),FALSE,FALSE,FALSE

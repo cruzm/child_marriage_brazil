@@ -1,0 +1,6 @@
+outcome,target_decline_percent,target_log_rate_ratio,approximate_power,standard_error,mde_log_scale,mde_decline_percent,alpha,target_power,caveat,mde_percentage_points
+formal marriage age 15,10,-0.105360515657826,0.280227667851537,0.0765401853316733,0.214433851816843,19.300180856943,0.05,0.8,normal approximation with period-cluster SE and only three treated post quarters,
+formal marriage age 15,20,-0.22314355131421,0.830316288817827,0.0765401853316733,0.214433851816843,19.300180856943,0.05,0.8,normal approximation with period-cluster SE and only three treated post quarters,
+formal marriage age 15,30,-0.356674943938732,0.996533085701486,0.0765401853316733,0.214433851816843,19.300180856943,0.05,0.8,normal approximation with period-cluster SE and only three treated post quarters,
+formal marriage age 15,40,-0.510825623765991,0.999998785433071,0.0765401853316733,0.214433851816843,19.300180856943,0.05,0.8,normal approximation with period-cluster SE and only three treated post quarters,
+union_conservative age 15,,,0.8,0.00205294199136766,,,0.05,0.8,MDE 0.575 percentage points using temporal plus marginal design variance,0.575149193665904
