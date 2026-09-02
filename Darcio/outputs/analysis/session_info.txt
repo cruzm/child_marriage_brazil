@@ -1,4 +1,4 @@
-generated_at=2026-09-02T03:18:52-0300
+generated_at=2026-09-02T14:04:44-0300
 project_root=/home/darciogm1/projetos/child_marr
 R=R version 4.5.2 (2025-10-31)
 platform=x86_64-pc-linux-gnu
@@ -36,4 +36,24 @@ loaded via a namespace (and not attached):
 [1] compiler_4.5.2 parallel_4.5.2 tools_4.5.2   
 
 --- git status --short ---
-?? Darcio/
+ M Darcio/outputs/analysis/EXECUTIVE_SUMMARY.md
+ M Darcio/outputs/analysis/FINAL_ACCEPTANCE.md
+ M Darcio/outputs/analysis/REGISTRY_TREND_SENSITIVITY_RESULTS.md
+ M Darcio/outputs/analysis/RESULTS_MANIFEST.csv
+ M Darcio/outputs/analysis/TECHNICAL_REPORT.md
+ M Darcio/outputs/audit/FINAL_TEST_SUMMARY.csv
+ M Darcio/outputs/figures/FIGURE_13_REGISTRY_TREND_SENSITIVITY.pdf
+ M Darcio/outputs/logs/24_analyze_registry_trend_sensitivity.log
+ M Darcio/outputs/logs/final_tests.log
+ M Darcio/paper/OUTLINE.md
+ M Darcio/paper/check_consistency.R
+ M Darcio/paper/ledgers/CLAIM_EVIDENCE_MATRIX.md
+ M Darcio/paper/ledgers/IDENTIFICATION_GATE.md
+ M Darcio/paper/ledgers/RED_TEAM_2026-09-02.md
+ M Darcio/paper/main.tex
+ D Darcio/paper/tables/TABLE_13_TREND_SENSITIVITY.tex
+ M Darcio/run_all.sh
+ M Darcio/src/20_write_reports.R
+ M Darcio/src/24_analyze_registry_trend_sensitivity.R
+ D Darcio/src/25_export_trend_sensitivity_table.R
+ M Darcio/tests/run_tests.R

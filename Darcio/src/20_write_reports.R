@@ -36,6 +36,8 @@ rel <- function(path) sub(paste0("^", root, "/"), "", path)
 primary <- read_table("REGISTRY_PRIMARY_EFFECT")[1]
 inf_registry <- read_table("REGISTRY_INFERENCE_TRIANGULATION")
 trend_div <- read_table("REGISTRY_TREND_SPECIFICATION_DIVERGENCE")
+trend_sensitivity <- read_table("REGISTRY_TREND_SENSITIVITY_MODELS")
+trend_sensitivity_summary <- read_table("REGISTRY_TREND_SENSITIVITY_SUMMARY")[1]
 pretrend <- read_table("PRETREND_DIAGNOSTICS")
 power <- read_table("POWER_AND_MDE")
 ages <- read_table("REGISTRY_AGE_SPECIFIC_EFFECTS")
@@ -75,6 +77,8 @@ union_mde <- power[outcome == "union_conservative age 15"][1]
 monthly_primary <- monthly[
   sex == "combined" & controls == "17-18-19" & age_specific_trends == TRUE
 ][1]
+trend_best <- trend_sensitivity[model_id == "global_linear"][1]
+trend_seasonal <- trend_sensitivity[model_id == "seasonal_level"][1]
 registry_female <- sex_row("female")
 registry_male <- sex_row("male")
 survey_micro <- micro_row("Taylor")
@@ -88,7 +92,7 @@ affected_2019 <- secondary_row(2019L)
 affected_2024 <- secondary_row(2024L)
 
 technical <- c(
-  "# Relatório técnico — avaliação causal da Lei nº 13.811/2019",
+  "# Relatório técnico — avaliação empírica da Lei nº 13.811/2019",
   "",
   paste0("**Versão reproduzível gerada em:** ",
          format(Sys.time(), "%Y-%m-%dT%H:%M:%S%z"), "  "),
@@ -115,6 +119,20 @@ technical <- c(
     "A série já caía antes da lei, e a versão obrigatória sem tendências estima ",
     fmt(trend_div[age_specific_trends == FALSE]$percent_change, 1),
     "%, mostrando dependência material da especificação."
+  ),
+  "",
+  paste0(
+    "Uma extensão rolling-origin, congelada como protocolo pós-resultado antes de suas próprias ",
+    "estimativas, não valida nenhum dos cinco contrafactuais. O global linear tem o menor RMSE ",
+    "pré-2019 (", fmt(trend_best$rolling_window_rmse, 3), ") e estima ",
+    fmt(trend_best$target_percent_change, 1), "% (intervalo de forecast ",
+    ci_pct(trend_best$ci_lower_percent, trend_best$ci_upper_percent), "); o ensemble fixo estima ",
+    fmt(trend_sensitivity_summary$ensemble_percent_change, 1), "%. A faixa de pontos ",
+    ci_pct(trend_sensitivity_summary$all_model_percent_lower,
+           trend_sensitivity_summary$all_model_percent_upper),
+    " é envelope de especificações, não bound causal. O intervalo do modelo sazonal ",
+    ci_pct(trend_seasonal$ci_lower_percent, trend_seasonal$ci_upper_percent),
+    " inclui queda de 49%."
   ),
   "",
   paste0(
@@ -254,6 +272,18 @@ technical <- c(
   ),
   "",
   paste0(
+    "No protocolo rolling-origin, os cinco modelos recebem tier `fail`. O RMSE varia de ",
+    fmt(min(trend_sensitivity$rolling_window_rmse), 3), " a ",
+    fmt(max(trend_sensitivity$rolling_window_rmse), 3), "; a faixa dos pontos pós é ",
+    ci_pct(trend_sensitivity_summary$all_model_percent_lower,
+           trend_sensitivity_summary$all_model_percent_upper),
+    ". A falha da calibração impede transformar o modelo de menor RMSE ou o ensemble em ",
+    "contrafactual validado."
+  ),
+  "",
+  "![Rolling-origin dos contrafactuais](../figures/FIGURE_13_REGISTRY_TREND_SENSITIVITY.png)",
+  "",
+  paste0(
     "A incerteza marginal do denominador em 499 sorteios tem DP ",
     fmt(denom_uncertainty$draw_sd_beta, 3), " na escala log, menor que o erro-padrão temporal primário, ",
     "mas a covariância completa entre células não estava disponível. O controle sintético pré-2019 colocou peso ",
@@ -364,7 +394,7 @@ technical <- c(
   "",
   "## 10. Síntese inferencial",
   "",
-  "O objeto efetivamente identificado é um contraste curto, por elegibilidade etária, da incidência de registros civis aos 15 anos relativa às idades 17–19, sob a hipótese de que tendências específicas lineares por idade e efeitos fixos capturam a evolução contrafactual. Os diagnósticos mostram que essa hipótese é substantivamente decisiva e não plenamente verificável.",
+  "O objeto estimado é um contraste curto, por elegibilidade etária, da incidência de registros civis aos 15 anos relativa às idades 17–19. Sua leitura causal exige que tendências específicas lineares por idade e efeitos fixos capturem a evolução contrafactual. Os diagnósticos e a falha do gate rolling-origin mostram que essa hipótese é substantivamente decisiva e não está validada.",
   "",
   "A evidência descritiva é inequívoca quanto à redução secular dos registros abaixo de 16. A evidência causal incremental para 2019 é inconclusiva na especificação congelada. Não há recaptura confiável aos 16–17. A PNADC não sustenta uma redução da união corresidente; seu ponto positivo é compatível com informalização, mas não a comprova.",
   "",
@@ -421,6 +451,17 @@ executive <- c(
     "%. Essa divergência, somada a placebo significativo em 2015T2 e sensibilidade à janela pré, mostra que a trajetória descendente anterior à lei é decisiva. O estudo não sustenta uma simples leitura antes/depois."
   ),
   "",
+  paste0(
+    "O protocolo pós-resultado de forecast foi congelado antes das estimativas da extensão. ",
+    "Nenhum dos cinco modelos passa a calibração pré-2019. O melhor RMSE produz ",
+    fmt(trend_best$target_percent_change, 1), "% (intervalo ",
+    ci_pct(trend_best$ci_lower_percent, trend_best$ci_upper_percent), ") e o ensemble, ",
+    fmt(trend_sensitivity_summary$ensemble_percent_change, 1), "%; a faixa de pontos ",
+    ci_pct(trend_sensitivity_summary$all_model_percent_lower,
+           trend_sensitivity_summary$all_model_percent_upper),
+    " não é intervalo nem bound causal. Logo, nem o −1,1% nem o −37,8% é design-wide."
+  ),
+  "",
   "## Adiamento e comportamento",
   "",
   paste0(
@@ -441,13 +482,13 @@ executive <- c(
   "## Conclusões que os dados permitem",
   "",
   "- O número observado de casamentos com alguém abaixo de 16 caiu fortemente entre 2013 e 2024, mas grande parte da queda precede a lei.",
-  "- A especificação causal congelada não identifica uma queda adicional robusta nos registros aos 15 anos em 2019T2–T4; também não prova efeito zero.",
+  "- O modelo congelado não detecta queda adicional nos registros aos 15 anos em 2019T2–T4, mas todos os contrafactuais do gate falham; o estudo não estabelece queda nem efeito zero design-wide.",
   "- Não há evidência precisa de adiamento para 16–17 anos.",
   "- Não há evidência de redução da união corresidente; o sinal positivo é compatível, mas insuficiente, para informalização.",
   "",
   "## Limitações decisivas",
   "",
-  "A fonte registra mês e idade no registro, não na celebração; cartório e residência não são a mesma geografia; não há idade exata para RD; 2019 oferece só três trimestres integralmente tratados; a PNADC não acompanha confiavelmente quem deixa o domicílio; a união conservadora capta principalmente relações com a pessoa responsável; e o estimando principal tem MDE de queda de 19,3%.",
+  "A fonte registra mês e idade no registro, não na celebração; cartório e residência não são a mesma geografia; não há idade exata para RD; 2019 oferece só três trimestres integralmente tratados; nenhum dos cinco modelos de tendência passa a calibração rolling-origin; a PNADC não acompanha confiavelmente quem deixa o domicílio; a união conservadora capta principalmente relações com a pessoa responsável; e o MDE de 19,3% é condicional ao modelo travado.",
   "",
   "## Replicação",
   "",
@@ -464,7 +505,11 @@ writeLines(executive, file.path(analysis_dir, "EXECUTIVE_SUMMARY.md"), useBytes 
 table_files <- sort(list.files(table_dir, pattern = "\\.csv$", full.names = TRUE))
 figure_files <- sort(list.files(figure_dir, pattern = "\\.(png|pdf)$", full.names = TRUE))
 classify_source <- function(name) {
-  if (grepl("PNADC|UNION", name)) {
+  if (grepl("SINASC|FIGURE_1[12]_", name)) {
+    "SINASC open microdata (MS/SVSA); 2015 excluded under extension Amendment A1"
+  } else if (grepl("TREND_SENSITIVITY|FIGURE_13_", name)) {
+    "Registry Brazil quarterly panel (SIDRA 4406; PNADC denominators)"
+  } else if (grepl("PNADC|UNION", name)) {
     "PNADC quarterly microdata; design-based analytic cells"
   } else if (grepl("EXPOSURE|DDD", name)) {
     "IBGE SIDRA table 4406; PNADC denominator panel"
@@ -475,6 +520,8 @@ classify_source <- function(name) {
   }
 }
 classify_script <- function(name) {
+  if (grepl("TREND_SENSITIVITY|FIGURE_13_", name)) return("src/24_analyze_registry_trend_sensitivity.R")
+  if (grepl("SINASC|FIGURE_1[12]_", name)) return("src/22_analyze_sinasc.R")
   if (grepl("MONTHLY", name)) return("src/17_analyze_registry_monthly.R")
   if (grepl("POWER|PRETREND", name)) return("src/18_diagnostics_power.R")
   if (grepl("PNADC", name) && grepl("MICRODATA", name)) return("src/16_analyze_pnadc_microdata.R")
@@ -484,12 +531,24 @@ classify_script <- function(name) {
   "src/19_export_results.R"
 }
 classify_spec <- function(name) {
+  if (grepl("TREND_SENSITIVITY|FIGURE_13_", name)) return("post-result trend-sensitivity protocol v1.0.0 (frozen before its estimates; gate failed)")
+  if (grepl("SINASC|FIGURE_1[12]_", name)) return("SINASC extension lock v1.0.0 + Amendment A1 (frozen before post-reform contrasts)")
   if (grepl("PRIMARY_EFFECT|TABLE_03", name)) return("locked primary")
   if (grepl("PLACEBO|POWER|PRETREND|ROBUSTNESS|SENSITIVITY|HAC|FORECAST", name)) return("locked diagnostic/robustness")
   if (grepl("UNION", name)) return("locked behavioral estimand/robustness")
   if (grepl("DDD|EXPOSURE", name)) return("locked complementary DDD")
   if (grepl("DELAY|RECAPTURE|AGE_SPECIFIC|BUNCHING", name)) return("locked mechanism estimand")
   "locked descriptive/export specification"
+}
+classify_causal <- function(name) {
+  if (grepl("TREND_SENSITIVITY", name))
+    return("specification envelope; calibration gate failed; not a confidence or causal bound")
+  if (grepl("SINASC_STATUS|SINASC_PLACEBO|SINASC_EVENT|SINASC_BRAZIL", name))
+    return("extension diagnostics reject causal reading; diagnostic/descriptive only")
+  if (grepl("SINASC", name))
+    return("extension diagnostic or null contrast as labeled")
+  if (grepl("PRIMARY", name)) return("primary/confirmatory as labeled; assumption-sensitive")
+  "diagnostic, mechanism, or robustness as labeled"
 }
 
 artifact_manifest <- rbindlist(list(
@@ -502,8 +561,7 @@ artifact_manifest <- rbindlist(list(
     script = vapply(basename(table_files), classify_script, character(1L)),
     source_data = vapply(basename(table_files), classify_source, character(1L)),
     specification = vapply(basename(table_files), classify_spec, character(1L)),
-    causal_status = ifelse(grepl("PRIMARY", basename(table_files)),
-                           "primary/confirmatory as labeled", "diagnostic, mechanism, or robustness as labeled")
+    causal_status = vapply(basename(table_files), classify_causal, character(1L))
   ),
   data.table(
     result_id = paste0("FIGURE_", sprintf("%03d", seq_along(figure_files))),
@@ -511,10 +569,10 @@ artifact_manifest <- rbindlist(list(
     description = tools::file_path_sans_ext(basename(figure_files)),
     value = NA_character_, unit = NA_character_,
     artifact = rel(figure_files),
-    script = "src/19_export_results.R",
+    script = vapply(basename(figure_files), classify_script, character(1L)),
     source_data = vapply(basename(figure_files), classify_source, character(1L)),
     specification = vapply(basename(figure_files), classify_spec, character(1L)),
-    causal_status = "figure; interpretation follows underlying specification"
+    causal_status = vapply(basename(figure_files), classify_causal, character(1L))
   )
 ), use.names = TRUE)
 
@@ -588,7 +646,37 @@ key_numbers <- data.table(
   )
 )
 
-manifest <- rbindlist(list(key_numbers, artifact_manifest), use.names = TRUE, fill = TRUE)
+trend_key_numbers <- data.table(
+  result_id = c(
+    "KEY_REGISTRY_FORECAST_BEST", "KEY_REGISTRY_FORECAST_ENSEMBLE",
+    "KEY_REGISTRY_FORECAST_ENVELOPE_LO", "KEY_REGISTRY_FORECAST_ENVELOPE_HI"
+  ),
+  type = "key_number",
+  description = c(
+    "Lowest-RMSE global-linear target deviation",
+    "Frozen inverse-RMSE-squared ensemble target deviation",
+    "All-model point-envelope lower endpoint",
+    "All-model point-envelope upper endpoint"
+  ),
+  value = as.character(c(
+    trend_best$target_percent_change,
+    trend_sensitivity_summary$ensemble_percent_change,
+    trend_sensitivity_summary$all_model_percent_lower,
+    trend_sensitivity_summary$all_model_percent_upper
+  )),
+  unit = "percent",
+  artifact = c(
+    "outputs/tables/REGISTRY_TREND_SENSITIVITY_MODELS.csv",
+    rep("outputs/tables/REGISTRY_TREND_SENSITIVITY_SUMMARY.csv", 3)
+  ),
+  script = "src/24_analyze_registry_trend_sensitivity.R",
+  source_data = "IBGE SIDRA table 4406; national age-15 versus ages-17--19 rate gap",
+  specification = "frozen post-result sensitivity; calibration gate failed",
+  causal_status = "model diagnostic; point estimate only; not a causal bound"
+)
+
+manifest <- rbindlist(list(key_numbers, trend_key_numbers, artifact_manifest),
+                      use.names = TRUE, fill = TRUE)
 setorder(manifest, type, result_id)
 fwrite(manifest, file.path(analysis_dir, "RESULTS_MANIFEST.csv"), na = "")
 

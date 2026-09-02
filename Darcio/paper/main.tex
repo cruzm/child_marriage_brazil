@@ -1,4 +1,4 @@
-% Paper 1 — working draft v0.1 (2026-09-02)
+% Paper 1 — working draft v0.2 (2026-09-02)
 % Build: pdflatex main && bibtex main && pdflatex main && pdflatex main
 % Placeholders [RESULT TO BE ESTIMATED...] must be resolved before any circulation.
 \documentclass[12pt]{article}
@@ -18,10 +18,10 @@
 \emergencystretch=2em
 
 \title{Banning a Vanishing Margin:\\ Brazil's Child Marriage Ban, Formal Marriage, and Informal Unions\thanks{%
-Working draft; please do not cite or circulate. Replication package: all estimates derive
-from a specification frozen before estimation (SHA-256--locked on 2026-09-02, before any
-post-reform coefficient was computed) and reproducible end-to-end with a single command.
-[ACKNOWLEDGMENTS TO BE ADDED]}}
+Working draft; please do not cite or circulate. The primary Registry and PNADC
+specifications were SHA-256--locked on 2026-09-02 before any post-reform coefficient
+was computed. Later extensions are separately dated and hash-locked; the Registry trend
+sensitivity is explicitly post-result. [ACKNOWLEDGMENTS TO BE ADDED]}}
 \author{Darcio Genicolo Martins\thanks{Insper. E-mail: [TO BE COMPLETED]. [COAUTHORS TO BE CONFIRMED]}}
 \date{September 2026 --- Preliminary}
 
@@ -30,21 +30,19 @@ post-reform coefficient was computed) and reproducible end-to-end with a single 
 
 \begin{abstract}
 \noindent In 2019 Brazil eliminated all legal pathways to civil marriage below age 16.
-We evaluate the reform using a prespecified age-eligibility difference-in-differences
-design and three sources that measure distinct margins: civil-marriage registrations,
-coresident unions, and mothers' conjugal status at birth. The preferred registry
-specification estimates a 1.1\% decline at age 15 (95\% CI $[-14.9\%, +14.9\%]$);
-omitting age-specific trends yields $-37.8\%$. A pre-frozen forecast-validation
-exercise ranks that no-trend counterfactual worst among five candidates and leaves
-every forecast-competitive model between $+1\%$ and $+13\%$, though none meets its
-absolute calibration bar. PNADC estimates a suggestive 0.40
-percentage-point relative increase in coresident-union prevalence (95\% CI
-$[-0.003, +0.801]$), but cannot establish informal substitution. SINASC shows that
-formal marriage among mothers under 16 had flattened before 2019; its trended and
+We evaluate the reform using an age-eligibility design and three sources measuring
+distinct margins: civil-marriage registrations, coresident unions, and mothers'
+conjugal status at birth. The locked Registry model estimates a 1.1\% decline at age 15
+(95\% CI $[-14.9\%, +14.9\%]$), whereas omitting age-specific trends yields
+$-37.8\%$. A post-result rolling-origin protocol, frozen before its sensitivity
+estimates, finds that none of five candidate counterfactuals passes pre-2019
+calibration; neither estimate is therefore design-wide. PNADC estimates a suggestive
+0.40 percentage-point relative increase in coresident-union prevalence (95\% CI
+$[-0.003, +0.801]$), but cannot establish informal substitution. SINASC's trended and
 no-trend estimates span $-23.9\%$ to $+29.3\%$ and fail placebo diagnostics. The
 evidence neither identifies an additional short-run fall in formal marriage nor
 establishes no effect. It shows why administrative declines, union formation, and legal
-formalization must be evaluated separately.\\[6pt]
+formalization require separate measurement and credible counterfactual trends.\\[6pt]
 \textbf{JEL:} J12, J13, K36, O15, I38.\quad
 \textbf{Keywords:} child marriage; minimum-age laws; informal unions; civil registration;
 Brazil.
@@ -105,34 +103,33 @@ the estimate is $-1.1\%$, with a 95\% confidence interval from $-14.9\%$ to $+14
 and an implied 2.1 registrations averted (CI $[-25.2, +33.8]$). This is an imprecise
 null, not evidence of a zero: the design's minimum detectable effect at 80\% power is a
 19.3\% decline. Conditional on the locked linear-trend specification, the confidence
-interval excludes declines larger than 14.9\%. The closest benchmark in the literature,
-Mexico's staggered state bans, cut registered marriages of 16--17-year-old girls by 49
-percent of the pre-reform mean \citep{BellesObreroLombardi2023}; a formal-margin
-response of that size at Brazil's bound age is ruled out not only by that
-model-conditional interval but by every counterfactual we consider: in a post-result
-forecast-validation exercise over five frozen trend models, even the worst-forecasting
-candidate implies a deviation of $-33.7\%$, so the all-model specification envelope,
-$[-33.7\%, +12.8\%]$, still excludes a Mexico-sized fall. The comparison also runs deeper
-than magnitudes: Mexico's significant effect arises at 16--17, where formal marriage
-was still common (roughly 1,700 registrations per 100,000 girl-years against Brazil's 4
-per 100,000 at age 15),\footnote{Derived from the published estimate: 0.695 fewer
-marriages per 1,000 girls per month over a 49 percent reduction implies a pre-reform
-mean of about 1.42 per 1,000 girl-months, or some 1,700 per 100,000 girl-years.} while
-at 14--15---the margin comparable to ours---\citet{BellesObreroLombardi2023} likewise
-find no significant change. Read together, these age profiles are consistent with---but
-do not establish---the hypothesis that minimum-age laws have larger registration effects
-where formal marriage remains quantitatively important. None of this is a design-free
-bound: the same model without age-specific trends yields $-37.8\%$ ($p<0.001$)---the
-age-15 series had been falling for years before the law, and any before--after
-comparison attributes that secular decline to the reform. A post-result forecast
-validation sharpens the divergence into a ranking: the no-trend model that delivers the
-large decline is decisively the worst pre-2019 forecaster (three times the
-rolling-window RMSE of the best), while every forecast-competitive model leaves the
-post-reform deviation between $+1\%$ and $+13\%$ ($p \ge 0.41$)---yet no candidate
-meets the absolute calibration bar we fixed in advance, so the registry estimate
-remains specification-conditional. We treat this not as a robustness footnote but as a
-finding about how minimum-age laws can be mis-evaluated where the targeted margin is
-already declining.
+interval excludes declines larger than 14.9\%, but it does not do so across admissible
+counterfactual trends. The same model without age-specific trends yields $-37.8\%$
+($p<0.001$). A post-result forecast-validation protocol, frozen before its own
+estimates, ranks the seasonal-level no-trend analogue last on pre-2019 prediction. The
+best-ranked global-linear forecast gives $+2.0\%$ (95\% forecast interval
+$[-17.6\%, +23.4\%]$), and an inverse-RMSE$^2$ ensemble gives $+3.0\%$. Yet all five
+candidates fail the protocol's absolute calibration threshold. Their point estimates
+span $[-33.7\%, +12.8\%]$, a specification envelope rather than a confidence or causal
+bound; the seasonal-level model's own interval, $[-54.7\%, -0.3\%]$, includes a
+decline of 49\%. The exercise therefore ranks extrapolations but cannot certify a
+counterfactual or rule out a large effect design-wide.
+
+The closest benchmark in the literature, Mexico's staggered state bans, cut registered
+marriages of 16--17-year-old girls by 49 percent of the pre-reform mean
+\citep{BellesObreroLombardi2023}. That magnitude lies outside Brazil's locked-model
+interval, but the comparison is contextual rather than a cross-design hypothesis test.
+Mexico's significant effect arises at 16--17, where formal marriage was still common
+(roughly 1,700 registrations per 100,000 girl-years against Brazil's 4 per 100,000 at
+age 15),\footnote{Derived from the published estimate: 0.695 fewer marriages per 1,000
+girls per month over a 49 percent reduction implies a pre-reform mean of about 1.42 per
+1,000 girl-months, or some 1,700 per 100,000 girl-years.} while at 14--15---the margin
+comparable to ours---\citet{BellesObreroLombardi2023} likewise find no significant
+change. Read together, these age profiles are consistent with---but do not
+establish---the hypothesis that minimum-age laws have larger registration effects where
+formal marriage remains quantitatively important. We treat the failed calibration not
+as a robustness footnote but as a finding about how minimum-age laws can be
+mis-evaluated where the targeted margin is already declining.
 
 Second, PNADC offers no evidence of a reduction in conservative coresident-union
 prevalence. In quarterly household survey data, the estimated prevalence among
@@ -384,38 +381,55 @@ simultaneous band stays within $\pm 10\%$, and one placebo date (2015Q2) is sign
 conclusion depends materially on how. This is the central empirical lesson of the paper:
 in a collapsing series, the counterfactual trend \emph{is} the estimate.
 
-We therefore take the trend question out of our own hands with a forecast-validation
-exercise, frozen as a post-result protocol before any of its estimates were computed
+We therefore discipline the trend choice with a forecast-validation exercise, frozen
+as a post-result protocol before any of its sensitivity estimates were computed
 (five candidate counterfactuals for the national age-15 versus 17--19 log-rate gap;
 six overlapping three-quarter rolling windows over 2017Q1--2018Q2, fit strictly before
 each window; calibration tiers, ensemble weights, and bootstrap fixed in advance;
-Appendix Table~\ref{tab:trend_sensitivity}). The exercise disciplines in both
-directions. It discriminates: the no-trend model that produces the $-37.8\%$ decline is
-decisively the worst forecaster (rolling RMSE 0.391 against 0.131 for the best; zero of
-six windows within a rate-ratio factor of 1.20), and every model that forecasts the
-pre-period competitively puts the 2019Q2--Q4 deviation between $+1.1\%$ and $+12.8\%$,
-none distinguishable from zero ($p \ge 0.41$); the inverse-RMSE$^2$ ensemble gives
-$+3.0\%$. And it humbles: no candidate meets the absolute calibration bar fixed in the
-protocol (the best model's worst window still misses by a factor of 1.26), so the
-calibration gate \emph{fails} and no cross-model range earns the name of confidence
-set---we report $[-33.7\%, +12.8\%]$ as a specification envelope only. The same
-standard we apply to SINASC below therefore binds here symmetrically: the registry
+Figure~\ref{fig:trend_validation} and Appendix Table~\ref{tab:trend_sensitivity}). The
+exercise disciplines in both directions. It discriminates: the seasonal-level
+candidate---the forecast analogue of
+the PPML no-trend specification---is decisively the worst forecaster (rolling RMSE
+0.391 against 0.131 for the best; zero of six windows within a rate-ratio factor of
+1.20). The four lower-RMSE trending models put the 2019Q2--Q4 deviation between
+$+1.1\%$ and $+12.8\%$; their model-specific $p$-values are at least 0.41, and the
+inverse-RMSE$^2$ ensemble gives $+3.0\%$. And it humbles: no candidate meets the
+absolute calibration bar fixed in the protocol (the best model's worst window still
+misses by a factor of 1.26), so the calibration gate \emph{fails}. No cross-model
+range earns the name of confidence set---we report the point-estimate range
+$[-33.7\%, +12.8\%]$ as a specification envelope only. Moreover, the seasonal-level
+forecast interval $[-54.7\%, -0.3\%]$ includes the 49\% Mexico benchmark. The same
+standard we apply to SINASC below therefore binds here symmetrically: the Registry
 counterfactual cannot be certified either. The difference between the two sources is
-one of degree, dictated by their diagnostics---the registry's forecast-competitive
-models agree on approximately zero, while SINASC's placebo battery rejects its design
-outright---not one of asymmetric treatment.
+one of degree, dictated by their diagnostics---four trending Registry models cluster
+near zero, while SINASC's placebo battery rejects its design outright---not one of
+asymmetric treatment.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=.96\linewidth]{FIGURE_13_REGISTRY_TREND_SENSITIVITY.pdf}
+\caption{Rolling-origin validation of five counterfactual trend models. Blue circles
+are actual-minus-forecast mean log-rate gaps in six pre-2019 three-quarter windows; red
+triangles are the 2019Q2--Q4 target deviations. The gray band is the frozen
+$\pm\log(1.20)$ qualified-window threshold. Model fitting never uses the forecast
+window. Source: post-result sensitivity protocol and replication package.}
+\label{fig:trend_validation}
+\end{figure}
 
 \subsection{Power, and the absence of recapture}
 
 The design's 80\%-power MDE is a 19.3\% decline (power is 28\% against a 10\% decline
 and 83\% against 20\%). These numbers acquire meaning against the literature's
 benchmark: the 49 percent drop in registered marriages that Mexico's bans produced at
-their bound margin \citep{BellesObreroLombardi2023} lies outside our
-model-conditional confidence interval, outside the all-model envelope of the
-forecast-validation exercise, and far beyond the region where our power is high; what the design
-cannot detect are effects below roughly one-fifth of the baseline, which at Brazil's
-age-15 rate of 4 per 100,000 correspond to a handful of marriages per year. Effects at
-ages 16--19 are $+0.6\%$, $+3.3\%$, $+0.8\%$, and
+their bound margin \citep{BellesObreroLombardi2023} lies outside the locked-model
+confidence interval and is far beyond the region where that model has high power. But
+the MDE describes sampling precision conditional on the locked trend; it does not repair
+counterfactual identification. Because every forecast candidate fails calibration and
+the seasonal-level interval includes a 49\% decline, the full exercise cannot rule out
+that benchmark design-wide. What the locked model cannot detect are effects below
+roughly one-fifth of the baseline, which at Brazil's age-15 rate of 4 per 100,000
+correspond to a handful of marriages per year. Effects at ages 16--19 are $+0.6\%$,
+$+3.3\%$, $+0.8\%$, and
 $-2.4\%$, none surviving familywise correction; the aggregate ``recapture'' ratio
 (excess at 16--17 over deficit at 15) is undefined in half of the bootstrap draws and
 spans $[-114, +1{,}107]$ where defined. There is no reliable evidence of postponement
@@ -523,11 +537,13 @@ the selection inherent in any status-at-birth outcome.
 
 Brazil banned civil marriage below 16 after registrations at that age had become rare,
 while coresident unions remained more prevalent on a conceptually different stock
-measure. Our frozen design finds no detectable additional decline in the banned formal
-events and no detectable reduction in conservative coresident-union prevalence, with a
-suggestive---unproven---tilt toward informality, while the status-at-birth margin had
-flattened before the reform and its pre-registered contrast fails the placebo battery,
-leaving a specification range that spans zero.
+measure. The locked Registry model finds no detectable additional decline in the banned
+formal events, but the post-result rolling-origin gate rejects every candidate
+counterfactual; the paper therefore establishes neither an additional short-run decline
+nor its absence. PNADC finds no detectable reduction in conservative coresident-union
+prevalence, with a suggestive---unproven---tilt toward informality. The status-at-birth
+margin had flattened before the reform, and its pre-registered contrast fails the
+placebo battery, leaving a specification range that spans zero.
 
 Two implications travel beyond Brazil. For policy, minimum-age laws are instruments
 aimed at the recorded margin; where unions are informal, the recorded margin can go to
@@ -542,9 +558,10 @@ general causal law, because ages, outcomes, and designs differ. For evaluation a
 monitoring, the gap between our locked $-1.1\%$ and the
 naive $-37.8\%$ is a warning: registered child marriages were falling secularly in many
 countries before their bans, and legal-impact studies that do not model that trajectory
-can overstate what the law achieved---out-of-sample forecast validation shows the
-naive specification is precisely the one that cannot predict the pre-period it
-extrapolates. The status-at-birth exercise shows
+can attribute secular decline to the law. Out-of-sample forecast validation ranks the
+no-trend candidate worst, but its failure to validate any candidate also prevents us
+from elevating the locked model into a design-wide estimate. The status-at-birth
+exercise shows
 the mirror image---a mis-specified trend can just as easily manufacture a
 \emph{positive} ``effect'' of a ban, and only a pre-committed placebo battery tells the
 two apart---a bias that survey-based
@@ -571,7 +588,7 @@ Law 13,811 (March 2019). Source: replication package.}
 \end{figure}
 
 \section{Registry and PNADC exhibits}\label{app:exhibits}
-\input{tables/TABLE_13_TREND_SENSITIVITY.tex}
+\input{../outputs/tables/TABLE_13_TREND_SENSITIVITY.tex}
 \input{tables/TABLE_04_REGISTRY_SPECIFICATION_ROBUSTNESS.tex}
 \input{tables/TABLE_05_DELAY_AND_RECAPTURE.tex}
 \input{tables/TABLE_07A_PNADC_UNION_PRIMARY.tex}

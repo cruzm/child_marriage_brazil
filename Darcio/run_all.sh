@@ -34,9 +34,12 @@ run_step "15_analyze_pnadc_cells.R"
 run_step "16_analyze_pnadc_microdata.R"
 run_step "17_analyze_registry_monthly.R"
 run_step "18_diagnostics_power.R"
+run_step "21_build_sinasc.R"
+run_step "22_analyze_sinasc.R"
+run_step "23_export_sinasc_tables.R"
+run_step "24_analyze_registry_trend_sensitivity.R"
 run_step "19_export_results.R"
 run_step "20_write_reports.R"
 
 Rscript Darcio/tests/run_tests.R
 echo "[$(date '+%Y-%m-%dT%H:%M:%S%z')] replication_complete"
-

@@ -1,6 +1,6 @@
 category,test,passed,observed,source
-code,all R source scripts parse,TRUE,25,final
-code,all pipeline modules exist,TRUE,25,final
+code,all R source scripts parse,TRUE,29,final
+code,all pipeline modules exist,TRUE,29,final
 component,2019Q1 never coded full post,TRUE,0,ANALYTIC_PANEL_ACCEPTANCE_TESTS.csv
 component,2019Q2 is first full post,TRUE,2019Q2,ANALYTIC_PANEL_ACCEPTANCE_TESTS.csv
 component,Brazil panel has expected 720 cells,TRUE,720,ANALYTIC_PANEL_ACCEPTANCE_TESTS.csv
@@ -117,27 +117,41 @@ component,monthly region counts reproduce source,TRUE,0,REGISTRY_MONTHLY_ACCEPTA
 component,post begins April 2019,TRUE,2019M04-2019M12,REGISTRY_MONTHLY_ACCEPTANCE_TESTS.csv
 component,primary monthly coefficient finite,TRUE,-0.0242928616028555,REGISTRY_MONTHLY_ACCEPTANCE_TESTS.csv
 component,registration timing explicitly labeled,TRUE,registration month,REGISTRY_MONTHLY_ACCEPTANCE_TESTS.csv
-component,component acceptance files discovered,TRUE,11,final
+component,1999 bootstrap draws per model,TRUE,"1999,1999,1999,1999,1999",REGISTRY_TREND_SENSITIVITY_ACCEPTANCE_TESTS.csv
+component,24 pre quarters,TRUE,24,REGISTRY_TREND_SENSITIVITY_ACCEPTANCE_TESTS.csv
+component,YAML lock hash matches,TRUE,04cdab04f79981b2d101d18d85dec6083938d8009acc1f9862d09c65aa6beb46,REGISTRY_TREND_SENSITIVITY_ACCEPTANCE_TESTS.csv
+component,all forecasts finite,TRUE,TRUE,REGISTRY_TREND_SENSITIVITY_ACCEPTANCE_TESTS.csv
+component,ensemble weights positive and sum to one,TRUE,1.000000000000000,REGISTRY_TREND_SENSITIVITY_ACCEPTANCE_TESTS.csv
+component,five frozen candidate models,TRUE,"global_linear,local_linear_12,local_linear_16,global_quadratic,seasonal_level",REGISTRY_TREND_SENSITIVITY_ACCEPTANCE_TESTS.csv
+component,no rolling information leakage,TRUE,0,REGISTRY_TREND_SENSITIVITY_ACCEPTANCE_TESTS.csv
+component,one omitted partial quarter,TRUE,2019Q1,REGISTRY_TREND_SENSITIVITY_ACCEPTANCE_TESTS.csv
+component,prose protocol hash matches,TRUE,268192691f7cd90f4165f059d814d2cfdfaea8b095d9c71e5ea28907f0812881,REGISTRY_TREND_SENSITIVITY_ACCEPTANCE_TESTS.csv
+component,protocol labeled post-result,TRUE,TRUE,REGISTRY_TREND_SENSITIVITY_ACCEPTANCE_TESTS.csv
+component,results label envelope noncausal,TRUE,"specification envelope; not a confidence set, identified set, or causal bound",REGISTRY_TREND_SENSITIVITY_ACCEPTANCE_TESTS.csv
+component,six windows per model,TRUE,"6,6,6,6,6",REGISTRY_TREND_SENSITIVITY_ACCEPTANCE_TESTS.csv
+component,three target quarters,TRUE,"2019Q2,2019Q3,2019Q4",REGISTRY_TREND_SENSITIVITY_ACCEPTANCE_TESTS.csv
+component,component acceptance files discovered,TRUE,12,final
 construction,Registry incidence rate identity holds,TRUE,2.50111e-12,final
 construction,all offsets have positive denominators,TRUE,0,final
 construction,union prevalences remain probabilities,TRUE,"0,0.262444039876134",final
 geography,primary Registry panel is regional,TRUE,5 regions,final
-isolation,workspace changes are confined to Darcio,TRUE,?? Darcio/,final
+isolation,workspace changes are confined to Darcio,TRUE, M Darcio/outputs/analysis/EXECUTIVE_SUMMARY.md |  M Darcio/outputs/analysis/FINAL_ACCEPTANCE.md |  M Darcio/outputs/analysis/GATE_D_CONSTRUCTION_AND_ESTIMATION.md |  M Darcio/outputs/analysis/GATE_E_VALIDATION_AND_REPORTING.md |  M Darcio/outputs/analysis/REGISTRY_TREND_SENSITIVITY_RESULTS.md |  M Darcio/outputs/analysis/RESULTS_MANIFEST.csv |  M Darcio/outputs/analysis/TECHNICAL_REPORT.md |  M Darcio/outputs/analysis/session_info.txt |  M Darcio/outputs/audit/FINAL_TEST_SUMMARY.csv |  M Darcio/outputs/figures/FIGURE_13_REGISTRY_TREND_SENSITIVITY.pdf |  M Darcio/outputs/logs/20_write_reports.log |  M Darcio/outputs/logs/24_analyze_registry_trend_sensitivity.log |  M Darcio/outputs/logs/final_tests.log |  M Darcio/paper/OUTLINE.md |  M Darcio/paper/check_consistency.R |  M Darcio/paper/ledgers/CLAIM_EVIDENCE_MATRIX.md |  M Darcio/paper/ledgers/IDENTIFICATION_GATE.md |  M Darcio/paper/ledgers/RED_TEAM_2026-09-02.md |  M Darcio/paper/main.tex |  D Darcio/paper/tables/TABLE_13_TREND_SENSITIVITY.tex |  M Darcio/run_all.sh |  M Darcio/src/20_write_reports.R |  M Darcio/src/24_analyze_registry_trend_sensitivity.R |  D Darcio/src/25_export_trend_sensitivity_table.R |  M Darcio/tests/run_tests.R,final
 lock,all four technical amendments documented,TRUE,4,final
 lock,estimands document SHA-256 unchanged,TRUE,537fe0474cc1cd69a99251ddbc08c222b14f9685e9edf198ebce88e623b07449,final
 lock,lock predates effect estimation,TRUE,2026-09-02T00:56:08-03:00 FALSE,final
 lock,specification lock SHA-256 unchanged,TRUE,17f690311168b0953779e533f8a3a5b7ebf79e502237e0a4bbde3b8d07c465c2,final
-outputs,all required analysis reports exist,TRUE,7,final
-outputs,at least ten nonempty LaTeX tables exist,TRUE,19,final
-outputs,executive summary stays within two-page proxy,TRUE,523,final
+outputs,all 13 required nonempty PDF figures exist,TRUE,13,final
+outputs,all 13 required nonempty PNG figures exist,TRUE,13,final
+outputs,all required analysis reports exist,TRUE,9,final
+outputs,at least ten nonempty LaTeX tables exist,TRUE,22,final
+outputs,canonical Registry trend-sensitivity LaTeX table exists,TRUE,1337,final
+outputs,executive summary stays within two-page proxy,TRUE,594,final
 outputs,technical report rejects false conventional RD,TRUE,explicitly documented,final
 outputs,technical report separates Registry flow and PNADC stock,TRUE,explicitly documented,final
-outputs,ten nonempty PDF figures exist,TRUE,10,final
-outputs,ten nonempty PNG figures exist,TRUE,10,final
 privacy,analytic data dictionary contains no direct identifier fields,TRUE,"",final
-provenance,every manifest artifact exists and is nonempty,TRUE,94,final
+provenance,every manifest artifact exists and is nonempty,TRUE,111,final
 provenance,"key numbers carry script, source, and specification",TRUE,15,final
-provenance,manifest covers every current analysis CSV and figure format,TRUE,94 manifest rows,final
+provenance,manifest covers every current analysis CSV and figure format,TRUE,111 manifest rows,final
 replication,single-command runner is executable,TRUE,755,final
 results,PNADC primary has combined temporal/design uncertainty,TRUE,0.00205294199136766/999,final
 results,PNADC reports age-15-specific unweighted counts,TRUE,268754,final
@@ -145,7 +159,7 @@ results,Registry flow and PNADC stock are never subtracted,TRUE,separate result 
 results,Registry primary estimate is finite and uses 27 time clusters,TRUE,-1.07184152648725/27,final
 safety,no partial-download files remain,TRUE,0,final
 sources,all mandatory official sources were opened and registered,TRUE,law_13811_2019;civil_code_compiled;ibge_registry_page;ibge_pnadc_page;ibge_sidra_4406;ibge_pnadc_quarterly_documentation,final
-sources,source URLs are clean HTTPS links with access dates,TRUE,15,final
+sources,source URLs are clean HTTPS links with access dates,TRUE,21,final
 timing,2019Q1 is partial and never full post in PNADC,TRUE,1,final
 timing,2019Q1 is partial and never full post in Registry,TRUE,1,final
 timing,full Registry post begins in 2019Q2,TRUE,2019Q2 2024Q4,final

@@ -321,7 +321,7 @@ table_lines <- c(
   "\\begin{table}[!htbp]",
   "\\centering",
   "\\caption{Post-result rolling-origin sensitivity to the counterfactual trend.}",
-  "\\label{tab:registry_trend_sensitivity}",
+  "\\label{tab:trend_sensitivity}",
   "\\begingroup\\footnotesize",
   "\\begin{tabular}{@{}lccrc@{}}",
   "\\toprule",
@@ -337,7 +337,7 @@ table_lines <- c(
   "\\endgroup",
   "\\end{table}"
 )
-writeLines(table_lines, file.path(table_dir, "TABLE_13_REGISTRY_TREND_SENSITIVITY.tex"))
+writeLines(table_lines, file.path(table_dir, "TABLE_13_TREND_SENSITIVITY.tex"))
 
 plot_placebos <- placebos[, .(
   model_id,

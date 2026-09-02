@@ -33,13 +33,28 @@ fertility <- read_one("SINASC_FERTILITY_S4.csv")
 fertility <- fertility[fertility$specification == "S4_fertility_age15", ][1, ]
 placebos <- read_one("SINASC_PLACEBO_DATES.csv")
 missingness <- read_one("SINASC_MISSINGNESS_DIAGNOSTIC.csv")[1, ]
+trend_models <- read_one("REGISTRY_TREND_SENSITIVITY_MODELS.csv")
+trend_summary <- read_one("REGISTRY_TREND_SENSITIVITY_SUMMARY.csv")[1, ]
+trend_best <- trend_models[trend_models$model_id == "global_linear", ][1, ]
+trend_seasonal <- trend_models[trend_models$model_id == "seasonal_level", ][1, ]
 
 signed <- function(x, digits) sprintf(paste0("%+.", digits, "f"), x)
 tex_pct <- function(x, digits = 1L) paste0("$", signed(x, digits), "\\%$")
+tex_pct_interval <- function(lo, hi, digits = 1L) {
+  paste0("$[", signed(lo, digits), "\\%, ", signed(hi, digits), "\\%]$")
+}
 
 expected <- c(
   registry_primary = tex_pct(registry$percent_change),
   registry_no_trend = tex_pct(trend$percent_change),
+  registry_forecast_best = tex_pct(trend_best$target_percent_change),
+  registry_forecast_ensemble = tex_pct(trend_summary$ensemble_percent_change),
+  registry_forecast_envelope = tex_pct_interval(
+    trend_summary$all_model_percent_lower, trend_summary$all_model_percent_upper
+  ),
+  registry_forecast_seasonal_interval = tex_pct_interval(
+    trend_seasonal$ci_lower_percent, trend_seasonal$ci_upper_percent
+  ),
   union_primary = paste0("$", signed(100 * union$estimate, 3L), "$"),
   sinasc_primary = tex_pct(status$pct_change),
   sinasc_no_trend = tex_pct(status_rob$pct_change),
@@ -60,7 +75,24 @@ stale <- c(
 )
 present_stale <- stale[vapply(stale, function(x) grepl(x, manuscript, fixed = TRUE), logical(1L))]
 
-if (length(missing_expected) || length(present_stale)) {
+forbidden_claims <- c(
+  "ruled out not only by that model-conditional interval",
+  "outside the all-model envelope",
+  "every forecast-competitive model",
+  "all estimates derive from a specification frozen before estimation",
+  "pre-frozen forecast-validation"
+)
+present_forbidden <- forbidden_claims[vapply(
+  forbidden_claims, function(x) grepl(x, manuscript, fixed = TRUE), logical(1L)
+)]
+
+canonical_table_input <- "\\input{../outputs/tables/TABLE_13_TREND_SENSITIVITY.tex}"
+canonical_table_used <- grepl(canonical_table_input, manuscript, fixed = TRUE)
+duplicate_table_path <- file.path(root, "paper", "tables", "TABLE_13_TREND_SENSITIVITY.tex")
+duplicate_table_exists <- file.exists(duplicate_table_path)
+
+if (length(missing_expected) || length(present_stale) || length(present_forbidden) ||
+    !canonical_table_used || duplicate_table_exists) {
   if (length(missing_expected)) {
     message("Missing canonical manuscript values: ", paste(missing_expected, collapse = ", "))
     message("Expected tokens: ", paste(expected[missing_expected], collapse = "; "))
@@ -68,8 +100,19 @@ if (length(missing_expected) || length(present_stale)) {
   if (length(present_stale)) {
     message("Stale pre-A1 tokens remain: ", paste(present_stale, collapse = ", "))
   }
+  if (length(present_forbidden)) {
+    message("Forbidden design-wide trend claims remain: ",
+            paste(present_forbidden, collapse = " | "))
+  }
+  if (!canonical_table_used) {
+    message("Manuscript does not input the canonical output TABLE_13 directly")
+  }
+  if (duplicate_table_exists) {
+    message("Duplicate paper-local TABLE_13 exists: ", duplicate_table_path)
+  }
   quit(status = 1L)
 }
 
 cat(sprintf("paper_consistency_ok checks=%d stale_checks=%d\n",
-            length(expected), length(stale)))
+            length(expected) + length(forbidden_claims) + 2L,
+            length(stale) + length(forbidden_claims)))

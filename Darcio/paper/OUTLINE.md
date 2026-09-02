@@ -3,7 +3,7 @@
 **Título de trabalho:** Banning a Vanishing Margin: Brazil's Child Marriage Ban, Formal
 Marriage, and Informal Unions
 **Alvo:** JDE/JHR (stretch) · J. Population Economics / World Development / JPAM (realista)
-**Idioma:** inglês acadêmico. **Status:** working draft v0.1, 2026-09-02.
+**Idioma:** inglês acadêmico. **Status:** working draft v0.2, 2026-09-02.
 
 ## Espinha narrativa (uma linha por seção)
 
@@ -16,8 +16,10 @@ Marriage, and Informal Unions
    estoque de união corresidente (PNADC), situação conjugal no parto (SINASC).
 4. **Strategy** — DiD por elegibilidade etária (15 vs. 17–19), PPML com offset, tendências
    por idade, inferência para reforma nacional única; lock ex ante com hash.
-5. **Results (registry)** — −1,1% [−14,9; +14,9]; sem tendências −37,8%: a trajetória prévia
-   é decisiva; MDE 19,3%; sem recaptura confiável aos 16–17.
+5. **Results (registry)** — −1,1% [−14,9; +14,9] no modelo travado; sem tendências
+   −37,8%. O rolling-origin pós-resultado reprova todos os cinco contrafactuais, logo o
+   efeito permanece condicional; MDE 19,3% também é condicional ao modelo; sem recaptura
+   confiável aos 16–17.
 6. **Behavior (PNADC + SINASC)** — A PNADC não identifica redução da prevalência de
    união corresidente (+0,399 p.p., p=0,052; sugestivo, não prova de informalização).
    No SINASC, o resultado com tendência (+29,3%) falha os diagnósticos e contrasta com
@@ -32,10 +34,11 @@ Marriage, and Informal Unions
 |---|---|---|
 | Fig. 1: Raw rates by age (registry) | FIGURE_01 | pronto |
 | Fig. 2: Event study age 15 | FIGURE_03 | pronto |
-| Fig. 3: Age distribution / bunching | FIGURE_05 | pronto |
-| Fig. 4: PNADC union prevalence + event study | FIGURE_07 + FIGURE_08 | pronto |
-| Fig. 5: SINASC status shares (mothers 10–15 vs 17–19) | FIGURE_11_SINASC_STATUS_SHARES | pronto |
-| Fig. 6: SINASC married-at-birth event study | FIGURE_12_SINASC_STATUS_EVENT_STUDY | pronto (no paper) |
+| Fig. 3: Rolling-origin dos cinco contrafactuais | FIGURE_13_REGISTRY_TREND_SENSITIVITY | pronto (no paper) |
+| Fig. 4: Age distribution / bunching | FIGURE_05 | pronto |
+| Fig. 5: PNADC union prevalence + event study | FIGURE_07 + FIGURE_08 | pronto |
+| Fig. 6: SINASC status shares (mothers 10–15 vs 17–19) | FIGURE_11_SINASC_STATUS_SHARES | pronto |
+| Fig. 7: SINASC married-at-birth event study | FIGURE_12_SINASC_STATUS_EVENT_STUDY | pronto (no paper) |
 | Tab. 1: Audit/coverage | TABLE_01 | pronto |
 | Tab. 2: Registry primary + robustness | TABLE_03 + TABLE_04 | pronto |
 | Tab. 3: Delay/recapture | TABLE_05 | pronto |
@@ -43,9 +46,15 @@ Marriage, and Informal Unions
 | Tab. 5: Inference triangulation | TABLE_08 | pronto |
 | Tab. 6: Power/MDE | TABLE_09 | pronto |
 | Tab. 7: SINASC S1–S3 + diagnósticos + placebos + S4 | SINASC_STATUS_PRIMARY, SINASC_PLACEBO_DATES, SINASC_FERTILITY_S4 | pronto (TABLE_11/12) |
+| Tab. 8: Calibração e efeitos dos cinco contrafactuais | TABLE_13_TREND_SENSITIVITY | pronto (appendix) |
 
 ## Placeholders ativos no manuscrito
 
+- ~~REGISTRY TREND GATE~~ **RESOLVIDO 2026-09-02**: protocolo pós-resultado congelado
+  antes das estimativas da extensão; 13/13 testes passam, mas 0/5 modelos atingem o tier
+  qualificado. O envelope de pontos [−33,7%; +12,8%] não é bound causal; o intervalo do
+  modelo sazonal [−54,7%; −0,3%] inclui queda de 49%. O texto foi reposicionado como
+  dependência de contrafactual/falha de desenho.
 - ~~SINASC DiD~~ **RESOLVIDO 2026-09-02**: estimado sob o extension lock v1.0.0; o
   desenho reprova os diagnósticos (leads p≈0; placebos 2017/2018 significativos);
   reportado como faixa de especificações [−23,9%; +29,3%], não como intervalo causal.
@@ -73,5 +82,7 @@ Marriage, and Informal Unions
 - Claim central = estimando (contraste curto, elegibilidade etária, registros aos 15)?
 - Intro, tabelas e conclusão contam a mesma história (null impreciso + sem queda de união
   + sinal informal sugestivo)?
+- Nenhum envelope de pontos é chamado de intervalo, identified set ou bound causal?
+- O benchmark México é contextual e nunca “descartado” design-wide?
 - Nenhum coeficiente de fluxo subtraído de coeficiente de estoque?
 - Nenhuma referência `unverified` citada?

@@ -1,6 +1,6 @@
 # Registry trend sensitivity — results
 
-**Run:** 2026-09-02T13:47:45-0300  
+**Run:** 2026-09-02T13:53:01-0300  
 **Protocol:** frozen post-result protocol v1.0.0; original specification lock unchanged.  
 **Gate:** `failed`.
 

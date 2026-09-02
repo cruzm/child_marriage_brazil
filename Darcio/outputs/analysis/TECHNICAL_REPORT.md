@@ -1,6 +1,6 @@
-# Relatório técnico — avaliação causal da Lei nº 13.811/2019
+# Relatório técnico — avaliação empírica da Lei nº 13.811/2019
 
-**Versão reproduzível gerada em:** 2026-09-02T03:18:52-0300  
+**Versão reproduzível gerada em:** 2026-09-02T14:04:44-0300  
 **Estimando principal:** pessoas de 15 anos em casamentos civis registrados por 100 mil residentes de 15 anos  
 **Desenho:** diferenças-em-diferenças por elegibilidade etária, não RD convencional  
 **Especificação congelada antes dos efeitos:** `config/specification_lock.yml`
@@ -10,6 +10,8 @@
 Na especificação primária congelada — idade 15 versus 17–19, regiões, trimestres, PPML com offset populacional, efeitos fixos, sazonalidade e tendências lineares específicas por idade — a estimativa para 2019T2–T4 foi **-1,1%**, IC95% [-14,9%; 14,9%], p=0,888. Em níveis, isso corresponde a -0,022 pessoa por 100 mil e a 2,1 registros previstos evitados, IC95% [-25,2; 33,8].
 
 Esse resultado **não demonstra uma redução causal adicional** nos registros aos 15 anos no curto prazo: o intervalo admite queda relevante e aumento relevante. Tampouco demonstra ausência de efeito. A série já caía antes da lei, e a versão obrigatória sem tendências estima -37,8%, mostrando dependência material da especificação.
+
+Uma extensão rolling-origin, congelada como protocolo pós-resultado antes de suas próprias estimativas, não valida nenhum dos cinco contrafactuais. O global linear tem o menor RMSE pré-2019 (0,131) e estima 2,0% (intervalo de forecast [-17,6%; 23,4%]); o ensemble fixo estima 3,0%. A faixa de pontos [-33,7%; 12,8%] é envelope de especificações, não bound causal. O intervalo do modelo sazonal [-54,7%; -0,3%] inclui queda de 49%.
 
 A PNADC produz um ponto de **+0,399 ponto percentual** na prevalência conservadora de união corresidente aos 15 anos, IC95% [-0,003; 0,801] p.p., p=0,052. O intervalo quase toca zero, o teste de equivalência a ±0,50 p.p. falha (p TOST=0,311) e o MDE é 0,575 p.p. Logo, há evidência apenas **sugestiva**, não conclusiva, de maior união corresidente relativa; não se prova informalização nem redução da formação de uniões.
 
@@ -84,6 +86,10 @@ O MDE de 80% é uma queda de 19,3%. A potência aproximada é 28% para queda de 
 
 A versão sem tendência encontra -37,8% (p<0,001), contra -1,1% no modelo congelado. A análise mensal com tendência encontra -2,4% (p=0,820). As janelas pré iniciadas em 2013, 2014 e 2015 produzem, respectivamente, -1,1%, 8,2%, 11,1%.
 
+No protocolo rolling-origin, os cinco modelos recebem tier `fail`. O RMSE varia de 0,131 a 0,391; a faixa dos pontos pós é [-33,7%; 12,8%]. A falha da calibração impede transformar o modelo de menor RMSE ou o ensemble em contrafactual validado.
+
+![Rolling-origin dos contrafactuais](../figures/FIGURE_13_REGISTRY_TREND_SENSITIVITY.png)
+
 A incerteza marginal do denominador em 499 sorteios tem DP 0,014 na escala log, menor que o erro-padrão temporal primário, mas a covariância completa entre células não estava disponível. O controle sintético pré-2019 colocou peso 100,0% na idade 17 e estimou lacuna curta de -0,658 por 100 mil; isso é robustez descritiva, não nova identificação.
 
 Por sexo, o ponto feminino é -9,7% (p ajustado Holm=0,125) e o masculino é +155,8% (p ajustado Holm<0,001). O segundo é instável: há 36 células masculinas com zero e o nível basal é raro. A heterogeneidade não deve substituir o estimando combinado.
@@ -128,7 +134,7 @@ As principais ameaças remanescentes são: antecipação; defasagem entre habili
 
 ## 10. Síntese inferencial
 
-O objeto efetivamente identificado é um contraste curto, por elegibilidade etária, da incidência de registros civis aos 15 anos relativa às idades 17–19, sob a hipótese de que tendências específicas lineares por idade e efeitos fixos capturam a evolução contrafactual. Os diagnósticos mostram que essa hipótese é substantivamente decisiva e não plenamente verificável.
+O objeto estimado é um contraste curto, por elegibilidade etária, da incidência de registros civis aos 15 anos relativa às idades 17–19. Sua leitura causal exige que tendências específicas lineares por idade e efeitos fixos capturem a evolução contrafactual. Os diagnósticos e a falha do gate rolling-origin mostram que essa hipótese é substantivamente decisiva e não está validada.
 
 A evidência descritiva é inequívoca quanto à redução secular dos registros abaixo de 16. A evidência causal incremental para 2019 é inconclusiva na especificação congelada. Não há recaptura confiável aos 16–17. A PNADC não sustenta uma redução da união corresidente; seu ponto positivo é compatível com informalização, mas não a comprova.
 

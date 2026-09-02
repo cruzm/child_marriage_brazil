@@ -50,7 +50,9 @@ critical_scripts <- c(
   "13_analyze_registry.R", "14_analyze_delay_exposure.R",
   "15_analyze_pnadc_cells.R", "16_analyze_pnadc_microdata.R",
   "17_analyze_registry_monthly.R", "18_diagnostics_power.R",
-  "19_export_results.R", "20_write_reports.R"
+  "19_export_results.R", "20_write_reports.R",
+  "21_build_sinasc.R", "22_analyze_sinasc.R", "23_export_sinasc_tables.R",
+  "24_analyze_registry_trend_sensitivity.R"
 )
 missing_scripts <- critical_scripts[!file.exists(file.path(root, "src", critical_scripts))]
 add_check("code", "all pipeline modules exist", !length(missing_scripts),
@@ -186,7 +188,8 @@ add_check("results", "Registry flow and PNADC stock are never subtracted",
 required_analysis <- c(
   "TECHNICAL_REPORT.md", "EXECUTIVE_SUMMARY.md", "RESULTS_MANIFEST.csv",
   "SPECIFICATION_AMENDMENTS.md", "session_info.txt",
-  "GATE_D_CONSTRUCTION_AND_ESTIMATION.md", "GATE_E_VALIDATION_AND_REPORTING.md"
+  "GATE_D_CONSTRUCTION_AND_ESTIMATION.md", "GATE_E_VALIDATION_AND_REPORTING.md",
+  "REGISTRY_TREND_SENSITIVITY_PROTOCOL.md", "REGISTRY_TREND_SENSITIVITY_RESULTS.md"
 )
 missing_analysis <- required_analysis[!file.exists(file.path(analysis_dir, required_analysis))]
 add_check("outputs", "all required analysis reports exist", !length(missing_analysis),
@@ -207,20 +210,44 @@ add_check("outputs", "technical report separates Registry flow and PNADC stock",
 
 pngs <- list.files(figure_dir, pattern = "\\.png$", full.names = TRUE)
 pdfs <- list.files(figure_dir, pattern = "\\.pdf$", full.names = TRUE)
-add_check("outputs", "ten nonempty PNG figures exist",
-          length(pngs) == 10L && all(file.info(pngs)$size > 0), length(pngs))
-add_check("outputs", "ten nonempty PDF figures exist",
-          length(pdfs) == 10L && all(file.info(pdfs)$size > 0), length(pdfs))
+required_figure_stems <- c(
+  "FIGURE_01_REGISTRY_RAW_RATES_BY_AGE",
+  "FIGURE_02_AGE15_VS_PRIMARY_CONTROLS",
+  "FIGURE_03_REGISTRY_EVENT_STUDY",
+  "FIGURE_04_REGISTRY_EVENT_STUDIES_AGES_15_16_17",
+  "FIGURE_05_REGISTRY_AGE_DISTRIBUTION_BUNCHING",
+  "FIGURE_06_REGISTRY_EXPOSURE_DDD",
+  "FIGURE_07_PNADC_UNION_RAW_PREVALENCE",
+  "FIGURE_08_PNADC_UNION_EVENT_STUDY",
+  "FIGURE_09_PLACEBOS",
+  "FIGURE_10_SECONDARY_REGISTRY_OUTCOMES",
+  "FIGURE_11_SINASC_STATUS_SHARES",
+  "FIGURE_12_SINASC_STATUS_EVENT_STUDY",
+  "FIGURE_13_REGISTRY_TREND_SENSITIVITY"
+)
+required_pngs <- file.path(figure_dir, paste0(required_figure_stems, ".png"))
+required_pdfs <- file.path(figure_dir, paste0(required_figure_stems, ".pdf"))
+add_check("outputs", "all 13 required nonempty PNG figures exist",
+          all(file.exists(required_pngs)) && all(file.info(required_pngs)$size > 0),
+          sum(file.exists(required_pngs)))
+add_check("outputs", "all 13 required nonempty PDF figures exist",
+          all(file.exists(required_pdfs)) && all(file.info(required_pdfs)$size > 0),
+          sum(file.exists(required_pdfs)))
 latex_tables <- list.files(table_dir, pattern = "\\.tex$", full.names = TRUE)
 add_check("outputs", "at least ten nonempty LaTeX tables exist",
           length(latex_tables) >= 10L && all(file.info(latex_tables)$size > 0),
           length(latex_tables))
+trend_table <- file.path(table_dir, "TABLE_13_TREND_SENSITIVITY.tex")
+add_check("outputs", "canonical Registry trend-sensitivity LaTeX table exists",
+          file.exists(trend_table) && file.info(trend_table)$size > 0,
+          if (file.exists(trend_table)) file.info(trend_table)$size else 0)
 
 manifest <- fread(file.path(analysis_dir, "RESULTS_MANIFEST.csv"))
 artifact_paths <- file.path(root, manifest$artifact)
 add_check("provenance", "manifest covers every current analysis CSV and figure format",
           sum(manifest$type == "table_csv") == length(list.files(table_dir, pattern = "\\.csv$")) &&
-            sum(manifest$type == "png") == 10L && sum(manifest$type == "pdf") == 10L,
+            sum(manifest$type == "png") == length(pngs) &&
+            sum(manifest$type == "pdf") == length(pdfs),
           paste(nrow(manifest), "manifest rows"))
 add_check("provenance", "every manifest artifact exists and is nonempty",
           all(file.exists(artifact_paths)) && all(file.info(artifact_paths)$size > 0),

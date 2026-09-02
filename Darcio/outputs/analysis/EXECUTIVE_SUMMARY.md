@@ -12,6 +12,8 @@ A estimativa congelada é **-1,1%** nos registros aos 15 anos (razão de taxas 0
 
 O intervalo não exclui uma queda de 14,9% nem um aumento de 14,9%. A versão sem tendências encontra queda de 37,8%. Essa divergência, somada a placebo significativo em 2015T2 e sensibilidade à janela pré, mostra que a trajetória descendente anterior à lei é decisiva. O estudo não sustenta uma simples leitura antes/depois.
 
+O protocolo pós-resultado de forecast foi congelado antes das estimativas da extensão. Nenhum dos cinco modelos passa a calibração pré-2019. O melhor RMSE produz 2,0% (intervalo [-17,6%; 23,4%]) e o ensemble, 3,0%; a faixa de pontos [-33,7%; 12,8%] não é intervalo nem bound causal. Logo, nem o −1,1% nem o −37,8% é design-wide.
+
 ## Adiamento e comportamento
 
 Os pontos aos 16 e 17 anos são +0,6% e +3,3%, respectivamente, mas não são precisos após correção por múltiplos testes. A recaptura agregada tem intervalo extremamente amplo e só é definida em cerca de metade dos sorteios. Não há evidência confiável de adiamento.
@@ -21,13 +23,13 @@ Na PNADC, a união conservadora aos 15 anos aumenta relativamente em **0,399 p.p
 ## Conclusões que os dados permitem
 
 - O número observado de casamentos com alguém abaixo de 16 caiu fortemente entre 2013 e 2024, mas grande parte da queda precede a lei.
-- A especificação causal congelada não identifica uma queda adicional robusta nos registros aos 15 anos em 2019T2–T4; também não prova efeito zero.
+- O modelo congelado não detecta queda adicional nos registros aos 15 anos em 2019T2–T4, mas todos os contrafactuais do gate falham; o estudo não estabelece queda nem efeito zero design-wide.
 - Não há evidência precisa de adiamento para 16–17 anos.
 - Não há evidência de redução da união corresidente; o sinal positivo é compatível, mas insuficiente, para informalização.
 
 ## Limitações decisivas
 
-A fonte registra mês e idade no registro, não na celebração; cartório e residência não são a mesma geografia; não há idade exata para RD; 2019 oferece só três trimestres integralmente tratados; a PNADC não acompanha confiavelmente quem deixa o domicílio; a união conservadora capta principalmente relações com a pessoa responsável; e o estimando principal tem MDE de queda de 19,3%.
+A fonte registra mês e idade no registro, não na celebração; cartório e residência não são a mesma geografia; não há idade exata para RD; 2019 oferece só três trimestres integralmente tratados; nenhum dos cinco modelos de tendência passa a calibração rolling-origin; a PNADC não acompanha confiavelmente quem deixa o domicílio; a união conservadora capta principalmente relações com a pessoa responsável; e o MDE de 19,3% é condicional ao modelo travado.
 
 ## Replicação
 

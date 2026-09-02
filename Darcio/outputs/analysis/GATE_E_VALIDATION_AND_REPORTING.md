@@ -1,6 +1,6 @@
 # Gate E — validação e relatório
 
-Concluído em 2026-09-02T03:18:52-0300.
+Concluído em 2026-09-02T14:04:44-0300.
 
 - Pré-tendências, limites econômicos, placebos de data/idade, potência e MDE foram produzidos.
 - Incerteza foi triangulada por período, HAC, bootstrap temporal, sorteios de desenho e microdados.
