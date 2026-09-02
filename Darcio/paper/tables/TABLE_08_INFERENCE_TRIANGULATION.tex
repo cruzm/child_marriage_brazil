@@ -1,0 +1,24 @@
+\begin{table}[!htbp]
+\centering
+\caption{Inference triangulation for the national reform.}
+\label{tab:inference}
+\begingroup\scriptsize
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.24\linewidth}
+>{\raggedright\arraybackslash}p{0.14\linewidth}ccc
+>{\raggedright\arraybackslash}X@{}}
+\toprule
+Method & Scale & Estimate (SE) & 95\% CI & $p$ & Caveat \\
+\midrule
+PPML, period clusters (primary) & Log rate ratio & $-0.011$ (0.077) & [$-0.161$, 0.139] & 0.888 & Only three treated post-period clusters. \\
+PPML, region and period clusters & Log rate ratio & $-0.011$ (0.0004) & [$-0.0115$, $-0.0101$] & $<0.001$ & Five region clusters; covariance required a positive-semidefinite adjustment. Not conclusion-supporting. \\
+PPML, region clusters & Log rate ratio & $-0.011$ (0.089) & [$-0.186$, 0.164] & 0.904 & Five clusters; diagnostic only. \\
+Brazil age-15/control gap, Newey--West(4) & Aggregate log-rate gap & 0.020 (0.073) & [$-0.123$, 0.162] & 0.785 & National-series approximation. \\
+Pre-period linear-seasonal forecast, moving-block bootstrap & Forecast log-rate gap & 0.020 (0.103) & [$-0.185$, 0.215] & 0.857 & Pre-period residual block bootstrap. \\
+Prespecified-date randomization inference & Studentized PPML statistic & $-0.141$ & --- & 1.000 & Only four locked pseudo-dates; $p$-values are coarse. \\
+\bottomrule
+\end{tabularx}
+\par\smallskip
+\footnotesize\emph{Notes:} Estimand scales differ as labeled. Diagnostics with
+inadequate cluster support are reported but receive no conclusion-supporting weight.
+\endgroup
+\end{table}

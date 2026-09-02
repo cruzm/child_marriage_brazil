@@ -1,0 +1,27 @@
+\begin{table}[!htbp]
+\centering
+\caption{SINASC status-at-birth contrasts, mothers 10--15 versus 17--19,
+2019M4--M12 (extension lock v1.0.0).}
+\label{tab:sinasc_status}
+\begingroup\scriptsize
+\begin{tabular}{@{}lcrrrrr@{}}
+\toprule
+Outcome & Trended effect (95\% CI) & $p$ (Holm) &
+\shortstack{No-trend\\effect} & MDE$_{80}$ & TOST $p$ &
+\shortstack{Treated\\events} \\
+\midrule
+Married (S1) & $29.3\%$ [11.3, 50.1] & 0.002 & $-23.9\%$ & 23.8\% & 0.892 & 270 \\
+Uni\~ao est\'avel (S2) & $3.7\%$ [0.9, 6.7] & 0.010 & $-3.7\%$ & 4.1\% & $<0.001$ & 7,848 \\
+Any declared union (S3) & $5.1\%$ [2.2, 8.0] & 0.001 & $-3.7\%$ & 4.0\% & $<0.001$ & 8,118 \\
+\bottomrule
+\end{tabular}
+\par\smallskip
+\begin{minipage}{0.96\linewidth}\footnotesize
+\emph{Notes:} PPML on region-of-residence $\times$ group $\times$ month cells;
+the offset is births with valid status. Inference clusters by period. Column 2 uses
+group-specific linear trends; column 4 omits them. The TOST equivalence interval for
+the rate ratio is [0.85, 1.176]. Frozen diagnostics reject a causal reading of all three
+contrasts (Table~\ref{tab:sinasc_diag}); the table documents specification dependence.
+\end{minipage}
+\endgroup
+\end{table}

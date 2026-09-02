@@ -1,0 +1,24 @@
+\begin{table}[!htbp]
+\centering
+\caption{Age-specific event effects and aggregate recapture.}
+\label{tab:delay_recapture}
+\begingroup\footnotesize
+\begin{tabular}{@{}ccccc@{}}
+\toprule
+Age & Controls & Change & Estimated event effect (95\% CI) &
+\shortstack{Aggregate\\recapture} \\
+\midrule
+15 & 17--19 & $-1.1\%$ & $-2.1$ [$-48.3$, 31.8] & 174.8 \\
+16 & 18--19 & $0.6\%$ & 40.6 [$-457.7$, 518.1] & --- \\
+17 & 18--19 & $3.3\%$ & 326.9 [$-135.3$, 781.0] & --- \\
+\bottomrule
+\end{tabular}
+\par\smallskip
+\begin{minipage}{0.96\linewidth}\footnotesize
+\emph{Notes:} Event effects are fitted counts with treatment minus fitted counts without
+treatment, so a negative age-15 value corresponds to estimated events averted. The
+aggregate recapture ratio is unstable, does not track people, and is undefined in half
+of the bootstrap draws; it receives no causal weight.
+\end{minipage}
+\endgroup
+\end{table}
