@@ -1,0 +1,2 @@
+# Incorporation mini-protocol frozen 2026-09-02T16:31:07-03:00 — before any corresponding main.tex edit
+25adcf0d73ee9115673db293bc7d0a77dfebf7fe1839c8b3c0283cf15ece05ec  INCORPORATION_MINIPROTOCOL.md
