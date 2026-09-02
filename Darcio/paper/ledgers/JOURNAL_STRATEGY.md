@@ -82,10 +82,16 @@ padrão Brasil (banir uma margem já vestigial) é a regra ou a exceção.
   cuidadoso + novo pré-registro de medição.
 - **Se exceção:** o Brasil volta a ser caso-limite; o paper atual segue exatamente
   como está, e o achado cross-country ainda rende um short paper demográfico.
-- **Recomendação: fazer o piloto (1 semana, 10 países reformadores, só descritivo)
-  ANTES da primeira submissão.** O upside domina: informação identificadora/contextual
-  nova era, pelo veredicto do próprio red team, a única alavanca de classe restante.
-  Congelar regras de medição do piloto antes de olhar resultados, como sempre.
+- **EXECUTADO em 2026-09-02** (`pilot_crosscountry/`, protocolo congelado antes dos
+  dados; API pública do DHS, 10 países + 1 alternate). **Veredicto: EXCEÇÃO — 0 de 7
+  países computáveis tinham a margem em queda pré-reforma** (M2 de +1,6% a −19,9%;
+  níveis 38–53% de married-by-18). O caminho "The World Is Banning a Vanishing
+  Margin" está ENCERRADO; a rota JDE via generalização morreu; ladder do §3 fica
+  como está (JPopEcon/World Development primeiro). Achado colateral valioso: a
+  clivagem é de REGIME de formalidade (M3 formal 73–100% na África/Ásia vs 7,5% em
+  Honduras, padrão Brasil) — explica por que Etiópia/México-16-17 acham efeitos e o
+  Brasil não, e fornece o parágrafo de validade externa do Paper 1 (incorporação ao
+  texto exige mini-protocolo, ver `PILOT_RESULTS.md` §2).
 
 ## 6. Sequência operacional
 

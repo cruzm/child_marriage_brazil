@@ -1,0 +1,11 @@
+country,reform,law_status,M1,M2,M1b,M2b,M3,notes,margin_class,formality_class
+Benin,2004.58,verified (B&P Table 1: 08/2004),37.3,1.6,15.3,19.1,73.4,M1 interpolated; M1(-10) interpolated; M3 pre-reform survey (2001),alive,formal-relevant
+Bhutan,1996.5,verified (B&P Table 1: 07/1996); no DHS -> data gap,,,,,,"no DHS in API - data gap (reported, not replaced)",,
+Kazakhstan,1998.92,verified (B&P Table 1: 12/1998),,,,,,M1 no data; M1(-10) no data; M3 no 15-19 status data (None),,
+Mauritania,2001.5,verified (B&P Table 1: 07/2001),40.6,0.2,15.1,-27.4,,M1 interpolated; M1(-10) interpolated; M3 no 15-19 status data (None),alive,
+Nepal,2002.67,verified (B&P Table 1: 09/2002),50.5,-2.1,13.2,-6.5,100.0,M1 interpolated; M1(-10) interpolated; M3 POST-reform survey (no pre available) (2011),alive,formal-relevant
+Tajikistan,2010.5,verified (B&P Table 1: 07/2010),11.9,-15.6,0.2,-67.6,100.0,M1 interpolated; M1(-10) interpolated; M3 POST-reform survey (no pre available) (2012),alive,formal-relevant
+Ethiopia,2000.5,verified (McGavock 2021: Family Code 2000),52.8,-13.9,26.7,-7.3,98.7,M1 interpolated; M1(-10) interpolated; M3 pre-reform survey (2000),alive,formal-relevant
+Bangladesh,2017.2,verified (Amirapu et al. 2026: CMRA 2017),52.0,-19.9,17.3,-39.3,,M1 interpolated; M1(-10) interpolated; M3 no 15-19 status data (None),alive,
+Indonesia,2019.75,partially verified (Law 16/2019) - confirm primary text,,,,,96.8,M1 outside span (1958-2013); M1(-10) interpolated; M3 pre-reform survey (2017),,formal-relevant
+Mozambique,2019.75,partially verified (Law 19/2019) - confirm primary text,48.4,-5.2,12.9,-20.0,56.6,M1 nearest (2018); M1(-10) interpolated; M3 pre-reform survey (2015),alive,formal-relevant

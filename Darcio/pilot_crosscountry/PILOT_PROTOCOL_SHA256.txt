@@ -1,0 +1,2 @@
+# Pilot protocol frozen 2026-09-02T16:25:05-03:00 — before any DHS indicator VALUE was queried (only the indicator catalog was inspected)
+cb3c503cf641d5b2d2530700170193a5fe4914e6b420a54ba757355292cbf11b  PILOT_PROTOCOL.md
