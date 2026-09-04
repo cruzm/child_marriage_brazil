@@ -1,7 +1,7 @@
-started=2026-09-02T14:09:10-0300
-finished=2026-09-02T14:09:10-0300
-elapsed_seconds=0.227
-technical_report_lines=161
-executive_summary_words=594
-manifest_rows=115
+started=2026-09-04T16:46:07-0300
+finished=2026-09-04T16:46:07-0300
+elapsed_seconds=0.252
+technical_report_lines=169
+executive_summary_words=678
+manifest_rows=140
 gate=E_reporting

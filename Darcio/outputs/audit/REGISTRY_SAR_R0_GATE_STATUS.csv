@@ -1,0 +1,11 @@
+gate,domain,status,binding,evidence
+R0_LOCK,local,PASS,FALSE,frozen hashes and semantic checks
+R0_PUBLIC_INPUTS,local,PASS,FALSE,3 public aggregate inputs audited
+R0_DENOMINATOR,local,PASS,FALSE,18 denominator criteria passed
+R0_POWER,local,PROVISIONAL_PASS,FALSE,base MDE 19.086%; stress MDE 25.882%
+R0_SYNTHETIC_PIPELINE,local,PASS,FALSE,true -0.5108; estimate -0.4911; error 0.0197 log point
+R0_TECHNICAL_INQUIRY,local,READY_NOT_SENT,FALSE,message and attachment list prepared locally; no transmission
+R0_IBGE_FIELD_CONFIRMATION,external,PENDING_IBGE,TRUE,"annual retention, SEADE, flags, and disclosure rules require IBGE reply"
+R0_INSTITUTIONAL_AND_SEND,external,PENDING_USER,TRUE,"identity, signatory, and explicit authorization remain outside repository"
+R0_LOCAL_OVERALL,overall,LOCAL_READY_EXTERNAL_PENDING,TRUE,all local components pass; all external criteria remain explicitly pending
+CAUSAL_IDENTIFICATION,causal,NOT_EVALUATED,TRUE,R0 contains no restricted outcome and estimates no policy effect

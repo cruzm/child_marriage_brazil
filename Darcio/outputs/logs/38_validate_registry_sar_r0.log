@@ -1,0 +1,3 @@
+registry_sar_r0_validation checks=30 passed=30 failed=0
+status=LOCAL_READY_EXTERNAL_PENDING
+causal_status=NOT_EVALUATED

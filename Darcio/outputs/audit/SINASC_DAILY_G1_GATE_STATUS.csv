@@ -1,0 +1,7 @@
+criterion,threshold,observed,hard_failures,status
+G0_precondition,G0_OVERALL=PASS and output hashes unchanged,PASS,0,PASS
+density_by_primary_era,hard fail if robust p<0.05 AND abs(log density ratio)>abs(log(1.05)),2 identified; 0 hard failures,0,PASS
+predetermined_covariate_continuity,hard fail if Holm p<0.05 AND abs standardized magnitude>=0.10,10/10 identified; 0 hard failures,0,PASS
+status_missingness_continuity,hard fail if p<0.05 AND abs coefficient>=0.50 pp,coefficient 0.261611 pp; p=0.31653,0,PASS
+composition_family,diagnostic only; Holm within 14 prespecified indicators,14/14 identified; 0 Holm p<0.05,0,DIAGNOSTIC_ONLY
+G1_OVERALL,no hard failure and no required non-identification,PASS,0,PASS

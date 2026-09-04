@@ -1,0 +1,44 @@
+\begin{table}[!htbp]
+\centering
+\caption{Exact-age SINASC difference in discontinuities and frozen validation gates.}
+\label{tab:sinasc_daily}
+\begingroup\scriptsize
+\textit{Panel A. Primary and delay-sensitive estimands (percentage points)}\par\smallskip
+\begin{tabular}{@{}lrrrrl@{}}
+\toprule
+Estimand & Estimate & SE & 95\% CI & $p$ & Classification \\
+\midrule
+Immediate jump change ($\tau$) & +0.342 & 0.246 & [-0.140, +0.824] & 0.164 & \textsc{inconclusive} \\
+Delay-sensitive 90-day profile & +0.323 & 0.327 & [-0.318, +0.964] & 0.328 & \textsc{inconclusive} \\
+\bottomrule
+\end{tabular}
+\par\medskip
+\textit{Panel B. Counterfactual diagnostics (percentage points)}\par\smallskip
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+Diagnostic & Cutoff age & Estimate & 90\% CI & $p$ & Equivalent \\
+\midrule
+Pre-law temporal placebo & 16 & -0.280 & [-0.725, +0.165] & 0.301 & no \\
+Placebo birthday & 15 & -0.027 & [-0.453, +0.399] & 1.000 & no \\
+Placebo birthday & 17 & +0.054 & [-0.569, +0.676] & 1.000 & no \\
+Placebo birthday & 19 & -0.064 & [-0.799, +0.671] & 1.000 & no \\
+\bottomrule
+\end{tabular}
+\par\medskip
+\textit{Panel C. Mechanical gate verdicts}\par\smallskip
+\begin{tabular}{@{}lll@{}}
+\toprule
+Gate & Object & Verdict \\
+\midrule
+G0 & Data integrity and power & \textsc{pass} \\
+G1 & Density, missingness, and composition & \textsc{pass} \\
+G2 & Counterfactual stability & \textsc{qualified} \\
+G3 & Informativeness & \textsc{inconclusive} \\
+\bottomrule
+\end{tabular}
+\par\smallskip
+\begin{minipage}{0.98\linewidth}\footnotesize
+\emph{Notes:} All rows derive from observed official SINASC records. The primary sample contains 126,138 singleton live births and 1,342 recorded-married outcomes within 90 days of the mother's sixteenth birthday. $\tau$ is the 2022--2024 minus 2016--2018 change in the right-minus-left cutoff jump. The model uses triangular weights, birth-year and child-calendar-month fixed effects, and two-way clustering by municipality and exact birth date. The primary $p$ is unadjusted; the delay-sensitive $p$ is Holm-adjusted within the two-estimand auxiliary family. Placebo-cutoff $p$-values are Holm-adjusted within ages 15, 17, and 19; the temporal-placebo $p$ is unadjusted. Equivalence requires the 90\% interval to lie inside $\pm0.25$ points. All 13 frozen sensitivity estimates are identified and span [+0.148, +0.356] points. Qualified G2 and inconclusive G3 prohibit an unconditional causal interpretation.
+\end{minipage}
+\endgroup
+\end{table}

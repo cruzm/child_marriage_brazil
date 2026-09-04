@@ -1,0 +1,2 @@
+model_id,synthetic,n_cells,n_events,n_calendar_clusters,true_log_irr,estimated_log_irr,standard_error,ci95_low,ci95_high,true_irr,estimated_irr,absolute_error_log_points,tolerance_log_points,true_value_in_ci95,recovery_pass,interpretation
+SYNTHETIC_PPML_DIFF_IN_DISC,TRUE,51623,125416,143,-0.510825623765991,-0.49109907867469,0.0478527607079683,-0.584888766223121,-0.397309391126259,0.6,0.611953439461851,0.0197265450913007,0.1,TRUE,TRUE,software recovery test only; not empirical evidence

@@ -1,0 +1,35 @@
+[2026-09-04 14:28:13-0300] start | scope=G1_only | G0=PASS | protocol=1.0.0 | R=4.5.2 | rddensity=2.6 | fixest=0.13.2 | ggplot2=4.0.3 | data.table=1.18.2.1 | free_mem=20.6GiB 
+[2026-09-04 14:28:13-0300] prohibited operations not invoked: married-status outcome, G2 placebos, G3 primary or delayed-response effects 
+[2026-09-04 14:28:31-0300] year=2016 | density_support=58,473 | 16.3s | RSS=767MB 
+[2026-09-04 14:28:50-0300] year=2017 | density_support=53,776 | 18.2s | RSS=780MB 
+[2026-09-04 14:29:09-0300] year=2018 | density_support=50,653 | 18.8s | RSS=864MB 
+[2026-09-04 14:29:26-0300] year=2022 | density_support=33,458 | 16.2s | RSS=785MB 
+[2026-09-04 14:29:43-0300] year=2023 | density_support=31,262 | 16.5s | RSS=833MB 
+[2026-09-04 14:29:58-0300] year=2024 | density_support=27,966 | 13.5s | RSS=762MB 
+[2026-09-04 14:29:59-0300] continuity=race_white | family=predetermined_hard | identified=TRUE 
+[2026-09-04 14:29:59-0300] continuity=race_black | family=predetermined_hard | identified=TRUE 
+[2026-09-04 14:29:59-0300] continuity=race_yellow | family=predetermined_hard | identified=TRUE 
+[2026-09-04 14:29:59-0300] continuity=race_brown | family=predetermined_hard | identified=TRUE 
+[2026-09-04 14:29:59-0300] continuity=race_indigenous | family=predetermined_hard | identified=TRUE 
+[2026-09-04 14:29:59-0300] continuity=birthplace_north | family=predetermined_hard | identified=TRUE 
+[2026-09-04 14:29:59-0300] continuity=birthplace_northeast | family=predetermined_hard | identified=TRUE 
+[2026-09-04 14:29:59-0300] continuity=birthplace_southeast | family=predetermined_hard | identified=TRUE 
+[2026-09-04 14:29:59-0300] continuity=birthplace_south | family=predetermined_hard | identified=TRUE 
+[2026-09-04 14:30:00-0300] continuity=birthplace_center_west | family=predetermined_hard | identified=TRUE 
+[2026-09-04 14:30:00-0300] continuity=race_unknown | family=predetermined_missingness | identified=TRUE 
+[2026-09-04 14:30:00-0300] continuity=birthplace_unknown | family=predetermined_missingness | identified=TRUE 
+[2026-09-04 14:30:00-0300] continuity=school_none | family=composition | identified=TRUE 
+[2026-09-04 14:30:00-0300] continuity=school_fundamental_i | family=composition | identified=TRUE 
+[2026-09-04 14:30:00-0300] continuity=school_fundamental_ii | family=composition | identified=TRUE 
+[2026-09-04 14:30:00-0300] continuity=school_secondary | family=composition | identified=TRUE 
+[2026-09-04 14:30:00-0300] continuity=school_higher_incomplete | family=composition | identified=TRUE 
+[2026-09-04 14:30:00-0300] continuity=school_higher_complete | family=composition | identified=TRUE 
+[2026-09-04 14:30:00-0300] continuity=school_unknown | family=composition | identified=TRUE 
+[2026-09-04 14:30:00-0300] continuity=primiparous | family=composition | identified=TRUE 
+[2026-09-04 14:30:00-0300] continuity=primiparity_unknown | family=composition | identified=TRUE 
+[2026-09-04 14:30:01-0300] continuity=residence_north | family=composition | identified=TRUE 
+[2026-09-04 14:30:01-0300] continuity=residence_northeast | family=composition | identified=TRUE 
+[2026-09-04 14:30:01-0300] continuity=residence_southeast | family=composition | identified=TRUE 
+[2026-09-04 14:30:01-0300] continuity=residence_south | family=composition | identified=TRUE 
+[2026-09-04 14:30:01-0300] continuity=residence_center_west | family=composition | identified=TRUE 
+[2026-09-04 14:30:01-0300] done | G1=PASS | density_hard=0 | predetermined_hard=0 | status_hard=0 | outputs=14 | 1.80 min | RSS=774MB 

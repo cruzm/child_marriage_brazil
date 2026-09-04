@@ -1,4 +1,4 @@
-% Paper 1 — working draft v0.2 (2026-09-02)
+% Paper 1 — working draft v0.3 (2026-09-04)
 % Build: pdflatex main && bibtex main && pdflatex main && pdflatex main
 % Placeholders [RESULT TO BE ESTIMATED...] must be resolved before any circulation.
 \documentclass[12pt]{article}
@@ -21,7 +21,8 @@
 Working draft; please do not cite or circulate. The primary Registry and PNADC
 specifications were SHA-256--locked on 2026-09-02 before any post-reform coefficient
 was computed. Later extensions are separately dated and hash-locked; the Registry trend
-sensitivity is explicitly post-result. [ACKNOWLEDGMENTS TO BE ADDED]}}
+sensitivity and exact-age SINASC design are explicitly post-result protocols frozen
+before their own estimates. [ACKNOWLEDGMENTS TO BE ADDED]}}
 \author{Darcio Genicolo Martins\thanks{Insper. E-mail: [TO BE COMPLETED]. [COAUTHORS TO BE CONFIRMED]}}
 \date{September 2026 --- Preliminary}
 
@@ -29,20 +30,19 @@ sensitivity is explicitly post-result. [ACKNOWLEDGMENTS TO BE ADDED]}}
 \maketitle
 
 \begin{abstract}
-\noindent In 2019 Brazil eliminated all legal pathways to civil marriage below age 16.
-We evaluate the reform using an age-eligibility design and three sources measuring
-distinct margins: civil-marriage registrations, coresident unions, and mothers'
-conjugal status at birth. The locked Registry model estimates a 1.1\% decline at age 15
-(95\% CI $[-14.9\%, +14.9\%]$), whereas omitting age-specific trends yields
-$-37.8\%$. A post-result rolling-origin protocol, frozen before its sensitivity
-estimates, finds that none of five candidate counterfactuals passes pre-2019
-calibration; neither estimate is therefore design-wide. PNADC estimates a suggestive
-0.40 percentage-point relative increase in coresident-union prevalence (95\% CI
-$[-0.003, +0.801]$), but cannot establish informal substitution. SINASC's trended and
-no-trend estimates span $-23.9\%$ to $+29.3\%$ and fail placebo diagnostics. The
-evidence neither identifies an additional short-run fall in formal marriage nor
-establishes no effect. It shows why administrative declines, union formation, and legal
-formalization require separate measurement and credible counterfactual trends.\\[6pt]
+\noindent In 2019 Brazil eliminated the remaining pathways to civil marriage below age 16.
+We ask what public data can identify about the reform using the Civil Registry, PNADC,
+and SINASC. The locked Registry model estimates a 1.1\% decline at age 15 (95\% CI
+$[-14.9\%, +14.9\%]$), while omitting age-specific trends yields $-37.8\%$; all five
+counterfactuals in a post-result rolling-origin protocol fail pre-law calibration.
+PNADC estimates a $+0.399$ percentage-point change in coresident-union prevalence (95\%
+CI $[-0.003, +0.801]$). An exact-date SINASC protocol, frozen after the other results
+but before its own estimates, compares the age-16 discontinuity in 2016--2018 and
+2022--2024. It estimates $+0.342$ points (95\% CI $[-0.140, +0.824]$), but its MDE is
+$0.688$ and its placebo intervals do not establish equivalence. Grouped SINASC fails
+its placebos. No design supports an unconditional causal estimate. The evidence
+identifies counterfactual limits when a national law targets an already declining formal
+margin.\\[6pt]
 \textbf{JEL:} J12, J13, K36, O15, I38.\quad
 \textbf{Keywords:} child marriage; minimum-age laws; informal unions; civil registration;
 Brazil.
@@ -83,19 +83,20 @@ measurement margin: among mothers younger than 16
 giving birth in 2019, 0.7\% declared themselves formally married, while 19\% declared a
 \emph{uni\~ao est\'avel}, the Brazilian informal-union status.
 
-This paper asks what a national ban accomplishes in that environment. We evaluate Law
-13,811/2019 with a research design frozen before estimation: the specification, treatment
-window, comparison groups, and inference procedure were locked---with cryptographic
-hashes---before any post-reform coefficient was computed, and every subsequent amendment
-is logged. The design is a difference-in-differences by age eligibility on the universe of
-civil marriage registrations from 2013 to 2024: persons aged 15 (directly treated) are
-compared with persons aged 17--19 (untreated), within region and quarter, in a Poisson
-pseudo-maximum-likelihood model with population offsets, region-by-age and
-region-by-period fixed effects, age-specific seasonality, and age-specific linear trends.
-Because the reform is a single national event, we do not treat regional cells as
-independent experiments: inference clusters on time periods and is triangulated with
-HAC-robust aggregate series, temporal bootstrap forecasts, placebo reform dates, and
-randomization inference, with all limitations reported.
+This paper asks what the available public data can identify about a national ban in that
+environment. The original Registry and PNADC specifications, treatment window,
+comparison groups, and inference procedures were locked---with cryptographic hashes---
+before any post-reform coefficient was computed, and every amendment is logged. The
+Registry design compares persons aged 15 with persons aged 17--19 within region and
+quarter, using the universe of registrations from 2013 to 2024. Because the reform is a
+single national event, regional cells are not independent policy experiments. We treat
+the Registry coefficient as conditional on a relative age-trend model and confront that
+model with national time-series forecasts, placebo dates, and alternative trends. We
+also use exact maternal birthdays in SINASC to estimate a post-minus-pre change in the
+age-16 discontinuity. That separate protocol was written after the Registry, PNADC, and
+grouped-age SINASC results were known but before any daily age-distance contrast was
+computed. It cannot replace the originally locked result merely because its estimate is
+more favorable.
 
 Three results follow. First, the locked specification finds no detectable additional
 decline in marriage registrations at age 15 in the three fully treated quarters of 2019:
@@ -131,41 +132,38 @@ formal marriage remains quantitatively important. We treat the failed calibratio
 as a robustness footnote but as a finding about how minimum-age laws can be
 mis-evaluated where the targeted margin is already declining.
 
-Second, PNADC offers no evidence of a reduction in conservative coresident-union
-prevalence. In quarterly household survey data, the estimated prevalence among
-15-year-olds does not fall
-after the reform; the point estimate is $+0.399$ percentage points (95\% CI
+Second, PNADC does not identify a reduction in conservative coresident-union
+prevalence. In quarterly household survey data, the point estimate among 15-year-olds is
+$+0.399$ percentage points (95\% CI
 $[-0.003, +0.801]$, $p=0.052$) relative to ages 17--19. The sign is consistent with
 substitution from formal marriage toward informal cohabitation---in Mexico, the authors
 report that, among adolescent mothers, the decline in the formally married share was
 ``completely counteracted'' by an increase in the informal-union share
 \citep{BellesObreroLombardi2023}---but we are explicit about what this coefficient can
-and cannot say: the registry measures a flow of formal events, the survey measures a stock
+and cannot say: the Registry measures a flow of formal events, the survey measures a stock
 of coresident arrangements, the two cannot be differenced, and equivalence testing shows
 the survey cannot rule out effects smaller than $\pm 0.5$ p.p. The honest statement is
-that unions did not detectably decline, and the data lean toward relative informalization
-without establishing it.
+that no reduction is detected, while the positive and window-sensitive estimate is
+consistent with relative informalization without establishing it.
 
-Third, conjugal status at birth---observed for every live birth in the country, with the
-mother's exact date of birth and municipality of residence---provides a separate view of
-the small formal margin. Among mothers under 16, the formally married share fell from
-1.7\% in 2013 to 0.9\% in 2016 and 0.7\% in 2019; the
-monthly event study shows this share collapsing through 2016 and then running flat at
-roughly $-33\%$ relative to its pre-2017 level, with no break at the law. Precisely
-because the decay is convex, the pre-registered difference-in-differences with
-group-specific \emph{linear} trends returns $+29.3\%$ (95\% CI
-$[+11.3\%, +50.1\%]$; $p=0.0008$). The positive estimate runs against the reform's
-direct eligibility mechanism, but the outcome is a stock conditional on giving birth,
-so composition can also move it. More decisively, the frozen diagnostics reject the
-design: the joint test of 24 leads has $p<0.001$, and placebo reforms dated April 2017
-and April 2018 ``find'' $+19.7\%$ and $+36.8\%$. The no-trend variant returns
-$-23.9\%$. We therefore report $[-23.9\%, +29.3\%]$ as a specification range, not a
-causal confidence interval. The fertility-composition contrast at age 15 is $+1.6\%$
-(95\% CI $[-1.3\%, +4.6\%]$; $p=0.284$), and unknown-status reporting shows no
-detectable differential change ($p=0.577$).
+Third, exact maternal birthdays in SINASC provide the paper's most local comparison.
+Among singleton live births within 90 days of the mother's sixteenth birthday, we compare
+the right-minus-left jump in recorded married status in 2016--2018 with the same jump in
+2022--2024. The estimate is $+0.342$ percentage points (95\% CI
+$[-0.140, +0.824]$; $p=0.164$), in the direction predicted by the law, and all 13 frozen
+sensitivity estimates are positive ($[+0.148, +0.356]$). The interval nevertheless
+contains both zero and changes well above the $\pm0.25$-point policy margin; the MDE is
+$0.688$ points. The delay-sensitive estimate is $+0.323$ points (95\% CI
+$[-0.318, +0.964]$; Holm $p=0.328$). Data integrity, density, and predetermined-
+composition gates pass. Counterfactual validation does not: neither the pre-law temporal
+placebo nor the age-15, 17, and 19 placebo-cutoff intervals establish equivalence at
+$\pm0.25$ points. The frozen protocol therefore classifies the counterfactual gate as
+qualified and the result as inconclusive; it does not authorize a causal core. The
+coarser grouped-age SINASC design is weaker still. Its trended and no-trend estimates
+span $[-23.9\%, +29.3\%]$, and its lead and placebo diagnostics reject the design.
 
-We make three contributions. To our knowledge, this is the first empirical evaluation
-centered on Brazil's 2019 ban,\footnote{A systematic search on September 2,
+The contribution is narrower than an effect estimate. To our knowledge, this is the first
+empirical evaluation centered on Brazil's 2019 ban,\footnote{A systematic search on September 2,
 2026---nineteen logged
 queries across economics (SSRN, NBER, IZA, CEPR, ANPEC), demography, public health
 (SciELO, PubMed), Brazilian legal scholarship, and forward citations of the closest
@@ -175,26 +173,24 @@ perinatal series as a baseline against which the 2019 reform could later be meas
 and a student report supervised by one of the authors \citep{Faria2025} documents
 descriptively that the decline predates the law. We also verified that Brazil is not
 among the 18 countries in the multi-country ban panel of \citet{LeMolinaIbukaGoto2025}
-(full text, IZA DP 17089).} complementing
-the Mexican staggered-adoption evidence \citep{BellesObreroLombardi2023} with a
-single-national-reform design and a triangulation across formal-flow, coresident-stock,
-and status-at-birth measures. Substantively, we document a limiting case with general
-interest: a ban that arrives after the formal margin has nearly disappeared primarily
-constrains formalization and may leave union prevalence unchanged; its evaluation is
-dominated by pre-trends---and a descriptive cross-country exercise in the replication
-package suggests this configuration is the exception among reforming countries, not
-the rule (Section~\ref{sec:conclusion}). This sharpens the interpretation
-of enforcement findings in \citet{CollinTalbot2023} and of null-to-perverse legal effects
-in \citet{AmirapuAsadullahWahhaj2026}. Methodologically, we show how much discipline a
-frozen specification buys in single-reform settings: the gap between $-1.1\%$ and
-$-37.8\%$ shows how inference changes when pre-existing age-specific trends are modeled.
+(full text, IZA DP 17089).} We combine three independently auditable public sources but
+do not treat their different outcomes as replications. The resulting case is a limiting
+one: the law arrived after the formal flow had nearly disappeared, while the observable
+stock of coresident unions remained larger. The paper's methodological value is to show
+which comparisons survive contact with the data. The gap between $-1.1\%$ and
+$-37.8\%$ exposes the Registry trend problem; the exact-age SINASC design improves the
+running variable and comparison locality but remains underpowered for the frozen margin
+and cannot affirm placebo equivalence. This complements evidence from settings with
+staggered reforms or larger formal margins \citep{BellesObreroLombardi2023,CollinTalbot2023}
+without treating a national before--after contrast as if it contained untreated policy
+variation.
 
 The rest of the paper proceeds as follows. Section~\ref{sec:background} reconstructs the
 legal change from primary sources. Section~\ref{sec:data} describes the three data
 sources and the measurement decisions, which in this setting carry identification weight.
-Section~\ref{sec:strategy} presents the design, the specification lock, and inference for
-a single national reform. Section~\ref{sec:results} reports registry results;
-Section~\ref{sec:behavior} turns to unions and to status at birth;
+Section~\ref{sec:strategy} states the estimands, identifying assumptions, and evidentiary
+hierarchy. Section~\ref{sec:results} reports Registry results;
+Section~\ref{sec:behavior} turns to coresident unions and status at birth;
 Section~\ref{sec:robust} collects robustness and threats. Section~\ref{sec:conclusion}
 discusses what the results imply for minimum-age laws and their monitoring.
 
@@ -231,7 +227,9 @@ does not model it will misattribute it.
 \section{Data and measurement}\label{sec:data}
 
 Our three sources measure different objects. We keep them separate by construction and
-never subtract a stock coefficient from a flow coefficient.
+never subtract a stock coefficient from a flow coefficient. Every estimate and exhibit
+in this manuscript uses observed official microdata or published aggregates; no
+simulated observation enters the empirical evidence.
 
 \subsection{Civil marriage registrations (flow of formal events)}
 
@@ -282,6 +280,18 @@ as such. In exchange, SINASC observes 55--70 thousand births to mothers under 16
 year---against 194 treated-cell marriage registrations in 2019Q2--Q4---with residence
 geography and daily dates, which no other source offers.
 
+The exact-age design uses only records with valid birth dates for mother and child,
+valid conjugal status, valid municipality of residence, and singleton gestation. The
+running variable is the integer number of calendar days between childbirth and the
+mother's sixteenth birthday; births on the birthday enter the eligible side. The primary
+sample contains 126,138 observed births within 90 days of the cutoff and 1,342 recorded-
+married outcomes, across 5,183 municipalities and 2,192 exact birth dates. The pre-law
+window is 2016--2018 and the mature post-law window is 2022--2024. We exclude 2019 as a
+transition year and 2020--2021 as pandemic years rather than ask fixed effects to absorb
+them. For all six primary years, raw-file row counts match independent official annual
+totals exactly; at least 98.86\% of records have valid exact dates, and completed age
+agrees with calendar age for at least 99.98\% of valid-date records.
+
 \subsection{Denominators and comparability}
 
 Population denominators by age, sex, region, and quarter come from PNADC with a
@@ -290,50 +300,133 @@ frozen before estimation; state-level cells failed the rule and region was selec
 the primary geography. The under-15 registry category is reported as counts and shares
 only---no rate with a fabricated 0--14 population is ever computed.
 
-\section{Empirical strategy}\label{sec:strategy}
+\section{Empirical strategy and identification limits}\label{sec:strategy}
 
-\subsection{Design and primary specification}
+\subsection{Identification hierarchy}
+
+No source supplies an untreated jurisdiction: Law 13,811 changed the legal regime
+nationwide on one date. Identification must therefore come from an age contrast, a
+model of its counterfactual evolution, or both. Table~\ref{tab:id_hierarchy} states the
+variation and indispensable assumption behind every empirical object. The Registry
+specification remains primary because it was locked first, not because later diagnostics
+validated its counterfactual. PNADC and the two SINASC designs measure different
+populations and outcomes; agreement among their coefficients would not turn them into
+replications of one causal estimand.
+
+\begin{table}[!htbp]
+\centering
+\caption{Identification hierarchy and maximum defensible interpretation.}
+\label{tab:id_hierarchy}
+\begingroup\footnotesize
+\begin{tabularx}{\textwidth}{@{}
+>{\raggedright\arraybackslash}p{0.16\textwidth}
+>{\raggedright\arraybackslash}X
+>{\raggedright\arraybackslash}X
+>{\raggedright\arraybackslash}p{0.18\textwidth}@{}}
+\toprule
+Evidence & Source of variation and estimand & Indispensable counterfactual assumption & Status \\
+\midrule
+Civil Registry & Age 15 versus ages 17--19 in 2019Q2--Q4; ratio and level change in registration flows & The age-15 gap would follow the specified relative trend, with no coincident age-specific national shock or differential registration lag & Model-conditional; all five rolling-origin candidates fail calibration \\
+Exact-age SINASC & Post-minus-pre change in the right-minus-left age-16 jump among singleton live births within 90 days & Smooth potential recorded status at the birthday and a stable non-law age-16 jump across 2016--2018 and 2022--2024; no differential birth selection & Local design; G0/G1 pass, G2 qualified, G3 inconclusive \\
+PNADC & Age-15 versus ages 17--19 change in coresident-union prevalence & Correct relative prevalence trend and stable survey observation of adolescents who form unions & Suggestive stock contrast; not evidence of substitution \\
+Grouped-age SINASC & Mothers 10--15 versus 17--19 change in declared status at birth & Correct group-specific trend and stable composition of mothers giving birth & Placebos reject; descriptive only \\
+\bottomrule
+\end{tabularx}
+\par\smallskip
+\begin{minipage}{0.98\linewidth}\footnotesize
+\emph{Notes:} Registry outcomes are formal-event flows; PNADC is a coresident-union
+stock; SINASC is recorded status conditional on a live birth. None of the four rows
+supports an unconditional causal estimate in the present data.
+\end{minipage}
+\endgroup
+\end{table}
+
+\subsection{Registry estimand and source of variation}
 
 Treatment is age eligibility: a 15-year-old could, in principle, marry under the
 pregnancy exception before March 13, 2019 and cannot since; a 17-year-old's legal regime
-is unchanged. The primary estimand is the short-run change in civil marriage
-registrations of 15-year-olds per 100,000 residents aged 15, in 2019Q2--Q4, relative to
-ages 17--19, in ratio and in level terms.
+is unchanged. Let $M_{rat}$ denote registrations in region $r$, age $a$, and quarter
+$t$, and let $P_{rat}$ be the corresponding population. The locked PPML model is
+\begin{equation}
+ \mathbb{E}[M_{rat}\mid P_{rat},r,a,t]
+ =P_{rat}\exp\!\left(\alpha_{ra}+\lambda_{rt}+\gamma_{aq(t)}
+ +\delta_a t+\beta D_{at}\right),
+ \label{eq:registry}
+\end{equation}
+where $D_{at}$ equals one for age 15 in 2019Q2--Q4, $q(t)$ is calendar quarter,
+$\alpha_{ra}$ are region-by-age fixed effects, $\lambda_{rt}$ are region-by-period fixed
+effects, $\gamma_{aq(t)}$ are age-specific seasonal effects, and $\delta_a t$ are
+age-specific linear trends. The primary estimand is $100[\exp(\beta)-1]$, the short-run
+percentage change in age-15 registrations relative to ages 17--19, together with the
+corresponding change in registrations per 100,000 residents and in event counts.
 
-The locked model is a PPML regression on region~$\times$~age~$\times$~quarter counts
-(540 cells; 5 regions; 27 quarters; ages 15 and 17--19) with the log resident population
-as offset; region-by-age, region-by-period, and age-by-calendar-quarter fixed effects;
-age-specific linear trends; and the treatment indicator (age 15 $\times$ post). 2019Q1
-is omitted (partial treatment); 2020--2021 is flagged as pandemic-contaminated and the
-primary window ends in 2019Q4. Alternative control sets (18--19; 16--17), no-trend and
-linear-rate variants, monthly frequency, and pre-window starts in 2014 and 2015 were all
-frozen as mandatory robustness before any estimate existed.
+The identifying variation is the age-15 deviation in three post-law quarters after the
+model extrapolates relative age trends from 24 pre-law quarters. The error contains any
+national shock in those quarters that changes age-15 registration differently from ages
+17--19, including an age-specific continuation of secular decline. Region-by-period
+fixed effects cannot absorb such a shock. The controls are legally untreated but need
+not be behaviorally unaffected: postponement into those ages would also violate the
+comparison. We exclude age 16 from the primary controls because it is the most likely
+recapture age. We omit 2019Q1, which is partly treated, and end the primary window in
+2019Q4; 2020--2021 is pandemic-contaminated. Alternative controls, no-trend and
+linear-rate variants, monthly frequency, and pre-windows starting in 2014 and 2015 were
+frozen before estimation.
+
+\subsection{Exact-age SINASC difference in discontinuities}
+
+The daily design asks a narrower question: did the law increase the age-16 jump in
+recorded married status among adolescent mothers giving birth? For mother $i$, let
+$x_i$ be the integer number of calendar days from childbirth to her sixteenth birthday,
+$A_i=1[x_i\geq0]$, and $Q_i$ indicate the mature post-law years 2022--2024 rather than
+2016--2018. Within $|x_i|<90$, the triangular-weighted local-linear model is
+\begin{equation}
+ \begin{split}
+ Y_i={}&\alpha+\theta A_i+\tau(A_iQ_i)+b_1x_i+b_2(A_ix_i)\\
+       &+b_3(Q_ix_i)+b_4(A_iQ_ix_i)+\eta_{y(i)}+\mu_{m(i)}+\varepsilon_i,
+ \end{split}
+ \label{eq:daily}
+\end{equation}
+where $Y_i$ equals 100 if SINASC records the mother as married and zero for another
+valid status, $\eta_{y(i)}$ are birth-year fixed effects, and $\mu_{m(i)}$ are child-
+calendar-month fixed effects. Standard errors are two-way clustered by municipality of
+residence and the child's exact birth date. The coefficient $\tau$ is the post-minus-pre
+change in the right-minus-left limit at age 16, in percentage points.
+
+This is a difference in discontinuities, not a conventional sharp RD of marriage. Age
+at childbirth is not age at marriage, actual marriage is unobserved, and the age-16 legal
+threshold exists in both eras. A causal reading of $\tau$ requires the non-law component
+of the age-16 jump to remain stable across the two windows, in addition to local
+smoothness within each window. It also requires no reform-induced discontinuity in who
+gives birth and no post-pandemic shock that changes recorded status precisely at age 16.
+Density, predetermined composition, status missingness, a pre-law temporal placebo, and
+placebo birthdays at 15, 17, and 19 were therefore binding gates. A delay-sensitive
+secondary estimand averages the fitted excess over the first 90 days above the birthday;
+it cannot replace the cutoff result or repair a failed gate.
 
 \subsection{Inference for one national reform}
 
-The reform is a single national event: regional cells share one treatment date and do
-not constitute independent experiments. Primary inference clusters on time periods (27
-clusters, 3 post). We triangulate with (i) an aggregate Brazil series with HAC standard
-errors, (ii) a temporal block bootstrap of the pre-period forecast, (iii) placebo reform
-dates in the pre-period, and (iv) randomization inference over feasible placebo dates,
-whose resolution with only four dates ($p$-floor $=1.00$) we report rather than hide. A
-two-way cluster variant produced an implausibly small standard error after a
-positive-semidefinite adjustment with five regions; it is reported as a diagnostic and
-given no evidentiary weight.
+The Registry cells share one treatment date and do not constitute independent policy
+experiments. Primary inference clusters on time periods (27 clusters, only 3 post). We
+compare it with an aggregate Brazil series using HAC standard errors, a temporal block
+bootstrap of the pre-period forecast, pre-law placebo dates, and randomization inference
+over feasible dates. These procedures characterize sampling and forecasting uncertainty;
+none makes a misspecified trend into a counterfactual. A two-way cluster variant produced
+an implausibly small standard error after a positive-semidefinite adjustment with five
+regions, so it receives no evidentiary weight. The daily SINASC clustering follows its
+different source of local variation and does not inflate the number of national reforms.
 
-\subsection{The specification lock}
+\subsection{Specification locks and result chronology}
 
-The full specification---estimands, samples, windows, comparison groups, model, and
-inference---was frozen and hash-stamped before any post-reform coefficient was computed
-(2026-09-02T00:56, SHA-256 in the replication package). Four amendments, all logged
-before the corresponding re-estimation, concern collinearity in saturated event studies
-and one exact computational substitution; none was motivated by a sign, magnitude, or
-significance. The SINASC estimands entered through the same mechanism: a separate
-extension lock (v1.0.0) was frozen and hash-stamped on 2026-09-02, after the data audit
-but before any post-reform SINASC contrast was computed, with expected signs recorded ex
-ante, a disclosure of the descriptive quantities already seen, and a mandatory
-diagnostic battery---whose results are reported in Section~\ref{sec:behavior} exactly
-because they reject the design.
+The Registry and PNADC estimands, samples, windows, comparison groups, models, and
+inference were frozen and hash-stamped before any post-reform coefficient was computed
+(2026-09-02T00:56; SHA-256 hashes in the replication package). Logged amendments concern
+computational identification, not coefficient sign or significance. The grouped-age
+SINASC extension was separately frozen on September 2 after its data audit and before
+its post-reform contrasts. The daily SINASC protocol was frozen on September 4 after all
+earlier paper results were known but before any daily age-distance outcome contrast,
+density result, or placebo-cutoff estimate was viewed. Its post-result status, expected
+signs, gates, and stopping rule remain visible because a later lock is not ex ante with
+respect to the paper.
 
 \section{Registry results}\label{sec:results}
 
@@ -376,10 +469,8 @@ post window 2019Q2--Q4. Source: replication package.}
 
 Removing the age-specific linear trends flips the estimate to $-37.8\%$ ($p<0.001$).
 Monthly frequency with trends gives $-2.4\%$ ($p=0.820$). Starting the pre-window in
-2014 or 2015 moves the locked estimate to $+8.2\%$ and $+11.1\%$. A synthetic age
-control built on pre-2019 data places all weight on age 17 and shows a short-run gap of
-$-0.658$ per 100,000, which we read as descriptive corroboration, not new
-identification. The joint test of 24 leads does not reject ($p=0.161$), but no
+2014 or 2015 moves the locked estimate to $+8.2\%$ and $+11.1\%$. The joint test of 24
+leads does not reject ($p=0.161$), but no
 simultaneous band stays within $\pm 10\%$, and one placebo date (2015Q2) is significant
 ($p=0.002$): parallel evolution cannot be certified, it can only be modeled, and the
 conclusion depends materially on how. This is the central empirical lesson of the paper:
@@ -446,11 +537,12 @@ The locked levels estimate is 2.1 registrations averted over 2019Q2--Q4, with a
 confidence interval from $-25$ to $+34$ events---roughly $-34$ to $+45$ marriages on
 an annualized basis, against 419 under-16 marriages registered in all of 2019. Effects
 that would matter for hundreds of Brazilian adolescents over a decade therefore live
-comfortably inside our interval; what the data reject is only a transformation of the
-formal margin on the scale the literature documents elsewhere. That is not a
-shortcoming of the design so much as the arithmetic of the setting: a national ban
-aimed at a margin of a few hundred registrations per year cannot produce---and cannot
-be shown to produce---effects measured in thousands.
+comfortably inside the locked-model interval. Conditional on that trend model, the data
+reject a short-run transformation on the scale documented elsewhere; across the failed
+counterfactual candidates they do not. Both low event counts and counterfactual
+uncertainty bind: a national ban aimed at a few hundred registrations per year cannot
+produce effects measured in thousands, while the observed secular decline prevents us
+from attributing even the remaining movements to the law.
 
 \subsection{The longer run, and why we do not claim it}
 
@@ -491,7 +583,59 @@ relative to ages 17--19. Source: replication package.}
 \label{fig:pnadc}
 \end{figure}
 
-\subsection{Conjugal status at birth (SINASC)}
+\subsection{Exact-age eligibility at childbirth (SINASC)}
+
+Figure~\ref{fig:sinasc_daily} plots observed weekly shares and local fits around the
+mother's sixteenth birthday. Before any married-status contrast was estimated, the
+frozen data gate reconciled all six primary-year files exactly to independent official
+annual totals. The density ratio at the cutoff is 0.994 before the law and 0.963 in the
+mature post period (robust $p=0.848$ and $p=0.395$). None of ten predetermined race or
+maternal-birthplace continuity tests approaches the joint significance-and-magnitude
+failure rule, and the change in missing-status discontinuity is $+0.262$ points
+($p=0.317$). Counts over 30 equal days differ across sides by about 6.2\% in both eras,
+which triggers the frozen heaping diagnostic; one-, three-, and seven-day donut estimates
+therefore remain visible, though they cannot replace the primary sample. These checks
+support local comparability at the birthday but cannot validate change across eras.
+
+The primary post-minus-pre change in the age-16 jump is $+0.342$ percentage points
+(SE $0.246$; 95\% CI $[-0.140, +0.824]$; $p=0.164$). It equals 37.6\% of the
+triangular-weighted pre-law below-cutoff married share of 0.909\%. The interval contains
+zero and changes more than three times the frozen $0.25$-point relevance threshold; the
+80\%-power MDE is $0.688$ points (Appendix Table~\ref{tab:sinasc_daily}). All 13 frozen specifications identify and remain
+positive, spanning $[+0.148, +0.356]$ points, but none changes the primary inference
+(Appendix Figure~\ref{fig:sinasc_daily_sensitivity}).
+The delay-sensitive 90-day profile is $+0.323$ points (95\% CI
+$[-0.318, +0.964]$; Holm $p=0.328$), and a joint test of the immediate jump and slope
+kink gives $p=0.379$. Separate bias-corrected local-polynomial fits imply a similar
+$+0.325$-point post-minus-pre difference, but the separate fits do not retain the
+cross-era covariance, so that number receives no independent inferential weight.
+
+The binding limitation is counterfactual precision. A pre-law pseudo-reform gives
+$-0.280$ points with a 90\% interval of $[-0.725, +0.165]$. Placebo birthdays at ages
+15, 17, and 19 give $-0.027$, $+0.054$, and $-0.064$ points; none rejects after Holm
+adjustment, but none has a 90\% interval contained in the frozen $\pm0.25$-point
+equivalence band. Annual age-16 jumps also vary: $+0.951$ points in 2022, $+0.113$ in
+2023, and $+0.404$ in 2024 (Appendix Figure~\ref{fig:sinasc_daily_annual}). Under the rule written before these estimates, non-rejection
+at false cutoffs is not affirmative validation. G2 is therefore \emph{qualified}, G3 is
+\emph{inconclusive}, and the exact-age result is a positive but imprecise local signal,
+not an estimated causal effect of the law. The recorded \emph{uni\~ao-est\'avel} and
+any-union changes are likewise imprecise ($-0.628$ and $-0.286$ points; Holm
+$p=1.00$ for both) and do not identify relabeling or behavioral substitution.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=.92\linewidth]{FIGURE_14_SINASC_DAILY_RD.pdf}
+\caption{Recorded married status around the mother's sixteenth birthday. Points are
+observed seven-day-bin shares for singleton live births in 2016--2018 and 2022--2024;
+bins with 1--9 married records are suppressed. Lines are descriptive triangular local-
+linear fits within 90 days. The primary estimate uses individual records, birth-year and
+calendar-month fixed effects, and two-way clustering by municipality and exact birth
+date. It is the post-minus-pre change in the cutoff jump, not either displayed jump
+alone. Source: official SINASC microdata and replication package.}
+\label{fig:sinasc_daily}
+\end{figure}
+
+\subsection{Grouped-age status contrast (SINASC)}
 
 Among the roughly 55--80 thousand mothers under 16 giving birth each year, the formally
 married share was already small and falling before the law: 1.72\% in 2013 (1,345 of
@@ -540,27 +684,30 @@ the formal margin at birth was small and
 had stopped falling \emph{before} the ban, and even a universe-sized administrative
 dataset cannot rescue a short-run contrast whose counterfactual trend is the
 conclusion.
-
-\begin{figure}[!htbp]
-\centering
-\includegraphics[width=.85\linewidth]{FIGURE_12_SINASC_STATUS_EVENT_STUDY.pdf}
-\caption{Married-at-birth among mothers 10--15 versus 17--19: monthly event study
-relative to the pooled pre-2017 baseline. Period-cluster confidence intervals;
-diagnostic per the extension lock. Source: replication package.}
-\label{fig:sinasc_es}
-\end{figure}
+The monthly event study appears in Appendix Figure~\ref{fig:sinasc_es}.
 
 \section{Robustness and threats to identification}\label{sec:robust}
 
-The threats we can address are addressed by design: registration lag (omit March/Q1;
-monthly variant), pandemic contamination (primary window ends 2019Q4; 2020--2021
-flagged), geographic mismatch (region-level analysis; municipal contrasts blocked),
-denominator uncertainty (repeated draws; SD an order below the temporal SE), and
-multiplicity (Holm within families). A pre-exposure triple-difference---regions with
+Several threats are bounded or made visible, not eliminated: registration lag (omit
+March/Q1; monthly variant), pandemic contamination (the Registry primary window ends in
+2019Q4), geographic mismatch (region-level Registry analysis; municipal contrasts
+blocked), denominator uncertainty (repeated draws; SD an order below the temporal SE),
+and multiplicity (Holm within families). A pre-exposure triple-difference---regions with
 higher pre-law shares of under-16 marriages---shows a positive but imprecise gradient
 ($+9.9\%$ per SD, $p=0.332$) and a $-0.618$ holdout correlation between exposure and
 2018 changes, indicating mean reversion; it does not identify the national effect and is
 reported as descriptive.
+
+The exact-age SINASC comparison removes the Registry's completed-age and office-location
+problems, but it changes the estimand. It conditions on a singleton live birth, measures
+status at childbirth rather than marriage incidence, and compares 2016--2018 with a
+post-pandemic window. The observed density and predetermined covariates are continuous
+under the frozen failure rules, yet unobserved birth selection may still change across
+the birthday and era. Marriage processing also creates an unknown lag between legal
+eligibility and recorded status: the delay-sensitive profile addresses a 90-day linear
+pattern only. Most important, wide temporal and placebo-cutoff intervals fail to affirm
+the required counterfactual stability. These limits are why a visually larger post-law
+jump does not become an RD effect.
 
 Two timing threats deserve their own accounting. Anticipation in the rush-to-marry
 direction---couples accelerating a marriage before the ban---is not visible in the
@@ -594,24 +741,25 @@ no fixed effect absorbs; and the selection inherent in any status-at-birth outco
 
 Brazil banned civil marriage below 16 after registrations at that age had become rare,
 while coresident unions remained more prevalent on a conceptually different stock
-measure. The locked Registry model finds no detectable additional decline in the banned
-formal events, but the post-result rolling-origin gate rejects every candidate
-counterfactual; the paper therefore establishes neither an additional short-run decline
-nor its absence. PNADC finds no detectable reduction in conservative coresident-union
-prevalence, with a suggestive---unproven---tilt toward informality. The status-at-birth
-margin had flattened before the reform, and its pre-registered contrast fails the
-placebo battery, leaving a specification range that spans zero.
+measure. The locked Registry model estimates $-1.1\%$, but every rolling-origin
+counterfactual fails calibration. The exact-age SINASC comparison improves the running
+variable and local comparison: its $+0.342$-point estimate has the sign predicted by the
+law and stays positive across the frozen sensitivity set. Yet its interval
+$[-0.140,+0.824]$ is too wide to distinguish zero from a policy-relevant change, and
+the placebo intervals do not establish the stability required for a difference in
+discontinuities. PNADC does not identify a reduction in coresident-union prevalence, and
+the grouped-age SINASC design fails its placebo battery. The common conclusion is about
+the evidence, not the law's effect: current public data establish neither an additional
+decline caused by the reform nor the absence of one.
 
-Two implications travel beyond Brazil. For policy, minimum-age laws are instruments
-aimed at the recorded margin; where unions are informal, the recorded margin can go to
-zero while the phenomenon continues, and the case for complementary instruments
-(education, income support, enforcement against coerced unions) is correspondingly
-stronger. Read jointly, the Mexican and Brazilian estimates are consistent with a
-gradient by the size of the formal margin: Mexico's bans reduced registrations sharply
-at ages 16--17, while neither Mexico at ages 14--15 nor Brazil below 16 identifies a
-comparable fall; informal-union measures did not decline commensurately
-\citep{BellesObreroLombardi2023}. This two-country comparison is suggestive, not a
-general causal law, because ages, outcomes, and designs differ.
+Two lessons travel beyond Brazil. First, a minimum-age law changes eligibility for a
+formal act. Its evaluation must keep civil-registration flows, coresident-union stocks,
+and declared status among mothers giving birth separate; no algebra turns one into the
+other. Second, a nationwide reform supplies only one policy date. Region-by-time cells
+do not create untreated reforms, and exact birthdays do not remove the need to identify
+how an age discontinuity would have evolved. In this application, specification locks
+prevent two tempting substitutions: promoting the $-37.8\%$ no-trend Registry estimate,
+or promoting the positive daily SINASC estimate after seeing it.
 
 A descriptive companion exercise in the replication package puts the Brazilian case in
 its place among reforming countries---and the place is the exception, not the rule.
@@ -627,25 +775,21 @@ union, the share declaring themselves \emph{married}---a DHS category that inclu
 religious and customary marriage, not civil registration---runs from 73 to 100 percent
 across the African and Asian reformers, against 7.5 percent in Honduras, the one
 Latin American consensual-union regime in the roster; Brazil's own PNADC and SINASC
-figures place it firmly in the latter regime. Read descriptively, this is consistent
-with a regime account rather than a laws-do-not-work account: the same legal
-instrument confronts bound margins of very different sizes depending on the prevailing
-marital regime, which can reconcile the Ethiopian and Mexican 16--17 effects with the
-Brazilian null. For evaluation and
-monitoring, the gap between our locked $-1.1\%$ and the
-naive $-37.8\%$ is a warning: registered child marriages were falling secularly in many
-countries before their bans, and legal-impact studies that do not model that trajectory
-can attribute secular decline to the law. Out-of-sample forecast validation ranks the
-no-trend candidate worst, but its failure to validate any candidate also prevents us
-from elevating the locked model into a design-wide estimate. The status-at-birth
-exercise shows
-the mirror image---a mis-specified trend can just as easily manufacture a
-\emph{positive} ``effect'' of a ban, and only a pre-committed placebo battery tells the
-two apart---a bias that survey-based
-monitoring of the SDG target, which measures unions rather than marriages, will not
-correct in the opposite direction. Honest evaluation in this literature requires
-pre-committed specifications, explicit power statements, and the discipline of keeping
-flows, stocks, and statuses apart.
+figures place it firmly in the latter regime. Read descriptively, this pattern is
+consistent with a regime account rather than a laws-do-not-work account: the same legal
+instrument meets formal margins of different sizes. Read jointly with Mexico, the
+evidence is consistent with larger registration responses where the formal margin is
+still quantitatively important \citep{BellesObreroLombardi2023}. It is not a general
+causal gradient; countries, ages, legal rules, and outcomes differ.
+
+The gap between the locked $-1.1\%$ and no-trend $-37.8\%$ Registry estimates shows why
+secular declines cannot be assigned to a reform without a validated counterfactual. The
+grouped SINASC exercise shows the mirror image: a poorly fitting trend can produce a
+positive ``effect.'' The daily design then shows that better age measurement is
+necessary but not sufficient. With the public data now available, the defensible endpoint
+is identified uncertainty. A causal next step requires exact celebration and birth dates
+and residence-compatible Civil Registry records, a compatible population at risk, and
+the same density, placebo, stability, and power gates applied before an effect is read.
 
 \bibliographystyle{plainnat} % switch to aer.bst (CTAN 'economic' bundle) at submission
 \bibliography{references}
@@ -653,6 +797,33 @@ flows, stocks, and statuses apart.
 \clearpage
 \appendix
 \section{SINASC status-at-birth exhibits}\label{app:sinasc}
+\subsection{Exact-age design}
+\input{../outputs/tables/TABLE_14_SINASC_DAILY_DESIGN.tex}
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=.9\linewidth]{FIGURE_SINASC_DAILY_G2_ANNUAL_JUMPS.pdf}
+\caption{Year-specific age-16 discontinuities in recorded married status. Points are
+right-minus-left local-linear jumps within 90 days; bars are 95\% confidence intervals.
+The vertical line marks the 2019 reform, while colors distinguish historical pre-law,
+primary pre-law, transition, pandemic, and mature post-law years. The incomplete 2015
+file is omitted. These annual jumps are stability diagnostics, not policy effects.
+Source: official SINASC microdata and replication package.}
+\label{fig:sinasc_daily_annual}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=.9\linewidth]{FIGURE_SINASC_DAILY_G3_SENSITIVITY.pdf}
+\caption{Frozen sensitivity set for the post-minus-pre change in the age-16 married-
+status jump. Every point uses observed SINASC records; specifications vary bandwidth,
+covariance estimator, fixed effects, polynomial order, donut window, or sample rule as
+fixed before estimation. Bars are 95\% confidence intervals. Sensitivity estimates
+cannot override the qualified counterfactual gate or the inconclusive primary result.
+Source: replication package.}
+\label{fig:sinasc_daily_sensitivity}
+\end{figure}
+
+\subsection{Grouped-age design}
 \input{tables/TABLE_11_SINASC_STATUS.tex}
 \input{../outputs/tables/TABLE_12_SINASC_DIAGNOSTICS.tex}
 \begin{figure}[!htbp]
@@ -662,6 +833,15 @@ flows, stocks, and statuses apart.
 \emph{uni\~ao est\'avel} shares among mothers aged 10--15 and 17--19. Vertical line:
 Law 13,811 (March 2019). Source: replication package.}
 \label{fig:sinasc_shares}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=.85\linewidth]{FIGURE_12_SINASC_STATUS_EVENT_STUDY.pdf}
+\caption{Married-at-birth among mothers 10--15 versus 17--19: monthly event study
+relative to the pooled pre-2017 baseline. Period-cluster confidence intervals;
+diagnostic per the grouped-age extension lock. Source: replication package.}
+\label{fig:sinasc_es}
 \end{figure}
 
 \section{Registry and PNADC exhibits}\label{app:exhibits}

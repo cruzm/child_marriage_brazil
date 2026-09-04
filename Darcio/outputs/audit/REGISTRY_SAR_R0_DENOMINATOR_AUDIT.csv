@@ -1,0 +1,19 @@
+component,criterion,passed,observed,threshold
+combined,complete quarterly cells,TRUE,96,96
+combined,positive finite population and SE,TRUE,96,96
+combined,minimum unweighted cell size,TRUE,4939,2000
+combined,maximum quarterly population CV,TRUE,0.02354081,0.025
+combined,annual-quarterly common cells,TRUE,20,20
+combined,maximum annual-quarterly relative difference,TRUE,0.03443894,0.05
+female,complete quarterly cells,TRUE,96,96
+female,positive finite population and SE,TRUE,96,96
+female,minimum unweighted cell size,TRUE,2385,2000
+female,maximum quarterly population CV,TRUE,0.03558946,0.04
+female,annual-quarterly common cells,TRUE,20,20
+female,maximum annual-quarterly relative difference,TRUE,0.03363185,0.05
+male,complete quarterly cells,TRUE,96,96
+male,positive finite population and SE,TRUE,96,96
+male,minimum unweighted cell size,TRUE,2554,2000
+male,maximum quarterly population CV,TRUE,0.03353239,0.04
+male,annual-quarterly common cells,TRUE,20,20
+male,maximum annual-quarterly relative difference,TRUE,0.03765541,0.05

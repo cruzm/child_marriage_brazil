@@ -1,4 +1,4 @@
-generated_at=2026-09-02T14:09:10-0300
+generated_at=2026-09-04T16:46:07-0300
 project_root=/home/darciogm1/projetos/child_marr
 R=R version 4.5.2 (2025-10-31)
 platform=x86_64-pc-linux-gnu
@@ -36,25 +36,128 @@ loaded via a namespace (and not attached):
 [1] compiler_4.5.2 parallel_4.5.2 tools_4.5.2   
 
 --- git status --short ---
+ M Darcio/MEMORY.md
+ M Darcio/Makefile
+ M Darcio/README.md
+ M Darcio/outputs/analysis/EXECUTIVE_SUMMARY.md
  M Darcio/outputs/analysis/FINAL_ACCEPTANCE.md
  M Darcio/outputs/analysis/GATE_D_CONSTRUCTION_AND_ESTIMATION.md
  M Darcio/outputs/analysis/GATE_E_VALIDATION_AND_REPORTING.md
- M Darcio/outputs/analysis/REGISTRY_TREND_SENSITIVITY_RESULTS.md
  M Darcio/outputs/analysis/RESULTS_MANIFEST.csv
  M Darcio/outputs/analysis/TECHNICAL_REPORT.md
  M Darcio/outputs/analysis/session_info.txt
  M Darcio/outputs/audit/FINAL_TEST_SUMMARY.csv
- M Darcio/outputs/figures/FIGURE_13_REGISTRY_TREND_SENSITIVITY.pdf
  M Darcio/outputs/logs/20_write_reports.log
- M Darcio/outputs/logs/24_analyze_registry_trend_sensitivity.log
  M Darcio/outputs/logs/final_tests.log
- M Darcio/outputs/tables/TABLE_13_TREND_SENSITIVITY.tex
+ M Darcio/paper/OUTLINE.md
+ M Darcio/paper/check_consistency.R
  M Darcio/paper/ledgers/CLAIM_EVIDENCE_MATRIX.md
- M Darcio/paper/ledgers/CLOSEST_PAPERS.md
- M Darcio/paper/ledgers/RED_TEAM_2026-09-02.md
- M Darcio/paper/ledgers/REFERENCE_LEDGER.md
+ M Darcio/paper/ledgers/IBGE_SAR_PROJECT_DRAFT.md
+ M Darcio/paper/ledgers/IDENTIFICATION_GATE.md
  M Darcio/paper/main.pdf
  M Darcio/paper/main.tex
- M Darcio/paper/references.bib
  M Darcio/references/SOURCES.csv
  M Darcio/src/20_write_reports.R
+?? Darcio/config/registry_sar_canonical_schema.csv
+?? Darcio/config/registry_sar_r0_lock.yml
+?? Darcio/config/sinasc_daily_g0_anchors.csv
+?? Darcio/config/sinasc_daily_lock.yml
+?? Darcio/outputs/analysis/REGISTRY_SAR_R0_RESULTS.md
+?? Darcio/outputs/analysis/SINASC_DAILY_GATE_G0.md
+?? Darcio/outputs/analysis/SINASC_DAILY_GATE_G1.md
+?? Darcio/outputs/analysis/SINASC_DAILY_GATE_G2.md
+?? Darcio/outputs/analysis/SINASC_DAILY_RESULTS.md
+?? Darcio/outputs/audit/REGISTRY_SAR_R0_ACCEPTANCE_TESTS.csv
+?? Darcio/outputs/audit/REGISTRY_SAR_R0_DENOMINATOR_AUDIT.csv
+?? Darcio/outputs/audit/REGISTRY_SAR_R0_EXTERNAL_CHECKLIST.csv
+?? Darcio/outputs/audit/REGISTRY_SAR_R0_GATE_STATUS.csv
+?? Darcio/outputs/audit/REGISTRY_SAR_R0_INPUT_AUDIT.csv
+?? Darcio/outputs/audit/REGISTRY_SAR_R0_LOCAL_COMPONENT_TESTS.csv
+?? Darcio/outputs/audit/REGISTRY_SAR_R0_OUTPUT_MANIFEST.csv
+?? Darcio/outputs/audit/REGISTRY_SAR_R0_SOFTWARE.csv
+?? Darcio/outputs/audit/REGISTRY_SAR_R0_SYNTHETIC_SCHEMA_AUDIT.csv
+?? Darcio/outputs/audit/SINASC_DAILY_G0_ANCHOR_RECONCILIATION.csv
+?? Darcio/outputs/audit/SINASC_DAILY_G0_ANNUAL.csv
+?? Darcio/outputs/audit/SINASC_DAILY_G0_BAND_COUNTS.csv
+?? Darcio/outputs/audit/SINASC_DAILY_G0_DATE_QUALITY_BY_STATUS.csv
+?? Darcio/outputs/audit/SINASC_DAILY_G0_ERA_SIDE_QUALITY.csv
+?? Darcio/outputs/audit/SINASC_DAILY_G0_MONTHLY_PROFILE.csv
+?? Darcio/outputs/audit/SINASC_DAILY_G0_OUTPUT_MANIFEST.csv
+?? Darcio/outputs/audit/SINASC_DAILY_G0_SIDE_QUALITY.csv
+?? Darcio/outputs/audit/SINASC_DAILY_G1_CONTINUITY.csv
+?? Darcio/outputs/audit/SINASC_DAILY_G1_DAILY_COUNTS.csv
+?? Darcio/outputs/audit/SINASC_DAILY_G1_DENSITY.csv
+?? Darcio/outputs/audit/SINASC_DAILY_G1_DENSITY_BINOMIAL.csv
+?? Darcio/outputs/audit/SINASC_DAILY_G1_EQUAL_DAY_COUNTS.csv
+?? Darcio/outputs/audit/SINASC_DAILY_G1_GATE_STATUS.csv
+?? Darcio/outputs/audit/SINASC_DAILY_G1_OUTPUT_MANIFEST.csv
+?? Darcio/outputs/audit/SINASC_DAILY_G1_SAMPLE_RECONCILIATION.csv
+?? Darcio/outputs/audit/SINASC_DAILY_G1_SCHEMA_AUDIT.csv
+?? Darcio/outputs/audit/SINASC_DAILY_G1_STATUS_MISSINGNESS.csv
+?? Darcio/outputs/audit/SINASC_DAILY_G1_WEEKLY_COUNTS.csv
+?? Darcio/outputs/audit/SINASC_DAILY_G2_GATE_STATUS.csv
+?? Darcio/outputs/audit/SINASC_DAILY_G2_LEAP_EXCLUSIONS.csv
+?? Darcio/outputs/audit/SINASC_DAILY_G2_MODEL_REGISTRY.csv
+?? Darcio/outputs/audit/SINASC_DAILY_G2_OUTPUT_MANIFEST.csv
+?? Darcio/outputs/audit/SINASC_DAILY_G2_SAMPLE_COUNTS.csv
+?? Darcio/outputs/audit/SINASC_DAILY_G2_SCHEMA_AUDIT.csv
+?? Darcio/outputs/audit/SINASC_DAILY_G3_GATE_STATUS.csv
+?? Darcio/outputs/audit/SINASC_DAILY_G3_MODEL_REGISTRY.csv
+?? Darcio/outputs/audit/SINASC_DAILY_G3_OUTPUT_MANIFEST.csv
+?? Darcio/outputs/audit/SINASC_DAILY_G3_SAMPLE_AUDIT.csv
+?? Darcio/outputs/audit/SINASC_DAILY_G3_SAMPLE_RECONCILIATION.csv
+?? Darcio/outputs/audit/SINASC_DAILY_G3_SCHEMA_AUDIT.csv
+?? Darcio/outputs/audit/SINASC_DAILY_G3_SOFTWARE.csv
+?? Darcio/outputs/audit/SINASC_DAILY_GATE_STATUS.csv
+?? Darcio/outputs/data/REGISTRY_SAR_R0_PNADC_EXPOSURE.csv
+?? Darcio/outputs/data/REGISTRY_SAR_R0_PNADC_EXPOSURE_DICTIONARY.csv
+?? Darcio/outputs/data/REGISTRY_SAR_R0_SYNTHETIC_CELLS.csv.gz
+?? Darcio/outputs/figures/FIGURE_14_SINASC_DAILY_RD.pdf
+?? Darcio/outputs/figures/FIGURE_14_SINASC_DAILY_RD.png
+?? Darcio/outputs/figures/FIGURE_SINASC_DAILY_G1_DENSITY.pdf
+?? Darcio/outputs/figures/FIGURE_SINASC_DAILY_G1_DENSITY.png
+?? Darcio/outputs/figures/FIGURE_SINASC_DAILY_G2_ANNUAL_JUMPS.pdf
+?? Darcio/outputs/figures/FIGURE_SINASC_DAILY_G2_ANNUAL_JUMPS.png
+?? Darcio/outputs/figures/FIGURE_SINASC_DAILY_G3_SENSITIVITY.pdf
+?? Darcio/outputs/figures/FIGURE_SINASC_DAILY_G3_SENSITIVITY.png
+?? Darcio/outputs/logs/27_sinasc_daily_gate_g0.log
+?? Darcio/outputs/logs/29_sinasc_daily_gate_g1.log
+?? Darcio/outputs/logs/31_sinasc_daily_gate_g2.log
+?? Darcio/outputs/logs/33_sinasc_daily_gate_g3.log
+?? Darcio/outputs/logs/33_sinasc_daily_gate_g3_attempt1.log
+?? Darcio/outputs/logs/33_sinasc_daily_gate_g3_attempt2.log
+?? Darcio/outputs/logs/33_sinasc_daily_gate_g3_attempt3.log
+?? Darcio/outputs/logs/36_registry_sar_r0_local.log
+?? Darcio/outputs/logs/37_registry_sar_r0_synthetic.log
+?? Darcio/outputs/logs/38_validate_registry_sar_r0.log
+?? Darcio/outputs/tables/REGISTRY_SAR_R0_POWER_ENVELOPE.csv
+?? Darcio/outputs/tables/REGISTRY_SAR_R0_SYNTHETIC_RECOVERY.csv
+?? Darcio/outputs/tables/SINASC_DAILY_G2_ANNUAL_JUMPS.csv
+?? Darcio/outputs/tables/SINASC_DAILY_G2_LEAVE_ONE_OUT.csv
+?? Darcio/outputs/tables/SINASC_DAILY_PLACEBOS.csv
+?? Darcio/outputs/tables/SINASC_DAILY_PRIMARY.csv
+?? Darcio/outputs/tables/SINASC_DAILY_RDROBUST.csv
+?? Darcio/outputs/tables/SINASC_DAILY_SECONDARY.csv
+?? Darcio/outputs/tables/SINASC_DAILY_SENSITIVITY.csv
+?? Darcio/outputs/tables/TABLE_14_SINASC_DAILY_DESIGN.tex
+?? Darcio/paper/ledgers/IBGE_SAR_TECHNICAL_INQUIRY_READY.md
+?? Darcio/paper/ledgers/REGISTRY_SAR_R0_AMENDMENTS.md
+?? Darcio/paper/ledgers/REGISTRY_SAR_R0_LOCK_SHA256.txt
+?? Darcio/paper/ledgers/REGISTRY_SAR_R0_PROTOCOL.md
+?? Darcio/paper/ledgers/SINASC_DAILY_AMENDMENTS.md
+?? Darcio/paper/ledgers/SINASC_DAILY_LOCK_SHA256.txt
+?? Darcio/paper/ledgers/SINASC_DAILY_PROTOCOL.md
+?? Darcio/src/26_validate_sinasc_daily_lock.R
+?? Darcio/src/27_sinasc_daily_gate_g0.R
+?? Darcio/src/28_validate_sinasc_daily_gate_g0.R
+?? Darcio/src/29_sinasc_daily_gate_g1.R
+?? Darcio/src/30_validate_sinasc_daily_gate_g1.R
+?? Darcio/src/31_sinasc_daily_gate_g2.R
+?? Darcio/src/32_validate_sinasc_daily_gate_g2.R
+?? Darcio/src/33_sinasc_daily_gate_g3.R
+?? Darcio/src/34_validate_sinasc_daily_gate_g3.R
+?? Darcio/src/35_validate_registry_sar_r0_lock.R
+?? Darcio/src/36_registry_sar_r0_local.R
+?? Darcio/src/37_registry_sar_r0_synthetic.R
+?? Darcio/src/38_validate_registry_sar_r0.R
+?? Darcio/src/39_export_sinasc_daily_paper.R

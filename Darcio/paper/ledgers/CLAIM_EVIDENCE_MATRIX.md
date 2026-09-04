@@ -1,20 +1,26 @@
 # Claim--Evidence Matrix — Paper 1
 
-**Version:** 2026-09-02, after SINASC Amendment A1, the frozen post-result
-Registry trend-sensitivity exercise, and the administrative-data feasibility audit.
+**Version:** 2026-09-04, manuscript v0.3 after SINASC daily Gates G0--G3 and the
+local Registry/SAR R0 readiness package.
 **Rule:** `verified` means the cited local artifact or primary external source was
 opened. A model-dependent interval never becomes a design-free bound, and failure to
 reject zero never becomes evidence of zero.
 
 ## Gate verdict
 
-The manuscript can proceed as a working draft, but Gate 5 remains open. The numerical
-claims are aligned with the post-A1 SINASC outputs and the executed Registry
-rolling-origin exercise. The latter did not close identification: all five candidate
-counterfactuals fail the frozen calibration rule. The remaining binding items are:
+The manuscript can proceed as a working draft, but Gate 5 remains open. Every empirical
+claim and exhibit in v0.3 uses observed official microdata or published aggregates. The
+Registry/SAR R0 software-recovery data and coefficient are explicitly excluded from the
+manuscript. The numerical claims are aligned with the post-A1 and daily SINASC outputs
+and the executed Registry rolling-origin exercise. Neither real-data extension closed
+identification: all five public-Registry counterfactuals fail calibration, while the
+daily SINASC counterfactual gate is qualified and its informativeness gate is
+inconclusive.
+The remaining binding items are:
 (i) confirmation and access for the exact-date, residence-based Registry fields documented
 in the IBGE `RC.2` instrument, rather than another functional form fit to the same 24
-pre-quarters, and (ii) manual completion of the novelty checks listed in
+pre-quarters; (ii) execution of the exact-date data, counterfactual, and information
+gates after access; and (iii) manual completion of the novelty checks listed in
 `NOVELTY_SEARCH_LOG.md`. The unsupported count of countries in the opening paragraph was
 removed; the narrower SDG Target 5.3 claim is now anchored to the official UN page.
 
@@ -53,6 +59,19 @@ removed; the narrower SDG Target 5.3 claim is now anchored to the official UN pa
 | C31 | Public DataJud class 143 can test pre-law judicial tightening | mechanism/identification | 27-court aggregate probe; Resolutions 331/2020 and 437/2021 | **not supported** | Public API is audit-only: 94.1% of 3,574 records have post-snapshot dates, the class conflates age/consent, and only three courts have plausible 2019 records. Seek secrecy-inclusive aggregates. |
 | C32 | Restricted IBGE Registry files may contain exact celebration/birth dates and residence | data availability | 2009 RC manual; 2022 RC.2 questionnaire; IBGE confidentiality and SAR manuals | **verified as collected and access-route eligible; annual retention not yet verified** | State that the instrument collects the fields and SAR is the documented access route. Do not claim that every 2013--2024 analytical file is complete until IBGE confirms it. |
 | C33 | Exact Registry microdata would by themselves create a conventional RD | identification | event-only data structure; `ADMINISTRATIVE_DATA_FEASIBILITY_2026-09-02.md` | **false** | Use an age-by-calendar difference in discontinuities for event rates only with a compatible risk-set denominator and continuity diagnostics. |
+| C34 | The restricted Registry redesign is locally ready for external transmission | feasibility | `REGISTRY_SAR_R0_RESULTS.md`; 30 acceptance checks; output manifest | **verified from files** | State `LOCAL_READY_EXTERNAL_PENDING`. Do not translate local readiness into data access, field availability, or causal validity. |
+| C35 | Public counts establish adequate power for the exact-date design | precision | `REGISTRY_SAR_R0_POWER_ENVELOPE.csv` | **provisional only** | Report the base 19.09% and stress 25.88% decline MDEs as planning screens. Exact-window counts and final inference must be revalidated inside the SAR. |
+| C36 | The PNADC package is a directly observed exact-day risk set | measurement | `REGISTRY_SAR_R0_PNADC_EXPOSURE.csv`; denominator audit | **false** | It is a precise national quarterly stock converted to person-time under an explicit smooth within-age allocation. Retain survey uncertainty and validate the approximation. |
+| C37 | The synthetic PPML result supports a reform effect | causal | `REGISTRY_SAR_R0_SYNTHETIC_RECOVERY.csv` | **false** | The known IRR of 0.60 is a software-recovery test only and is prohibited from substantive exhibits. |
+| C38 | The daily SINASC primary sample contains 126,138 births and 1,342 married outcomes | data/measurement | `SINASC_DAILY_PRIMARY.csv`; G0/G3 sample audits | **verified from files** | State that these are observed singleton live births within 90 days of age 16 in 2016--2018 and 2022--2024. Do not generalize to all adolescents. |
+| C39 | The daily age-16 estimate is +0.342 p.p., CI [−0.140,+0.824], p=0.164 | local contrast | `SINASC_DAILY_PRIMARY.csv` | **verified from files** | Call it the post-minus-pre change in recorded married-status jump. The estimate is inconclusive and is not a causal effect. |
+| C40 | The daily design precisely establishes no local response | causal/equivalence | `SINASC_DAILY_PRIMARY.csv`: MDE80 0.688; 90% interval crosses the ±0.25 margin | **false** | Say the data do not distinguish zero from policy-relevant local changes. |
+| C41 | The delay-sensitive estimate is +0.323 p.p., CI [−0.318,+0.964], Holm p=0.328 | local contrast | `SINASC_DAILY_PRIMARY.csv` | **verified from files** | Report as a secondary profile contrast. It cannot replace the primary jump or rescue a gate. |
+| C42 | Thirteen daily sensitivities are positive, +0.148 to +0.356 p.p. | specification sensitivity | `SINASC_DAILY_SENSITIVITY.csv` | **verified from files** | Report the full range with the primary result; consistency of signs does not establish the counterfactual or causality. |
+| C43 | Daily density and predetermined composition validate the full causal design | identification | G1 audit | **overstated** | G1 passes its frozen hard-failure rules only. It supports local comparability at the birthday, not stability of the age-16 jump across eras or absence of birth selection. |
+| C44 | Daily placebo tests pass because none rejects | identification | `SINASC_DAILY_PLACEBOS.csv`; G2 gate | **false** | The placebo family does not reject, but no 90% interval establishes equivalence within ±0.25 p.p.; G2 is qualified. |
+| C45 | Exact-age SINASC can replace the failed Registry counterfactual | design hierarchy | daily protocol and G3 gate | **false** | The protocol is post-result and mechanically says `DO_NOT_ADVANCE_AS_CAUSAL_CORE`; report it as complementary local evidence only. |
+| C46 | Synthetic R0 records contribute to a manuscript estimate or exhibit | provenance | `paper/main.tex`; `paper/check_consistency.R`; Table 14 exporter input list | **false and mechanically prohibited** | Every manuscript result must trace to observed Registry, PNADC, SINASC, or DHS data. Software-test artifacts remain outside the paper. |
 
 ## Current canonical Registry trend-sensitivity numbers
 
@@ -82,3 +101,25 @@ pre-amendment PDF or earlier prose:
 
 Any regeneration of these outputs requires rebuilding the manuscript and rerunning a
 text-to-output consistency check before distributing the PDF.
+
+## Current canonical exact-age SINASC numbers
+
+The canonical sources are the frozen G0--G3 audit files and the CSVs generated by
+`src/33_sinasc_daily_gate_g3.R`, validated by
+`src/34_validate_sinasc_daily_gate_g3.R`:
+
+- sample: 126,138 observed singleton live births, 1,342 recorded-married outcomes,
+  5,183 municipality clusters, and 2,192 exact-date clusters;
+- G0 `PASS`; G1 `PASS`; G2 `QUALIFIED`; G3 `INCONCLUSIVE`;
+- primary `TAU`: +0.342 p.p., SE 0.246, CI95 [−0.140,+0.824], p=0.164,
+  MDE80 0.688 p.p.;
+- `DELAY90`: +0.323 p.p., CI95 [−0.318,+0.964], Holm p=0.328;
+- temporal placebo: −0.280 p.p., CI90 [−0.725,+0.165], not equivalent;
+- placebo ages 15/17/19: −0.027/+0.054/−0.064 p.p.; none rejects after Holm and none
+  establishes 90% equivalence within ±0.25 p.p.;
+- all 13 frozen sensitivity rows identify and span +0.148 to +0.356 p.p.;
+- causal-core decision: `DO_NOT_ADVANCE_AS_CAUSAL_CORE`.
+
+`src/39_export_sinasc_daily_paper.R` reads only these observed-data outputs and creates
+`TABLE_14_SINASC_DAILY_DESIGN.tex`. The manuscript consistency check rejects named R0
+software-test artifacts if they enter `paper/main.tex`.

@@ -1,8 +1,8 @@
 # Relatório técnico — avaliação empírica da Lei nº 13.811/2019
 
-**Versão reproduzível gerada em:** 2026-09-02T14:09:10-0300  
-**Estimando principal:** pessoas de 15 anos em casamentos civis registrados por 100 mil residentes de 15 anos  
-**Desenho:** diferenças-em-diferenças por elegibilidade etária, não RD convencional  
+**Versão reproduzível gerada em:** 2026-09-04T16:46:07-0300
+**Estimando principal:** pessoas de 15 anos em casamentos civis registrados por 100 mil residentes de 15 anos
+**Desenho:** diferenças-em-diferenças por elegibilidade etária, não RD convencional
 **Especificação congelada antes dos efeitos:** `config/specification_lock.yml`
 
 ## 1. Resposta curta e limites da conclusão
@@ -24,11 +24,19 @@ As quatro afirmações substantivas permanecem separadas:
 
 O Registro Civil mede fluxo de eventos formais; a PNADC mede estoque de pessoas em união corresidente. Os dois outcomes e seus coeficientes não são subtraídos nem tratados como a mesma variável.
 
+### Resultado complementar: SINASC diário com idade exata
+
+O protocolo pós-resultado do SINASC usa somente registros oficiais observados: 126.138 nascimentos únicos dentro de 90 dias do 16º aniversário materno, com 1.342 situações conjugais registradas como casadas. O contraste é a mudança pós-menos-pré no salto à direita versus esquerda do cutoff, comparando 2016–2018 com 2022–2024.
+
+TAU = **+0,342 p.p.**, IC95% [-0,140; 0,824] p.p., p=0,164; MDE80 = 0,688 p.p. DELAY90 = +0,323 p.p., IC95% [-0,318; 0,964] p.p. As 13 sensibilidades congeladas são positivas, de +0,148 a +0,356 p.p.
+
+G2 permanece **QUALIFIED** porque os placebos não estabelecem equivalência no intervalo ±0,25 p.p.; G3 é **INCONCLUSIVE**. O resultado é um sinal local positivo e impreciso sobre situação conjugal no parto, não um efeito causal sobre incidência de casamento ou todas as adolescentes.
+
 ## 2. Marco jurídico verificado
 
 A [Lei nº 13.811, de 12 de março de 2019](https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2019/lei/l13811.htm), publicada e vigente em 13 de março de 2019, alterou o art. 1.520 do Código Civil para suprimir as exceções ao casamento abaixo da idade núbil. A leitura conjunta dos arts. 1.517–1.520 do [Código Civil compilado](https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm) confirma que a lei não proibiu todo casamento abaixo de 18 anos: pessoas de 16 e 17 anos continuaram sujeitas à autorização dos pais ou representantes legais prevista no art. 1.517.
 
-Consequentemente, o tratamento direto é idade inferior a 16 anos. Com idade observada apenas em anos completos/categorias, o estudo usa DiD por elegibilidade etária. Não se apresenta uma RD convencional.
+Consequentemente, o tratamento direto é idade inferior a 16 anos. No Registro Civil público, a idade aparece apenas em anos completos/categorias; por isso, o desenho principal usa DiD por elegibilidade etária. O SINASC observa datas exatas, mas seu contraste local mede situação conjugal no parto e é uma diferença-em-descontinuidades, não uma RD convencional da incidência de casamento.
 
 ## 3. Dados, auditoria e construção
 

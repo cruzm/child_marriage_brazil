@@ -1,6 +1,6 @@
 # Identification Gate — trend sensitivity for Paper 1
 
-**Date:** 2026-09-02  
+**Date:** 2026-09-04
 **Decision:** do not report a standard `HonestDiD` result from the current regional
 event study. The frozen post-result rolling-origin extension was executed and its
 calibration gate **failed**: no candidate counterfactual is validated.
@@ -86,6 +86,37 @@ model-dependence, and design-failure paper, not as a design-wide causal estimate
 reform. A better functional form chosen from the same 24 pre-quarters is not enough to
 close this gate.
 
+## Exact-age SINASC identification gate
+
+The post-result daily protocol was frozen on 4 September 2026 after the Registry,
+PNADC, and grouped-age SINASC results were known, but before any outcome contrast by
+daily distance from an age cutoff was computed. It uses only observed official SINASC
+records. The primary estimand is the 2022--2024 minus 2016--2018 change in the
+right-minus-left discontinuity in recorded married status at the mother's sixteenth
+birthday, among singleton live births within 90 days.
+
+- **G0 PASS:** all six primary annual files reconcile exactly to independent official
+  totals; exact-date, age-agreement, status-validity, observation-count, and married-
+  event thresholds pass.
+- **G1 PASS:** no frozen density, predetermined-composition, or status-missingness hard
+  failure occurs. Thirty-day equal-side counts trigger the heaping diagnostic, so the
+  frozen donut estimates remain visible.
+- **G2 QUALIFIED:** the pre-law temporal placebo is `-0.280` p.p. with 90% interval
+  `[-0.725,+0.165]`; placebo ages 15, 17, and 19 do not reject after Holm adjustment,
+  but none affirmatively establishes equivalence within `+/-0.25` p.p.
+- **G3 INCONCLUSIVE:** the primary estimate is `+0.342` p.p. (SE `0.246`; 95% CI
+  `[-0.140,+0.824]`; `p=0.164`) with MDE80 `0.688` p.p. The delay-sensitive estimate
+  is `+0.323` p.p. (95% CI `[-0.318,+0.964]`; Holm `p=0.328`). All 13 frozen
+  sensitivity estimates are positive (`+0.148` to `+0.356` p.p.) but cannot override
+  the primary classification or qualified counterfactual gate.
+
+The binding decision is `DO_NOT_ADVANCE_AS_CAUSAL_CORE`. Exact birthdays improve the
+running variable and local comparison, but status is measured at childbirth rather than
+marriage, the sample conditions on a live birth, and the design still requires the
+non-law age-16 discontinuity to remain stable across eras. The paper may report the
+positive local signal only together with its interval, power, placebos, result chronology,
+and mechanical gate verdict.
+
 ## Higher-return data alternative
 
 Exact event and birth dates and residence-compatible civil-registration microdata would
@@ -103,3 +134,32 @@ public API excludes secret cases. Because full DataJud receives public and secre
 a secrecy-inclusive aggregate request to the CNJ remains a useful mechanism extension,
 not a substitute for the restricted Registry redesign. See
 `ADMINISTRATIVE_DATA_FEASIBILITY_2026-09-02.md`.
+
+## Registry/SAR R0 local-readiness result
+
+The exact-date route completed its local R0 on 4 September 2026. Its bounded
+status is `LOCAL_READY_EXTERNAL_PENDING`; causal identification remains
+`NOT_EVALUATED`. The R0 does not alter the open identification verdict above, and its
+software-test data and recovery coefficient are excluded from every manuscript claim,
+table, and figure.
+
+The local package contributes four planning facts:
+
+1. public registration-age counts imply a base 80%-power decline MDE of 19.09%
+   at 90 days and a stress MDE of 25.88% at 180 days; both are provisional
+   because the source records age and year at registration, not exact age and
+   date at celebration;
+2. the selected national quarterly PNADC denominator contains all 288 cells for
+   ages 15/16 and combined/female/male populations; all 18 frozen precision and
+   annual-comparison criteria pass;
+3. a synthetic PPML dry run recovers a known IRR of 0.60 within 0.020 log point
+   and marks every row as synthetic; this verifies code, not a policy effect;
+4. the technical inquiry and attachment set are ready but explicitly unsent.
+
+IBGE confirmation of annual field retention, SEADE coverage, edit/imputation
+flags, import/export rules, and an internal deduplication key remains binding.
+Inside the SAR, exact-date validity, residence coverage, reconciliation,
+exact-window power, counterfactual placebos, and inference must pass before the
+paper can use the redesign as a causal core. The protocol and results are in
+`REGISTRY_SAR_R0_PROTOCOL.md` and
+`outputs/analysis/REGISTRY_SAR_R0_RESULTS.md`.

@@ -6,6 +6,12 @@ Este diretório contém uma replicação auditável da mudança legal que elimin
 
 Na especificação congelada antes da estimação, a mudança relativa de registros civis aos 15 anos em 2019T2–T4 foi de **−1,1%** (IC95% −14,9% a +14,9%). A versão sem tendências encontra −37,8%, de modo que a inferência é fortemente dependente da trajetória prévia e não sustenta uma conclusão causal robusta de queda adicional. Na PNADC, o ponto para união corresidente conservadora é +0,399 p.p. (IC95% −0,003 a +0,801): sugestivo, mas inconclusivo, e não prova informalização.
 
+No piloto diário do SINASC, o Gate G3 estima uma mudança de **+0,342 p.p.** no
+salto aos 16 anos (IC95% −0,140 a +0,824; p=0,164) e `DELAY90` de +0,323 p.p.
+(IC95% −0,318 a +0,964; p de Holm=0,328). A classificação congelada é
+`INCONCLUSIVE`; junto ao G2 `QUALIFIED`, isso implica
+`DO_NOT_ADVANCE_AS_CAUSAL_CORE`.
+
 Leia primeiro:
 
 - [Sumário executivo](outputs/analysis/EXECUTIVE_SUMMARY.md)
@@ -14,6 +20,13 @@ Leia primeiro:
 - [Estimandos e specification lock](outputs/analysis/ESTIMANDS_AND_SPECIFICATIONS.md)
 - [Status final dos testes](outputs/analysis/FINAL_ACCEPTANCE.md)
 - [Próximo redesenho de dados: microdados restritos do Registro Civil e DataJud](paper/ledgers/ADMINISTRATIVE_DATA_FEASIBILITY_2026-09-02.md)
+- [Protocolo diário do SINASC aos 16 anos](paper/ledgers/SINASC_DAILY_PROTOCOL.md)
+- [Resultado do Gate G0 do protocolo diário](outputs/analysis/SINASC_DAILY_GATE_G0.md)
+- [Resultado do Gate G1 do protocolo diário](outputs/analysis/SINASC_DAILY_GATE_G1.md)
+- [Resultado do Gate G2 do protocolo diário](outputs/analysis/SINASC_DAILY_GATE_G2.md)
+- [Resultado do Gate G3 do protocolo diário](outputs/analysis/SINASC_DAILY_RESULTS.md)
+- [R0 local do redesenho Registro Civil/SAR](outputs/analysis/REGISTRY_SAR_R0_RESULTS.md)
+- [Consulta técnica ao IBGE pronta, mas não enviada](paper/ledgers/IBGE_SAR_TECHNICAL_INQUIRY_READY.md)
 - [Crawler auditável das tabelas públicas do Registro Civil/IBGE](crawler_pdpj/README_REGISTRO_CIVIL.md)
 
 ## Replicação integral
@@ -38,9 +51,98 @@ Para executar apenas os testes sobre os artefatos existentes:
 make -f Darcio/Makefile test
 ```
 
+Para validar, sem estimar resultados, o lock do desenho diário do SINASC:
+
+```bash
+make -f Darcio/Makefile sinasc-daily-lock
+```
+
+Para executar exclusivamente o Gate G0 do desenho diário — reconciliação dos
+arquivos, datas, status e massa amostral, sem regressão ou estimativa de efeito:
+
+```bash
+make -f Darcio/Makefile sinasc-daily-g0
+```
+
+Para revalidar somente os artefatos G0 já existentes, sem reler os microdados:
+
+```bash
+make -f Darcio/Makefile sinasc-daily-g0-check
+```
+
+Para executar exclusivamente o Gate G1 — densidade/heaping, continuidade das
+covariáveis predeterminadas, composição não vinculante e missingness do estado
+civil — após revalidar o lock e o G0, sem executar G2/G3 nem estimar o desfecho
+de casamento:
+
+```bash
+make -f Darcio/Makefile sinasc-daily-g1
+```
+
+Para revalidar apenas os artefatos agregados já produzidos pelo G1, sem reler
+os microdados:
+
+```bash
+make -f Darcio/Makefile sinasc-daily-g1-check
+```
+
+Para executar exclusivamente o Gate G2 — placebo temporal pré-lei, placebos
+etários aos 15/17/19 anos, saltos anuais e diagnósticos leave-one-year-out —
+após revalidar o lock, o G0 e o G1, sem estimar o modelo primário completo ou
+qualquer estimando G3:
+
+```bash
+make -f Darcio/Makefile sinasc-daily-g2
+```
+
+Para revalidar somente os artefatos agregados existentes do G2, sem reler
+microdados ou reestimar modelos:
+
+```bash
+make -f Darcio/Makefile sinasc-daily-g2-check
+```
+
+Para executar o Gate G3 completo — `TAU`, `DELAY90`, desfechos secundários,
+as 13 especificações empilhadas congeladas e os cross-checks `rdrobust` — após
+revalidar o lock e G0–G2:
+
+```bash
+make -f Darcio/Makefile sinasc-daily-g3
+```
+
+Para revalidar os 42 checks dos artefatos G3 existentes, sem reler microdados
+ou reestimar modelos:
+
+```bash
+make -f Darcio/Makefile sinasc-daily-g3-check
+```
+
+Para executar o R0 local do redesenho com microdados exatos do Registro Civil —
+auditoria dos insumos públicos, pacote de denominador, envelope de potência,
+teste sintético de recuperação e checklist de envio, sem acessar dados restritos
+nem transmitir pedido externo:
+
+```bash
+make -f Darcio/Makefile registry-sar-r0
+```
+
+Para revalidar apenas o lock e os artefatos locais existentes:
+
+```bash
+make -f Darcio/Makefile registry-sar-r0-check
+```
+
+O maior veredito permitido nesta etapa é
+`LOCAL_READY_EXTERNAL_PENDING`. O status causal permanece `NOT_EVALUATED` até
+que o IBGE confirme os campos e os gates com dados restritos sejam executados.
+
 ## Requisitos
 
 - R e os pacotes enumerados em `src/00_check_dependencies.R`;
+- para G3, `rdrobust` 3.0.0, com versão e SHA-256 da fonte registrados em
+  `outputs/audit/SINASC_DAILY_G3_SOFTWARE.csv`;
+- para o R0 Registro Civil/SAR, `fixest` 0.13.2 ou versão compatível registrada
+  em `outputs/audit/REGISTRY_SAR_R0_SOFTWARE.csv`;
 - `curl`, `unzip`, `file`, `sha256sum` e `pdfinfo`;
 - acesso de rede apenas quando uma fonte oficial ainda não estiver no cache;
 - espaço para 10,23 GB de ZIPs trimestrais da PNADC e seus derivados.

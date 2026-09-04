@@ -1,0 +1,2 @@
+outcome,definition,identified,n,above_x_post_pp,std_error_pp,ci95_low_pp,ci95_high_pp,p_value,magnitude_threshold_pp,rejects_at_5pct,exceeds_magnitude_threshold,hard_failure,error_message,warnings
+invalid_or_missing_ESTCIVMAE,ESTCIVMAE outside codes 1-5,TRUE,127562,0.261610878088068,0.26112984677396,-0.250477104762185,0.77369886093832,0.316530482062057,0.5,FALSE,FALSE,FALSE,,""

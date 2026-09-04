@@ -1,0 +1,9 @@
+[2026-09-04 14:03:52-0300] start | scope=G0_only | protocol=1.0.0 | R=4.5.2 | data.table=1.18.2.1 | yaml=2.3.12 | digest=0.6.39 | free_mem=20.6GiB 
+[2026-09-04 14:03:52-0300] forbidden operations not invoked: regression, discontinuity, density, continuity, placebo, effect estimation 
+[2026-09-04 14:04:08-0300] year=2016 | raw=2,857,800 | pre_date_candidates=120,105 | exact_valid=118,735 | age_agree=118,714 | 14.9s | RSS=525MB 
+[2026-09-04 14:04:24-0300] year=2017 | raw=2,923,535 | pre_date_candidates=110,062 | exact_valid=108,867 | age_agree=108,841 | 14.8s | RSS=528MB 
+[2026-09-04 14:04:40-0300] year=2018 | raw=2,944,932 | pre_date_candidates=103,385 | exact_valid=102,342 | age_agree=102,324 | 16.0s | RSS=618MB 
+[2026-09-04 14:04:57-0300] year=2022 | raw=2,561,922 | pre_date_candidates=68,680 | exact_valid=67,930 | age_agree=67,925 | 15.3s | RSS=540MB 
+[2026-09-04 14:05:12-0300] year=2023 | raw=2,537,576 | pre_date_candidates=64,457 | exact_valid=63,876 | age_agree=63,870 | 14.8s | RSS=560MB 
+[2026-09-04 14:05:24-0300] year=2024 | raw=2,389,325 | pre_date_candidates=57,207 | exact_valid=56,702 | age_agree=56,695 | 11.2s | RSS=507MB 
+[2026-09-04 14:05:24-0300] done | G0=PASS | years=6 | outputs=10 | 1.53 min | RSS=507MB 

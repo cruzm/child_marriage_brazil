@@ -1,0 +1,19 @@
+variable,definition,unit,restricted,import_to_sar
+year,calendar year,year,FALSE,TRUE
+quarter,calendar quarter,quarter,FALSE,TRUE
+quarter_start,first day of quarter,date,FALSE,TRUE
+days_in_quarter,calendar days in quarter,days,FALSE,TRUE
+geography,national residence geography,text,FALSE,TRUE
+age,completed-age population cell used for exposure,years,FALSE,TRUE
+side,age-16 cutoff side,text,FALSE,TRUE
+sex,sex population,text,FALSE,TRUE
+population_stock,quarterly calibrated population estimate,persons,FALSE,TRUE
+population_stock_se,Taylor standard error of population estimate,persons,FALSE,TRUE
+unweighted_n,unweighted survey count,records,FALSE,TRUE
+population_cv,population standard error divided by estimate,ratio,FALSE,TRUE
+exact_age_day_stock,population stock divided by 365.2425,persons,FALSE,TRUE
+exact_age_day_stock_se,population-stock SE divided by 365.2425,persons,FALSE,TRUE
+population_person_time,person-time for one exact-age-day accumulated over the quarter,person-days,FALSE,TRUE
+population_person_time_se,SE of person-time under linear scaling,person-days,FALSE,TRUE
+denominator_source,official source label,text,FALSE,TRUE
+approximation,explicit within-completed-age allocation assumption,text,FALSE,TRUE

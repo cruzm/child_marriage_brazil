@@ -1,0 +1,7 @@
+criterion,threshold,observed,binding_failures,status
+G0_G1_preconditions,unchanged G0_OVERALL=PASS and G1_OVERALL=PASS,PASS,0,PASS
+temporal_placebo_age16,PASS if IC90 inside +/-0.25 pp; FAIL if IC95 excludes zero and abs(point)>=0.25 pp,"estimate -0.279941 pp; IC90 [-0.724842, 0.164959]",0,QUALIFIED
+placebo_age_family,PASS if all IC90 inside +/-0.25 pp; FAIL under either frozen Holm rejection clause,0/3 equivalent; 0 Holm rejections,0,QUALIFIED
+annual_jump_diagnostics,all 11 required annual age-16 jumps identified; diagnostic only,11/11 identified,0,DIAGNOSTIC_COMPLETE
+leave_one_out_diagnostics,all 9 omitted-pre x omitted-post combinations identified; diagnostic only,9/9 identified,0,DIAGNOSTIC_COMPLETE
+G2_OVERALL,both binding components pass and required diagnostics identify,QUALIFIED,0,QUALIFIED

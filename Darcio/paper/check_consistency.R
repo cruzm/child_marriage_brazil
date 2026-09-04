@@ -37,11 +37,21 @@ trend_models <- read_one("REGISTRY_TREND_SENSITIVITY_MODELS.csv")
 trend_summary <- read_one("REGISTRY_TREND_SENSITIVITY_SUMMARY.csv")[1, ]
 trend_best <- trend_models[trend_models$model_id == "global_linear", ][1, ]
 trend_seasonal <- trend_models[trend_models$model_id == "seasonal_level", ][1, ]
+daily <- read_one("SINASC_DAILY_PRIMARY.csv")
+daily_tau <- daily[daily$estimand == "TAU", ][1, ]
+daily_delay <- daily[daily$estimand == "DELAY90", ][1, ]
+daily_sensitivity <- read_one("SINASC_DAILY_SENSITIVITY.csv")
+daily_placebos <- read_one("SINASC_DAILY_PLACEBOS.csv")
+daily_temporal <- daily_placebos[daily_placebos$test_family == "temporal_placebo", ][1, ]
 
 signed <- function(x, digits) sprintf(paste0("%+.", digits, "f"), x)
 tex_pct <- function(x, digits = 1L) paste0("$", signed(x, digits), "\\%$")
 tex_pct_interval <- function(lo, hi, digits = 1L) {
   paste0("$[", signed(lo, digits), "\\%, ", signed(hi, digits), "\\%]$")
+}
+tex_pp <- function(x, digits = 3L) paste0("$", signed(x, digits), "$")
+tex_pp_interval <- function(lo, hi, digits = 3L) {
+  paste0("$[", signed(lo, digits), ", ", signed(hi, digits), "]$")
 }
 
 expected <- c(
@@ -62,7 +72,22 @@ expected <- c(
   sinasc_fertility_p = sprintf("$p=%.3f$", fertility$p_value),
   sinasc_missing_p = sprintf("$p=%.3f$", missingness$p_value),
   placebo_2017 = tex_pct(placebos$pct_change[placebos$specification == "placebo_2017"]),
-  placebo_2018 = tex_pct(placebos$pct_change[placebos$specification == "placebo_2018"])
+  placebo_2018 = tex_pct(placebos$pct_change[placebos$specification == "placebo_2018"]),
+  daily_tau = tex_pp(daily_tau$estimate_pp),
+  daily_tau_interval = tex_pp_interval(daily_tau$ci95_low_pp, daily_tau$ci95_high_pp),
+  daily_mde = paste0("$", sprintf("%.3f", daily_tau$mde80_pp), "$"),
+  daily_delay = tex_pp(daily_delay$estimate_pp),
+  daily_delay_interval = tex_pp_interval(
+    daily_delay$ci95_low_pp, daily_delay$ci95_high_pp
+  ),
+  daily_sensitivity_range = tex_pp_interval(
+    min(daily_sensitivity$estimate_pp), max(daily_sensitivity$estimate_pp)
+  ),
+  daily_temporal = tex_pp(daily_temporal$estimate_pp),
+  daily_temporal_interval = tex_pp_interval(
+    daily_temporal$ci90_low_pp, daily_temporal$ci90_high_pp
+  ),
+  real_data_rule = "simulated observation enters the empirical evidence"
 )
 
 missing_expected <- names(expected)[!vapply(
@@ -86,13 +111,30 @@ present_forbidden <- forbidden_claims[vapply(
   forbidden_claims, function(x) grepl(x, manuscript, fixed = TRUE), logical(1L)
 )]
 
+forbidden_software_test_artifacts <- c(
+  "REGISTRY_SAR_R0_SYNTHETIC",
+  "REGISTRY_SAR_R0_SYNTHETIC_CELLS",
+  "R0 synthetic recovery",
+  "known IRR of 0.60"
+)
+present_software_test_artifacts <- forbidden_software_test_artifacts[vapply(
+  forbidden_software_test_artifacts,
+  function(x) grepl(x, manuscript, fixed = TRUE),
+  logical(1L)
+)]
+
 canonical_table_input <- "\\input{../outputs/tables/TABLE_13_TREND_SENSITIVITY.tex}"
 canonical_table_used <- grepl(canonical_table_input, manuscript, fixed = TRUE)
 duplicate_table_path <- file.path(root, "paper", "tables", "TABLE_13_TREND_SENSITIVITY.tex")
 duplicate_table_exists <- file.exists(duplicate_table_path)
+daily_table_input <- "\\input{../outputs/tables/TABLE_14_SINASC_DAILY_DESIGN.tex}"
+daily_table_used <- grepl(daily_table_input, manuscript, fixed = TRUE)
+daily_duplicate_path <- file.path(root, "paper", "tables", "TABLE_14_SINASC_DAILY_DESIGN.tex")
+daily_duplicate_exists <- file.exists(daily_duplicate_path)
 
 if (length(missing_expected) || length(present_stale) || length(present_forbidden) ||
-    !canonical_table_used || duplicate_table_exists) {
+    length(present_software_test_artifacts) || !canonical_table_used ||
+    duplicate_table_exists || !daily_table_used || daily_duplicate_exists) {
   if (length(missing_expected)) {
     message("Missing canonical manuscript values: ", paste(missing_expected, collapse = ", "))
     message("Expected tokens: ", paste(expected[missing_expected], collapse = "; "))
@@ -104,15 +146,27 @@ if (length(missing_expected) || length(present_stale) || length(present_forbidde
     message("Forbidden design-wide trend claims remain: ",
             paste(present_forbidden, collapse = " | "))
   }
+  if (length(present_software_test_artifacts)) {
+    message("Synthetic software-test artifacts entered the manuscript: ",
+            paste(present_software_test_artifacts, collapse = " | "))
+  }
   if (!canonical_table_used) {
     message("Manuscript does not input the canonical output TABLE_13 directly")
   }
   if (duplicate_table_exists) {
     message("Duplicate paper-local TABLE_13 exists: ", duplicate_table_path)
   }
+  if (!daily_table_used) {
+    message("Manuscript does not input the canonical observed-data TABLE_14 directly")
+  }
+  if (daily_duplicate_exists) {
+    message("Duplicate paper-local TABLE_14 exists: ", daily_duplicate_path)
+  }
   quit(status = 1L)
 }
 
 cat(sprintf("paper_consistency_ok checks=%d stale_checks=%d\n",
-            length(expected) + length(forbidden_claims) + 2L,
-            length(stale) + length(forbidden_claims)))
+            length(expected) + length(forbidden_claims) +
+              length(forbidden_software_test_artifacts) + 4L,
+            length(stale) + length(forbidden_claims) +
+              length(forbidden_software_test_artifacts)))

@@ -1,0 +1,12 @@
+item_id,item,threshold_or_answer_needed,current_status,blocking,evidence_after_response
+E01,exact celebration date retained in every 2013-2024 file,yes; later >=99% valid in target ages,PENDING_IBGE,TRUE,
+E02,both spouses' birth dates retained in every 2013-2024 file,yes; later >=99% valid,PENDING_IBGE,TRUE,
+E03,registration date retained and comparable across years,yes,PENDING_IBGE,TRUE,
+E04,residence municipality retained and comparable across years,yes; later >=95% valid,PENDING_IBGE,TRUE,
+E05,SEADE source flow for Sao Paulo included and identifiable,yes,PENDING_IBGE,TRUE,
+E06,"edit, imputation, missingness, source, and collection flags available",yes,PENDING_IBGE,TRUE,
+E07,internal event key permits deduplication without export,yes,PENDING_IBGE,TRUE,
+E08,aggregate PNADC exposure import is permitted,yes,PENDING_IBGE,TRUE,
+E09,aggregate coefficients and diagnostics can undergo disclosure review,yes,PENDING_IBGE,TRUE,
+E10,researcher and institutional signatory fields are completed,completed outside version control,PENDING_USER,TRUE,
+E11,researcher explicitly authorizes external transmission,yes,PENDING_USER,TRUE,

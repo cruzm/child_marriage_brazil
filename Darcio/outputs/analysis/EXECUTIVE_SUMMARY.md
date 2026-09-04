@@ -4,7 +4,7 @@
 
 A Lei nº 13.811/2019 entrou em vigor em 13 de março de 2019 e eliminou as exceções que permitiam casamento civil abaixo da idade núbil. Ela não proibiu todos os casamentos abaixo de 18: os de 16 e 17 anos continuaram regidos pelo art. 1.517 do Código Civil.
 
-A avaliação combina a tabela oficial 4406 do Registro Civil/SIDRA (2013–2024) com microdados trimestrais da PNADC. Como a idade existe apenas em anos completos, o desenho é diferenças-em-diferenças por elegibilidade etária, não RD. A especificação foi congelada antes dos resultados: idade 15 é tratada, idades 17–19 são controles, 2019T1 é omitido e o pós curto é 2019T2–T4. O modelo principal é PPML regional com população como offset, efeitos fixos, sazonalidade e tendências específicas por idade; a inferência principal agrupa por período porque houve uma única reforma nacional.
+A avaliação combina a tabela oficial 4406 do Registro Civil/SIDRA (2013–2024), microdados trimestrais da PNADC e microdados oficiais do SINASC. No Registro, idade 15 é tratada, idades 17–19 são controles, 2019T1 é omitido e o pós curto é 2019T2–T4. O modelo principal é PPML regional com população como offset, efeitos fixos, sazonalidade e tendências específicas por idade; a inferência principal agrupa por período porque houve uma única reforma nacional. O SINASC diário compara a mudança no salto aos 16 anos entre 2016–2018 e 2022–2024 sob protocolo pós-resultado separado.
 
 ## Resultado principal
 
@@ -20,16 +20,21 @@ Os pontos aos 16 e 17 anos são +0,6% e +3,3%, respectivamente, mas não são pr
 
 Na PNADC, a união conservadora aos 15 anos aumenta relativamente em **0,399 p.p.**, IC95% [-0,003; 0,801] p.p. O MDE é 0,575 p.p. e a equivalência a ±0,50 p.p. não é demonstrada. Robustezes de microdados têm pontos semelhantes. Isso é sugestivo de maior coabitação relativa, mas não prova substituição para informalidade: o Registro mede fluxo formal, a PNADC mede estoque corresidente incompleto, e seus coeficientes não podem ser subtraídos.
 
+## SINASC diário com idade exata
+
+Entre 126.138 nascimentos únicos observados próximos ao 16º aniversário materno, a mudança pós-menos-pré no salto da situação registrada como casada é **+0,342 p.p.** (IC95% [-0,140; 0,824] p.p.; MDE80 0,688 p.p.). G2 é QUALIFIED e G3 é INCONCLUSIVE: os dados não distinguem zero de mudanças locais relevantes, e o desenho não avança como núcleo causal.
+
 ## Conclusões que os dados permitem
 
 - O número observado de casamentos com alguém abaixo de 16 caiu fortemente entre 2013 e 2024, mas grande parte da queda precede a lei.
 - O modelo congelado não detecta queda adicional nos registros aos 15 anos em 2019T2–T4, mas todos os contrafactuais do gate falham; o estudo não estabelece queda nem efeito zero design-wide.
 - Não há evidência precisa de adiamento para 16–17 anos.
 - Não há evidência de redução da união corresidente; o sinal positivo é compatível, mas insuficiente, para informalização.
+- O SINASC diário produz sinal local positivo, mas G2 qualificado e G3 inconclusivo impedem uma interpretação causal.
 
 ## Limitações decisivas
 
-A fonte registra mês e idade no registro, não na celebração; cartório e residência não são a mesma geografia; não há idade exata para RD; 2019 oferece só três trimestres integralmente tratados; nenhum dos cinco modelos de tendência passa a calibração rolling-origin; a PNADC não acompanha confiavelmente quem deixa o domicílio; a união conservadora capta principalmente relações com a pessoa responsável; e o MDE de 19,3% é condicional ao modelo travado.
+O Registro público informa mês e idade no registro, não na celebração; cartório e residência não são a mesma geografia; 2019 oferece só três trimestres integralmente tratados; nenhum dos cinco modelos de tendência passa a calibração rolling-origin; a PNADC não acompanha confiavelmente quem deixa o domicílio; e o MDE de 19,3% é condicional ao modelo travado. O SINASC tem idade exata, mas condiciona em nascimento vivo, mede status no parto e não confirma equivalência nos placebos.
 
 ## Replicação
 

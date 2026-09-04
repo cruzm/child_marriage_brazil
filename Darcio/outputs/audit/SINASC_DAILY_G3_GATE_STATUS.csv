@@ -1,0 +1,8 @@
+criterion,threshold,observed,status
+G0_G1_preconditions,unchanged G0=PASS and G1=PASS,"PASS,PASS",PASS
+G2_counterfactual,G2 must PASS for unconditional causal-core eligibility,QUALIFIED,QUALIFIED
+G3_primary_identification,TAU and DELAY90 identified under frozen h=90 models,tau=TRUE;delay90=TRUE,PASS
+G3_frozen_sensitivity_set,all 13 stacked rows displayed and identified,13/13 identified,COMPLETE
+G3_rdrobust_crosschecks,10 separate-era fits plus five point-only differences,10/10 era fits identified,COMPLETE
+G3_OVERALL,mechanical A004 precedence across six frozen labels; non-identification is inconclusive,INCONCLUSIVE,INCONCLUSIVE
+CAUSAL_CORE_DECISION,"G0=PASS, G1=PASS, G2=PASS, and G3 supported positive or informative no local profile",G2=QUALIFIED;G3=INCONCLUSIVE,DO_NOT_ADVANCE_AS_CAUSAL_CORE

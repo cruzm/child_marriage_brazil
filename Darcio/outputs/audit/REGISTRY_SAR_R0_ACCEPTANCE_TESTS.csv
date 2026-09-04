@@ -1,0 +1,31 @@
+test,passed,observed
+all sixteen required R0 artifacts exist,TRUE,16
+four frozen lock hashes pass,TRUE,4/4
+public input audit passes existence and schema,TRUE,3/3
+all local component tests pass,TRUE,24/24
+all denominator criteria pass,TRUE,18/18
+exposure schema is complete,TRUE,"year,quarter,quarter_start,days_in_quarter,geography,age,side,sex,population_stock,population_stock_se,unweighted_n,population_cv,exact_age_day_stock,exact_age_day_stock_se,population_person_time,population_person_time_se,denominator_source,approximation"
+exposure has exactly 288 national quarterly cells,TRUE,rows=288 periods=48
+exposure cells are unique and positive,TRUE,0
+exposure contains no direct identifiers,TRUE,"year,quarter,quarter_start,days_in_quarter,geography,age,side,sex,population_stock,population_stock_se,unweighted_n,population_cv,exact_age_day_stock,exact_age_day_stock_se,population_person_time,population_person_time_se,denominator_source,approximation"
+exposure dictionary covers every field,TRUE,18/18
+power grid is complete,TRUE,108/108
+power grid is planning-only,TRUE,108
+base power screen provisionally passes,TRUE,19.0861668617753
+stress power screen provisionally passes,TRUE,25.8818515361334
+synthetic schema is complete,TRUE,"celebration_period,age_distance_day,below16,post_law,sex,marriage_events,population_person_time,population_person_time_se,synthetic,expected_events"
+every dry-run row is marked synthetic,TRUE,51623/51623
+synthetic cells contain no direct identifiers,TRUE,"celebration_period,age_distance_day,below16,post_law,sex,marriage_events,population_person_time,population_person_time_se,synthetic,expected_events"
+all synthetic schema checks pass,TRUE,5/5
+synthetic recovery is unique and passes,TRUE,0.0197265450913007
+synthetic truth is within frozen tolerance,TRUE,0.0197265450913007
+synthetic truth lies in 95 percent interval,TRUE,"[-0.584889,-0.397309] truth=-0.510826"
+all external checks remain pending,TRUE,"PENDING_IBGE,PENDING_USER"
+no external response evidence is fabricated,TRUE,0
+technical inquiry is explicitly ready and unsent,TRUE,READY_NOT_SENT
+local overall status is bounded,TRUE,LOCAL_READY_EXTERNAL_PENDING
+causal identification remains not evaluated,TRUE,NOT_EVALUATED
+no causal-pass status appears,TRUE,"PASS,PASS,PASS,PROVISIONAL_PASS,PASS,READY_NOT_SENT,PENDING_IBGE,PENDING_USER,LOCAL_READY_EXTERNAL_PENDING,NOT_EVALUATED"
+report states local status and causal limitation,TRUE,scope statements present
+output manifest contains no restricted data,TRUE,0
+output manifest hashes every listed artifact,TRUE,20/20

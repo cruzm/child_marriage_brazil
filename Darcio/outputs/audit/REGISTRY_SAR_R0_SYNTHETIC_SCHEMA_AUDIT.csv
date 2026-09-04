@@ -1,0 +1,6 @@
+criterion,passed,observed
+all required analytic fields exist,TRUE,celebration_period;age_distance_day;below16;post_law;sex;marriage_events;population_person_time;synthetic
+synthetic marker is true in every row,TRUE,51623
+synthetic cell keys are unique,TRUE,0
+counts and exposures are finite and nonnegative,TRUE,events=125416;min_exposure=231135.324
+no direct-identifier field is present,TRUE,celebration_period;age_distance_day;below16;post_law;sex;marriage_events;population_person_time;population_person_time_se;synthetic;expected_events

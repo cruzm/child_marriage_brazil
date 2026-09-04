@@ -1,0 +1,22 @@
+level,field,type,required,purpose,export_rule
+restricted_event,event_key,character,TRUE,deduplicate marriage events,never export
+restricted_event,celebration_date,Date,TRUE,policy timing and calendar period,never export exact dates
+restricted_event,registration_date,Date,TRUE,measure celebration-to-registration lag,never export exact dates
+restricted_event,spouse_order,integer,TRUE,separate the two spouse records,aggregate only
+restricted_event,birth_date,Date,TRUE,construct exact age at celebration,never export exact dates
+restricted_event,sex,character,TRUE,define combined primary and sex sensitivities,aggregate only
+restricted_event,prior_civil_status,character,FALSE,first-formalization sensitivity,aggregate only
+restricted_event,residence_municipality,character,TRUE,align numerator with resident exposure,aggregate with small-cell controls
+restricted_event,registry_municipality,character,TRUE,reconcile public registration geography,aggregate with small-cell controls
+restricted_event,source_flow,character,TRUE,audit IBGE versus SEADE coverage,aggregate only
+restricted_event,date_edit_flag,character,TRUE,audit edits and imputations,aggregate only
+restricted_event,residence_edit_flag,character,TRUE,audit residence edits and missingness,aggregate only
+analytic_cell,celebration_period,character,TRUE,calendar comparison,disclosure-reviewed aggregate
+analytic_cell,age_distance_day,integer,TRUE,running variable around age 16,disclosure-reviewed aggregate
+analytic_cell,below16,integer,TRUE,cutoff side,disclosure-reviewed aggregate
+analytic_cell,post_law,integer,TRUE,policy era,disclosure-reviewed aggregate
+analytic_cell,sex,character,TRUE,primary and sensitivity population,disclosure-reviewed aggregate
+analytic_cell,marriage_events,integer,TRUE,formal-marriage numerator,suppress small released cells
+analytic_cell,population_person_time,numeric,TRUE,compatible rate denominator,public aggregate
+analytic_cell,synthetic,logical,TRUE,prevent synthetic data from entering paper results,must be TRUE outside SAR dry run
+

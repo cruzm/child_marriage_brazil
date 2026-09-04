@@ -1,0 +1,8 @@
+criterion,scope,threshold,observed,worst_cell,status
+official_annual_total_reconciliation,every primary year; exact match to designated independent comparable anchor,6/6 exact; unavailable anchor implies QUALIFIED,6/6 exact,none,PASS
+exact_date_valid_share_each_primary_year,each primary year,>= 0.980,minimum 0.988593,2016,PASS
+completed_age_agreement_among_valid_dates,each primary year,>= 0.990,minimum 0.999761,2017,PASS
+valid_status_share_each_era_side,each era x side cell at h=90,>= 0.950,minimum 0.986355,pre:below,PASS
+births_each_era_side_at_h90,each era x side cell at h=90,>= 10000,minimum 21420,post:below,PASS
+married_events_each_era_side_at_h90,each era x side cell at h=90,>= 100,minimum 125,post:below,PASS
+G0_OVERALL,frozen Gate G0 only,all mandatory criteria pass; missing independent anchor yields QUALIFIED,PASS,not_applicable,PASS

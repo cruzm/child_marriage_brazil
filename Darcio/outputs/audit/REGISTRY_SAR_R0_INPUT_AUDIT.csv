@@ -1,0 +1,4 @@
+input_id,relative_path,exists,sha256,rows,required_columns,schema_complete,role
+registry_counts,outputs/data/REGISTRY_PERSON_EVENTS_ANNUAL.csv,TRUE,c5120a818b50f6299d1178c25f6ec7de8a99f2cbb01d6255321068c0b8a31227,6804,year;uf_code;sex;age;persons_married,TRUE,planning counts only; age/year at registration
+pnadc_quarterly,outputs/data/QUARTERLY_DENOMINATORS_AGE_SEX.csv,TRUE,c9f08439fcdb405d0615a4351decf9cad507ee9700b7a75f3d9f0d266342a5d4,28512,year;quarter;geography_level;geography_value;age;sex;population;population_se;unweighted_n;population_cv,TRUE,selected aggregate exposure candidate
+pnadc_annual,outputs/data/DENOMINATORS_AGE_SEX.csv,TRUE,432c5a1efd4559f26500a6551adad89fe72cdccd0919a13ea7ff6dbb7e45a825,6534,year;geography_level;geography_value;age;sex;population;population_se;unweighted_n;population_cv,TRUE,annual-frequency population cross-check

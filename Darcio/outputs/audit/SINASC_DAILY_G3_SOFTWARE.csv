@@ -1,0 +1,8 @@
+component,version,frozen_expected_version,source,source_url,source_sha256,frozen_version_match
+R,R version 4.5.2 (2025-10-31),,R runtime,,,
+data.table,1.18.2.1,,installed R package,,,
+digest,0.6.39,,installed R package,,,
+fixest,0.13.2,,installed R package,,,
+ggplot2,4.0.3,,installed R package,,,
+rdrobust,3.0.0,3.0.0,CRAN archive source tarball,https://cran.r-project.org/src/contrib/Archive/rdrobust/rdrobust_3.0.0.tar.gz,b1bcd0d6dae4ea0ceadf5fb3c2d62d787fb316c0a19c671c05b5db300d4b27a3,TRUE
+yaml,2.3.12,,installed R package,,,

@@ -1,0 +1,17 @@
+sample_id,era,side,n_births,n_status_invalid,n_non_singleton_known,privacy_suppressed_married,n_married_events
+include_multiple,post,above,24633,0,236,FALSE,275
+include_multiple,post,below,21636,0,216,FALSE,127
+include_multiple,pre,above,43606,0,513,FALSE,640
+include_multiple,pre,below,37590,0,362,FALSE,317
+primary,post,above,24397,0,0,FALSE,272
+primary,post,below,21420,0,0,FALSE,125
+primary,pre,above,43093,0,0,FALSE,633
+primary,pre,below,37228,0,0,FALSE,312
+primary_full_available_support,post,above,117162,0,0,FALSE,2151
+primary_full_available_support,post,below,69513,0,0,FALSE,418
+primary_full_available_support,pre,above,205515,0,0,FALSE,6244
+primary_full_available_support,pre,below,120369,0,0,FALSE,1013
+unknown_status_not_married,post,above,24642,245,0,FALSE,272
+unknown_status_not_married,post,below,21611,191,0,FALSE,125
+unknown_status_not_married,pre,above,43566,473,0,FALSE,633
+unknown_status_not_married,pre,below,37743,515,0,FALSE,312

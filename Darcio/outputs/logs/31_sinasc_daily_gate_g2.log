@@ -1,0 +1,38 @@
+[2026-09-04 14:57:00-0300] start | scope=G2_only | G0=PASS | G1=PASS | protocol=1.0.0 | R=4.5.2 | fixest=0.13.2 | ggplot2=4.0.3 | data.table=1.18.2.1 | free_mem=20.6GiB 
+[2026-09-04 14:57:00-0300] prohibited operations not invoked: full primary age-16 policy fit, DELAY90, secondary outcomes, sensitivities, or G3 classification 
+[2026-09-04 14:57:23-0300] year=2013 | raw=2,904,027 | candidates=538,509 | retained_h90=33,008 | 22.1s | RSS=614MB 
+[2026-09-04 14:57:47-0300] year=2014 | raw=2,979,259 | candidates=542,626 | retained_h90=32,893 | 24.4s | RSS=643MB 
+[2026-09-04 14:58:11-0300] year=2016 | raw=2,857,800 | candidates=483,619 | retained_h90=147,711 | 24.4s | RSS=643MB 
+[2026-09-04 14:58:38-0300] year=2017 | raw=2,923,535 | candidates=463,595 | retained_h90=139,121 | 26.2s | RSS=714MB 
+[2026-09-04 14:59:04-0300] year=2018 | raw=2,944,932 | candidates=440,149 | retained_h90=133,763 | 25.9s | RSS=715MB 
+[2026-09-04 14:59:24-0300] year=2019 | raw=2,849,146 | candidates=405,194 | retained_h90=22,429 | 20.6s | RSS=740MB 
+[2026-09-04 14:59:45-0300] year=2020 | raw=2,730,145 | candidates=368,822 | retained_h90=20,279 | 20.2s | RSS=740MB 
+[2026-09-04 15:00:05-0300] year=2021 | raw=2,677,101 | candidates=351,288 | retained_h90=20,156 | 19.7s | RSS=666MB 
+[2026-09-04 15:00:26-0300] year=2022 | raw=2,561,922 | candidates=305,196 | retained_h90=91,261 | 21.6s | RSS=666MB 
+[2026-09-04 15:00:48-0300] year=2023 | raw=2,537,576 | candidates=294,050 | retained_h90=86,924 | 21.4s | RSS=702MB 
+[2026-09-04 15:01:05-0300] year=2024 | raw=2,389,325 | candidates=264,576 | retained_h90=78,892 | 17.5s | RSS=698MB 
+[2026-09-04 15:01:06-0300] model=temporal_placebo_age16 | identified=TRUE | estimate=-0.279941 | p=0.300571 | status=QUALIFIED 
+[2026-09-04 15:01:06-0300] model=age_placebo_15 | identified=TRUE 
+[2026-09-04 15:01:06-0300] model=age_placebo_17 | identified=TRUE 
+[2026-09-04 15:01:06-0300] model=age_placebo_19 | identified=TRUE 
+[2026-09-04 15:01:06-0300] model=annual_age16_2013 | identified=TRUE 
+[2026-09-04 15:01:06-0300] model=annual_age16_2014 | identified=TRUE 
+[2026-09-04 15:01:06-0300] model=annual_age16_2016 | identified=TRUE 
+[2026-09-04 15:01:06-0300] model=annual_age16_2017 | identified=TRUE 
+[2026-09-04 15:01:06-0300] model=annual_age16_2018 | identified=TRUE 
+[2026-09-04 15:01:06-0300] model=annual_age16_2019 | identified=TRUE 
+[2026-09-04 15:01:06-0300] model=annual_age16_2020 | identified=TRUE 
+[2026-09-04 15:01:06-0300] model=annual_age16_2021 | identified=TRUE 
+[2026-09-04 15:01:06-0300] model=annual_age16_2022 | identified=TRUE 
+[2026-09-04 15:01:06-0300] model=annual_age16_2023 | identified=TRUE 
+[2026-09-04 15:01:06-0300] model=annual_age16_2024 | identified=TRUE 
+[2026-09-04 15:01:06-0300] model=loo_pre2016_post2022 | identified=TRUE 
+[2026-09-04 15:01:06-0300] model=loo_pre2016_post2023 | identified=TRUE 
+[2026-09-04 15:01:06-0300] model=loo_pre2016_post2024 | identified=TRUE 
+[2026-09-04 15:01:07-0300] model=loo_pre2017_post2022 | identified=TRUE 
+[2026-09-04 15:01:07-0300] model=loo_pre2017_post2023 | identified=TRUE 
+[2026-09-04 15:01:07-0300] model=loo_pre2017_post2024 | identified=TRUE 
+[2026-09-04 15:01:07-0300] model=loo_pre2018_post2022 | identified=TRUE 
+[2026-09-04 15:01:07-0300] model=loo_pre2018_post2023 | identified=TRUE 
+[2026-09-04 15:01:07-0300] model=loo_pre2018_post2024 | identified=TRUE 
+[2026-09-04 15:01:08-0300] done | G2=QUALIFIED | temporal=QUALIFIED | age_family=QUALIFIED | annual=11/11 | loo=9/9 | models=24 | outputs=12 | 4.13 min | RSS=710MB 

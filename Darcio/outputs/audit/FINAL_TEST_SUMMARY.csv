@@ -1,5 +1,5 @@
 category,test,passed,observed,source
-code,all R source scripts parse,TRUE,30,final
+code,all R source scripts parse,TRUE,44,final
 code,all pipeline modules exist,TRUE,29,final
 component,2019Q1 never coded full post,TRUE,0,ANALYTIC_PANEL_ACCEPTANCE_TESTS.csv
 component,2019Q2 is first full post,TRUE,2019Q2,ANALYTIC_PANEL_ACCEPTANCE_TESTS.csv
@@ -117,6 +117,36 @@ component,monthly region counts reproduce source,TRUE,0,REGISTRY_MONTHLY_ACCEPTA
 component,post begins April 2019,TRUE,2019M04-2019M12,REGISTRY_MONTHLY_ACCEPTANCE_TESTS.csv
 component,primary monthly coefficient finite,TRUE,-0.0242928616028555,REGISTRY_MONTHLY_ACCEPTANCE_TESTS.csv
 component,registration timing explicitly labeled,TRUE,registration month,REGISTRY_MONTHLY_ACCEPTANCE_TESTS.csv
+component,all denominator criteria pass,TRUE,18/18,REGISTRY_SAR_R0_ACCEPTANCE_TESTS.csv
+component,all external checks remain pending,TRUE,"PENDING_IBGE,PENDING_USER",REGISTRY_SAR_R0_ACCEPTANCE_TESTS.csv
+component,all local component tests pass,TRUE,24/24,REGISTRY_SAR_R0_ACCEPTANCE_TESTS.csv
+component,all sixteen required R0 artifacts exist,TRUE,16,REGISTRY_SAR_R0_ACCEPTANCE_TESTS.csv
+component,all synthetic schema checks pass,TRUE,5/5,REGISTRY_SAR_R0_ACCEPTANCE_TESTS.csv
+component,base power screen provisionally passes,TRUE,19.0861668617753,REGISTRY_SAR_R0_ACCEPTANCE_TESTS.csv
+component,causal identification remains not evaluated,TRUE,NOT_EVALUATED,REGISTRY_SAR_R0_ACCEPTANCE_TESTS.csv
+component,every dry-run row is marked synthetic,TRUE,51623/51623,REGISTRY_SAR_R0_ACCEPTANCE_TESTS.csv
+component,exposure cells are unique and positive,TRUE,0,REGISTRY_SAR_R0_ACCEPTANCE_TESTS.csv
+component,exposure contains no direct identifiers,TRUE,"year,quarter,quarter_start,days_in_quarter,geography,age,side,sex,population_stock,population_stock_se,unweighted_n,population_cv,exact_age_day_stock,exact_age_day_stock_se,population_person_time,population_person_time_se,denominator_source,approximation",REGISTRY_SAR_R0_ACCEPTANCE_TESTS.csv
+component,exposure dictionary covers every field,TRUE,18/18,REGISTRY_SAR_R0_ACCEPTANCE_TESTS.csv
+component,exposure has exactly 288 national quarterly cells,TRUE,rows=288 periods=48,REGISTRY_SAR_R0_ACCEPTANCE_TESTS.csv
+component,exposure schema is complete,TRUE,"year,quarter,quarter_start,days_in_quarter,geography,age,side,sex,population_stock,population_stock_se,unweighted_n,population_cv,exact_age_day_stock,exact_age_day_stock_se,population_person_time,population_person_time_se,denominator_source,approximation",REGISTRY_SAR_R0_ACCEPTANCE_TESTS.csv
+component,four frozen lock hashes pass,TRUE,4/4,REGISTRY_SAR_R0_ACCEPTANCE_TESTS.csv
+component,local overall status is bounded,TRUE,LOCAL_READY_EXTERNAL_PENDING,REGISTRY_SAR_R0_ACCEPTANCE_TESTS.csv
+component,no causal-pass status appears,TRUE,"PASS,PASS,PASS,PROVISIONAL_PASS,PASS,READY_NOT_SENT,PENDING_IBGE,PENDING_USER,LOCAL_READY_EXTERNAL_PENDING,NOT_EVALUATED",REGISTRY_SAR_R0_ACCEPTANCE_TESTS.csv
+component,no external response evidence is fabricated,TRUE,0,REGISTRY_SAR_R0_ACCEPTANCE_TESTS.csv
+component,output manifest contains no restricted data,TRUE,0,REGISTRY_SAR_R0_ACCEPTANCE_TESTS.csv
+component,output manifest hashes every listed artifact,TRUE,20/20,REGISTRY_SAR_R0_ACCEPTANCE_TESTS.csv
+component,power grid is complete,TRUE,108/108,REGISTRY_SAR_R0_ACCEPTANCE_TESTS.csv
+component,power grid is planning-only,TRUE,108,REGISTRY_SAR_R0_ACCEPTANCE_TESTS.csv
+component,public input audit passes existence and schema,TRUE,3/3,REGISTRY_SAR_R0_ACCEPTANCE_TESTS.csv
+component,report states local status and causal limitation,TRUE,scope statements present,REGISTRY_SAR_R0_ACCEPTANCE_TESTS.csv
+component,stress power screen provisionally passes,TRUE,25.8818515361334,REGISTRY_SAR_R0_ACCEPTANCE_TESTS.csv
+component,synthetic cells contain no direct identifiers,TRUE,"celebration_period,age_distance_day,below16,post_law,sex,marriage_events,population_person_time,population_person_time_se,synthetic,expected_events",REGISTRY_SAR_R0_ACCEPTANCE_TESTS.csv
+component,synthetic recovery is unique and passes,TRUE,0.0197265450913007,REGISTRY_SAR_R0_ACCEPTANCE_TESTS.csv
+component,synthetic schema is complete,TRUE,"celebration_period,age_distance_day,below16,post_law,sex,marriage_events,population_person_time,population_person_time_se,synthetic,expected_events",REGISTRY_SAR_R0_ACCEPTANCE_TESTS.csv
+component,synthetic truth is within frozen tolerance,TRUE,0.0197265450913007,REGISTRY_SAR_R0_ACCEPTANCE_TESTS.csv
+component,synthetic truth lies in 95 percent interval,TRUE,"[-0.584889,-0.397309] truth=-0.510826",REGISTRY_SAR_R0_ACCEPTANCE_TESTS.csv
+component,technical inquiry is explicitly ready and unsent,TRUE,READY_NOT_SENT,REGISTRY_SAR_R0_ACCEPTANCE_TESTS.csv
 component,1999 bootstrap draws per model,TRUE,"1999,1999,1999,1999,1999",REGISTRY_TREND_SENSITIVITY_ACCEPTANCE_TESTS.csv
 component,24 pre quarters,TRUE,24,REGISTRY_TREND_SENSITIVITY_ACCEPTANCE_TESTS.csv
 component,YAML lock hash matches,TRUE,04cdab04f79981b2d101d18d85dec6083938d8009acc1f9862d09c65aa6beb46,REGISTRY_TREND_SENSITIVITY_ACCEPTANCE_TESTS.csv
@@ -130,12 +160,12 @@ component,protocol labeled post-result,TRUE,TRUE,REGISTRY_TREND_SENSITIVITY_ACCE
 component,results label envelope noncausal,TRUE,"specification envelope; not a confidence set, identified set, or causal bound",REGISTRY_TREND_SENSITIVITY_ACCEPTANCE_TESTS.csv
 component,six windows per model,TRUE,"6,6,6,6,6",REGISTRY_TREND_SENSITIVITY_ACCEPTANCE_TESTS.csv
 component,three target quarters,TRUE,"2019Q2,2019Q3,2019Q4",REGISTRY_TREND_SENSITIVITY_ACCEPTANCE_TESTS.csv
-component,component acceptance files discovered,TRUE,12,final
+component,component acceptance files discovered,TRUE,13,final
 construction,Registry incidence rate identity holds,TRUE,2.50111e-12,final
 construction,all offsets have positive denominators,TRUE,0,final
 construction,union prevalences remain probabilities,TRUE,"0,0.262444039876134",final
 geography,primary Registry panel is regional,TRUE,5 regions,final
-isolation,workspace changes are confined to Darcio,TRUE, M Darcio/README.md |  M Darcio/outputs/analysis/FINAL_ACCEPTANCE.md |  M Darcio/outputs/audit/FINAL_TEST_SUMMARY.csv |  M Darcio/outputs/logs/final_tests.log |  M Darcio/paper/ledgers/CLAIM_EVIDENCE_MATRIX.md |  M Darcio/paper/ledgers/IDENTIFICATION_GATE.md |  M Darcio/paper/main.pdf |  M Darcio/paper/main.tex |  M Darcio/paper/references.bib |  M Darcio/references/SOURCES.csv | ?? Darcio/MEMORY.md | ?? Darcio/crawler_pdpj/ | ?? Darcio/outputs/audit/DATAJUD_CLASS_143_PUBLIC_BY_MONTH.csv | ?? Darcio/outputs/audit/DATAJUD_CLASS_143_PUBLIC_BY_YEAR.csv | ?? Darcio/outputs/audit/DATAJUD_CLASS_143_PUBLIC_PROBE.csv | ?? Darcio/outputs/audit/REGISTRY_PUBLIC_TABLES_ACQUISITION.csv | ?? Darcio/outputs/logs/25_probe_datajud_class143.log | ?? Darcio/paper/ledgers/ADMINISTRATIVE_DATA_FEASIBILITY_2026-09-02.md | ?? Darcio/paper/ledgers/IBGE_SAR_PROJECT_DRAFT.md,final
+isolation,workspace changes are confined to Darcio,TRUE, M Darcio/MEMORY.md |  M Darcio/Makefile |  M Darcio/README.md |  M Darcio/outputs/analysis/EXECUTIVE_SUMMARY.md |  M Darcio/outputs/analysis/FINAL_ACCEPTANCE.md |  M Darcio/outputs/analysis/GATE_D_CONSTRUCTION_AND_ESTIMATION.md |  M Darcio/outputs/analysis/GATE_E_VALIDATION_AND_REPORTING.md |  M Darcio/outputs/analysis/RESULTS_MANIFEST.csv |  M Darcio/outputs/analysis/TECHNICAL_REPORT.md |  M Darcio/outputs/analysis/session_info.txt |  M Darcio/outputs/audit/FINAL_TEST_SUMMARY.csv |  M Darcio/outputs/logs/20_write_reports.log |  M Darcio/outputs/logs/final_tests.log |  M Darcio/paper/OUTLINE.md |  M Darcio/paper/check_consistency.R |  M Darcio/paper/ledgers/CLAIM_EVIDENCE_MATRIX.md |  M Darcio/paper/ledgers/IBGE_SAR_PROJECT_DRAFT.md |  M Darcio/paper/ledgers/IDENTIFICATION_GATE.md |  M Darcio/paper/main.pdf |  M Darcio/paper/main.tex |  M Darcio/references/SOURCES.csv |  M Darcio/src/20_write_reports.R | ?? Darcio/config/registry_sar_canonical_schema.csv | ?? Darcio/config/registry_sar_r0_lock.yml | ?? Darcio/config/sinasc_daily_g0_anchors.csv | ?? Darcio/config/sinasc_daily_lock.yml | ?? Darcio/outputs/analysis/REGISTRY_SAR_R0_RESULTS.md | ?? Darcio/outputs/analysis/SINASC_DAILY_GATE_G0.md | ?? Darcio/outputs/analysis/SINASC_DAILY_GATE_G1.md | ?? Darcio/outputs/analysis/SINASC_DAILY_GATE_G2.md | ?? Darcio/outputs/analysis/SINASC_DAILY_RESULTS.md | ?? Darcio/outputs/audit/REGISTRY_SAR_R0_ACCEPTANCE_TESTS.csv | ?? Darcio/outputs/audit/REGISTRY_SAR_R0_DENOMINATOR_AUDIT.csv | ?? Darcio/outputs/audit/REGISTRY_SAR_R0_EXTERNAL_CHECKLIST.csv | ?? Darcio/outputs/audit/REGISTRY_SAR_R0_GATE_STATUS.csv | ?? Darcio/outputs/audit/REGISTRY_SAR_R0_INPUT_AUDIT.csv | ?? Darcio/outputs/audit/REGISTRY_SAR_R0_LOCAL_COMPONENT_TESTS.csv | ?? Darcio/outputs/audit/REGISTRY_SAR_R0_OUTPUT_MANIFEST.csv | ?? Darcio/outputs/audit/REGISTRY_SAR_R0_SOFTWARE.csv | ?? Darcio/outputs/audit/REGISTRY_SAR_R0_SYNTHETIC_SCHEMA_AUDIT.csv | ?? Darcio/outputs/audit/SINASC_DAILY_G0_ANCHOR_RECONCILIATION.csv | ?? Darcio/outputs/audit/SINASC_DAILY_G0_ANNUAL.csv | ?? Darcio/outputs/audit/SINASC_DAILY_G0_BAND_COUNTS.csv | ?? Darcio/outputs/audit/SINASC_DAILY_G0_DATE_QUALITY_BY_STATUS.csv | ?? Darcio/outputs/audit/SINASC_DAILY_G0_ERA_SIDE_QUALITY.csv | ?? Darcio/outputs/audit/SINASC_DAILY_G0_MONTHLY_PROFILE.csv | ?? Darcio/outputs/audit/SINASC_DAILY_G0_OUTPUT_MANIFEST.csv | ?? Darcio/outputs/audit/SINASC_DAILY_G0_SIDE_QUALITY.csv | ?? Darcio/outputs/audit/SINASC_DAILY_G1_CONTINUITY.csv | ?? Darcio/outputs/audit/SINASC_DAILY_G1_DAILY_COUNTS.csv | ?? Darcio/outputs/audit/SINASC_DAILY_G1_DENSITY.csv | ?? Darcio/outputs/audit/SINASC_DAILY_G1_DENSITY_BINOMIAL.csv | ?? Darcio/outputs/audit/SINASC_DAILY_G1_EQUAL_DAY_COUNTS.csv | ?? Darcio/outputs/audit/SINASC_DAILY_G1_GATE_STATUS.csv | ?? Darcio/outputs/audit/SINASC_DAILY_G1_OUTPUT_MANIFEST.csv | ?? Darcio/outputs/audit/SINASC_DAILY_G1_SAMPLE_RECONCILIATION.csv | ?? Darcio/outputs/audit/SINASC_DAILY_G1_SCHEMA_AUDIT.csv | ?? Darcio/outputs/audit/SINASC_DAILY_G1_STATUS_MISSINGNESS.csv | ?? Darcio/outputs/audit/SINASC_DAILY_G1_WEEKLY_COUNTS.csv | ?? Darcio/outputs/audit/SINASC_DAILY_G2_GATE_STATUS.csv | ?? Darcio/outputs/audit/SINASC_DAILY_G2_LEAP_EXCLUSIONS.csv | ?? Darcio/outputs/audit/SINASC_DAILY_G2_MODEL_REGISTRY.csv | ?? Darcio/outputs/audit/SINASC_DAILY_G2_OUTPUT_MANIFEST.csv | ?? Darcio/outputs/audit/SINASC_DAILY_G2_SAMPLE_COUNTS.csv | ?? Darcio/outputs/audit/SINASC_DAILY_G2_SCHEMA_AUDIT.csv | ?? Darcio/outputs/audit/SINASC_DAILY_G3_GATE_STATUS.csv | ?? Darcio/outputs/audit/SINASC_DAILY_G3_MODEL_REGISTRY.csv | ?? Darcio/outputs/audit/SINASC_DAILY_G3_OUTPUT_MANIFEST.csv | ?? Darcio/outputs/audit/SINASC_DAILY_G3_SAMPLE_AUDIT.csv | ?? Darcio/outputs/audit/SINASC_DAILY_G3_SAMPLE_RECONCILIATION.csv | ?? Darcio/outputs/audit/SINASC_DAILY_G3_SCHEMA_AUDIT.csv | ?? Darcio/outputs/audit/SINASC_DAILY_G3_SOFTWARE.csv | ?? Darcio/outputs/audit/SINASC_DAILY_GATE_STATUS.csv | ?? Darcio/outputs/data/REGISTRY_SAR_R0_PNADC_EXPOSURE.csv | ?? Darcio/outputs/data/REGISTRY_SAR_R0_PNADC_EXPOSURE_DICTIONARY.csv | ?? Darcio/outputs/data/REGISTRY_SAR_R0_SYNTHETIC_CELLS.csv.gz | ?? Darcio/outputs/figures/FIGURE_14_SINASC_DAILY_RD.pdf | ?? Darcio/outputs/figures/FIGURE_14_SINASC_DAILY_RD.png | ?? Darcio/outputs/figures/FIGURE_SINASC_DAILY_G1_DENSITY.pdf | ?? Darcio/outputs/figures/FIGURE_SINASC_DAILY_G1_DENSITY.png | ?? Darcio/outputs/figures/FIGURE_SINASC_DAILY_G2_ANNUAL_JUMPS.pdf | ?? Darcio/outputs/figures/FIGURE_SINASC_DAILY_G2_ANNUAL_JUMPS.png | ?? Darcio/outputs/figures/FIGURE_SINASC_DAILY_G3_SENSITIVITY.pdf | ?? Darcio/outputs/figures/FIGURE_SINASC_DAILY_G3_SENSITIVITY.png | ?? Darcio/outputs/logs/27_sinasc_daily_gate_g0.log | ?? Darcio/outputs/logs/29_sinasc_daily_gate_g1.log | ?? Darcio/outputs/logs/31_sinasc_daily_gate_g2.log | ?? Darcio/outputs/logs/33_sinasc_daily_gate_g3.log | ?? Darcio/outputs/logs/33_sinasc_daily_gate_g3_attempt1.log | ?? Darcio/outputs/logs/33_sinasc_daily_gate_g3_attempt2.log | ?? Darcio/outputs/logs/33_sinasc_daily_gate_g3_attempt3.log | ?? Darcio/outputs/logs/36_registry_sar_r0_local.log | ?? Darcio/outputs/logs/37_registry_sar_r0_synthetic.log | ?? Darcio/outputs/logs/38_validate_registry_sar_r0.log | ?? Darcio/outputs/tables/REGISTRY_SAR_R0_POWER_ENVELOPE.csv | ?? Darcio/outputs/tables/REGISTRY_SAR_R0_SYNTHETIC_RECOVERY.csv | ?? Darcio/outputs/tables/SINASC_DAILY_G2_ANNUAL_JUMPS.csv | ?? Darcio/outputs/tables/SINASC_DAILY_G2_LEAVE_ONE_OUT.csv | ?? Darcio/outputs/tables/SINASC_DAILY_PLACEBOS.csv | ?? Darcio/outputs/tables/SINASC_DAILY_PRIMARY.csv | ?? Darcio/outputs/tables/SINASC_DAILY_RDROBUST.csv | ?? Darcio/outputs/tables/SINASC_DAILY_SECONDARY.csv | ?? Darcio/outputs/tables/SINASC_DAILY_SENSITIVITY.csv | ?? Darcio/outputs/tables/TABLE_14_SINASC_DAILY_DESIGN.tex | ?? Darcio/paper/ledgers/IBGE_SAR_TECHNICAL_INQUIRY_READY.md | ?? Darcio/paper/ledgers/REGISTRY_SAR_R0_AMENDMENTS.md | ?? Darcio/paper/ledgers/REGISTRY_SAR_R0_LOCK_SHA256.txt | ?? Darcio/paper/ledgers/REGISTRY_SAR_R0_PROTOCOL.md | ?? Darcio/paper/ledgers/SINASC_DAILY_AMENDMENTS.md | ?? Darcio/paper/ledgers/SINASC_DAILY_LOCK_SHA256.txt | ?? Darcio/paper/ledgers/SINASC_DAILY_PROTOCOL.md | ?? Darcio/src/26_validate_sinasc_daily_lock.R | ?? Darcio/src/27_sinasc_daily_gate_g0.R | ?? Darcio/src/28_validate_sinasc_daily_gate_g0.R | ?? Darcio/src/29_sinasc_daily_gate_g1.R | ?? Darcio/src/30_validate_sinasc_daily_gate_g1.R | ?? Darcio/src/31_sinasc_daily_gate_g2.R | ?? Darcio/src/32_validate_sinasc_daily_gate_g2.R | ?? Darcio/src/33_sinasc_daily_gate_g3.R | ?? Darcio/src/34_validate_sinasc_daily_gate_g3.R | ?? Darcio/src/35_validate_registry_sar_r0_lock.R | ?? Darcio/src/36_registry_sar_r0_local.R | ?? Darcio/src/37_registry_sar_r0_synthetic.R | ?? Darcio/src/38_validate_registry_sar_r0.R | ?? Darcio/src/39_export_sinasc_daily_paper.R,final
 lock,all four technical amendments documented,TRUE,4,final
 lock,estimands document SHA-256 unchanged,TRUE,537fe0474cc1cd69a99251ddbc08c222b14f9685e9edf198ebce88e623b07449,final
 lock,lock predates effect estimation,TRUE,2026-09-02T00:56:08-03:00 FALSE,final
@@ -143,15 +173,15 @@ lock,specification lock SHA-256 unchanged,TRUE,17f690311168b0953779e533f8a3a5b7e
 outputs,all 13 required nonempty PDF figures exist,TRUE,13,final
 outputs,all 13 required nonempty PNG figures exist,TRUE,13,final
 outputs,all required analysis reports exist,TRUE,9,final
-outputs,at least ten nonempty LaTeX tables exist,TRUE,22,final
+outputs,at least ten nonempty LaTeX tables exist,TRUE,23,final
 outputs,canonical Registry trend-sensitivity LaTeX table exists,TRUE,1145,final
-outputs,executive summary stays within two-page proxy,TRUE,594,final
+outputs,executive summary stays within two-page proxy,TRUE,678,final
 outputs,technical report rejects false conventional RD,TRUE,explicitly documented,final
 outputs,technical report separates Registry flow and PNADC stock,TRUE,explicitly documented,final
 privacy,analytic data dictionary contains no direct identifier fields,TRUE,"",final
-provenance,every manifest artifact exists and is nonempty,TRUE,115,final
-provenance,"key numbers carry script, source, and specification",TRUE,19,final
-provenance,manifest covers every current analysis CSV and figure format,TRUE,115 manifest rows,final
+provenance,every manifest artifact exists and is nonempty,TRUE,140,final
+provenance,"key numbers carry script, source, and specification",TRUE,27,final
+provenance,manifest covers every current analysis CSV and figure format,TRUE,140 manifest rows,final
 replication,single-command runner is executable,TRUE,755,final
 results,PNADC primary has combined temporal/design uncertainty,TRUE,0.00205294199136766/999,final
 results,PNADC reports age-15-specific unweighted counts,TRUE,268754,final
@@ -159,7 +189,7 @@ results,Registry flow and PNADC stock are never subtracted,TRUE,separate result 
 results,Registry primary estimate is finite and uses 27 time clusters,TRUE,-1.07184152648725/27,final
 safety,no partial-download files remain,TRUE,0,final
 sources,all mandatory official sources were opened and registered,TRUE,law_13811_2019;civil_code_compiled;ibge_registry_page;ibge_pnadc_page;ibge_sidra_4406;ibge_pnadc_quarterly_documentation,final
-sources,source URLs are clean HTTPS links with access dates,TRUE,36,final
+sources,source URLs are clean HTTPS links with access dates,TRUE,42,final
 timing,2019Q1 is partial and never full post in PNADC,TRUE,1,final
 timing,2019Q1 is partial and never full post in Registry,TRUE,1,final
 timing,full Registry post begins in 2019Q2,TRUE,2019Q2 2024Q4,final

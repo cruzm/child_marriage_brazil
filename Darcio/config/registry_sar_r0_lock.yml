@@ -1,0 +1,228 @@
+# Registry/SAR local-readiness lock — version 1.0.0
+# This lock was frozen after all public Registry/SINASC/PNADC results were known,
+# but before access to or inspection of restricted RC.2 microdata.
+
+protocol:
+  name: "registry_sar_exact_date_local_readiness"
+  version: "1.0.0"
+  frozen_at: "2026-09-04T15:57:13-03:00"
+  post_public_results: true
+  pre_restricted_microdata: true
+  restricted_microdata_seen: false
+  external_request_sent: false
+  scope: >
+    R0 is a local feasibility, power, denominator, and synthetic-code gate. It
+    cannot validate the restricted fields, estimate a policy effect, or close
+    the paper's causal-identification gate.
+  terminal_local_status: "LOCAL_READY_EXTERNAL_PENDING"
+
+objective: >
+  Decide whether the exact-date Civil Registry redesign is sufficiently
+  specified, powered under transparent planning scenarios, and computationally
+  ready to justify a technical inquiry and SAR application.
+
+known_before_freeze:
+  - "All public aggregate Registry, PNADC, and SINASC estimates in the current paper."
+  - "Public Registry counts by completed age at registration, sex, UF, and year for 2013-2024."
+  - "The daily SINASC design ended with G2 QUALIFIED, G3 INCONCLUSIVE, and DO_NOT_ADVANCE_AS_CAUSAL_CORE."
+  - "The RC.2 collection instruments document exact marriage and birth dates and residence fields."
+  - "The SAR access route is documented, but annual field retention and completeness are unconfirmed."
+
+not_seen_before_freeze:
+  - "No restricted RC.2 record, tabulation, coefficient, plot, or exact-age distribution."
+  - "No within-completed-age distribution of celebrations around the sixteenth birthday."
+  - "No annual restricted-file missingness, edit, imputation, or SEADE-feed diagnostic."
+
+causal_design:
+  question: >
+    Did Law 13.811/2019 reduce the formal-marriage event rate immediately
+    below age 16 relative to immediately above age 16 and to the same age
+    discontinuity before the law?
+  estimand: >
+    Post-minus-pre change in the below-versus-above age-16 discontinuity in
+    formal-marriage event rates, indexed by exact age on the celebration date.
+  design_name: "age-by-calendar difference in discontinuities for event rates"
+  unit_for_model: "exact-age-day by celebration-period aggregate cell"
+  numerator: "persons entering a registered civil marriage, counted by spouse and exact age at celebration"
+  denominator: "resident population person-time compatible with age, sex, calendar period, and national geography"
+  treatment_date: "2019-03-13"
+  primary_population: "persons in Brazil near the sixteenth birthday"
+  primary_sex: "combined"
+  sex_sensitivities: ["female", "male"]
+  primary_geography: "Brazil"
+  running_variable: "integer calendar days from the sixteenth birthday on the celebration date"
+  cutoff: 0
+  below_definition: "distance < 0"
+  above_definition: "distance >= 0"
+  indispensable_assumption: >
+    Absent the reform, the age-16 discontinuity in the formal-marriage event
+    rate would have changed smoothly at the reform date.
+  main_threats:
+    - "pre-law judicial or administrative tightening"
+    - "heaping or edits in birth and celebration dates"
+    - "age-specific calendar shocks"
+    - "anticipation and celebration-to-registration delay"
+    - "incompatible population exposure"
+  permitted_claim_if_later_gates_pass: >
+    Local reduced-form effect of the post-law eligibility regime on formal
+    civil-marriage incidence near age 16 in Brazil.
+  forbidden_claims:
+    - "Effect on all child marriage or informal unions."
+    - "Effect on all adolescents away from age 16."
+    - "Conventional individual-outcome RD without a risk-set denominator."
+    - "Causal evidence from the R0 planning calculations or synthetic data."
+
+public_inputs:
+  registry_counts:
+    file: "outputs/data/REGISTRY_PERSON_EVENTS_ANNUAL.csv"
+    years: [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
+    ages: [15, 16]
+    timing_semantics: "completed age and year at registration, not celebration"
+    use: "planning-count and power envelope only"
+  pnadc_quarterly_population:
+    file: "outputs/data/QUARTERLY_DENOMINATORS_AGE_SEX.csv"
+    years: [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
+    ages: [15, 16]
+    geography: "Brazil"
+    use: "primary external aggregate exposure candidate"
+  pnadc_annual_population:
+    file: "outputs/data/DENOMINATORS_AGE_SEX.csv"
+    use: "independent-frequency comparison for quarterly population estimates"
+
+periods:
+  planning_pre_years: [2013, 2014, 2015, 2016, 2017, 2018]
+  planning_post_years: [2019, 2020, 2021, 2022, 2023, 2024]
+  note: >
+    These broad eras are used only for a conservative count-based feasibility
+    screen. The future exact-date analysis will code 13 March 2019 exactly and
+    report pandemic-exclusion sensitivity.
+
+denominator:
+  selected_candidate: "PNADC quarterly national population by completed age and sex"
+  conversion_days_per_year: 365.2425
+  exact_age_day_stock: "quarterly population / 365.2425"
+  exact_age_day_quarter_person_time: >
+    quarterly population times calendar days in quarter / 365.2425
+  uncertainty_rule: "retain population standard errors and rerun denominator-draw sensitivity"
+  join_rule: "celebration year-quarter, completed-age side, sex, Brazil"
+  primary_precision:
+    sex: "combined"
+    expected_cells: 96
+    maximum_cv: 0.025
+    minimum_unweighted_n: 2000
+  sex_sensitivity_precision:
+    sexes: ["female", "male"]
+    expected_cells_each: 96
+    maximum_cv: 0.040
+    minimum_unweighted_n: 2000
+  annual_quarterly_check:
+    maximum_absolute_relative_difference: 0.050
+    minimum_common_age_sex_year_cells_each_sex: 20
+  limitations:
+    - "PNADC supplies completed-age quarterly stocks, not observed daily birth-cohort risk sets."
+    - "Within-age-day allocation is an explicit smooth-exposure approximation."
+    - "A SINASC/SIM birth-cohort reconstruction is a future validation, not a hidden replacement after results."
+
+power:
+  alpha_two_sided: 0.05
+  target_power: 0.80
+  bandwidth_days: [30, 90, 180, 365]
+  within_age_allocation_multipliers: [0.5, 1.0, 1.5]
+  variance_inflation_factors: [1.0, 1.5, 2.0]
+  count_rule: >
+    Expected bandwidth count equals the public completed-age registration
+    count times min(1, bandwidth/365.2425 times allocation multiplier).
+  standard_error_rule: >
+    Square root of the variance-inflation factor times the sum of inverse
+    expected counts in the four pre/post by below/above cells.
+  mde_rule: >
+    Two-sided normal-approximation MDE on the log incidence-rate-ratio scale;
+    decline MDE equals 1-exp(-MDE_log).
+  base_screen:
+    sex: "combined"
+    bandwidth_days: 90
+    allocation_multiplier: 1.0
+    variance_inflation_factor: 1.0
+    maximum_decline_mde_percent: 20.0
+  stress_screen:
+    sex: "combined"
+    bandwidth_days: 180
+    allocation_multiplier: 0.5
+    variance_inflation_factor: 2.0
+    maximum_decline_mde_percent: 30.0
+  interpretation: >
+    Passing is provisional because age and timing in the public counts differ
+    from the restricted exact-celebration design. Actual exact-window counts
+    and design-based inference must revalidate power inside the SAR.
+
+future_analysis_skeleton:
+  primary_bandwidth_selection: >
+    Choose among 90, 180, and 365 days using pre-law fit and the frozen minimum
+    event/power rules before viewing the post-law interaction.
+  local_forms: ["local linear", "local quadratic sensitivity"]
+  estimator: "PPML event count with log population person-time offset"
+  fixed_effects: ["celebration period", "calendar seasonality"]
+  inference:
+    primary: "calendar-period dependence with a method selected before post-law results"
+    required_crosscheck: "placebo reform-date randomization inference"
+  mandatory_diagnostics:
+    - "exact-date validity, edit, imputation, and missingness by year and side"
+    - "reconciliation with public totals"
+    - "pre-law stability of the age-16 discontinuity"
+    - "placebo ages 15 and 17"
+    - "placebo reform dates"
+    - "birthday and celebration-date heaping"
+    - "bandwidth and local-form sensitivity"
+    - "celebration-to-registration lag"
+    - "residence versus registry-office geography"
+    - "post-birthday excess mass for delay"
+
+synthetic_dry_run:
+  seed: 13811
+  first_month: "2013-01-01"
+  last_month: "2024-12-01"
+  omitted_transition_month: "2019-03-01"
+  age_distance_days: [-180, 180]
+  true_treatment_irr: 0.60
+  coefficient_tolerance_log_points: 0.10
+  require_true_value_in_95_ci: true
+  synthetic_marker_required: true
+  publication_rule: "never use synthetic coefficients as substantive evidence"
+
+external_go_no_go:
+  exact_celebration_and_birth_date_valid_share_min: 0.99
+  annual_public_total_reconciliation_required: true
+  residence_valid_share_min: 0.95
+  seade_coverage_confirmation_required: true
+  edit_imputation_flags_required: true
+  disclosure_reviewed_exports_required: true
+  exact_window_power_revalidation_required: true
+  institutional_identity_required: true
+  external_send_authorization_required: true
+  failure_action: "do not access outcomes or promote the redesign to the causal core"
+
+gate_logic:
+  local_ready_requires:
+    - "lock integrity passes"
+    - "public input schemas and count identities pass"
+    - "denominator precision and annual-quarterly checks pass"
+    - "base and stress power screens provisionally pass"
+    - "synthetic pipeline recovers the known effect within tolerance"
+    - "external checklist and ready-to-send inquiry exist"
+  external_rows_must_remain_pending: true
+  causal_status_at_r0: "NOT_EVALUATED"
+  forbidden_terminal_statuses: ["PASS_CAUSAL", "ADVANCE_AS_CAUSAL_CORE"]
+
+required_outputs:
+  - "outputs/audit/REGISTRY_SAR_R0_INPUT_AUDIT.csv"
+  - "outputs/audit/REGISTRY_SAR_R0_DENOMINATOR_AUDIT.csv"
+  - "outputs/audit/REGISTRY_SAR_R0_EXTERNAL_CHECKLIST.csv"
+  - "outputs/audit/REGISTRY_SAR_R0_GATE_STATUS.csv"
+  - "outputs/data/REGISTRY_SAR_R0_PNADC_EXPOSURE.csv"
+  - "outputs/data/REGISTRY_SAR_R0_PNADC_EXPOSURE_DICTIONARY.csv"
+  - "outputs/data/REGISTRY_SAR_R0_SYNTHETIC_CELLS.csv.gz"
+  - "outputs/tables/REGISTRY_SAR_R0_POWER_ENVELOPE.csv"
+  - "outputs/tables/REGISTRY_SAR_R0_SYNTHETIC_RECOVERY.csv"
+  - "outputs/analysis/REGISTRY_SAR_R0_RESULTS.md"
+  - "outputs/audit/REGISTRY_SAR_R0_OUTPUT_MANIFEST.csv"
+

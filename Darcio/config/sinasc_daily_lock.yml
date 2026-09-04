@@ -1,0 +1,392 @@
+# SINASC exact-age difference-in-discontinuities lock — version 1.0.0
+# Frozen before any outcome contrast by daily distance to an age cutoff.
+# Human-readable companion: paper/ledgers/SINASC_DAILY_PROTOCOL.md
+# Amendment ledger: paper/ledgers/SINASC_DAILY_AMENDMENTS.md
+# Hash registry: paper/ledgers/SINASC_DAILY_LOCK_SHA256.txt
+
+protocol:
+  name: "sinasc_daily_age16_difference_in_discontinuities"
+  version: "1.0.0"
+  frozen_at: "2026-09-04T13:38:08-03:00"
+  frozen_before_any_daily_age_distance_outcome_contrast: true
+  post_result_protocol: true
+  modifies_previous_locks: false
+  status: >
+    New prospective design frozen after the paper's Registry, PNADC, and
+    age-group SINASC results were known, but before constructing or viewing any
+    outcome contrast by exact daily distance from the mother's birthday.
+  candidate_paper_role: >
+    Identification pilot. It can replace the current paper's causal core only
+    if every mandatory data and design gate passes and the primary estimate is
+    informative under the frozen decision rule.
+
+known_before_freeze:
+  - "The age-group SINASC married-status DiD with trends is +29.3 percent; the no-trend version is -23.9 percent."
+  - "The age-group SINASC design fails its joint-lead and placebo diagnostics."
+  - "The existing exact-age robustness floors (DTNASC-DTNASCMAE)/365.25 into completed years and gives +22.36 percent; it is not a daily cutoff design."
+  - "Annual and monthly status shares, treated-group counts, and 2015 incompleteness documented in the existing audit and results memo were known."
+  - "Preselected age-15/16 feasibility counts were 607,002 births and 16,481 married declarations in 2013, 2014, and 2016-2018; 190,844 births and 2,601 married declarations in 2022-2024."
+  - "The exact-date invalid share among all retained mothers aged 10-19 is 1.171 percent."
+not_seen_before_freeze:
+  - "No plot, table, coefficient, standard error, p-value, or confidence interval indexed by daily distance from age 16."
+  - "No density test at an exact birthday cutoff."
+  - "No daily age-16 covariate-continuity test."
+  - "No daily placebo-cutoff contrast at ages 15, 17, or 19."
+
+research_question: >
+  Did eliminating the below-16 pregnancy exception increase the discontinuity
+  at age 16 in the probability that an adolescent mother is recorded as married
+  when she gives birth?
+
+mechanism:
+  legal_change: >
+    Before Law 13.811/2019, pregnancy supplied the remaining operative exception
+    for civil marriage below age 16. From 2019-03-13, civil marriage below 16 was
+    prohibited, while ordinary eligibility at ages 16-17 with authorization was
+    unchanged.
+  prediction_primary: >
+    Define the age-16 jump as the married share just above minus just below the
+    birthday. Closing the below-16 route should make this jump more positive in
+    the mature post-law regime.
+  prediction_secondary:
+    uniao_estavel: "The age-16 jump may become more negative if declarations shift toward uniao estavel below 16."
+    any_union: "The age-16 jump should change little if the reform changes formal label but not union formation."
+
+causal_scope:
+  population: >
+    Mothers of singleton live births in Brazil whose age at childbirth lies
+    within the frozen bandwidth around an exact birthday cutoff.
+  outcome_type: "Recorded conjugal status at childbirth; a stock among parturients."
+  treatment_contrast: "Mature post-law regime versus nearest clean pre-law regime."
+  local_scope: "Local to mothers giving birth near age 16."
+  permitted_claim_if_all_gates_pass: >
+    A local long-run reduced-form effect of the post-law eligibility regime on
+    recorded married status among mothers of singleton live births near age 16.
+  forbidden_claims:
+    - "Effect on the incidence of civil marriages."
+    - "Effect on all adolescents or all pregnancies."
+    - "Effect on child marriage broadly, including non-coresident informal unions."
+    - "A fuzzy-RD LATE or an IV effect of actual marriage."
+    - "Behavioral substitution inferred from uniao estavel alone."
+    - "Short-run effect at the legal publication date."
+
+data:
+  source: "Official annual SINASC open microdata cached with SHA-256 manifests."
+  unit_raw: "One Declaration of Live Birth record per live birth."
+  years_available: [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
+  required_columns:
+    - DTNASC
+    - DTNASCMAE
+    - IDADEMAE
+    - ESTCIVMAE
+    - GRAVIDEZ
+    - CODMUNRES
+    - RACACORMAE
+    - CODUFNATU
+    - ESCMAE2010
+    - ESCMAEAGR1
+    - QTDFILVIVO
+  optional_or_derived_columns:
+    PARIDADE: "Use only when present; derive the common primiparity diagnostic from QTDFILVIVO."
+  schema_rule: "Uppercase names after ingestion; log absent and substituted fields by year."
+  storage_rule: >
+    Stream each zip, retain only required columns, never modify or persistently
+    expand raw archives, and do not version person-level derivatives.
+  privacy_rule: >
+    Publish only aggregated outputs. Do not publish municipality-by-day cells or
+    any displayed cell with 1-9 outcome events; pool or suppress such cells.
+
+periods:
+  primary_pre_years: [2016, 2017, 2018]
+  primary_post_years: [2022, 2023, 2024]
+  rationale: >
+    Consecutive three-year windows bracket the reform while excluding the
+    incomplete 2015 export, the 2019 transition, and the 2020-2021 pandemic.
+    The post window also reduces contamination by marriages entered under the
+    pre-law exception. It identifies a mature-regime contrast, not an immediate
+    effect.
+  historical_pre_diagnostic_years: [2013, 2014]
+  excluded_data_error_years: [2015]
+  transition_years: [2019]
+  pandemic_years: [2020, 2021]
+  transition_reporting: "Estimate annual age-16 jumps for 2019, 2020, and 2021 descriptively; never pool them into the primary estimand."
+
+sample:
+  primary:
+    pregnancy_type: "GRAVIDEZ = 1 (singleton), so a multiple birth does not duplicate one mother's status."
+    exact_dates: "Valid strict ddmmyyyy DTNASC and DTNASCMAE."
+    geography: "Nonmissing CODMUNRES with a valid Brazilian region prefix 1-5."
+    status: "ESTCIVMAE in {1,2,3,4,5}; code 9, blank, and invalid codes excluded."
+    running_support_days: [-180, 180]
+    primary_cutoff_age: 16
+  robustness:
+    - "Include multiple gestations and retain the unit as live birth."
+    - "Treat unknown conjugal status as not married."
+    - "Estimate on the full available support selected by rdrobust only as a diagnostic."
+  no_sample_trimming_after_outcomes: true
+
+running_variable:
+  definition: "x_i = DTNASC_i - sixteenth_birthday_i, in integer calendar days."
+  construction: >
+    Construct the sixteenth birthday from the mother's date components by adding
+    16 to the calendar year; do not divide elapsed days by 365.25. Abort on an
+    impossible constructed primary birthday instead of silently shifting it.
+  cutoff: 0
+  below: "x_i < 0"
+  above: "x_i >= 0; childbirth on the birthday belongs to the eligible side."
+  reconciliation: >
+    Within +/-180 days, x<0 must correspond to IDADEMAE=15 and x>=0 to
+    IDADEMAE=16. Log every disagreement before exclusion.
+  placebo_ages: [15, 17, 19]
+  leap_day_placebos: >
+    Exclude mothers born on February 29 from placebo-age analyses when the
+    placebo anniversary does not exist in that calendar year; report counts.
+
+outcomes:
+  primary:
+    id: MARRIED
+    definition: "100 x 1(ESTCIVMAE = 2), measured in percentage points."
+    denominator: "Records with ESTCIVMAE in {1,2,3,4,5}."
+    expected_sign: "positive for the post-minus-pre change in the above-minus-below jump"
+    multiplicity_adjustment: "none; one primary outcome"
+  secondary_family:
+    adjustment: "Holm across the two outcomes"
+    outcomes:
+      - {id: UNIAO_ESTAVEL, definition: "100 x 1(ESTCIVMAE = 5)", expected_sign: "negative or null"}
+      - {id: ANY_UNION, definition: "100 x 1(ESTCIVMAE in {2,5})", expected_sign: "null"}
+  diagnostic_outcomes:
+    - "Unknown conjugal-status indicator among all otherwise eligible records."
+    - "Valid exact-maternal-date indicator using completed ages 15 and 16."
+    - "Predetermined race/color and maternal-place-of-birth indicators."
+    - "Schooling, parity, and residence composition, reported as possible selection or downstream responses rather than baseline controls."
+  prohibited_in_this_protocol:
+    - "Birth weight, prematurity, prenatal care, Apgar, fertility, schooling effects, or other downstream child/mother outcomes."
+    - "Data-driven heterogeneity or subgroup searches."
+
+estimand:
+  notation: >
+    For era e in {pre, post}, J_e is the right-minus-left limit in E[Y|x]
+    at x=0. The primary estimand is tau = J_post - J_pre.
+  scale: "percentage points"
+  target: "Difference in the age-16 discontinuity in recorded married status."
+  result_placeholder: "[RESULT TO BE ESTIMATED]"
+  delay_sensitive_secondary:
+    notation: >
+      Let phi be the post-minus-pre change in the right-versus-left slope kink
+      at age 16. DELAY90 = tau + 45*phi is the equal-day average fitted excess over days
+      0-90 above the cutoff relative to continuation of the left-side profile.
+    expected_sign: "positive"
+    role: >
+      Pre-specified secondary estimand for a response that accumulates after
+      eligibility. It is more functional-form-dependent than the cutoff jump,
+      cannot replace tau, and cannot repair a failed design gate.
+    joint_test: "Wald test of tau=0 and phi=0; reported with DELAY90."
+
+primary_estimator:
+  model: "Stacked local-linear probability model, fully interacted by cutoff side and policy era."
+  formula: >
+    Y_i = alpha + theta Above_i + tau(Above_i x Post_i) + beta1*x_i
+    + beta2*(Above_i x x_i) + beta3*(Post_i x x_i)
+    + beta4*(Above_i x Post_i x x_i) + birth-year fixed effects
+    + calendar-month fixed effects + error_i. The Post main effect is absorbed
+    by birth-year fixed effects.
+  coefficient: "tau on Above x Post"
+  bandwidth_days: 90
+  kernel: "triangular; w_i = max(0, 1 - abs(x_i)/90)"
+  polynomial_order: 1
+  fixed_effects: [birth_year, child_calendar_month]
+  standard_errors: "Two-way clustered by municipality of residence and exact child date of birth."
+  confidence_interval: 0.95
+  software: "fixest::feols; versions logged at execution"
+
+rdrobust_crosscheck:
+  role: "Confirmatory inference cross-check, not a replacement primary."
+  procedure: >
+    Estimate the age-16 jump separately in the disjoint pre and post samples;
+    subtract the bias-corrected jumps as a point-estimate comparison and report
+    each era's robust interval. The stacked model supplies inference for the
+    difference because separate rdrobust fits do not retain cross-era municipal
+    covariance.
+  package_versions_available_at_freeze: {rdrobust: "3.0.0", rddensity: "2.6"}
+  settings:
+    cutoff: 0
+    p: 1
+    q: 2
+    h_days: [90, 90]
+    b_days: [180, 180]
+    kernel: triangular
+    vce: nearest_neighbor
+    nnmatch: 3
+    masspoints: adjust
+
+frozen_sensitivity_set:
+  bandwidths_days: [30, 60, 180]
+  bias_bandwidth_rule: "twice the estimation bandwidth for rdrobust cross-checks"
+  stacked_vcov_alternatives:
+    - "cluster by exact distance in days"
+    - "heteroskedasticity-robust HC1"
+  covariate_adjusted_precision_check: >
+    Add only fixed categories for macroregion and race/color; never select
+    covariates by their effect on tau and never promote this check to primary.
+  donut_windows_days: [1, 3, 7]
+  donut_status: >
+    Displayed only as a diagnostic if exact-day heaping is detected. A donut
+    estimate cannot rescue a failed density gate or replace the primary.
+  functional_form: "Local quadratic stacked model at h=180 as a reported sensitivity only."
+  reporting_rule: "Report the complete frozen set in a coefficient plot and table."
+
+mandatory_diagnostics:
+  data_quality:
+    - "Annual raw totals and monthly profile against all available official anchors."
+    - "Exact-date validity by year, era, completed age, and conjugal-status code."
+    - "Agreement of daily constructed age with IDADEMAE."
+    - "Valid-status and singleton-code shares by year and side."
+    - "Counts of births and married outcomes in every era x side cell at h=30,60,90,180."
+  density:
+    - "rddensity at age 16 separately by era with mass-point adjustment."
+    - "Exact equal-day count ratios: x=-k..-1 versus x=0..k-1 for k in {7,14,30}."
+    - "Weekly binned density plot, pre and post."
+  continuity:
+    hard_predetermined_family: [race_color_indicators, maternal_birthplace_region_indicators]
+    composition_family: [schooling_indicators, primiparity, residence_region_indicators]
+    rule: "Use the primary estimator and Holm correction within each family."
+  placebo_time:
+    definition: "Treat 2016-2018 as a pseudo-post period relative to 2013-2014; both are pre-law."
+    estimator: "Same age-16 h=90 stacked model."
+  placebo_ages:
+    ages: [15, 17, 19]
+    estimator: "Same primary-era comparison and h=90 model centered at each birthday."
+    adjustment: "Holm across the three cutoffs."
+  dynamics:
+    - "Estimate and plot J_y for every valid year 2013-2024, omitting 2015."
+    - "Report 2019, 2020, and 2021 separately and label them transition/pandemic estimates."
+    - "Leave one primary pre year and one primary post year out in every combination."
+
+gates:
+  G0_data:
+    pass_requirements:
+      official_annual_total_reconciliation: >
+        Every primary year must match an independent official annual total or
+        official tabulation. A cached-file checksum alone is insufficient.
+      exact_date_valid_share_each_primary_year_min: 0.98
+      completed_age_agreement_among_valid_dates_min: 0.99
+      valid_status_share_each_era_side_min: 0.95
+      births_each_era_side_at_h90_min: 10000
+      married_events_each_era_side_at_h90_min: 100
+    failure_action: >
+      Stop outcome estimation, audit the affected field/year, and amend before
+      any coefficient is computed. If an independent total is unavailable for a
+      primary year, label G0 qualified rather than passed and prohibit an
+      unconditional causal-core decision.
+  G1_density_and_composition:
+    density_hard_failure: >
+      In either primary era, a density jump both rejects equality at 5 percent
+      and exceeds abs(log(1.05)); a donut estimate does not cure the failure.
+    predetermined_covariate_hard_failure: >
+      Any Holm-adjusted p<0.05 discontinuity with absolute standardized
+      magnitude >=0.10 in race/color or maternal birthplace.
+    status_missingness_hard_failure: >
+      A post-minus-pre missing-status discontinuity with p<0.05 and absolute
+      magnitude >=0.50 percentage points.
+    outcome_if_failed: "Descriptive only; no causal language."
+  G2_counterfactual:
+    equivalence_margin_pp: 0.25
+    placebo_time_pass: "The 90 percent CI lies wholly inside [-0.25,+0.25] percentage points."
+    placebo_time_fail: "The 95 percent CI excludes zero and abs(point estimate)>=0.25 percentage points."
+    placebo_age_fail: >
+      At least one Holm-adjusted p<0.05 placebo has absolute magnitude >=0.25
+      percentage points, or at least two placebo ages reject regardless of size.
+    intermediate_rule: "Anything between pass and fail is qualified/inconclusive, never silently passed."
+  G3_primary_information:
+    policy_relevant_margin_pp: 0.25
+    supported_positive_effect: "95 percent CI above zero and point estimate >=0.25 percentage points."
+    informative_no_jump: >
+      The 90 percent CI for tau lies wholly inside [-0.25,+0.25] percentage
+      points. This rules out only an immediate cutoff jump.
+    informative_no_local_profile_change: >
+      Both tau and DELAY90 have 90 percent CIs wholly inside
+      [-0.25,+0.25] percentage points.
+    delayed_response_signal: >
+      DELAY90 is positive with a 95 percent CI above zero after Holm adjustment
+      across tau and DELAY90, while the cutoff jump itself is not supported.
+    contrary_effect: "95 percent CI below zero; report as contrary to the frozen mechanism prediction."
+    inconclusive: "All other cases."
+    precision_reporting: "MDE80 = 2.8 x primary standard error, in percentage points."
+  overall_decision:
+    advance_as_causal_core: >
+      G0 and G1 pass, G2 passes, and G3 is either supported_positive_effect or
+      informative_no_local_profile_change. The latter supports only a precise
+      local null for the age profile, not absence of a broader law effect. All
+      sensitivity estimates and annual jumps must remain visible.
+    advance_with_reservations: >
+      G0 and G1 pass and the delayed-response secondary is informative, or G2 is
+      qualified rather than passed. The paper must retain conditional language
+      and seek Registry/SAR validation.
+    do_not_recenter_paper: >
+      Any hard failure, G2 failure, or an inconclusive G3. Do not choose a new
+      bandwidth, period, sample, or outcome to reverse this decision.
+
+multiplicity:
+  primary: "No adjustment: one outcome, one cutoff, one bandwidth, one period contrast."
+  married_status_estimands: >
+    Report unadjusted inference for the frozen primary tau. For the auxiliary
+    claim that either an immediate or accumulated response exists, apply Holm
+    across tau and DELAY90.
+  secondary_outcomes: "Holm across UNIAO_ESTAVEL and ANY_UNION."
+  placebo_ages: "Holm across ages 15, 17, and 19."
+  predetermined_covariates: "Holm within the hard-predetermined family."
+  composition_diagnostics: "Holm within the composition family."
+
+required_exhibits:
+  - "Figure 1: weekly-binned married shares against daily distance from age 16, pre and post, with local fits."
+  - "Figure 2: annual age-16 jumps J_y with 95 percent intervals and period labels."
+  - "Table 1: sample construction, missingness, and era x side counts."
+  - "Table 2: primary estimate, MDE, equivalence result, and complete bandwidth sensitivity."
+  - "Table 3: density, continuity, temporal placebo, and age-placebo gates."
+
+required_future_outputs:
+  - "outputs/audit/SINASC_DAILY_DATA_VALIDATION.csv"
+  - "outputs/audit/SINASC_DAILY_GATE_STATUS.csv"
+  - "outputs/tables/SINASC_DAILY_PRIMARY.csv"
+  - "outputs/tables/SINASC_DAILY_SENSITIVITY.csv"
+  - "outputs/tables/SINASC_DAILY_PLACEBOS.csv"
+  - "outputs/tables/SINASC_DAILY_CONTINUITY.csv"
+  - "outputs/figures/FIGURE_14_SINASC_DAILY_RD.pdf"
+  - "outputs/figures/FIGURE_15_SINASC_ANNUAL_JUMPS.pdf"
+  - "outputs/analysis/SINASC_DAILY_RESULTS.md"
+
+amendment_policy:
+  ledger: "paper/ledgers/SINASC_DAILY_AMENDMENTS.md"
+  permitted: >
+    Documented data error, unavailable frozen field, software non-identification,
+    or an implementation ambiguity not resolved by this lock. Record the change,
+    evidence, timestamp, affected estimands, and sign expected before running the
+    affected result.
+  prohibited:
+    - "Changes motivated by coefficient sign, magnitude, standard error, p-value, or paper narrative."
+    - "Replacing the primary period, bandwidth, outcome, or sample after a failed gate."
+    - "Calling a post-result amendment ex ante or preregistered."
+
+reproducibility:
+  random_seed: 13811
+  maximum_workers: 4
+  maximum_ram_share: 0.70
+  log_package_versions: true
+  validate_hash_before_execution: true
+  require_single_command_reproduction_before_paper_use: true
+
+paper_path_if_gates_pass:
+  one_contribution: >
+    The reform removed a pregnancy-specific legal route below 16; exact maternal
+    birthdays reveal whether recorded marriage among mothers shifted precisely at
+    the remaining eligibility threshold.
+  closest_papers:
+    - {paper: "Belles-Obrero and Lombardi (2023)", distinction: "Mexico uses staggered state bans and marriage registrations; this design isolates the pregnancy-conditioned age-16 margin in Brazil."}
+    - {paper: "McGavock (2021)", distinction: "Ethiopia supplies regional rollout in a high-prevalence setting; this design uses an exact national age threshold in a low-formalization setting."}
+    - {paper: "Collin and Talbot (2023)", distinction: "Their cross-country density tests study enforcement at legal ages; this design studies a law-induced change in the cutoff among mothers giving birth."}
+    - {paper: "Blank, Charles, and Sallee (2009)", distinction: "They establish administrative-versus-survey avoidance; this design needs a clean age-by-regime discontinuity rather than measurement divergence alone."}
+    - {paper: "Urquia et al. (2022)", distinction: "They describe marital status and perinatal outcomes in SINASC through 2018; the required novelty here is the exact-age policy design after 2019."}
+  journal_set:
+    strong_causal_result: [Journal of Human Resources, Journal of Development Economics, Journal of Population Economics]
+    narrower_or_informative_null: [World Development, Demographic Research]
+  no_journal_claim_before_results: true

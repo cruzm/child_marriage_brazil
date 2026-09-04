@@ -1,0 +1,33 @@
+[2026-09-04 15:26:36-0300] start | scope=G3_full_frozen_analysis | G0=PASS | G1=PASS | G2=QUALIFIED | protocol=1.0.0 | post_result_protocol=TRUE | R=4.5.2 | fixest=0.13.2 | rdrobust=3.0.0 | data.table=1.18.2.1 | free_mem=20.6GiB 
+[2026-09-04 15:26:52-0300] year=2016 | raw=2,857,800 | locatable=120,019 | primary_h180=57,460 | 15.2s | RSS=507MB 
+[2026-09-04 15:27:10-0300] year=2017 | raw=2,923,535 | locatable=110,120 | primary_h180=52,840 | 18.1s | RSS=605MB 
+[2026-09-04 15:27:29-0300] year=2018 | raw=2,944,932 | locatable=103,503 | primary_h180=49,855 | 18.6s | RSS=581MB 
+[2026-09-04 15:27:45-0300] year=2022 | raw=2,561,922 | locatable=68,640 | primary_h180=32,950 | 16.0s | RSS=612MB 
+[2026-09-04 15:28:01-0300] year=2023 | raw=2,537,576 | locatable=64,522 | primary_h180=30,768 | 15.9s | RSS=580MB 
+[2026-09-04 15:28:14-0300] year=2024 | raw=2,389,325 | locatable=57,353 | primary_h180=27,544 | 13.3s | RSS=653MB 
+[2026-09-04 15:28:15-0300] model=G3_PRIMARY_TAU | identified=TRUE | n=126,138 | estimate=0.34196 | RSS=654MB 
+[2026-09-04 15:28:15-0300] model=G3_DELAY90 | identified=TRUE | n=126,138 | estimate=0.32308 | RSS=654MB 
+[2026-09-04 15:28:15-0300] model=G3_SECONDARY_UNIAO_ESTAVEL | identified=TRUE | n=126,138 | estimate=-0.62758 | RSS=655MB 
+[2026-09-04 15:28:16-0300] model=G3_SECONDARY_ANY_UNION | identified=TRUE | n=126,138 | estimate=-0.28562 | RSS=655MB 
+[2026-09-04 15:28:16-0300] model=G3_SENS_BW_030 | identified=TRUE | n=41,836 | estimate=0.14792 | RSS=722MB 
+[2026-09-04 15:28:16-0300] model=G3_SENS_BW_060 | identified=TRUE | n=84,239 | estimate=0.22426 | RSS=727MB 
+[2026-09-04 15:28:16-0300] model=G3_SENS_BW_180 | identified=TRUE | n=251,417 | estimate=0.32159 | RSS=866MB 
+[2026-09-04 15:28:16-0300] model=G3_SENS_VCOV_DISTANCE | identified=TRUE | n=126,138 | estimate=0.34196 | RSS=866MB 
+[2026-09-04 15:28:16-0300] model=G3_SENS_VCOV_HC1 | identified=TRUE | n=126,138 | estimate=0.34196 | RSS=866MB 
+[2026-09-04 15:28:17-0300] model=G3_SENS_REGION_RACE_FE | identified=TRUE | n=126,138 | estimate=0.33041 | RSS=886MB 
+[2026-09-04 15:28:17-0300] model=G3_SENS_QUADRATIC_H180 | identified=TRUE | n=251,417 | estimate=0.25670 | RSS=1017MB 
+[2026-09-04 15:28:17-0300] model=G3_SENS_DONUT_01 | identified=TRUE | n=123,852 | estimate=0.32532 | RSS=1018MB 
+[2026-09-04 15:28:17-0300] model=G3_SENS_DONUT_03 | identified=TRUE | n=121,024 | estimate=0.35559 | RSS=1024MB 
+[2026-09-04 15:28:17-0300] model=G3_SENS_DONUT_07 | identified=TRUE | n=115,379 | estimate=0.28015 | RSS=1024MB 
+[2026-09-04 15:28:18-0300] model=G3_SENS_INCLUDE_MULTIPLE | identified=TRUE | n=127,465 | estimate=0.34108 | RSS=1159MB 
+[2026-09-04 15:28:18-0300] model=G3_SENS_UNKNOWN_AS_NOT_MARRIED | identified=FALSE | n=127,562 | estimate=NA | RSS=1159MB 
+[2026-09-04 15:28:18-0300] model=G3_RDROBUST_H030_PRE | identified=TRUE | jump_bc=0.51023 | RSS=1160MB 
+[2026-09-04 15:28:18-0300] model=G3_RDROBUST_H030_POST | identified=TRUE | jump_bc=0.61488 | RSS=1160MB 
+[2026-09-04 15:28:19-0300] model=G3_RDROBUST_H060_PRE | identified=TRUE | jump_bc=0.28149 | RSS=1206MB 
+[2026-09-04 15:28:19-0300] model=G3_RDROBUST_H060_POST | identified=TRUE | jump_bc=0.51638 | RSS=1206MB 
+[2026-09-04 15:28:20-0300] model=G3_RDROBUST_H090_PRE | identified=TRUE | jump_bc=0.18443 | RSS=1258MB 
+[2026-09-04 15:28:20-0300] model=G3_RDROBUST_H090_POST | identified=TRUE | jump_bc=0.50951 | RSS=1258MB 
+[2026-09-04 15:28:22-0300] model=G3_RDROBUST_H180_PRE | identified=TRUE | jump_bc=0.09923 | RSS=1397MB 
+[2026-09-04 15:28:22-0300] model=G3_RDROBUST_H180_POST | identified=TRUE | jump_bc=0.47353 | RSS=1397MB 
+[2026-09-04 15:28:26-0300] model=G3_RDROBUST_AUTO_PRE | identified=TRUE | jump_bc=0.19232 | RSS=1397MB 
+[2026-09-04 15:28:27-0300] model=G3_RDROBUST_AUTO_POST | identified=TRUE | jump_bc=0.48942 | RSS=1397MB 

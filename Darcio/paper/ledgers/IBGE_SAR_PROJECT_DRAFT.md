@@ -1,10 +1,10 @@
 # Draft — IBGE SAR project form
 
-**Status:** working draft; not submitted
+**Status:** local R0 package ready; not submitted
 **Official form:** [active Gov.br service](https://www.gov.br/pt-br/servicos/solicitacao-de-acesso-a-sala-de-dados-restritos),
 last modified August 25, 2026
 **Missing administrative fields:** researcher identity, institutional signatory, dates,
-budget approval, and final list/file of any external aggregate denominator
+budget approval, explicit sending authorization, and IBGE technical confirmation
 
 ## 1. Informações sobre o projeto
 
@@ -140,15 +140,20 @@ responsabilidade exclusiva dos autores.
 
 1. **IBGE — Estatísticas do Registro Civil, RC.2 Casamentos, 2013--2024**, microdados não
    desidentificados dentro da SAR.
-2. **Fontes públicas oficiais agregadas para população/exposição**, arquivo e dicionário a
-   serem definidos após a resposta técnica do IBGE. Não haverá nomes, endereços ou chaves de
-   ligação individual.
+2. **IBGE PNADC trimestral — população nacional por idade completa e sexo, 2013--2024**,
+   preparada como exposição agregada. Não haverá nomes, endereços ou chaves de ligação
+   individual.
 
 ### Bases externas
 
-**[PREENCHER APÓS ESCOLHA DO DENOMINADOR]**. Candidatas: tabelas agregadas de população
-do IBGE e/ou contagens agregadas de coortes de nascimento do SINASC. Antes da submissão, o
-arquivo final, o dicionário e a URL oficial serão anexados conforme o item 2.2 do Guia.
+O denominador local selecionado é a população trimestral calibrada da PNADC para o Brasil,
+idades 15 e 16 e sexos combinado/feminino/masculino. O arquivo
+`outputs/data/REGISTRY_SAR_R0_PNADC_EXPOSURE.csv` e seu dicionário contêm somente células
+agregadas. A conversão para pessoa-tempo por dia exato de idade divide o estoque por
+365,2425 e multiplica pelos dias do trimestre; os erros-padrão de desenho são preservados.
+Uma reconstrução por coortes SINASC/SIM poderá validar essa aproximação, mas não poderá
+substituí-la depois de vistos os resultados. A documentação e a URL oficial da PNADC serão
+anexadas no canal indicado pelo IBGE, conforme o item 2.2 do Guia.
 
 ### Software
 
@@ -184,12 +189,13 @@ registro e qualquer texto livre que possa identificar pessoas.
 
 ## 4. Itens que devem ser resolvidos antes da submissão
 
-1. Obter confirmação técnica do IBGE sobre retenção/codificação anual dos campos e fluxo
-   SEADE.
-2. Escolher e construir o denominador de exposição; entregar somente arquivo agregado e
-   dicionário.
-3. Fazer contagem aproximada de eventos por bandwidth usando as tabelas públicas para
-   estimar poder e tempo de sala.
-4. Produzir dados sintéticos com o layout conceitual e testar todos os scripts antes da visita.
-5. Definir instituição, responsáveis, orçamento e software final.
-6. Congelar um protocolo específico antes de visualizar qualquer estimativa nova na SAR.
+1. **Pendente externo:** obter confirmação técnica do IBGE sobre retenção/codificação anual
+   dos campos, fluxo SEADE, flags e regras de importação/exportação.
+2. **Concluído localmente:** denominador PNADC agregado e dicionário construídos pelo R0.
+3. **Concluído localmente:** envelope de contagens e MDE por bandwidth produzido pelo R0;
+   a potência exata será obrigatoriamente revalidada dentro da SAR.
+4. **Concluído localmente:** dados sintéticos canônicos e recuperação do PPML testados.
+5. **Pendente do pesquisador:** definir instituição, responsáveis, orçamento e software final.
+6. **Concluído para R0:** protocolo de prontidão congelado antes de qualquer dado restrito.
+   O lock analítico final será confirmado após o dicionário do IBGE e antes de visualizar o
+   contraste pós-lei.

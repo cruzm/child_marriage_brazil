@@ -91,6 +91,78 @@ affected_2018 <- secondary_row(2018L)
 affected_2019 <- secondary_row(2019L)
 affected_2024 <- secondary_row(2024L)
 
+daily_primary_path <- file.path(table_dir, "SINASC_DAILY_PRIMARY.csv")
+daily_placebo_path <- file.path(table_dir, "SINASC_DAILY_PLACEBOS.csv")
+daily_sensitivity_path <- file.path(table_dir, "SINASC_DAILY_SENSITIVITY.csv")
+daily_available <- all(file.exists(c(
+  daily_primary_path, daily_placebo_path, daily_sensitivity_path
+)))
+daily_primary <- daily_placebo <- daily_sensitivity <- NULL
+daily_tau <- daily_delay <- daily_temporal <- NULL
+daily_g2_status <- daily_g3_status <- NA_character_
+if (daily_available) {
+  daily_primary <- fread(daily_primary_path)
+  daily_placebo <- fread(daily_placebo_path)
+  daily_sensitivity <- fread(daily_sensitivity_path)
+  daily_tau <- daily_primary[estimand == "TAU"][1]
+  daily_delay <- daily_primary[estimand == "DELAY90"][1]
+  daily_temporal <- daily_placebo[test_family == "temporal_placebo"][1]
+  daily_g2 <- fread(file.path(audit_dir, "SINASC_DAILY_G2_GATE_STATUS.csv"))
+  daily_g3 <- fread(file.path(audit_dir, "SINASC_DAILY_G3_GATE_STATUS.csv"))
+  daily_g2_status <- daily_g2[criterion == "G2_OVERALL", status][1]
+  daily_g3_status <- daily_g3[criterion == "G3_OVERALL", status][1]
+  if (any(vapply(list(daily_tau, daily_delay, daily_temporal), nrow, integer(1L)) != 1L)) {
+    stop("Daily SINASC report rows are incomplete")
+  }
+}
+
+daily_technical <- if (daily_available) c(
+  "",
+  "### Resultado complementar: SINASC diário com idade exata",
+  "",
+  paste0(
+    "O protocolo pós-resultado do SINASC usa somente registros oficiais observados: ",
+    fmt_int(daily_tau$n), " nascimentos únicos dentro de 90 dias do 16º aniversário ",
+    "materno, com ", fmt_int(daily_tau$n_outcome_events), " situações conjugais ",
+    "registradas como casadas. O contraste é a mudança pós-menos-pré no salto à ",
+    "direita versus esquerda do cutoff, comparando 2016–2018 com 2022–2024."
+  ),
+  "",
+  paste0(
+    "TAU = **+", fmt(daily_tau$estimate_pp, 3), " p.p.**, IC95% ",
+    ci_pp(daily_tau$ci95_low_pp, daily_tau$ci95_high_pp), ", p",
+    fmt_p(daily_tau$p_value), "; MDE80 = ", fmt(daily_tau$mde80_pp, 3),
+    " p.p. DELAY90 = +", fmt(daily_delay$estimate_pp, 3), " p.p., IC95% ",
+    ci_pp(daily_delay$ci95_low_pp, daily_delay$ci95_high_pp), ". As 13 ",
+    "sensibilidades congeladas são positivas, de +",
+    fmt(min(daily_sensitivity$estimate_pp), 3), " a +",
+    fmt(max(daily_sensitivity$estimate_pp), 3), " p.p."
+  ),
+  "",
+  paste0(
+    "G2 permanece **", daily_g2_status, "** porque os placebos não estabelecem ",
+    "equivalência no intervalo ±0,25 p.p.; G3 é **", daily_g3_status,
+    "**. O resultado é um sinal local positivo e impreciso sobre situação conjugal ",
+    "no parto, não um efeito causal sobre incidência de casamento ou todas as adolescentes."
+  )
+) else character()
+
+daily_executive <- if (daily_available) c(
+  "",
+  "## SINASC diário com idade exata",
+  "",
+  paste0(
+    "Entre ", fmt_int(daily_tau$n), " nascimentos únicos observados próximos ao 16º ",
+    "aniversário materno, a mudança pós-menos-pré no salto da situação registrada ",
+    "como casada é **+", fmt(daily_tau$estimate_pp, 3), " p.p.** (IC95% ",
+    ci_pp(daily_tau$ci95_low_pp, daily_tau$ci95_high_pp), "; MDE80 ",
+    fmt(daily_tau$mde80_pp, 3), " p.p.). G2 é ", daily_g2_status,
+    " e G3 é ", daily_g3_status,
+    ": os dados não distinguem zero de mudanças locais relevantes, e o desenho não ",
+    "avança como núcleo causal."
+  )
+) else character()
+
 technical <- c(
   "# Relatório técnico — avaliação empírica da Lei nº 13.811/2019",
   "",
@@ -153,12 +225,13 @@ technical <- c(
   "4. **Deslocamento para informalidade não foi estabelecido.** O ponto positivo da PNADC é compatível com essa hipótese, mas a incerteza e a diferença de objetos impedem uma afirmação causal forte.",
   "",
   "O Registro Civil mede fluxo de eventos formais; a PNADC mede estoque de pessoas em união corresidente. Os dois outcomes e seus coeficientes não são subtraídos nem tratados como a mesma variável.",
+  daily_technical,
   "",
   "## 2. Marco jurídico verificado",
   "",
   "A [Lei nº 13.811, de 12 de março de 2019](https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2019/lei/l13811.htm), publicada e vigente em 13 de março de 2019, alterou o art. 1.520 do Código Civil para suprimir as exceções ao casamento abaixo da idade núbil. A leitura conjunta dos arts. 1.517–1.520 do [Código Civil compilado](https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm) confirma que a lei não proibiu todo casamento abaixo de 18 anos: pessoas de 16 e 17 anos continuaram sujeitas à autorização dos pais ou representantes legais prevista no art. 1.517.",
   "",
-  "Consequentemente, o tratamento direto é idade inferior a 16 anos. Com idade observada apenas em anos completos/categorias, o estudo usa DiD por elegibilidade etária. Não se apresenta uma RD convencional.",
+  "Consequentemente, o tratamento direto é idade inferior a 16 anos. No Registro Civil público, a idade aparece apenas em anos completos/categorias; por isso, o desenho principal usa DiD por elegibilidade etária. O SINASC observa datas exatas, mas seu contraste local mede situação conjugal no parto e é uma diferença-em-descontinuidades, não uma RD convencional da incidência de casamento.",
   "",
   "## 3. Dados, auditoria e construção",
   "",
@@ -430,7 +503,7 @@ executive <- c(
   "",
   "A Lei nº 13.811/2019 entrou em vigor em 13 de março de 2019 e eliminou as exceções que permitiam casamento civil abaixo da idade núbil. Ela não proibiu todos os casamentos abaixo de 18: os de 16 e 17 anos continuaram regidos pelo art. 1.517 do Código Civil.",
   "",
-  "A avaliação combina a tabela oficial 4406 do Registro Civil/SIDRA (2013–2024) com microdados trimestrais da PNADC. Como a idade existe apenas em anos completos, o desenho é diferenças-em-diferenças por elegibilidade etária, não RD. A especificação foi congelada antes dos resultados: idade 15 é tratada, idades 17–19 são controles, 2019T1 é omitido e o pós curto é 2019T2–T4. O modelo principal é PPML regional com população como offset, efeitos fixos, sazonalidade e tendências específicas por idade; a inferência principal agrupa por período porque houve uma única reforma nacional.",
+  "A avaliação combina a tabela oficial 4406 do Registro Civil/SIDRA (2013–2024), microdados trimestrais da PNADC e microdados oficiais do SINASC. No Registro, idade 15 é tratada, idades 17–19 são controles, 2019T1 é omitido e o pós curto é 2019T2–T4. O modelo principal é PPML regional com população como offset, efeitos fixos, sazonalidade e tendências específicas por idade; a inferência principal agrupa por período porque houve uma única reforma nacional. O SINASC diário compara a mudança no salto aos 16 anos entre 2016–2018 e 2022–2024 sob protocolo pós-resultado separado.",
   "",
   "## Resultado principal",
   "",
@@ -479,6 +552,7 @@ executive <- c(
     " p.p. e a equivalência a ±0,50 p.p. não é demonstrada. Robustezes de microdados têm pontos semelhantes. ",
     "Isso é sugestivo de maior coabitação relativa, mas não prova substituição para informalidade: o Registro mede fluxo formal, a PNADC mede estoque corresidente incompleto, e seus coeficientes não podem ser subtraídos."
   ),
+  daily_executive,
   "",
   "## Conclusões que os dados permitem",
   "",
@@ -486,10 +560,11 @@ executive <- c(
   "- O modelo congelado não detecta queda adicional nos registros aos 15 anos em 2019T2–T4, mas todos os contrafactuais do gate falham; o estudo não estabelece queda nem efeito zero design-wide.",
   "- Não há evidência precisa de adiamento para 16–17 anos.",
   "- Não há evidência de redução da união corresidente; o sinal positivo é compatível, mas insuficiente, para informalização.",
+  "- O SINASC diário produz sinal local positivo, mas G2 qualificado e G3 inconclusivo impedem uma interpretação causal.",
   "",
   "## Limitações decisivas",
   "",
-  "A fonte registra mês e idade no registro, não na celebração; cartório e residência não são a mesma geografia; não há idade exata para RD; 2019 oferece só três trimestres integralmente tratados; nenhum dos cinco modelos de tendência passa a calibração rolling-origin; a PNADC não acompanha confiavelmente quem deixa o domicílio; a união conservadora capta principalmente relações com a pessoa responsável; e o MDE de 19,3% é condicional ao modelo travado.",
+  "O Registro público informa mês e idade no registro, não na celebração; cartório e residência não são a mesma geografia; 2019 oferece só três trimestres integralmente tratados; nenhum dos cinco modelos de tendência passa a calibração rolling-origin; a PNADC não acompanha confiavelmente quem deixa o domicílio; e o MDE de 19,3% é condicional ao modelo travado. O SINASC tem idade exata, mas condiciona em nascimento vivo, mede status no parto e não confirma equivalência nos placebos.",
   "",
   "## Replicação",
   "",
@@ -506,7 +581,13 @@ writeLines(executive, file.path(analysis_dir, "EXECUTIVE_SUMMARY.md"), useBytes 
 table_files <- sort(list.files(table_dir, pattern = "\\.csv$", full.names = TRUE))
 figure_files <- sort(list.files(figure_dir, pattern = "\\.(png|pdf)$", full.names = TRUE))
 classify_source <- function(name) {
-  if (grepl("SINASC|FIGURE_1[12]_", name)) {
+  if (grepl("REGISTRY_SAR_R0_SYNTHETIC", name)) {
+    "Generated software-recovery data; excluded from the manuscript"
+  } else if (grepl("REGISTRY_SAR_R0", name)) {
+    "Observed SIDRA 4406 counts and PNADC denominators used for planning only"
+  } else if (grepl("SINASC_DAILY|FIGURE_14_SINASC_DAILY", name)) {
+    "Observed SINASC open microdata (MS/SVSA); primary annual totals independently reconciled"
+  } else if (grepl("SINASC|FIGURE_1[12]_", name)) {
     "SINASC open microdata (MS/SVSA); 2015 excluded under extension Amendment A1"
   } else if (grepl("TREND_SENSITIVITY|FIGURE_13_", name)) {
     "Registry Brazil quarterly panel (SIDRA 4406; PNADC denominators)"
@@ -521,6 +602,11 @@ classify_source <- function(name) {
   }
 }
 classify_script <- function(name) {
+  if (grepl("REGISTRY_SAR_R0_SYNTHETIC", name)) return("src/37_registry_sar_r0_synthetic.R")
+  if (grepl("REGISTRY_SAR_R0", name)) return("src/36_registry_sar_r0_local.R")
+  if (grepl("SINASC_DAILY_G1|FIGURE_SINASC_DAILY_G1", name)) return("src/29_sinasc_daily_gate_g1.R")
+  if (grepl("SINASC_DAILY_G2|SINASC_DAILY_PLACEBOS|FIGURE_SINASC_DAILY_G2", name)) return("src/31_sinasc_daily_gate_g2.R")
+  if (grepl("SINASC_DAILY|FIGURE_14_SINASC_DAILY|FIGURE_SINASC_DAILY_G3", name)) return("src/33_sinasc_daily_gate_g3.R")
   if (grepl("TREND_SENSITIVITY|FIGURE_13_", name)) return("src/24_analyze_registry_trend_sensitivity.R")
   if (grepl("SINASC|FIGURE_1[12]_", name)) return("src/22_analyze_sinasc.R")
   if (grepl("MONTHLY", name)) return("src/17_analyze_registry_monthly.R")
@@ -532,6 +618,11 @@ classify_script <- function(name) {
   "src/19_export_results.R"
 }
 classify_spec <- function(name) {
+  if (grepl("REGISTRY_SAR_R0_SYNTHETIC", name)) return("R0 software-recovery test; prohibited from substantive use")
+  if (grepl("REGISTRY_SAR_R0", name)) return("R0 local planning screen; external access pending")
+  if (grepl("SINASC_DAILY_G1|FIGURE_SINASC_DAILY_G1", name)) return("post-result SINASC daily protocol v1.0.0; G1 PASS")
+  if (grepl("SINASC_DAILY_G2|SINASC_DAILY_PLACEBOS|FIGURE_SINASC_DAILY_G2", name)) return("post-result SINASC daily protocol v1.0.0; G2 QUALIFIED")
+  if (grepl("SINASC_DAILY|FIGURE_14_SINASC_DAILY|FIGURE_SINASC_DAILY_G3", name)) return("post-result SINASC daily protocol v1.0.0; G3 INCONCLUSIVE")
   if (grepl("TREND_SENSITIVITY|FIGURE_13_", name)) return("post-result trend-sensitivity protocol v1.0.0 (frozen before its estimates; gate failed)")
   if (grepl("SINASC|FIGURE_1[12]_", name)) return("SINASC extension lock v1.0.0 + Amendment A1 (frozen before post-reform contrasts)")
   if (grepl("PRIMARY_EFFECT|TABLE_03", name)) return("locked primary")
@@ -542,6 +633,14 @@ classify_spec <- function(name) {
   "locked descriptive/export specification"
 }
 classify_causal <- function(name) {
+  if (grepl("REGISTRY_SAR_R0_SYNTHETIC", name))
+    return("software test only; no observed policy outcome; excluded from manuscript")
+  if (grepl("REGISTRY_SAR_R0", name))
+    return("planning only; causal identification not evaluated")
+  if (grepl("SINASC_DAILY_G1|SINASC_DAILY_G2|SINASC_DAILY_PLACEBOS|FIGURE_SINASC_DAILY_G[12]", name))
+    return("binding design diagnostic; not a policy-effect estimate")
+  if (grepl("SINASC_DAILY|FIGURE_14_SINASC_DAILY|FIGURE_SINASC_DAILY_G3", name))
+    return("positive local contrast; G2 qualified and G3 inconclusive; not a causal effect")
   if (grepl("TREND_SENSITIVITY", name))
     return("specification envelope; calibration gate failed; not a confidence or causal bound")
   if (grepl("SINASC_STATUS|SINASC_PLACEBO|SINASC_EVENT|SINASC_BRAZIL", name))
@@ -676,7 +775,56 @@ trend_key_numbers <- data.table(
   causal_status = "model diagnostic; point estimate only; not a causal bound"
 )
 
-manifest <- rbindlist(list(key_numbers, trend_key_numbers, artifact_manifest),
+daily_key_numbers <- NULL
+if (daily_available) {
+  daily_key_numbers <- data.table(
+    result_id = c(
+      "KEY_SINASC_DAILY_TAU_PP", "KEY_SINASC_DAILY_TAU_CI_LO",
+      "KEY_SINASC_DAILY_TAU_CI_HI", "KEY_SINASC_DAILY_MDE80_PP",
+      "KEY_SINASC_DAILY_DELAY90_PP", "KEY_SINASC_DAILY_TEMPORAL_PLACEBO_PP",
+      "KEY_SINASC_DAILY_SAMPLE_N", "KEY_SINASC_DAILY_MARRIED_EVENTS"
+    ),
+    type = "key_number",
+    description = c(
+      "Post-minus-pre change in the age-16 married-status jump",
+      "Primary exact-age 95% interval lower endpoint",
+      "Primary exact-age 95% interval upper endpoint",
+      "Primary exact-age MDE at 80% power",
+      "Delay-sensitive 90-day profile contrast",
+      "Pre-law temporal placebo at age 16",
+      "Primary exact-age observed singleton live births",
+      "Primary exact-age recorded-married outcomes"
+    ),
+    value = as.character(c(
+      daily_tau$estimate_pp, daily_tau$ci95_low_pp, daily_tau$ci95_high_pp,
+      daily_tau$mde80_pp, daily_delay$estimate_pp, daily_temporal$estimate_pp,
+      daily_tau$n, daily_tau$n_outcome_events
+    )),
+    unit = c(rep("percentage points", 6), "birth records", "married-status records"),
+    artifact = c(
+      rep("outputs/tables/SINASC_DAILY_PRIMARY.csv", 5),
+      "outputs/tables/SINASC_DAILY_PLACEBOS.csv",
+      rep("outputs/tables/SINASC_DAILY_PRIMARY.csv", 2)
+    ),
+    script = c(rep("src/33_sinasc_daily_gate_g3.R", 5),
+               "src/31_sinasc_daily_gate_g2.R",
+               rep("src/33_sinasc_daily_gate_g3.R", 2)),
+    source_data = "Observed official SINASC open microdata; no simulated records",
+    specification = c(
+      rep("post-result SINASC daily protocol v1.0.0; G3 INCONCLUSIVE", 5),
+      "post-result SINASC daily protocol v1.0.0; G2 QUALIFIED",
+      rep("post-result SINASC daily protocol v1.0.0; validated sample", 2)
+    ),
+    causal_status = c(
+      rep("local contrast; not a causal effect", 5),
+      "counterfactual diagnostic; not a policy effect",
+      rep("sample provenance; not an effect", 2)
+    )
+  )
+}
+
+manifest <- rbindlist(list(key_numbers, trend_key_numbers, daily_key_numbers,
+                           artifact_manifest),
                       use.names = TRUE, fill = TRUE)
 setorder(manifest, type, result_id)
 fwrite(manifest, file.path(analysis_dir, "RESULTS_MANIFEST.csv"), na = "")
